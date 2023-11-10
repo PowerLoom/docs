@@ -4,13 +4,16 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
+// @ts-ignore
 import {themes as prismThemes} from 'prism-react-renderer';
+//const lightCodeTheme = require('prism-react-renderer/themes/github');
+//const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Powerloom Docs',
-  tagline: 'Documentation is cool',
-  favicon: 'img/favicon.jpg',
+  title: 'Welcome to Powerloom Protocol Documentation',
+  tagline: 'PowerLoom is a decentralized data protocol built to serve the data needs of developers building on smart contract platforms like Ethereum, Polygon etc. It enables peers to reach consensus on observations of state transitions and event emissions across multiple contracts.',
+  favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
@@ -40,14 +43,19 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/', // Serve the docs at the site's root
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/powerloom/docs/tree/main/',
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: false,
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -58,12 +66,18 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: true,
+        respectPrefersColorScheme: true,
+      },
+
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Powerloom Docs',
+        title: 'Powerloom',
         logo: {
-          alt: 'Powerloom Logo',
+          alt: 'Powerloom',
           src: 'img/logo.svg',
         },
         items: [
@@ -71,8 +85,9 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
+          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/powerloom/docs',
             label: 'GitHub',
@@ -96,12 +111,16 @@ const config = {
             title: 'Community',
             items: [
               {
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/powerloom',
+              },
+              {
                 label: 'Discord',
-                href: 'https://discord.com/invite/powerloom',
+                href: 'https://discordapp.com/invite/powerloom',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/PowerloomHQ',
+                href: 'https://twitter.com/powerloom',
               },
             ],
           },
@@ -109,18 +128,23 @@ const config = {
             title: 'More',
             items: [
               {
+                label: 'Blog',
+                to: '/blog',
+              },
+              {
                 label: 'GitHub',
                 href: 'https://github.com/powerloom',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Powerloom, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Powerloom. Inc`,
       },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
+      
     }),
 };
 
