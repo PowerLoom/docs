@@ -49,13 +49,6 @@ const config = {
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -87,7 +80,6 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/powerloom/docs',
             label: 'GitHub',
@@ -111,26 +103,18 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/powerloom',
-              },
-              {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/powerloom',
+                href: 'https://discord.com/invite/powerloom',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/powerloom',
+                href: 'https://twitter.com/PowerloomHQ',
               },
             ],
           },
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/powerloom',
