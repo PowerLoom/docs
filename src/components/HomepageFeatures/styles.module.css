@@ -1,11 +1,52 @@
+/* Assuming styles.module.css or a similar CSS module */
+
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+  flex-direction: column;
+  padding: 4rem 0;
+  justify-content: center;
+  gap: 2rem; /* Adds space between feature boxes */
 }
 
 .featureSvg {
-  height: 200px;
-  width: 200px;
+  height: 80px; /* Adjust size as needed */
+  width: 80px; /* Adjust size as needed */
+  margin-bottom: 1rem; /* Space below the SVG */
+}
+
+.featureBox {
+  background: rgb(37, 37, 38); /* Background of the feature box */
+  padding: 2rem;
+  border-radius: 1rem; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+  text-align: center; /* Center text and content */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Align items in the center for x-axis */
+  cursor: pointer; /* Change cursor to indicate interactiveness */
+}
+
+.featureBox:hover {
+  transform: translateY(-10px) scale(1.05); /* Lift and scale the box up on hover */
+  box-shadow: 0 15px 30px rgba(200, 198, 198, 0.2); /* Larger shadow for 3D effect */
+  border-color: #fff;
+}
+
+.featureTitle {
+  font-size: 1.25rem; /* Adjust title size as needed */
+  font-weight: bold; /* Make title bold */
+  color: #333; /* Title color */
+  margin: 0.5rem 0; /* Space around the title */
+}
+
+.featureDescription {
+  font-size: 1rem; /* Adjust description size as needed */
+  color: #666; /* Description text color */
+}
+
+.linkDefaultColor {
+  color: inherit; /* Inherits color from parent */
+  text-decoration: none; /* Removes underline */
 }

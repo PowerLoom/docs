@@ -47,7 +47,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            '#',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -62,7 +62,7 @@ const config = {
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: true,
-        respectPrefersColorScheme: true,
+        respectPrefersColorScheme: false,
       },
 
       // Replace with your project's social card
@@ -94,7 +94,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Get Started',
                 to: '/docs/intro',
               },
             ],
