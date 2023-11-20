@@ -6,7 +6,7 @@ import Link from '@docusaurus/Link';
 const FeatureList = [
   {
     title: 'Snapshotters',
-    url: '/',
+    url: '/docs/category/snapshotters',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
@@ -17,6 +17,7 @@ const FeatureList = [
   },
   {
     title: 'Core Powerloom Protocol',
+    url: '/docs/category/core-protocol',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
@@ -27,6 +28,7 @@ const FeatureList = [
   },
   {
     title: 'Build on Powerloom',
+    url: '/docs/category/build-with-powerloom',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
