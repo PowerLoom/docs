@@ -3,8 +3,26 @@ sidebar_position: 0
 ---
 
 # Introduction to Powerloom
+# Powerloom Protocol Quickstart Guide
 
-PowerLoom Protocol is a decentralized data protocol designed for smart contract-based applications like decentralized finance, games, and more. It provides a peer-validated, accurate source of information by incentivizing peers to reach consensus on state transitions and event emissions across multiple smart contracts. This consensus on smaller units of data forms the basis for building rich data applications such as dashboards, bots, aggregators, and insights trackers​​.
+Welcome to the Powerloom Protocol Quickstart Guide. This guide is intended to provide you with a fundamental understanding of the Powerloom Protocol, its components, and its functionality. The Powerloom Protocol is a comprehensive solution designed for decentralized data aggregation and management in web3 applications.
+
+## Introduction
+
+PowerLoom is a decentralized data protocol built to serve the data needs of developers building on smart contract platforms like Ethereum, Polygon etc. It enables peers to reach consensus on observations of state transitions and event emissions across multiple contracts.
 
 
-PowerLoom offers a robust framework for developers to access reliable and consensus-driven data from various smart contracts. This capability is crucial for applications that rely on up-to-date and accurate blockchain data. By using PowerLoom, developers can create advanced, data-rich applications that are more efficient and reliable.
+## Getting Started
+
+To begin using Powerloom Protocol, you need to understand the workflow and architecture of the system. This involves familiarizing yourself with the different components and how they interact within the protocol.
+
+1. **Review Protocol Overview:** Start by reviewing the detailed Protocol Overview document. This document offers a comprehensive view of how the protocol functions.
+2. **Explore the Pooler Implementation:** Visit the [Powerloom Pooler GitHub repository](https://github.com/PowerLoom/pooler) to learn more about the Snapshotter implementation and its functionalities.
+
+## Conclusion
+
+This Quickstart Guide provides you with the necessary knowledge to begin exploring the Powerloom Protocol. For more detailed information, please refer to the other sections of this documentation, which cover the core protocol, build processes, specifications, and more.
+
+---
+Powerloom Protocol - The decentralized data layer for web3
+
