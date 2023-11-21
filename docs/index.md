@@ -39,6 +39,10 @@ To begin using Powerloom Protocol, you need to understand the workflow and archi
 1. **Review Protocol Overview:** Start by reviewing the detailed Protocol Overview document. This document offers a comprehensive view of how the protocol functions.
 2. **Explore the Pooler Implementation:** Visit the [Powerloom Pooler Section](/docs/Build-with-Powerloom/pooler/) to learn more about the Snapshotter implementation and its functionalities.
 
+We also have a detailed Technical Community Update #1 Recording which walks through the details of the protocol: 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kTTmu3vhuEY?si=cD_mDEH0ohUy0n9x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Conclusion
 
 This Quickstart Guide provides you with the necessary knowledge to begin exploring the Powerloom Protocol. For more detailed information, please refer to the other sections of this documentation, which cover the core protocol, build processes, specifications, and more.
