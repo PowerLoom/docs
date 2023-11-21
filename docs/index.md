@@ -37,7 +37,7 @@ Developers can leverage finalized snapshot data via the Core API to build dashbo
 To begin using Powerloom Protocol, you need to understand the workflow and architecture of the system. This involves familiarizing yourself with the different components and how they interact within the protocol.
 
 1. **Review Protocol Overview:** Start by reviewing the detailed Protocol Overview document. This document offers a comprehensive view of how the protocol functions.
-2. **Explore the Pooler Implementation:** Visit the [Powerloom Pooler Section](/docs/Build%20with%20Powerloom/pooler/) to learn more about the Snapshotter implementation and its functionalities.
+2. **Explore the Pooler Implementation:** Visit the [Powerloom Pooler Section](/docs/Build-with-Powerloom/pooler/) to learn more about the Snapshotter implementation and its functionalities.
 
 ## Conclusion
 
