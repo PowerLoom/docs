@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Troubleshooting and Debugging the Errors for the Snapshotter node.
+# Troubleshooting
 
 
 ## Debugging:
@@ -37,3 +37,7 @@ These logs can provide valuable information for debugging or troubleshooting pur
 Feel free to explore the logs folders and review the logs of different services to gain insights into the functioning of your Powerloom Snapshotter node.
 
 If everything is functioning properly and you can view the dashboard, it indicates that your node is working correctly.
+
+:::info
+If the issues still persists, you can raise a ticket on our [Discord Support](https://discord.com/channels/777248105636560948/1146936525544759457)
+:::
