@@ -57,8 +57,6 @@ This Quickstart Guide provides you with the necessary knowledge to begin explori
 ## Something missing?
 If you find issues with the documentation or have suggestions on how to improve the documentation or the project in general, please [file an issue for us](https://github.com/powerloom/docs), or email us at support@powerloom.io 
 
-
-
 ---
 Powerloom Protocol - The decentralized data layer for web3
 
