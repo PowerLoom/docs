@@ -17,7 +17,7 @@ const FeatureList = [
   },
   {
     title: 'Core Powerloom Protocol',
-    url: '/docs/category/core-protocol',
+    url: '/docs/category/protocol',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>

@@ -24,7 +24,7 @@ Because of its decentralized nature, the snapshotter specification and its imple
 
 The snapshotter is a distributed system with multiple moving parts. The easiest way to get started is by using the Docker-based setup from the  [deploy](https://github.com/PowerLoom/deploy)  repository.
 
-If you're planning to participate as a snapshotter, refer to [Deploy Section](/docs/Snapshotter/Running-a-snapshotter-node.md) to start snapshotting.
+If you're planning to participate as a snapshotter, refer to [Deploy Section](/docs/Snapshotters/Running-a-snapshotter-node.md) to start snapshotting.
 
 If you're a developer, you can follow the  [manual configuration steps for pooler](https://github.com/PowerLoom/pooler/blob/main/README.md#configuration)  from this document followed by the  [instructions on the  `deploy`  repo for code contributors](https://github.com/PowerLoom/deploy#instructions-for-code-contributors)  for a more hands-on approach.
 

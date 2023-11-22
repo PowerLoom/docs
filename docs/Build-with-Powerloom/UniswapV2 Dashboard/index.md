@@ -2,7 +2,9 @@
 sidebar_position: 0
 ---
 
-# Pooler - UniswapV2 Data Market
+# Introduction
+
+## Pooler - UniswapV2 Data Market
 
 Pooler is a Uniswap specific implementation of what is known as a 'snapshotter' in the PowerLoom Protocol ecosystem. It synchronizes with other snapshotter peers over a smart contract running on the present version of the PowerLoom Protocol testnet. 
 
