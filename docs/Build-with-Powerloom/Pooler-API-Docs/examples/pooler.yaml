@@ -1,0 +1,478 @@
+openapi: 3.0.2
+info:
+  title: Snapshotter Core API
+  version: 0.1.0
+servers:
+  - url: https://<TODO>/api/
+    description: Uniswap V2
+  - url: https://<TODO>/api/
+    description: Phase 2 Quests
+paths:
+  /health:
+    get:
+      summary: Health Check
+      description: |-
+        Endpoint to check the health of the Snapshotter service.
+
+        Parameters:
+        request (Request): The incoming request object.
+        response (Response): The outgoing response object.
+
+        Returns:
+        dict: A dictionary containing the status of the service.
+      operationId: health_check_health_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /current_epoch:
+    get:
+      summary: Get Current Epoch
+      description: |-
+        Get the current epoch data from the protocol state contract.
+
+        Args:
+            request (Request): The incoming request object.
+            response (Response): The outgoing response object.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency.
+            Defaults to Depends(rate_limit_auth_check,).
+
+        Returns:
+            dict: A dictionary containing the current epoch data.
+      operationId: get_current_epoch_current_epoch_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /epoch/{epoch_id}:
+    get:
+      summary: Get Epoch Info
+      description: |-
+        Get epoch information for a given epoch ID.
+
+        Args:
+            request (Request): The incoming request object.
+            response (Response): The outgoing response object.
+            epoch_id (int): The epoch ID for which to retrieve information.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency. Defaults to rate_limit_auth_check.
+
+        Returns:
+            dict: A dictionary containing epoch information including timestamp, block number, and epoch end.
+      operationId: get_epoch_info_epoch__epoch_id__get
+      parameters:
+        - required: true
+          schema:
+            title: Epoch Id
+            type: integer
+          name: epoch_id
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /last_finalized_epoch/{project_id}:
+    get:
+      summary: Get Project Last Finalized Epoch Info
+      description: |-
+        Get the last finalized epoch information for a given project.
+
+        Args:
+            request (Request): The incoming request object.
+            response (Response): The outgoing response object.
+            project_id (str): The ID of the project to get the last finalized epoch information for.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication dependency. Defaults to rate_limit_auth_check.
+
+        Returns:
+            dict: A dictionary containing the last finalized epoch information for the given project.
+      operationId: get_project_last_finalized_epoch_info_last_finalized_epoch__project_id__get
+      parameters:
+        - required: true
+          schema:
+            title: Project Id
+            type: string
+          name: project_id
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /data/{epoch_id}/{project_id}/:
+    get:
+      summary: Get Data For Project Id Epoch Id
+      description: |-
+        Get data for a given project and epoch ID.
+
+        Args:
+            request (Request): The incoming request.
+            response (Response): The outgoing response.
+            project_id (str): The ID of the project.
+            epoch_id (int): The ID of the epoch.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check. Defaults to Depends(rate_limit_auth_check).
+
+        Returns:
+            dict: The data for the given project and epoch ID.
+      operationId: get_data_for_project_id_epoch_id_data__epoch_id___project_id___get
+      parameters:
+        - required: true
+          schema:
+            title: Project Id
+            type: string
+          name: project_id
+          in: path
+        - required: true
+          schema:
+            title: Epoch Id
+            type: integer
+          name: epoch_id
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /cid/{epoch_id}/{project_id}/:
+    get:
+      summary: Get Finalized Cid For Project Id Epoch Id
+      description: |-
+        Get finalized cid for a given project_id and epoch_id.
+
+        Args:
+            request (Request): The incoming request.
+            response (Response): The outgoing response.
+            project_id (str): The project id.
+            epoch_id (int): The epoch id.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.
+
+        Returns:
+            dict: The finalized cid for the given project_id and epoch_id.
+      operationId: get_finalized_cid_for_project_id_epoch_id_cid__epoch_id___project_id___get
+      parameters:
+        - required: true
+          schema:
+            title: Project Id
+            type: string
+          name: project_id
+          in: path
+        - required: true
+          schema:
+            title: Epoch Id
+            type: integer
+          name: epoch_id
+          in: path
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /internal/snapshotter/status:
+    get:
+      summary: Get Snapshotter Overall Status
+      description: |-
+        Returns the overall status of the snapshotter.
+
+        Args:
+            request (Request): The incoming request.
+            response (Response): The outgoing response.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check. Defaults to Depends(rate_limit_auth_check).
+
+        Returns:
+            dict: A dictionary containing the snapshotter status.
+      operationId: get_snapshotter_overall_status_internal_snapshotter_status_get
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /internal/snapshotter/status/{project_id}:
+    get:
+      summary: Get Snapshotter Project Level Status
+      description: |-
+        Get snapshotter project level status.
+
+        Args:
+            request (Request): The request object.
+            response (Response): The response object.
+            project_id (str): The project ID.
+            data (bool, optional): Whether to include data in the response. Defaults to False.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.
+
+        Returns:
+            dict: The snapshotter project status.
+      operationId: get_snapshotter_project_level_status_internal_snapshotter_status__project_id__get
+      parameters:
+        - required: true
+          schema:
+            title: Project Id
+            type: string
+          name: project_id
+          in: path
+        - required: false
+          schema:
+            title: Data
+            type: boolean
+            default: false
+          name: data
+          in: query
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /internal/snapshotter/epochProcessingStatus:
+    get:
+      summary: Get Snapshotter Epoch Processing Status
+      description: |-
+        Endpoint to get the epoch processing status report.
+
+        Args:
+            request (Request): The incoming request object.
+            response (Response): The outgoing response object.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency. Defaults to Depends(rate_limit_auth_check).
+
+        Returns:
+            Page[SnapshotterEpochProcessingReportItem]: The paginated epoch processing status report.
+      operationId: get_snapshotter_epoch_processing_status_internal_snapshotter_epochProcessingStatus_get
+      parameters:
+        - required: false
+          schema:
+            title: Page
+            minimum: 1
+            type: integer
+            default: 1
+          name: page
+          in: query
+        - required: false
+          schema:
+            title: Size
+            maximum: 30
+            minimum: 1
+            type: integer
+            default: 10
+          name: size
+          in: query
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomizedPage_SnapshotterEpochProcessingReportItem_'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /task_status:
+    post:
+      summary: Get Task Status Post
+      description: |-
+        Endpoint to get the status of a task for a given wallet address.
+
+        Args:
+            request (Request): The incoming request object.
+            response (Response): The outgoing response object.
+            task_status_request (TaskStatusRequest): The request body containing the task type and wallet address.
+            rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit and authorization dependency. Defaults to rate_limit_auth_check.
+
+        Returns:
+            dict: A dictionary containing the status of the task and a message.
+      operationId: get_task_status_post_task_status_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskStatusRequest'
+        required: true
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: X-API-Key
+      in: header
+  schemas:
+    CustomizedPage_SnapshotterEpochProcessingReportItem_:
+      title: CustomizedPage[SnapshotterEpochProcessingReportItem]
+      required:
+        - items
+      type: object
+      properties:
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapshotterEpochProcessingReportItem'
+        total:
+          title: Total
+          minimum: 0
+          type: integer
+        page:
+          title: Page
+          minimum: 1
+          type: integer
+        size:
+          title: Size
+          minimum: 1
+          type: integer
+        pages:
+          title: Pages
+          minimum: 0
+          type: integer
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    SnapshotterEpochProcessingReportItem:
+      title: SnapshotterEpochProcessingReportItem
+      type: object
+      properties:
+        epochId:
+          title: Epochid
+          type: integer
+          default: 0
+        epochEnd:
+          title: Epochend
+          type: integer
+          default: 0
+        transitionStatus:
+          title: Transitionstatus
+          type: object
+          additionalProperties:
+            anyOf:
+              - $ref: '#/components/schemas/SnapshotterStateUpdate'
+              - type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/SnapshotterStateUpdate'
+          default: {}
+    SnapshotterStateUpdate:
+      title: SnapshotterStateUpdate
+      required:
+        - status
+        - timestamp
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+        error:
+          title: Error
+          type: string
+        extra:
+          title: Extra
+          type: object
+        timestamp:
+          title: Timestamp
+          type: integer
+    TaskStatusRequest:
+      title: TaskStatusRequest
+      required:
+        - task_type
+        - wallet_address
+      type: object
+      properties:
+        task_type:
+          title: Task Type
+          type: string
+        wallet_address:
+          title: Wallet Address
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+        - loc
+        - msg
+        - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
