@@ -15,7 +15,8 @@ sidebar_position: 0
 Pooler is a Uniswap-specific implementation within the PowerLoom Protocol ecosystem, designed as a snapshotter. It functions by synchronizing with other snapshotter peers over a smart contract on the PowerLoom Protocol testnet. This architecture, guided by state transitions, is both easily comprehensible and modifiable.
 
 :::tip
-**Pooler in a Nutshell**
+**Pooler in a Nutshell:**
+
 Forex, the foreign exchange market, involves currency trading and is known for its high liquidity and 24/7 operation. Pooler, in a parallel sense, operates continuously, capturing snapshots of Uniswap trades. Like Forex traders who analyze currency fluctuations to make profits, Pooler users can analyze trade volumes, liquidity reserves, and other metrics to understand market trends and potential profits in the Uniswap market.
 
 In essence, Pooler is to Uniswap what Forex platforms are to currency trading – a tool for real-time tracking and analysis, facilitating better understanding and potentially profitable decision-making in the dynamic world of cryptocurrency trading.
