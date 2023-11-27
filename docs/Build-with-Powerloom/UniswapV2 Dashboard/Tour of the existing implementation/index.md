@@ -29,7 +29,7 @@ In Pooler, data points are specific, quantifiable elements derived from Uniswap 
 
 ### Code Implementation
 
-The implementation of these processes is detailed in the Pooler GitHub repository. Key components include:
+The implementation of these processes is detailed in the section. Key components include:
 
 - **Preloaders:** Defined in `snapshotter/utils/preloaders/`, these are responsible for the initial data fetching.
 - **Snapshot Workers:** Located in `pooler/utils/snapshot_worker.py`, these workers build the base snapshots.
@@ -38,5 +38,3 @@ The implementation of these processes is detailed in the Pooler GitHub repositor
 - **Core API:** Defined in `pooler/core_api.py`, it allows access to finalized data on the smart contract.
 
 The specific configurations for data points like pair reserves, token prices, trading volumes, and fees are outlined in `config/projects.json` and `config/aggregator.json`. These configurations dictate what data to capture and how to process it.
-
-By reviewing these components in the [Pooler GitHub repository](https://github.com/PowerLoom/pooler), one can gain an in-depth understanding of how Pooler captures, processes, and presents Uniswap V2 trading data.

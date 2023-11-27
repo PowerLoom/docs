@@ -5,14 +5,15 @@ sidebar_position: 0
 
 # Powerloom Protocol
 
-![Powerloom Workflow](/images/introduction.png)
 
-PowerLoom is a decentralized data protocol built to serve the data needs of developers building web3 applications on smart contract platforms like Ethereum, Polygon, etc.
+The PowerLoom Protocol is a decentralized data protocol designed to manage the increasing data requirements of applications that use smart contracts, such as DeFi platforms, games, and others. 
 
-It enables a network of peers called "snapshotters" to reach consensus on observations of state transitions and event emissions across multiple smart contracts. 
+The protocol encourages network participants to agree on the changes and events occurring within a variety of smart contracts. PowerLoom achieves this by creating data compositions from smaller, agreed-upon data segments. This approach ensures that the information provided by PowerLoom is both validated by peers and accurate. As a result, PowerLoom is an effective tool for applications that need detailed data, including dashboards, bots, data aggregators, and tools for tracking insights.
+
+![Powerloom Workflow](/images/introduction-image.png)
 
 :::tip
-**Powerloom in nutshell**: PowerLoom is like a decentralized library catalog for blockchain data.
+**Powerloom in a nutshell**: PowerLoom is like a decentralized library catalog for blockchain data.
 
 The "snapshotters" are like librarians who are continually observing shelves of books (smart contracts) and cataloging what books are added or removed, what pages change in existing books, and what notes readers add in book margins (events).
 :::
@@ -37,12 +38,19 @@ Stay updated with all the latest updates from the Powerloom team and the communi
 
 To begin using Powerloom Protocol, you need to understand the workflow and architecture of the system. This involves familiarizing yourself with the different components and how they interact within the protocol.
 
-1. **Review Protocol Overview:** Start by reviewing the detailed Protocol Overview document. This document offers a comprehensive view of how the protocol functions.
-2. **Explore the Pooler Implementation:** Visit the [Powerloom Pooler Section](/docs/Build-with-Powerloom/UniswapV2%20Dashboard/) to learn more about the Snapshotter implementation and its functionalities.
+1. **Review Protocol Overview [ Technical ] :** Start by reviewing the detailed Protocol Overview section. This document offers a comprehensive view of how the protocol functions.
+2. **Explore the Pooler Implementation[ Beginnner Friendly ]:** Visit the [Powerloom Pooler Section](/docs/Build-with-Powerloom/UniswapV2%20Dashboard/) to learn more about the Snapshotter implementation and its functionalities.
+3. **Check out Pooler APIs :** Discover our customized APIs for Pooler, designed to provide real-time access and insights into the UniswapV2 data.
 
-We also have a detailed Technical Community Update #1 Recording which walks through the details of the protocol: 
 
+We have a detailed walkthrough of our network, how it functions and how one leverage the power of data using powerloom. You can watch these technical community calls: 
+
+### Technical Community Call #1
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kTTmu3vhuEY?si=cD_mDEH0ohUy0n9x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+### Technical Community Call #2
+<iframe width="560" height="315" src="https://www.youtube.com/embed/irRFUWtnfpw?si=BFAEfpNa2B_ahc3g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 ## Conclusion
 
