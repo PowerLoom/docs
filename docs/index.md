@@ -3,7 +3,7 @@ sidebar_position: 0
 ---
 # Introduction 
 
-# Powerloom Protocol
+## Powerloom Protocol
 
 
 The PowerLoom Protocol is a decentralized data protocol designed to manage the increasing data requirements of applications that use smart contracts, such as DeFi platforms, games, and others. 
@@ -18,7 +18,7 @@ The protocol encourages network participants to agree on the changes and events 
 The "snapshotters" are like librarians who are continually observing shelves of books (smart contracts) and cataloging what books are added or removed, what pages change in existing books, and what notes readers add in book margins (events).
 :::
 
-The key benefits of PowerLoom for developers are:
+The key benefits of Powerloom for developers are:
 
 **Decentralized Data:** Powerloom allows developers to build applications on top of decentralized, consensus-backed data instead of relying on centralized APIs. This improves reliability and transparency.
 
@@ -42,6 +42,7 @@ To begin using Powerloom Protocol, you need to understand the workflow and archi
 2. **Explore the Pooler Implementation[ Beginnner Friendly ]:** Visit the [Powerloom Pooler Section](/docs/Build-with-Powerloom/UniswapV2%20Dashboard/) to learn more about the Snapshotter implementation and its functionalities.
 3. **Check out Pooler APIs :** Discover our customized APIs for Pooler, designed to provide real-time access and insights into the UniswapV2 data.
 
+## Technical Community Calls
 
 We have a detailed walkthrough of our network, how it functions and how one leverage the power of data using powerloom. You can watch these technical community calls: 
 
