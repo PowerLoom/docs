@@ -10,6 +10,46 @@ sidebar_position: 0
 
 Pooler is a Uniswap-specific implementation within the PowerLoom Protocol ecosystem, designed as a snapshotter. It functions by synchronizing with other snapshotter peers over a smart contract on the PowerLoom Protocol testnet. This architecture, guided by state transitions, is both easily comprehensible and modifiable.
 
+![Uniswap Dashboard Rendering](../../../static/images/dashboard-rendering.png)
+
+### How it works
+Let's explore the details of the Pooler implementation. The image provided illustrates the operational flow of the UniswapV2 Dashboard as it functions via Powerloom's snapshotter network.
+
+#### Undestanding each element:
+
+- **The UniswapV2 Dashboard**:Experience our tailored UniswapV2 Dashboard, which displays specific data points for selected token pairs. Visit the dashboard at [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io).
+
+- **Calls against Aggregate project ID (E.g. 24h top pairs)**: This is an API call made to the Powerloom network to retrieve aggregated data, such as the top trading pairs over the past 24 hours. The 'project ID' is an unique identifier for the specific data request.
+
+- **Core API webserver**: This component is a webserver that's part of a backend service. It's responsible for handling API requests.
+
+- **Foundation hosted node**: This node is a part of the Powerloom network infrastructure, hosted by the Powerloom Foundation. It's one of the points where the API server can connect to get blockchain data.
+
+- **Redis cache**: Redis is an in-memory data structure store, used as a database, cache, and message broker. Here, it is used to cache data, to improve the performance of the dashboard by quickly accessing frequently requested data without needing to repeatedly fetch it from the primary data source.
+
+- **Query against Aggregate project ID**: Similar to the second element, this represents a query made to the Powerloom network using the project ID to fetch aggregated data.
+
+- **Powerloom chain Deployed contract**: This is a smart contract deployed on the Powerloom chain.
+  
+- **CID**: 'CID' stands for Content Identifier, used by the IPFS network (InterPlanetary File System). It indicates that once the data is validated and finalized by the Powerloom network, it is assigned a CID and can be stored and accessed on IPFS.
+
+- **IPFS**: IPFS is a protocol and peer-to-peer network for storing and sharing data in a distributed file system. In this context, IPFS is used to distribute and store the snapshots of data created by the Powerloom network.
+
+#### Workflow: 
+1. The user accesses the Uniswap v2 dashboard through uniswap2.powerloom.io.
+2. The dashboard makes calls to the Powerloom network to get the latest aggregated data.
+3. These calls are handled by the core_api.py webserver, which interacts with the foundation hosted nodes.
+4. The foundation nodes fetch the relevant data from the blockchain and the Redis cache to optimize the response times.
+5. Once the data is retrieved, it is further aggregated and validated, then stored on the IPFS network with a unique CID for easy retrieval.
+
+### Datapoints
+**Data points** refer to compiled information or metrics that are derived from the fundamental data obtained from Uniswap V2 pair contracts. These pair contracts are agreements on the blockchain that dictate how trading between two types of tokens should be managed and executed.
+
+The Pooler system collects and processes this basic data to generate 'aggregated metrics'. These metrics are summaries or calculations that provide a bigger picture of what's happening in the market. They can show trends, like which tokens are being traded most frequently or the average prices of trades over time.
+
+The purpose of these aggregated metrics is to give users a clear understanding of market dynamics and the performance of assets. This insight is valuable for making informed decisions in trading or analyzing the overall health of the cryptocurrency market as it pertains to Uniswap V2 operations.
+
+
 :::tip
 **Pooler in a Nutshell:**
 
@@ -19,30 +59,13 @@ In essence, Pooler is to Uniswap what Forex platforms are to currency trading �
 :::
 
 
-### Core Features:
+### Pooler APIs
 
-- **Data Point Synchronization:** Pooler calculates, updates, and synchronizes each data point with other snapshotter peers. This synchronization is based on epoch IDs, representing a collection of blocks on data source blockchains like Ethereum Mainnet, Polygon Mainnet, etc.
-  
-- **Decentralized Nature:** The decentralized approach of Pooler means datasets are stored on IPFS/Filecoin, leveraging decentralized storage networks to their fullest.
+The Core API is a crucial element, allowing access to finalized protocol states on the anchor chain’s smart contract. Pooler’s functionality can be observed in action through the Uniswap v2 dashboards, like [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io/), powered by the Pooler foundation's API. 
 
-- **Versatile Use Cases:** Pooler supports various applications, from dashboards offering aggregate data points to trading strategies and bots. It also allows loading of historical data from past epochs, indexes, and aggregates.
+Access [Pooler API Documentation](../Pooler-API-Docs/)
 
-### Getting Started with Pooler:
+### Development and Extension
 
-Setting up Pooler involves a distributed system with several components. The simplest way to get started is through Docker-based setup from the [deploy repository](https://github.com/PowerLoom/deploy). For developers, a more hands-on approach involves manual configuration steps outlined in the Pooler documentation, followed by instructions from the deploy repository.
-
-## Key Components of Pooler:
-
-1. **Epoch Generation:** Manages block height ranges on the data source blockchain.
-2. **Preloading:** Crucial for fetching low-level data like block details and transaction receipts.
-3. **Base Snapshot Generation:** Involves creating basic data models from state observations and event logs.
-4. **Snapshot Finalization and Aggregation:** Ensures data consistency and builds higher-order data points.
-5. **Major Components:** Includes System Event Detector, Process Hub Core, Processor Distributor, Delegation Workers, Callback Workers, RPC Helper, and Core API.
-
-### API and Dashboard:
-
-The Core API is a crucial element, allowing access to finalized protocol states on the anchor chain’s smart contract. Pooler’s functionality can be observed in action through the Uniswap v2 dashboards, like [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io/), powered by the Pooler foundation's API.
-
-### Development and Extension:
-
-Pooler’s design enables extensions and custom use case implementations. It offers a detailed guide for extending its capabilities, particularly with Uniswap v2 data points. Developers can add new configurations and data models as needed, ensuring Pooler’s adaptability to various requirements.
+Pooler’s design enables extensions and custom use case implementations. It offers a detailed guide for extending its capabilities, particularly with Uniswap v2 data points. Developers can add new configurations and data models as needed, ensuring Pooler’s adaptability to various requirements. We have a dedicated section in the documentation which walkthrough the details on further implementation and usecases
+[Build your case](./What-You-Can-Build-with-PowerLoom.md)

@@ -9,11 +9,13 @@ This section provides a comprehensive walkthrough on what Snapshotters are, how 
 
 In the Powerloom Protocol ecosystem, a snapshotter peer plays a crucial role in maintaining data consistency and reliability. Powerloom operates on a decentralized network comprising nodes known as **"snapshotters."** These nodes are responsible for reading data from various blockchains, and anyone is eligible to run a snapshotter node.
 
+![Powerloom Workflow](/images/introduction-image.png)
+
 The primary function of snapshotters is to monitor state changes in selected smart contracts. This monitoring is guided by predefined "data market" schemas, which outline the specific data fields and events that the snapshotters need to track.
 
 Whenever there's a change of events on the smart contract, snapshotters create "snapshots." These are structured data units that capture the most recent state. These snapshots are then promptly sent to the Powerloom consensus protocol for validation.
 
-Powerloom is supported by numerous snapshotters instead of relying on centralized oracles. This approach helps in mitigating issues like single points of failure, outdated data, or dependence on particular data providers. The decentralized, peer-to-peer structure of Powerloom ensures consistent availability and reliability of data.
+Powerloom is powered by numerous snapshotters instead of relying on centralized oracles. This approach helps in mitigating issues like single points of failure, outdated data, or dependence on particular data providers. The decentralized, peer-to-peer structure of Powerloom ensures consistent availability and reliability of data.
 
 ## Key Features and Operations
 
