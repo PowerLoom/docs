@@ -20,7 +20,7 @@ Powerloom is supported by numerous snapshotters instead of relying on centralize
 - **Synchronization Over Smart Contracts:** Utilizes smart contracts on the Powerloom Protocol testnet for synchronized data management.
 - **State-Driven Architecture:** Employs state transitions for ease of understanding and modifications.
 
-::: tip
+:::tip
 **What is State transition?** - A state transition in a smart contract is essentially a change in its status or information. It's like updating a record. When certain conditions in the contract are met, the contract's state changes to reflect this. For example, if a smart contract is used for a payment, when the payment is made, the state transitions from "pending" to "completed."
 :::
 
@@ -37,7 +37,7 @@ Powerloom is supported by numerous snapshotters instead of relying on centralize
 - **IPFS/Filecoin Integration:** All datasets are decentralized, stored securely on IPFS/Filecoin.
 - **Principle of Composability:** Enhances the system's adaptability and efficiency by fully leveraging the decentralized storage networks.
 
-::: tip
+:::tip
 **The Principle of Composability** is like using building blocks to create something larger. In technology, especially in areas like blockchain, it means different parts or programs can easily connect and work together, even if they weren't originally designed to do so. This allows for creating more complex systems by combining simple, reusable components.
 :::
 
