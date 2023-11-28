@@ -4,7 +4,8 @@ sidebar_position: 0
 
 # State Machine
 
-T
+Refer to the following sections for detailed information on the state transitions that a snapshotter participates in while processing data sources per epoch.
 
-These state transitions can be inspected in detail by querying the snapshotter node's internal APIs.
-
+* [Epoch processing state transitions](Protocol/Specifications/Epoch.md#state-transitions)
+* [Snapshotter internal APIs](/docs/Snapshotters/health-tracking.md)
+  

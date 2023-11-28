@@ -161,7 +161,6 @@ const config = {
     themes: [
       'docusaurus-theme-openapi-docs',
       '@saucelabs/theme-github-codeblock'
-    
     ]
 };
 
