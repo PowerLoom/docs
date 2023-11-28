@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
 
-# Running a Snapshotter Node
+# Incentivized testnet
 
 Deploying and setting up a Snapshotter Node is a breeze! We've got you covered with our dedicated 'Deploy' repository, designed to make your life easier. With just one simple command, you can kick back and relax as the install process seamlessly deploys the Audit Protocol and Pooler to the Powerloom network. It's straightforward, hassle-free, and gets you up and running in no time!
 

@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-## Introduction
+# Overview
 This section provides a comprehensive walkthrough on what Snapshotters are, how to set up and run a Snapshotter node in the Powerloom Protocol. Snapshotters play a crucial role in capturing and aggregating data relevant to smart contracts across different blockchain networks.
 
 In the Powerloom Protocol ecosystem, a snapshotter peer plays a crucial role in maintaining data consistency and reliability. Powerloom operates on a decentralized network comprising nodes known as **"snapshotters."** These nodes are responsible for reading data from various blockchains, and anyone is eligible to run a snapshotter node.
@@ -20,13 +20,13 @@ Powerloom is powered by numerous snapshotters instead of relying on centralized 
 
 
 ## Dive into the specifics
-Snapshotter is a crucial part of our powerloom protocol. Dive deep into the technical aspects of snapshotter [here](/docs/Protocol/Specifications/Snapshotter/)
+Snapshotter is a crucial part of our powerloom protocol. Dive deep into the technical aspects of snapshotter [here](/docs/category/snapshotter)
 
 ## Setting up the snapshotter node 
 
 The snapshotter is a distributed system with multiple moving parts.
 
-If you're planning to participate as a snapshotter, refer to [Deploy Section](/docs/Snapshotters/Running-a-snapshotter-node.md) to start snapshotting.
+If you're planning to participate as a snapshotter, refer to our specific subsections within [joining networks](/docs/Snapshotters/Joining%20Networks/) to start snapshotting.
 
 
 :::note
