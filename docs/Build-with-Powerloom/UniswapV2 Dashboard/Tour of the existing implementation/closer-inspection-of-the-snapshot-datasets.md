@@ -2,50 +2,61 @@
 sidebar_position: 1
 ---
 
-# Closer inspection of the snapshot dataset
+#
+# Closer Inspection to Snapshotter Dataset: Pooler Documentation
 
-We explored the data that is being tracked by the snapshotter. Let's dive more deeper inspecting the snapshot dataset in Pooler involves understanding how data is captured, processed, and stored. 
+## Introduction
 
-### Process of Capturing Data Points
+Pooler is a Uniswap V2 specific implementation in the PowerLoom Protocol, designed to capture, process, and aggregate blockchain data. This documentation provides an in-depth look at how Pooler operates and how developers can utilize it for building data-rich applications.
 
-Each Process mentioned below has a detailed documentation as each one of the bits are a part of the core Protocol. You can refer to each corresponding documentation for more information. 
+### Data Points Overview
 
-1. **Epoch Generation:** Pooler uses epochs to define ranges of block heights on the Ethereum mainnet for data collection. Each epoch represents a collection of blocks, facilitating the organized capture of trade data.
+Pooler focuses on several key data points:
 
-2. **Preloading:** Pooler preloads essential data like block details and transaction receipts. This step is crucial for the efficient building of base snapshots. Preloaders fetch this data and store it in Redis for subsequent processing.
+- **Total Value Locked (TVL):** The cumulative value locked in Uniswap V2.
+- **Trade Volume, Liquidity Reserves, and Fees Earned:** These are categorized by:
+  - Pair Contracts
+  - Individual Tokens within Pair Contracts
+- **Time Aggregation:** Data is aggregated over 24-hour and 7-day periods.
+- **Transaction Types:** Including Swap, Mint, and Burn events.
 
-3. **Base Snapshot Generation:** In this phase, base snapshots are computed. These are collections of state observations and event logs within a given epoch. The snapshot generation process is determined by project configurations, which include specific smart contract addresses and processing modules.
+### Querying with CIDs
 
-4. **Snapshot Finalization:** After the base snapshot generation, the data reach a consensus on the protocol state contract, triggering the `SnapshotFinalized` event. This step ensures the integrity and consistency of the data across all projects.
+Pooler uses decentralized CIDs (Content Identifiers) to query individual pair contract projects. This is crucial for accessing reliable and decentralized data. The CIDs correspond to specific data sets, making it easier to fetch relevant information.
 
-5. **Aggregation:** Pooler then generates higher-order data points by aggregating over base snapshots. This process involves combining data from various snapshots to create comprehensive metrics like total trade volume over a specified time.
+### Computing Data
 
+The core of Pooler's functionality lies in its `compute()` function. This function processes base snapshot data to generate aggregated insights. For instance, it can sum the trade volumes or liquidity reserves over a specified time frame. Here’s a conceptual example of a `compute()` function:
 
-### Project Configuration
-
-:::tip[Remember]
-
-Before jumping into this section, please do check out the above documentation. 
-
-:::
-
-Each Pair Contract that is tracked has a specific project ID that it corresponds to.
-Let's take an example of 24Hours Trade volume Snapshot (This is for an individual pair contract). Here's how the implementation for this configuration works:
-
-config/projects.json: Each entry in this configuration file defines the most fundamental unit of data representation in Powerloom Protocol, that is, a project. It is of the following schema
-
-```json
-{
-    "project_type": "snapshot_project_name_prefix_",
-    "projects": ["array of smart contract addresses"], // Uniswap v2 pair contract addresses in this implementation
-    "preload_tasks":[
-      "eth_price",
-      "block_details"
-    ],
-    "processor":{
-        "module": "snapshotter.modules.uniswapv2.pair_total_reserves",
-        "class_name": "PairTotalReservesProcessor" // class to be found in module snapshotter/modules/pooler/uniswapv2/pair_total_reserves.py
-    }
-}
-
+```python
+def compute(base_snapshots):
+    # Summing values in base snapshots
+    aggregated_data = sum(snapshot['value'] for snapshot in base_snapshots)
+    return aggregated_data
 ```
+
+### Base Data Model
+
+The base data model in Pooler represents the foundational data structure. It typically includes fields like timestamps, transaction counts, and total values. This model can be adapted based on the requirements of the data being analyzed.
+
+```python
+class BaseSnapshot(Model):
+    timestamp: int
+    transaction_count: int
+    total_value: float
+```
+
+### Aggregating Data
+
+Aggregation in Pooler involves combining and summarizing data from base snapshots. For example, aggregating 24-hour trade data would involve grouping data by date and summing values for each day.
+
+```python
+def aggregate_24h_data(base_snapshots):
+    daily_data = {}
+    for snapshot in base_snapshots:
+        date = snapshot['timestamp'].strftime('%Y-%m-%d')
+        daily_data[date] = daily_data.get(date, 0) + snapshot['total_value']
+    return daily_data
+```
+
+This function compiles daily totals from individual snapshots, creating a time-series dataset.

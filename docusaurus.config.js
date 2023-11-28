@@ -65,6 +65,14 @@ const config = {
         respectPrefersColorScheme: false,
       },
 
+      //Github Code Snippet Block
+      codeblock: {
+        showGithubLink: true,
+        githubLinkLabel: 'View on GitHub',
+        showRunmeLink: false,
+        runmeLinkLabel: 'Checkout via Runme'
+    },
+
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
@@ -150,7 +158,11 @@ const config = {
       ]
     ],
   
-    themes: ["docusaurus-theme-openapi-docs"]
+    themes: [
+      'docusaurus-theme-openapi-docs',
+      '@saucelabs/theme-github-codeblock'
+    
+    ]
 };
 
 export default config;
