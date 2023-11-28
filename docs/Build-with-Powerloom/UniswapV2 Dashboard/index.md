@@ -42,13 +42,11 @@ Let's explore the details of the Pooler implementation. The image provided illus
 4. The foundation nodes fetch the relevant data from the blockchain and the Redis cache to optimize the response times.
 5. Once the data is retrieved, it is further aggregated and validated, then stored on the IPFS network with a unique CID for easy retrieval.
 
-### Datapoints
-**Data points** refer to compiled information or metrics that are derived from the fundamental data obtained from Uniswap V2 pair contracts. These pair contracts are agreements on the blockchain that dictate how trading between two types of tokens should be managed and executed.
+### Data Points and Aggregated Metrics in Pooler
 
-The Pooler system collects and processes this basic data to generate 'aggregated metrics'. These metrics are summaries or calculations that provide a bigger picture of what's happening in the market. They can show trends, like which tokens are being traded most frequently or the average prices of trades over time.
+Data points are key metrics sourced from Uniswap V2 pair contracts, detailing how token trades are conducted. Our Pooler system processes this data into aggregated metrics, providing an overview of market trends, such as trade frequencies and average prices. These insights aid users in understanding market movements and asset performance, crucial for informed trading decisions within Uniswap V2.
 
-The purpose of these aggregated metrics is to give users a clear understanding of market dynamics and the performance of assets. This insight is valuable for making informed decisions in trading or analyzing the overall health of the cryptocurrency market as it pertains to Uniswap V2 operations.
-
+ For an in-depth look, visit [Tour of Existing Implementation](../UniswapV2%20Dashboard/Tour%20of%20the%20existing%20implementation/index.md).
 
 :::tip
 **Pooler in a Nutshell:**

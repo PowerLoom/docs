@@ -6,19 +6,25 @@ sidebar_position: 0
 ## Powerloom Protocol
 
 
-The PowerLoom Protocol is a decentralized data protocol designed to manage the increasing data requirements of applications that use smart contracts, such as DeFi platforms, games, and others. 
+The Powerloom Protocol is a decentralized data protocol designed to manage the increasing data requirements of applications that use smart contracts, such as DeFi platforms, games, and others. 
 
 The protocol encourages network participants to agree on the changes and events occurring within a variety of smart contracts. PowerLoom achieves this by creating data compositions from smaller, agreed-upon data segments. This approach ensures that the information provided by PowerLoom is both validated by peers and accurate. As a result, PowerLoom is an effective tool for applications that need detailed data, including dashboards, bots, data aggregators, and tools for tracking insights.
 
 ![Powerloom Workflow](/images/introduction-image.png)
 
 :::tip
-**Powerloom in a nutshell**: PowerLoom is like a decentralized library catalog for blockchain data.
+**Powerloom in a nutshell**: Powerloom is like a decentralized library catalog for blockchain data.
 
 The "snapshotters" are like librarians who are continually observing shelves of books (smart contracts) and cataloging what books are added or removed, what pages change in existing books, and what notes readers add in book margins (events).
 :::
 
-The key benefits of Powerloom for developers are:
+
+## Why choose Powerloom to build your next Data Dashboard?
+
+If you are a developer looking to build a data dashboard, DEX aggregator, or any web3 application that requires data, Powerloom offers out-of-the-box features that can assist you in focusing on building robust applications while simultaneously taking care of the data aspect. 
+
+Here are some of the key features of Powerloom:
+
 
 **Decentralized Data:** Powerloom allows developers to build applications on top of decentralized, consensus-backed data instead of relying on centralized APIs. This improves reliability and transparency.
 

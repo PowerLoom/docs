@@ -1,10 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Fetching higher order datapoints
-
-## Overview
 
 Higher-order data points in Pooler are aggregated metrics based on basic data captured from Uniswap V2 pair contracts. These aggregations provide insights into market trends and asset performance.
 
