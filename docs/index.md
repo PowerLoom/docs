@@ -25,7 +25,6 @@ If you are a developer looking to build a data dashboard, DEX aggregator, or any
 
 Here are some of the key features of Powerloom:
 
-
 **Decentralized Data:** Powerloom allows developers to build applications on top of decentralized, consensus-backed data instead of relying on centralized APIs. This improves reliability and transparency.
 
 **Real-Time Data:** The snapshotter network provides real-time data updates as transactions occur on the blockchain, enabling applications that need live data.
@@ -40,14 +39,38 @@ Here are some of the key features of Powerloom:
 Stay updated with all the latest updates from the Powerloom team and the community by joining our [Discord](https://discord.com/powerloom)
 :::
 
-## Getting Started
+---
+## See Powerloom in action :rocket:
+
+Discover the practical application of Powerloom through Pooler, a Uniswap V2 Dashboard Implementation. This latest release of Pooler is a powerhouse for Uniswap V2 analytics and offering comprehensive data aggregations and flexibility to extend to more use cases. 
+
+[UniswapV2 Dashboard](https://uniswapv2.powerloom.io)
+
+## Building with Powerloom:
 
 To begin using Powerloom Protocol, you need to understand the workflow and architecture of the system. This involves familiarizing yourself with the different components and how they interact within the protocol.
 
-1. **Review Protocol Overview [ Technical ] :** Start by reviewing the detailed Protocol Overview section. This document offers a comprehensive view of how the protocol functions.
-2. **Explore the Pooler Implementation[ Beginnner Friendly ]:** Visit the [Powerloom Pooler Section](/docs/Build-with-Powerloom/UniswapV2%20Dashboard/) to learn more about the Snapshotter implementation and its functionalities.
-3. **Check out Pooler APIs :** Discover our customized APIs for Pooler, designed to provide real-time access and insights into the UniswapV2 data.
+ ### Review Protocol Overview [Technical]
 
+Start by reviewing the detailed Protocol Overview section. This document offers a comprehensive view of how the protocol functions. [Dive into the Protocol](./Protocol/)
+
+### Powerloom snapshotter peer
+
+Snapshotters play a crucial role in the powerloom ecosystem. Check out the docs to understand [How Snapshotter peer work](./Snapshotters/index.md) and if you are interested, you can [host your own Snapshotter node](./Snapshotters/Running-a-snapshotter-node.md) as well. 
+   
+### On-Chain Quest tracking
+
+Our newest release of the powerloom protocol enables the functionality to track onchain activity. If you are planning to run an On-chain activity quest or just want to track specific actions being perform on your chain, this use case fits the best! 
+
+### UniswapV2 Dashboard
+
+Visit the [Powerloom Pooler Section](/docs/Build-with-Powerloom/UniswapV2%20Dashboard/) to learn more about the Snapshotter implementation and its functionalities.
+
+### Check out Pooler APIs
+
+Discover our customized APIs for Pooler, designed to provide real-time access and insights into the UniswapV2 data.
+
+---
 ## Technical Community Calls
 
 We have a detailed walkthrough of our network, how it functions and how one leverage the power of data using powerloom. You can watch these technical community calls: 
