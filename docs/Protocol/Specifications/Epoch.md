@@ -31,23 +31,29 @@ For every `epochId`, the following are a sequence of states that a 'project' goe
 
 The snapshotter nodes participate in these states according to the data sources configured by the data markets they participate in and the status of the same can be diagnosed further with their internal APIs. 
 
-### `EPOCH_RELEASED`
+### 1. `EPOCH_RELEASED`
 
 When an epoch is released on the protocol by the [epoch generator service](#epoch-generator).
 
-### `PRELOAD`
+### 2. `PRELOAD`
 
 For every project type's preloader configuration, this state is considered succesful once all the preloading dependencies are satisfied.
 
-### `SNAPSHOT_BUILD`
+### 3. `SNAPSHOT_BUILD`
 
 This state is considered successful when the snapshot data structure is computed and made ready for submission to the protocol for consensus. This applies to both base as well as aggregate snapshots.
 
-### `SNAPSHOT_SUBMIT_PAYLOAD_COMMIT`
+### 4. `SNAPSHOT_SUBMIT_PAYLOAD_COMMIT`
 
 This is an internal state specific to snapshotter implementations where the snapshot building worker processes, upon a successful `STATE_BUILD`, queue them up with the Payload Commit Service. 
 
+### 5. `RELAYER_SEND`
 
+Payload commit service has sent the snapshot to a transaction relayer to submit to the protocol state contract.
+
+### 6. `SNAPSHOT_FINALIZE`
+
+Snapshot is finalized on the protocol.
 
 ## Useful links
 
