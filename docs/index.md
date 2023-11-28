@@ -62,6 +62,7 @@ Snapshotters play a crucial role in the powerloom ecosystem. Check out the docs 
 
 Our newest release of the powerloom protocol enables the functionality to track onchain activity. If you are planning to run an On-chain activity quest or just want to track specific actions being perform on your chain, this use case fits the best! 
 
+
 ### UniswapV2 Dashboard
 
 Visit the [Powerloom Pooler Section](/docs/Build-with-Powerloom/UniswapV2%20Dashboard/) to learn more about the Snapshotter implementation and its functionalities.

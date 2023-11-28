@@ -23,6 +23,8 @@ Pooler focuses on several key data points:
 
 Pooler uses decentralized CIDs (Content Identifiers) to query individual pair contract projects. This is crucial for accessing reliable and decentralized data. The CIDs correspond to specific data sets, making it easier to fetch relevant information.
 
+### How is the Data Rendered 
+
 ### Computing Data
 
 The core of Pooler's functionality lies in its `compute()` function. This function processes base snapshot data to generate aggregated insights. For instance, it can sum the trade volumes or liquidity reserves over a specified time frame. Here’s a conceptual example of a `compute()` function:

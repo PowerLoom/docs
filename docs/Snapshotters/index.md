@@ -20,7 +20,7 @@ Powerloom is powered by numerous snapshotters instead of relying on centralized 
 
 
 ## Dive into the specifics
-Snapshotter is a crucial part of our powerloom protocol. Dive deep into the technical aspects of snapshotter [here](../Protocol/Specifications/Snapshotter/)
+Snapshotter is a crucial part of our powerloom protocol. Dive deep into the technical aspects of snapshotter [here](/docs/Protocol/Specifications/Snapshotter/)
 
 ## Setting up the snapshotter node 
 
@@ -34,3 +34,4 @@ If you're planning to participate as a snapshotter, refer to [Deploy Section](/d
 RPC usage is highly use-case specific. If your use case is complicated and needs to make a lot of RPC calls, it is recommended to run your own RPC node instead of using third-party RPC services as it can be expensive.
 
 :::
+

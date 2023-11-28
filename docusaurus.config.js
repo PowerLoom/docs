@@ -5,7 +5,8 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 // @ts-ignore
-import {themes as prismThemes} from 'prism-react-renderer';
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 //const lightCodeTheme = require('prism-react-renderer/themes/github');
 //const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -65,13 +66,17 @@ const config = {
         respectPrefersColorScheme: false,
       },
 
+      
+
       //Github Code Snippet Block
-      codeblock: {
-        showGithubLink: true,
-        githubLinkLabel: 'View on GitHub',
-        showRunmeLink: false,
-        runmeLinkLabel: 'Checkout via Runme'
-    },
+        // github codeblock theme configuration
+        codeblock: {
+            showGithubLink: true,
+            githubLinkLabel: 'View on GitHub',
+            showRunmeLink: false,
+            runmeLinkLabel: 'Checkout via Runme'
+        },
+
 
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
@@ -133,8 +138,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Powerloom. Inc`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme
       },
       
     }),
@@ -159,10 +164,10 @@ const config = {
     ],
   
     themes: [
-      'docusaurus-theme-openapi-docs',
-      '@saucelabs/theme-github-codeblock'
+      'docusaurus-theme-github-codeblock'
+      
     
     ]
 };
 
-export default config;
+module.exports = config;
