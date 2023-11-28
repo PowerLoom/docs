@@ -9,22 +9,25 @@ In the Powerloom Protocol ecosystem, a snapshotter peer plays a crucial role in 
 
 ![Powerloom Workflow](/images/introduction-image.png)
 
+
+## How Snapshotter peer works?
+
 The primary function of snapshotters is to monitor state changes in selected smart contracts. This monitoring is guided by predefined "data market" schemas, which outline the specific data fields and events that the snapshotters need to track.
 
 Whenever there's a change of events on the smart contract, snapshotters create "snapshots." These are structured data units that capture the most recent state. These snapshots are then promptly sent to the Powerloom consensus protocol for validation.
 
 Powerloom is powered by numerous snapshotters instead of relying on centralized oracles. This approach helps in mitigating issues like single points of failure, outdated data, or dependence on particular data providers. The decentralized, peer-to-peer structure of Powerloom ensures consistent availability and reliability of data.
 
+
 ## Dive into the specifics
-Snapshotter is a crucial part of our powerloom protocol. Dive deep into the technical aspects of snapshotter [here](#)
+Snapshotter is a crucial part of our powerloom protocol. Dive deep into the technical aspects of snapshotter [here](../Protocol/Specifications/Snapshotter/)
 
 ## Setting up the snapshotter node 
 
-The snapshotter is a distributed system with multiple moving parts. The easiest way to get started is by using the Docker-based setup from the  [deploy](https://github.com/PowerLoom/deploy)  repository.
+The snapshotter is a distributed system with multiple moving parts.
 
 If you're planning to participate as a snapshotter, refer to [Deploy Section](/docs/Snapshotters/Running-a-snapshotter-node.md) to start snapshotting.
 
-If you're a developer, you can follow the  [manual configuration steps for pooler](https://github.com/PowerLoom/pooler/blob/main/README.md#configuration)  from this document followed by the  [instructions on the  `deploy`  repo for code contributors](https://github.com/PowerLoom/deploy#instructions-for-code-contributors)  for a more hands-on approach.
 
 :::note
 
