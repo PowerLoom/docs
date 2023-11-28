@@ -6,9 +6,15 @@ sidebar_position: 0
 
 ## Pooler - UniswapV2 Data Market
 
-### Introduction to Pooler
-
 Pooler is a Uniswap-specific implementation within the PowerLoom Protocol ecosystem, designed as a snapshotter. It functions by synchronizing with other snapshotter peers over a smart contract on the PowerLoom Protocol testnet. This architecture, guided by state transitions, is both easily comprehensible and modifiable.
+
+:::tip
+**Pooler in a Nutshell:**
+
+Forex, the foreign exchange market, involves currency trading and is known for its high liquidity and 24/7 operation. Pooler, in a parallel sense, operates continuously, capturing snapshots of Uniswap trades. Like Forex traders who analyze currency fluctuations to make profits, Pooler users can analyze trade volumes, liquidity reserves, and other metrics to understand market trends and potential profits in the Uniswap market.
+
+In essence, Pooler is to Uniswap what Forex platforms are to currency trading – a tool for real-time tracking and analysis, facilitating better understanding and potentially profitable decision-making in the dynamic world of cryptocurrency trading.
+:::
 
 ![Uniswap Dashboard Rendering](../../../static/images/dashboard-rendering.png)
 
@@ -42,26 +48,23 @@ Let's explore the details of the Pooler implementation. The image provided illus
 4. The foundation nodes fetch the relevant data from the blockchain and the Redis cache to optimize the response times.
 5. Once the data is retrieved, it is further aggregated and validated, then stored on the IPFS network with a unique CID for easy retrieval.
 
+
+
 ### Data Points and Aggregated Metrics in Pooler
 
 Data points are key metrics sourced from Uniswap V2 pair contracts, detailing how token trades are conducted. Our Pooler system processes this data into aggregated metrics, providing an overview of market trends, such as trade frequencies and average prices. These insights aid users in understanding market movements and asset performance, crucial for informed trading decisions within Uniswap V2.
 
  For an in-depth look, visit [Tour of Existing Implementation](../UniswapV2%20Dashboard/Tour%20of%20the%20existing%20implementation/index.md).
 
-:::tip
-**Pooler in a Nutshell:**
 
-Forex, the foreign exchange market, involves currency trading and is known for its high liquidity and 24/7 operation. Pooler, in a parallel sense, operates continuously, capturing snapshots of Uniswap trades. Like Forex traders who analyze currency fluctuations to make profits, Pooler users can analyze trade volumes, liquidity reserves, and other metrics to understand market trends and potential profits in the Uniswap market.
-
-In essence, Pooler is to Uniswap what Forex platforms are to currency trading – a tool for real-time tracking and analysis, facilitating better understanding and potentially profitable decision-making in the dynamic world of cryptocurrency trading.
-:::
-
-
+---
 ### Pooler APIs
 
 The Core API is a crucial element, allowing access to finalized protocol states on the anchor chain’s smart contract. Pooler’s functionality can be observed in action through the Uniswap v2 dashboards, like [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io/), powered by the Pooler foundation's API. 
 
 Access [Pooler API Documentation](../Pooler-API-Docs/)
+
+---
 
 ### Development and Extension
 

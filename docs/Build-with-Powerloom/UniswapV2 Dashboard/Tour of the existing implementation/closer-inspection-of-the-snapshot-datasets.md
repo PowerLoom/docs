@@ -3,9 +3,8 @@ sidebar_position: 1
 ---
 
 #
-# Closer Inspection to Snapshotter Dataset: Pooler Documentation
+# Closer Inspection to Snapshotter Dataset
 
-## Introduction
 
 Pooler is a Uniswap V2 specific implementation in the PowerLoom Protocol, designed to capture, process, and aggregate blockchain data. This documentation provides an in-depth look at how Pooler operates and how developers can utilize it for building data-rich applications.
 
