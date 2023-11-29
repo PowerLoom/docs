@@ -7,28 +7,24 @@ sidebar_position: 2
 
 This section details how to fetch and process higher-order data points in Pooler, focusing on project IDs related to Uniswap V2 pair contracts and their aggregates.
 
-### Understanding Project IDs
+## Understanding Project IDs
 
 Project IDs are unique identifiers in Pooler that correspond to specific pair contracts or aggregate datasets.
-
-#### From Protocol State to Data Sources
 
 1. **Protocol State Contract:** The protocol state contract on PowerLoom Protocol's blockchain maintains the list of all project IDs.
 2. **Data Source Reference:** These project IDs are linked to specific data sources (e.g., smart contract addresses).
 
-```python
-# Example of fetching project IDs from the protocol state contract
-protocol_state_contract = "0x..."
-project_ids = fetch_project_ids(protocol_state_contract)
+
+### Project Configuration 
+
+  #### Config File: `projects.json` defines project types and associated smart contract addresses.
+  - **Structure:**
+-   `project_type`  - unique identifier prefix for the usecase,  [used to generate project ID](../../../Protocol/Specifications/Snapshotter/snapshot_build.md)
+-   `projects` - smart contracts to extract data from, pooler can generate different snapshots from multiple sources as long as the Contract ABI is same
+-   `processor` - the actual compuation logic reference, while you can write the logic anywhere, it is recommended to write your implementation in pooler/modules folder
+```json reference
+https://github.com/PowerLoom/pooler/blob/1452c166bef7534568a61b3a2ab0ff94535d7229/config/projects.example.json#L1-L35
 ```
-
-#### Project Configuration JSON
-
-- **Config File:** `projects.json` defines project types and associated smart contract addresses.
-- **Structure:**
-  - `project_type`: Defines the type of project (e.g., 'UniswapV2Pair').
-  - `projects`: Array of smart contract addresses.
-  - `processor`: Specifies the data processing module.
 
 ```json
 {
@@ -41,36 +37,49 @@ project_ids = fetch_project_ids(protocol_state_contract)
 }
 ```
 
-#### Generating Project IDs
+There's currently no limitation on the number or type of usecases you can build using snapshotter. Just write the Processor class and pooler libraries will take care of the rest.
 
-Project IDs are generated based on the `project_type` and smart contract addresses.
+## Core APIs
 
-```python
-def generate_project_id(project_type, contract_address):
-    return f"{project_type}:{contract_address}"
+This component is one of the most important and allows you to access the finalized protocol state on the smart contract running on the anchor chain. Find it in  [`core_api.py`](https://github.com/PowerLoom/pooler/blob/main/pooler/core_api.py).
 
-# Example
-project_id = generate_project_id("UniswapV2Pair", "0xABC...")
+The  [pooler-frontend](https://github.com/powerloom/pooler-frontend)  that serves the Uniswap v2 dashboards hosted by the PowerLoom foundation on locations like  [https://uniswapv2.powerloom.io/](https://uniswapv2.powerloom.io/)  is a great example of a frontend specific web application that makes use of this API service.
+
+Among many things, the core API allows you to  **access the finalized CID as well as its contents at a given epoch ID for a project**.
+
+The main endpoint implementations can be found as follows:
+
+```python reference
+https://github.com/PowerLoom/pooler/blob/5e7cc3812074d91e8d7d85058554bb1175bf8070/snapshotter/core_api.py#L186-L268
 ```
 
-### Working with Project Types
-
-1. **Pair Contracts:** Represents Uniswap V2 pair contracts.
-2. **Aggregates:** Higher-order data points calculated from base data.
-
-#### Fetching and Processing Data
-
-- **Fetching Data:** Use the project ID to fetch data from the Pooler system.
-- **Processing Data:** The specified processor in `projects.json` handles data transformation.
-
-```python
-# Fetching data for a project ID
-data = pooler.fetch_data(project_id)
-
-# Processing data using the specified processor
-processed_data = process_data(data, PairTotalReservesProcessor)
+```python reference
+https://github.com/PowerLoom/pooler/blob/5e7cc3812074d91e8d7d85058554bb1175bf8070/snapshotter/core_api.py#L273-L324
 ```
 
-## Conclusion
+The first endpoint in GET /last_finalized_epoch/{project_id} returns the last finalized EpochId for a given project ID and the second one is GET /data/{epoch_id}/{project_id}/ which can be used to return the actual snapshot data for a given EpochId and ProjectId.
 
-By following these steps, developers can efficiently fetch and process higher-order data points in Pooler, facilitating the development of insightful analytical tools and dashboards for DeFi platforms like Uniswap V2. This documentation aims to make the process more accessible and developer-friendly for hackathon participants and new contributors.
+These endpoints along with the combination of a bunch of other helper endpoints present in Core API can be used to build powerful Dapps and dashboards.
+
+You can observe the way it is used in pooler-frontend repo to fetch the dataset for the aggregate projects of top pairs trade volume and token reserves summary:
+
+```js
+try {
+      response = await axios.get(API_PREFIX+`/data/${epochInfo.epochId}/${top_pairs_7d_project_id}/`);
+      console.log('got 7d top pairs', response.data);
+      if (response.data) {
+        for (let pair of response.data.pairs) {
+          pairsData7d[pair.name] = pair;
+        }
+      } else {
+        throw new Error(JSON.stringify(response.data));
+      }
+    }
+    catch (e){
+      console.error('7d top pairs', e);
+    }
+```
+
+Check out our [Pooler API Docs](../../../Pooler-API-Docs/) for more information.
+
+Coming up, we're going to have a closer look at snapshot datasets in Pooler. You'll learn how they are made and how to get data from them. 

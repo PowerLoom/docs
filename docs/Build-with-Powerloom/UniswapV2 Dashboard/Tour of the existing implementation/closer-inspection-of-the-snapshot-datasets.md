@@ -2,10 +2,9 @@
 sidebar_position: 1
 ---
 
-
 Pooler is a Uniswap V2 specific implementation in the PowerLoom Protocol, designed to capture, process, and aggregate blockchain data. This documentation provides an in-depth look at how Pooler operates and how developers can utilize it for building data-rich applications.
 
-### Data Points Overview
+## Data Points Overview
 
 Pooler focuses on several key data points:
 
@@ -16,7 +15,8 @@ Pooler focuses on several key data points:
 - **Time Aggregation:** Data is aggregated over 24-hour and 7-day periods.
 - **Transaction Types:** Including Swap, Mint, and Burn events.
 
-### Querying with CIDs
+
+## Querying with CIDs
 
 Pooler uses decentralized CIDs (Content Identifiers) to query individual pair contract projects. This is crucial for accessing reliable and decentralized data. The CIDs correspond to specific data sets, making it easier to fetch relevant information.
 
@@ -80,40 +80,80 @@ ipfs cat bafkreifc33xiuqaf5nxqad2syn7j5x27j2pujzr7hhsxgtsr7zor4svqie --api /ip4/
 
 This process will allow you to review the aggregated data for the top pairs on Uniswap V2 over the last 24 hours.
 
+## Extracting Base Snapshots: Trade Data Logic
 
-### Computing Data
+:::info
+Before you dive into this section, please make sure you take a look into the [Project Configuration Section](./fetching-higher-order-datapoints.md#project-configuration)
+:::
 
-The core of Pooler's functionality lies in its `compute()` function. This function processes base snapshot data to generate aggregated insights. For instance, it can sum the trade volumes or liquidity reserves over a specified time frame. Here’s a conceptual example of a `compute()` function:
+In the last section, we learned how to get data from the protocol state contract and see it in JSON format through the IPFS Gateway. Next, we're going to explore how trade data is processed in basic snapshots.
 
-```python
-def compute(base_snapshots):
-    # Summing values in base snapshots
-    aggregated_data = sum(snapshot['value'] for snapshot in base_snapshots)
-    return aggregated_data
+Our Pooler system has several classes that handle the hard work of processing and ensuring the data is correct. One of these classes is `TradeVolumeProcessor`, located at [`snapshotter/modules/pooler/uniswapv2/trade_volume.py`](https://github.com/PowerLoom/pooler/blob/main/snapshotter/modules/pooler/uniswapv2/trade_volume.py). This class uses the `GenericProcessorSnapshot` structure found in [`pooler/utils/callback_helpers.py`](https://github.com/PowerLoom/pooler/blob/main/pooler/utils/callback_helpers.py).
+
+
+If you are planning to write your own extraction logic, here are few quick concepts that are crucial:
+The `compute` function is the main part where we create and process snapshots. It uses these inputs:
+
+- `epoch`: Gives details about the current epoch.
+- `redis`: Connects to Redis asynchronously.
+- `rpc_helper`: Assists with blockchain requests.
+
+Additionally, `transformation_lambdas` are used for extra calculations on the snapshot, if needed. If `compute` does everything, set `transformation_lambdas` to an empty list (`[]`). If not, add a list of functions. These functions should all accept a snapshot, a contract address, and the start (`epoch_begin`) and end (`epoch_end`) blocks of the epoch.
+
+
+```python reference
+https://github.com/PowerLoom/pooler/blob/0e65170ac8160160d5e6978d512a7f0f89fcc9c2/snapshotter/modules/pooler/uniswapv2/trade_volume.py#L23-L28
+```
+The format of the output data can vary based on what you need it for. However, it's a good idea to use [`pydantic`](https://pypi.org/project/pydantic/) models, as they help organize and define the data structure clearly.
+
+:::info
+Pydantic Model is a Python Library that helps data validation and parsing, by using Python type annotations.
+:::
+
+
+In this example related to Uniswap V2, the output is a data model named `UniswapTradesSnapshot`. This model is defined in a specific section of the Pooler code, located in the directory [`utils/models/message_models.py`](https://github.com/PowerLoom/pooler/blob/main/snapshotter/modules/pooler/uniswapv2/utils/models/message_models.py).
+
+```python reference
+https://github.com/PowerLoom/pooler/blob/0e65170ac8160160d5e6978d512a7f0f89fcc9c2/snapshotter/modules/pooler/uniswapv2/utils/models/message_models.py#L47-L55
 ```
 
-### Base Data Model
+The `TradeVolumeProcessor` collects and stores information about trades that happen within a specific range of blocks in the blockchain, known as the epoch. This range is defined by the lowest block number (`min_chain_height`) and the highest block number (`max_chain_height`) in that epoch.
 
-The base data model in Pooler represents the foundational data structure. It typically includes fields like timestamps, transaction counts, and total values. This model can be adapted based on the requirements of the data being analyzed.
+## 24-Hour Trade Volume Aggregates for Individual Pair Contracts
 
-```python
-class BaseSnapshot(Model):
-    timestamp: int
-    transaction_count: int
-    total_value: float
+-  As we explored in the previous section, the  `TradeVolumeProcessor`  logic takes care of capturing a snapshot of information regarding Uniswap v2 trades between the block heights of  `min_chain_height`  and  `max_chain_height`.
+    
+-   The epoch size as described in the prior section on  [epoch generation](../../../Protocol/Specifications/Epoch.md)  can be considered to be constant for this specific implementation of the Uniswap v2 use case on PowerLoom Protocol, and by extension, the time duration captured within the epoch.
+    
+-   The finalized state and data CID corresponding to each epoch can be accessed on the smart contract on the anchor chain that holds the protocol state. The corresponding helpers for that can be found in  `get_project_epoch_snapshot()`  in  [`pooler/utils/data_utils`](https://github.com/PowerLoom/pooler/blob/main/pooler/utils/data_utils.py)
+
+```python reference
+
+https://github.com/PowerLoom/pooler/blob/1452c166bef7534568a61b3a2ab0ff94535d7229/pooler/utils/data_utils.py#L183-L191
+
 ```
 
-### Aggregating Data
+To figure out the end point (or tail) for a 24-hour period of snapshots and trade data, starting from a given epoch ID (the beginning or head of this time span), we use a specific formula.
 
-Aggregation in Pooler involves combining and summarizing data from base snapshots. For example, aggregating 24-hour trade data would involve grouping data by date and summing values for each day.
-
-```python
-def aggregate_24h_data(base_snapshots):
-    daily_data = {}
-    for snapshot in base_snapshots:
-        date = snapshot['timestamp'].strftime('%Y-%m-%d')
-        daily_data[date] = daily_data.get(date, 0) + snapshot['total_value']
-    return daily_data
+```
+time_in_seconds = 86400
+tail_epoch_id = current_epoch_id - int(time_in_seconds / (source_chain_epoch_size * source_chain_block_time))
 ```
 
-This function compiles daily totals from individual snapshots, creating a time-series dataset.
+```python reference 
+
+https://github.com/PowerLoom/pooler/blob/1452c166bef7534568a61b3a2ab0ff94535d7229/pooler/utils/data_utils.py#L263-L290
+```
+
+The worker class for such aggregation is defined in  `config/aggregator.json`  in the following manner:
+
+```json reference 
+https://github.com/PowerLoom/pooler/blob/1452c166bef7534568a61b3a2ab0ff94535d7229/config/aggregator.example.json#L3-L10
+
+```
+
+Each finalized `epochId` is registered with a snapshot commit against the aggregated data set generated by running summations on trade volumes on all the base snapshots contained within the span calculated above. 
+
+## Extending Pooler for more Datapoints. 
+
+Implementing custom data points on top of existing pooler is easy. We have a section in [Build with Powerloom](../../build-with-powerloom.md) which covers this in detail. 

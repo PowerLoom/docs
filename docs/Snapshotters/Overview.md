@@ -31,12 +31,6 @@ Continue along within this category to explore the different testnet based data 
 
 * [Joining a network](/docs/category/joining-networks)
 
-## Setting up the snapshotter node 
-
-The snapshotter is a distributed system with multiple moving parts.
-
-If you're planning to participate as a snapshotter, refer to our specific subsections within [joining networks](/docs/Snapshotters/Joining%20Networks/) to start snapshotting.
-
 
 :::note
 

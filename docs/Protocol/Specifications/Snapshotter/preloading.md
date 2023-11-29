@@ -12,6 +12,8 @@ Each project type within the project configuration as found in [config/projects.
 https://github.com/PowerLoom/pooler/blob/5e7cc3812074d91e8d7d85058554bb1175bf8070/config/projects.example.json#L3-L12
 ```
 
+![Preloading](/images/preloading.png)
+
 ## Interface
 
 The preloaders implement one of the following two generic interfaces
