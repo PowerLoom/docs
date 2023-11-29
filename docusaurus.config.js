@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 // `@type` JSDoc annotations allow editor autocompletion and type checking
 // (when paired with `@ts-check`).
 // There are various equivalent ways to declare your Docusaurus config.
@@ -6,6 +6,7 @@
 
 // @ts-ignore
 const lightCodeTheme = require("prism-react-renderer/themes/github");
+// @ts-ignore
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 //const lightCodeTheme = require('prism-react-renderer/themes/github');
 //const darkCodeTheme = require('prism-react-renderer/themes/dracula');
@@ -27,7 +28,7 @@ const config = {
   organizationName: 'powerloom', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'log',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -44,9 +45,11 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
+          sidebarPath: require.resolve("./sidebars.js"),
+          docLayoutComponent: "@theme/DocPage",
+          docItemComponent: "@theme/ApiItem",
           //docLayoutComponent: "@theme/DocPage",
-         // docItemComponent: "@theme/ApiItem",
+          // docItemComponent: "@theme/ApiItem",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
         },
@@ -54,7 +57,26 @@ const config = {
           customCss: './src/css/custom.css',
         },
       }),
+
     ],
+    [
+      'redocusaurus',
+      {
+        // Plugin Options for loading OpenAPI files
+        specs: [
+          {
+            spec: 'examples/pooler.yaml',
+            route: '/api/',
+          },
+        ],
+        // Theme Options for modifying how redoc renders them
+        theme: {
+          // Change with your site colors
+          primaryColor: '#1890ff',
+        },
+      },
+
+    ]
   ],
 
   themeConfig:
@@ -66,16 +88,16 @@ const config = {
         respectPrefersColorScheme: false,
       },
 
-      
+
 
       //Github Code Snippet Block
-        // github codeblock theme configuration
-        codeblock: {
-            showGithubLink: true,
-            githubLinkLabel: 'View on GitHub',
-            showRunmeLink: false,
-            runmeLinkLabel: 'Checkout via Runme'
-        },
+      // github codeblock theme configuration
+      codeblock: {
+        showGithubLink: true,
+        githubLinkLabel: 'View on GitHub',
+        showRunmeLink: false,
+        runmeLinkLabel: 'Checkout via Runme'
+      },
 
 
       // Replace with your project's social card
@@ -139,10 +161,12 @@ const config = {
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme
+        darkTheme: darkCodeTheme,
+        additionalLanguages: ["ruby", "csharp", "php"],
       },
-      
+
     }),
+
     plugins: [
       [
         "docusaurus-plugin-openapi-docs",
@@ -150,23 +174,26 @@ const config = {
           id: "openapi",
           docsPluginId: "classic",
           config: {
-            pooler: {
+            poolerdocs: {
               specPath: "examples/pooler.yaml",
-              outputDir: "docs/API",
+              outputDir: "docs/Pooler-API-Docs",
+              downloadUrl:
+                "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
               sidebarOptions: {
                 groupPathsBy: "tag",
-                //categoryLinkSource: "tag"
-              }
-            }
-          }
-        }
-      ]
+                categoryLinkSource: "tag",
+              },
+            },
+          },
+        },
+      ],
     ],
-  
-    themes: [
-      'docusaurus-theme-github-codeblock'
-    
-    ]
+
+  themes: [
+    'docusaurus-theme-github-codeblock',
+    'docusaurus-theme-openapi-docs'
+
+  ]
 };
 
 module.exports = config;

@@ -1,0 +1,48 @@
+---
+id: get-snapshotter-overall-status-internal-snapshotter-status-get
+title: "Get Snapshotter Overall Status"
+description: "Returns the overall status of the snapshotter."
+sidebar_label: "Get Snapshotter Overall Status"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVNFO2zAU/RXLT0MKTcdjhJAqmBDaJBiFaRKgyKS3jUdqe/YNWxX133ev7UCLtoe97Gl5aJzrc2yf43M7yAWExmuH2hpZyWvA3psgsAVhn8GrrhMBFfZB2GWsBqNcaC0i+Mm9uTczvwrVvRH0ePjeQ0Dx7joNDipxQwxtGrvWZjXOT0Z0cNYEYHgaZbztcWUTPtVHgkKoO73WWKse23oBjrhU/MS1GZVOW2ieCmGjGtXl9ZgnIk8wDwzqRjFCNIyfiDNYqr5DUm1p7MAswru3m0XoQVScPcqiF7rBSszim3f1G9FYg0oblvDGsezlRBbSOnKXGRcL8n0FWO/g6ux9nfC1NlQkRXuYPEdUWi5A03uNG1ndDVI5XT8Bjx+2D4UcfQyyGuTRdMqv/Wuf900DISz7ToyXQWuyDnKL4cq5LrtWfgvMGWQgT9aKRlt+CrkGbG0WQ2ynsKWPcjx7uXP2Mp09ntuT1BCP3fuOCC2iC1VZHt9cnl2elKSlJNz+eW+NDj+UE1+O5Lb4G+JVqyhxR+IzBzFIdmd0bs5ykkcv/g0SNw6IR5WPVCikUWv+/no4u7o4TCXNC7egFuAl+6DN0kaqxo6x8537P7UeBFGJxrLToaaT95MpCZHOBlyraG7e5xxQ7PIvc0/OR//25A2vV/a/k/9ZJ+eIIPzE0nUE56uMkRxyE9zJsQk48a+L8Fe6SMphS5fP0GF4pIze+m675TIZ7WMnU2KU1+qRM0V9XYyR486JYZUzamLHrfesuj6l9k3Xct5f2vT8ww1h2ZP9oD/FVOcBrz5Omc3O2rsdkLbnX+7G38KPCS0IffICTzN/JGR1I5pdfaC/mV9QwFbn
+sidebar_class_name: "get api-method"
+info_path: docs/Pooler-API-Docs/snapshotter-core-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get Snapshotter Overall Status</h1>
+
+<MethodEndpoint method={"get"} path={"/internal/snapshotter/status"}></MethodEndpoint>
+
+
+
+Returns the overall status of the snapshotter.
+
+Args:
+    request (Request): The incoming request.
+    response (Response): The outgoing response.
+    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check. Defaults to Depends(rate_limit_auth_check).
+
+Returns:
+    dict: A dictionary containing the snapshotter status.
+
+## Request
+
+<div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful Response
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

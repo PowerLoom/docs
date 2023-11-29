@@ -1,0 +1,60 @@
+---
+id: get-snapshotter-epoch-processing-status-internal-snapshotter-epoch-processing-status-get
+title: "Get Snapshotter Epoch Processing Status"
+description: "Endpoint to get the epoch processing status report."
+sidebar_label: "Get Snapshotter Epoch Processing Status"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV21v2zgM/iuCPm1A1mS5+xQMA4q22Irt0FyTDge0QaDaSqzVtnSSvFtm+L+PlPwix2mTfTxg+ZAXig9JkQ9ppqQxN5EWygqZ0xm9ymMlRW6JlWTL4SPhhCsZJURpGXFjRL4lxjJbGKLhQNuzh/whP9dbM3vICbw0/7fgxpJXt/7L6xlZghGRRzJDcHMuH7/yCNEeZJTMDUeU/1bDZGG30sNqjT6OWb5ORSbsmhU2WcdcgQkQfkbZOYguEh49jYh0F2RpbRZxxOEI4nhuRcRQg0SoT8AOz2OeR7szcsk3rEitwZRcOrl5te/XoV67VNxyW+i8ycacbfn9ImfKJNJarq8wl/M2lbcuhdeWZysfmGJbkYPx+FjW6YhKxbUL+jqGykG11qZztHb4dYdfe/waiss1ZGKo3IW18KpgEtwoplnGQcvQ2X1JsX5Cc3C5YanhI2rg8hmjs5JaYVMOoeClAQjlFlmR0dnbEbU7hSfofMs1HMY+q3BYjWgODuBUeZxAIgJJ9I5Wo5McLsQP55B99w7/mJzsfdK5N95K6H4F3nhUaGF37vJMifUTx+8rPGtIaTCY6WSCH/1+WhQR5nRTpKRhNriIJESSW1RnSqU198ZfDWLKAxe8KIyF9vnB49MJRUdB6u6pAJmhqzYZvo+wvhqJZIW/hVcLXF87QQtjWrMdZmlf75SY6DHvjodI586uMyZi+lIVsYgOCuNrgIWGPQq2muVGYBE89UMjy/bMd9CBS7A4Fn6+zHvXYfnuZuOIcyBL6InfqRje90rV+REZjEqWqeN1M4O4F3vRGquhGBRTpbXUvTw5wSHN75CZnqYT7AdThaGGqWuFgwJUFfb2qYn8nb5h+qpVFbC4RAkakpalPSNOEMzDydDYyI/eXxrhAHID88AYfhGEnsy+K3MkwPpyf06nwxH7haUi9g/vphC/PF8/Lpfzzs5ePZ+hTMwtE71UX3rJ8Vk5dBXyN5URpsNsG0tH2YuIwPxn6S/8QiTBZNojbTlI/gpTj+EELv6C0e4pMiC9F+x1B1midKDdvsABt4msFxm3ddgEfoybdWUcrCvjg+sKxWe1/tbsKYWG2tDEWmVm4/G75c3lzfsxPL/HbvaHBLrLhfmPKfJl6q5/OnCeMFhIp+RvXGhNb1tYIMXqh0CzM7SZBcknjuWoF49/3pzPr994kds+Es5iR3v8vZHPTEByITUnAAUYXtsHNTl7ezZxjSaNzZgjfO3nAyz0Id49HkmXR9ImsnfPsuun3/8P/kf/D2q2WXgKjVXKgFnACsfusm6ve9q0FzZPFwWt16lBiwHDE6AVIsvyEdh/p9OqQrFfmLHxYmHYYxrs6478zXL/jaUFRuVa7RnVehHvVFf4QwvUdav3qOkQ9Ocx57BnKxugBoMfrbRD5sPVEteNArMQ9uWTa8L6SzAeYV4GtsOG9e7xPZidffV3oE1A+32r7k+eBdS3a7SxcjCEq59/K3Jz
+sidebar_class_name: "get api-method"
+info_path: docs/Pooler-API-Docs/snapshotter-core-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get Snapshotter Epoch Processing Status</h1>
+
+<MethodEndpoint method={"get"} path={"/internal/snapshotter/epochProcessingStatus"}></MethodEndpoint>
+
+
+
+Endpoint to get the epoch processing status report.
+
+Args:
+    request (Request): The incoming request object.
+    response (Response): The outgoing response object.
+    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency. Defaults to Depends(rate_limit_auth_check).
+
+Returns:
+    Page[SnapshotterEpochProcessingReportItem]: The paginated epoch processing status report.
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Query Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"required":false,"schema":{"title":"Page","minimum":1,"type":"integer","default":1},"name":"page","in":"query"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"required":false,"schema":{"title":"Size","maximum":30,"minimum":1,"type":"integer","default":10},"name":"size","in":"query"}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful Response
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>items</strong><span className={"openapi-schema__name"}> object[]</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"epochId"} required={false} schemaName={"Epochid"} qualifierMessage={undefined} schema={{"title":"Epochid","type":"integer","default":0}}></SchemaItem><SchemaItem collapsible={false} name={"epochEnd"} required={false} schemaName={"Epochend"} qualifierMessage={undefined} schema={{"title":"Epochend","type":"integer","default":0}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>transitionStatus</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"anyOf"} required={false} schemaName={""} qualifierMessage={undefined} schema={[{"title":"SnapshotterStateUpdate","required":["status","timestamp"],"type":"object","properties":{"status":{"title":"Status","type":"string"},"error":{"title":"Error","type":"string"},"extra":{"title":"Extra","type":"object"},"timestamp":{"title":"Timestamp","type":"integer"}}},{"type":"object","additionalProperties":{"title":"SnapshotterStateUpdate","required":["status","timestamp"],"type":"object","properties":{"status":{"title":"Status","type":"string"},"error":{"title":"Error","type":"string"},"extra":{"title":"Extra","type":"object"},"timestamp":{"title":"Timestamp","type":"integer"}}}}]}></SchemaItem></div></details></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"total"} required={false} schemaName={"Total"} qualifierMessage={undefined} schema={{"title":"Total","minimum":0,"type":"integer"}}></SchemaItem><SchemaItem collapsible={false} name={"page"} required={false} schemaName={"Page"} qualifierMessage={"**Possible values:** `>= 1`"} schema={{"title":"Page","minimum":1,"type":"integer"}}></SchemaItem><SchemaItem collapsible={false} name={"size"} required={false} schemaName={"Size"} qualifierMessage={"**Possible values:** `>= 1`"} schema={{"title":"Size","minimum":1,"type":"integer"}}></SchemaItem><SchemaItem collapsible={false} name={"pages"} required={false} schemaName={"Pages"} qualifierMessage={undefined} schema={{"title":"Pages","minimum":0,"type":"integer"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"items\": [\n    {\n      \"epochId\": 0,\n      \"epochEnd\": 0,\n      \"transitionStatus\": {}\n    }\n  ],\n  \"total\": 0,\n  \"page\": 0,\n  \"size\": 0,\n  \"pages\": 0\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"422"} value={"422"}><div>
+
+Validation Error
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>detail</strong><span className={"openapi-schema__name"}> object[]</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>loc</strong><span className={"openapi-schema__name"}> object[]</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><div><span className={"badge badge--info"}>anyOf</span><SchemaTabs><TabItem label={"MOD1"} value={"0-item-properties"}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+string
+
+</div></TabItem><TabItem label={"MOD2"} value={"1-item-properties"}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+integer
+
+</div></TabItem></SchemaTabs></div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"msg"} required={true} schemaName={"Message"} qualifierMessage={undefined} schema={{"title":"Message","type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"type"} required={true} schemaName={"Error Type"} qualifierMessage={undefined} schema={{"title":"Error Type","type":"string"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        0\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      
