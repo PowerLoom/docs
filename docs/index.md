@@ -52,7 +52,7 @@ To begin using Powerloom Protocol, you need to understand the workflow and archi
 
  ### Review Protocol Overview [Technical]
 
-Start by reviewing the detailed Protocol Overview section. This document offers a comprehensive view of how the protocol functions. [Dive into the Protocol](docs/Protocol)
+Start by reviewing the detailed Protocol Overview section. This document offers a comprehensive view of how the protocol functions. [Dive into the Protocol](./Protocol/)
 
 ### Powerloom snapshotter peer
 
