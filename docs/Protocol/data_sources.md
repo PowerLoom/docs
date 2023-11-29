@@ -39,8 +39,14 @@ Data sources can be dynamically added to the contract according to the role of c
 
 In the present implementation of the use case that tracks wallet activity for Quests on Polygon zkEVM, such wallets are added from a data feed supplied by Mercle that consists of wallets that signup on their platform. Only these wallet addresses are of interest to the Quest platform on Mercle for their activities to be tracked across DEXs and asset bridges.
 
+Read more about it in the [snapshotter specs of bulk node](/docs/Protocol/Specifications/Snapshotter/snapshot_build.md#bulk-mode).
+
 
 ## Project types and IDs
+
+All data sources are tracked with a project ID on the protocol. Think of it as a stream of datasets, finalized by consensus against [each epoch released](/docs/Protocol/Specifications/Epoch.md#1-epoch_released) on the protocol.
+
+Find more details on this in the [specifications of snapshot generation](/docs/Protocol/Specifications/Snapshotter/snapshot_build.md).
 
 
 ## Useful links and concepts

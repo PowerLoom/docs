@@ -22,6 +22,12 @@ Use case specific logic of generating snapshots as well as other configuration a
 
 The architecture has been designed to facilitate the seamless interchange of configuration and modules. Adapting the system to different use cases is as straightforward as changing a Git branch.
 
+You can observe the corresponding branches within [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/) and [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/) repos:
+
+* `eth_uniswapv2`
+* `eth_uniswapv2_5_pairs` in `snapshotter-configs` that corresponds to `eth_uniswapv2_lite` in `snapshotter-computes`
+* `zkevm_quests`
+
 ### Configuration Files
 
 Configuration files, located in the `/config` directory are linked to [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/) repo, play a pivotal role in defining project types, specifying paths for individual compute modules, and managing various project-related settings.
@@ -30,3 +36,10 @@ Configuration files, located in the `/config` directory are linked to [snapshott
 ### Compute Modules
 
 The heart of the system resides in the `snapshotter/modules` directory that's linked to [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/), where the actual computation logic for each project type is defined. These modules drive the snapshot generation process for specific project types.
+
+
+# Useful links
+
+* [Snapshot generation specifications](/docs/Protocol/Specifications/Snapshotter/snapshot_build.md)
+* [Data markets and sources](/docs/Protocol/data_sources.md)
+* [Composition of snapshots and higher order datapoints](/docs/Protocol/data_composition.md)
