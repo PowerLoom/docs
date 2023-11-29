@@ -165,7 +165,6 @@ const config = {
   
     themes: [
       'docusaurus-theme-github-codeblock'
-      
     
     ]
 };
