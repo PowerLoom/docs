@@ -29,7 +29,7 @@ Here are some of the key features of Powerloom:
 
 **Real-Time Data:** The snapshotter network provides real-time data updates as transactions occur on the blockchain, enabling applications that need live data.
 
-**Time-series queries**: Storing the data history on IPFS enables queries over customizable time periods, not just current state. This is useful for analytics and tracking trends.
+**Time-series queries**: Datasets are available across precise time periods captured in epochs which can be further filtered and composed to serve use cases. This is useful for analytics and tracking trends.
 
 **Flexible Data Models:** Developers can define custom data schemas in "data markets" to track what's most valuable for their specific use case, beyond basic transactions.
 
@@ -52,11 +52,14 @@ To begin using Powerloom Protocol, you need to understand the workflow and archi
 
  ### Review Protocol Overview [Technical]
 
-Start by reviewing the detailed Protocol Overview section. This document offers a comprehensive view of how the protocol functions. [Dive into the Protocol](./Protocol/)
+Start by reviewing the detailed Protocol Overview section. This document offers a comprehensive view of how the protocol functions. [Dive into the Protocol](docs/Protocol)
 
 ### Powerloom snapshotter peer
 
-Snapshotters play a crucial role in the powerloom ecosystem. Check out the docs to understand [How Snapshotter peer work](./Snapshotters/index.md) and if you are interested, you can [host your own Snapshotter node](./Snapshotters/Running-a-snapshotter-node.md) as well. 
+Snapshotters play a crucial role in the powerloom ecosystem. Check out the following sections in our docs to understand their role better 
+* [Snapshotters overview](/docs/Snapshotters/Overview) 
+* [Join one of the available data market networks](/docs/category/joining-networks)
+* [Snapshotters specifications](/docs/category/snapshotter)
    
 ### On-Chain Quest tracking
 
