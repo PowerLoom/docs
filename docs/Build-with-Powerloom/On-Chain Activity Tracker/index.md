@@ -2,73 +2,81 @@
 sidebar_position: 0
 ---
 
+# Developer Documentation: On-Chain Activity Tracker
 
-# On-Chain Activity Tracking
+## Introduction to On-Chain Activity Tracking
 
-Phase 2 quests are an important part of the Powerloom testnet, where we use Snapshotter Peers to watch testnet participants' activities on various blockchains. 
+On-chain activity tracking is vital in understanding and analyzing blockchain interactions. It provides deep insights into transactions, smart contracts, and user behaviors on various blockchains.  
 
-The Snapshotter Peer in Powerloom accurately measures key data points, helping us know when a participant completes a quest. This shows how well the Snapshotter Peer works in real situations, proving it's effective and reliable for complex tasks.
+We leverage Snapshotter Peers to monitor on-chain activities of testnet participants across various chains and protocols. These activity predominantly operate in Bulk Mode due to their one-time nature and the highly dynamic set of participants involved. 
 
-We've recently introduced an on-chain Quest for our testnet participants. For more details, you can read our announcement at [Powerloom's blog](https://blog.powerloom.io/dive-into-powerlooms-incentivized-testnet-quests-engage-experience-and-earn/).
+In this particular implementation of the peer, known as 'Snapshotter' in the Powerloom Protocol, we have successfully harnessed its capabilities to provide accurate metrics, verified through consensus, pertaining to fundamental data points. These metrics allow us to determine if and when a on-chain activity (quest) is completed by a testnet participant.
 
-In this initiative, we motivate users to engage in specific activities on the blockchain, which are monitored using our Snapshotter tool, referred to as the **Phase 2 quest**.
+## Why On-Chain Activity Tracking Matters
 
-## How it works
+For developers, on-chain activity tracking is a gateway to:
+- **Understanding User Interactions**: It helps in identifying patterns and trends in how users interact with different blockchain protocols.
+- **Smart Contract Analysis**: Developers can monitor and analyze the performance and usage of smart contracts.
+- **Real-Time Data Access**: It provides real-time data, aiding in responsive and dynamic application development.
+- **Security and Compliance**: Enables tracking of transactions for security audits and compliance with regulations.
 
-The working of the Phase 2 Quest is similar to how [Pooler - UniswapV2 dashboard](../UniswapV2%20Dashboard/index.md) works. 
+## Building an On-Chain Activity Tracker
 
+### 1. Snapshot Builders
 
-## Development for Phase 2 Quests
+Snapshot builders are the core components that capture blockchain activity. They are typically found in a specific implementation directory: [`snapshotter/modules/computes`](https://github.com/PowerLoom/snapshotter-computes/tree/1e145c7f458ce48b8cd2ac860c2ae4a78fad7ea9) in a project's repository. Each snapshot builder must implement a standard interface: [`GenericProcessorSnapshot`](https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/callback_helpers.py).
 
-The Phase 2 quests represent a practical application of our snapshotter peer. These quests mainly function in Bulk Mode, owing to their singular occurrence and the constantly changing group of participants.
-
-In this Development guide, we will explore the process of creating base snapshots. This includes a case study on how we retrieve snapshots on the Polygon ZKEVM and Bungee Bridge.
-
-### Base Snapshots
-
-The snapshot builders can be found under the snapshotter-specific implementation directory: [`snapshotter/modules/computes`](https://github.com/PowerLoom/snapshotter-computes/tree/1e145c7f458ce48b8cd2ac860c2ae4a78fad7ea9). Every snapshot builder must implement the interface of [`GenericProcessorSnapshot`](https://github.com/PowerLoom/pooler/blob/eth_uniswapv2/snapshotter/utils/callback_helpers.py)
 
 ```python reference
 https://github.com/PowerLoom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/callback_helpers.py#L179-L197
-
 ```
+#### Key Components:
 
-The `compute()` function is where you write the logic to create and process snapshots. It uses these inputs:
+- **Transformation Lambdas**: These are functions that add an additional computation layer on the generated snapshot. They should align with the snapshot's structure and the specific data needs of your project.
+- **Compute Callback**: This is where the logic for snapshot extraction and generation is written. It processes inputs such as:
+  - `epoch`: Details of the current epoch or timeframe.
+  - `redis`: Asynchronous Redis connection for data handling.
+  - `rpc_helper`: Utility for blockchain data requests.
 
-- `epoch`: Information about the current epoch.
-- `redis`: A connection to Redis, which works asynchronously.
-- `rpc_helper`: This helps with blockchain data requests.
+### 2. Snapshot Generation and Storage
 
-For extra calculations, use `transformation_lambdas`. If `compute()` does all the work, set this to an empty list (`[]`). Otherwise, include a sequence of functions that all take inputs like the snapshot data, contract address, and the start and end of the epoch.
-
-The `compute()` function should return a Pydantic model, which is then stored on IPFS by a special method in the system.
+The `compute()` function should return an instance of a Pydantic model, encapsulating the snapshot data. This data is then uploaded to a storage solution like IPFS (InterPlanetary File System) for decentralized and persistent storage.
 
 ```python reference
 https://github.com/PowerLoom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/generic_worker.py#L179-L191
 ```
-In the provided [`config/projects.json` example](https://github.com/PowerLoom/snapshotter-configs/blob/544f3f3355f0b25b99bac7fe8288cec1a4aea3f3/projects.example.json), we can see different snapshots being created. One of these is for `zkevm:bungee_bridge`.
+
+### 3. Configuring the Snapshot Builder
+
+A configuration file [`config/projects.json`](https://github.com/PowerLoom/snapshotter-configs/blob/544f3f3355f0b25b99bac7fe8288cec1a4aea3f3/projects.example.json) specifies the details of the snapshots to be generated. For instance, a [snapshot builder](https://github.com/PowerLoom/snapshotter-computes/blob/29199feab449ad0361b5867efcaae9854992966f/bungee_bridge.py) for `zkevm:bungee_bridge` might look like this:
 
 ```json
-    {
-      "project_type": "zkevm:bungee_bridge",
-      "projects":[
-        ],
-      "preload_tasks":[
-        "block_transactions"
-      ],
-      "processor":{
-        "module": "snapshotter.modules.boost.bungee_bridge",
-        "class_name": "BungeeBridgeProcessor"
-      }
-    },
+{
+  "project_type": "zkevm:bungee_bridge",
+  "preload_tasks": ["block_transactions"],
+  "processor": {
+    "module": "snapshotter.modules.boost.bungee_bridge",
+    "class_name": "BungeeBridgeProcessor"
+  }
+}
 ```
 
+The preloader dependencies like [`block_transactions`](https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/preloaders/tx_receipts/preloader.py) are crucial as they define the initial data set that the snapshot builder will process.
 
-Its preloader dependency is  [`block_transactions`](https://github.com/PowerLoom/pooler/blob/eth_uniswapv2/snapshotter/utils/preloaders/tx_receipts/preloader.py)  as seen in the  [preloader configuration](https://github.com/PowerLoom/pooler/tree/eth_uniswapv2#preloading).
+### 4. Snapshot Processing
 
-The snapshot builder then goes through all preloaded block transactions, filters out, and then generates relevant snapshots for wallet address that received funds from the Bungee Bridge refuel contract during that epoch.
+The snapshot builder processes preloaded data (e.g., block transactions) and filters out relevant information. For instance, it might generate snapshots for wallet addresses that interacted with a specific contract during a defined epoch.
 
-```python reference 
+## Practical Example: Bungee Bridge Processor
 
-https://github.com/PowerLoom/snapshotter-computes/blob/29199feab449ad0361b5867efcaae9854992966f/bungee_bridge.py#L40-L92
-```
+Consider a scenario where you're tracking transactions related to the Bungee Bridge refuel contract. The snapshot builder would analyze the preloaded block transactions and create snapshots for wallet addresses that received funds from the Bungee Bridge contract within a specific timeframe.
+
+## Leveraging On-Chain Activity Trackers in Development
+
+Developers can use on-chain activity trackers to build a wide range of applications, including:
+
+- **Analytical Tools**: For analyzing blockchain data and extracting meaningful insights.
+- **Alert Systems**: To monitor and send notifications for specific on-chain events.
+- **Compliance Checkers**: Ensuring transactions and smart contracts comply with set regulations.
+- **Security Monitors**: Identifying potentially malicious activities or vulnerabilities in smart contracts.
+

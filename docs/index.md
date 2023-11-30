@@ -73,7 +73,7 @@ Visit the [Powerloom Pooler Section](/docs/Build-with-Powerloom/UniswapV2%20Dash
 
 Discover our customized APIs for Pooler, designed to provide real-time access and insights into the UniswapV2 data. [Pooler APIs Docs](/docs/Pooler-API-Docs/)
 
----
+
 ## Technical Community Calls
 
 We have a detailed walkthrough of our network, how it functions and how one leverage the power of data using powerloom. You can watch these technical community calls: 
