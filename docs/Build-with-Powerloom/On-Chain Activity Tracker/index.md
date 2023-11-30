@@ -2,9 +2,7 @@
 sidebar_position: 0
 ---
 
-# Developer Documentation: On-Chain Activity Tracker
-
-## Introduction to On-Chain Activity Tracking
+## On-Chain Activity Tracking
 
 On-chain activity tracking is vital in understanding and analyzing blockchain interactions. It provides deep insights into transactions, smart contracts, and user behaviors on various blockchains.  
 
