@@ -16,7 +16,7 @@ Forex, the foreign exchange market, involves currency trading and is known for i
 In essence, Pooler is to Uniswap what Forex platforms are to currency trading – a tool for real-time tracking and analysis, facilitating better understanding and potentially profitable decision-making in the dynamic world of cryptocurrency trading.
 :::
 
-![Uniswap Dashboard Rendering](../../../static/images/dashboard-rendering.png)
+![Uniswap Dashboard Rendering](/images/dashboard-rendering.png)
 
 ### How it works
 Let's explore the details of the Pooler implementation. The image provided illustrates the operational flow of the UniswapV2 Dashboard as it functions via Powerloom's snapshotter network.
@@ -69,4 +69,5 @@ Access [Pooler API Documentation](../Pooler-API-Docs/)
 ### Development and Extension
 
 Pooler’s design enables extensions and custom use case implementations. It offers a detailed guide for extending its capabilities, particularly with Uniswap v2 data points. Developers can add new configurations and data models as needed, ensuring Pooler’s adaptability to various requirements. We have a dedicated section in the documentation which walkthrough the details on further implementation and usecases
-[Build your case](./What-You-Can-Build-with-PowerLoom.md)
+
+_TODO: link to extending uniswap v2 dashboard_

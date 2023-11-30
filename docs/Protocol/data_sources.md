@@ -41,6 +41,8 @@ In the present implementation of the use case that tracks wallet activity for Qu
 
 Read more about it in the [snapshotter specs of bulk node](/docs/Protocol/Specifications/Snapshotter/snapshot_build.md#bulk-mode).
 
+![Mercle data source signaling](/images/data_source_signaling_example.png)
+
 
 ## Project types and IDs
 
