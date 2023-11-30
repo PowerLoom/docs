@@ -23,7 +23,7 @@ Project IDs are unique identifiers in Pooler that correspond to specific pair co
 -   `projects` - smart contracts to extract data from, pooler can generate different snapshots from multiple sources as long as the Contract ABI is same
 -   `processor` - the actual compuation logic reference, while you can write the logic anywhere, it is recommended to write your implementation in pooler/modules folder
 ```json reference
-https://github.com/PowerLoom/pooler/blob/1452c166bef7534568a61b3a2ab0ff94535d7229/config/projects.example.json#L1-L35
+https://github.com/PowerLoom/snapshotter-configs/blob/6e34c5b68fa3fba7cad3b140f8676dcbdab687c5/projects.example.json#L1-L35
 ```
 
 ```json
@@ -41,20 +41,20 @@ There's currently no limitation on the number or type of usecases you can build 
 
 ## Core APIs
 
-This component is one of the most important and allows you to access the finalized protocol state on the smart contract running on the anchor chain. Find it in  [`core_api.py`](https://github.com/PowerLoom/pooler/blob/main/pooler/core_api.py).
+This component is one of the most important and allows you to access the finalized protocol state on the smart contract running on the anchor chain. Find it in  [`core_api.py`](https://github.com/PowerLoom/pooler/blob/main/snapshotter/core_api.py).
 
-The  [pooler-frontend](https://github.com/powerloom/pooler-frontend)  that serves the Uniswap v2 dashboards hosted by the PowerLoom foundation on locations like  [https://uniswapv2.powerloom.io/](https://uniswapv2.powerloom.io/)  is a great example of a frontend specific web application that makes use of this API service.
+The  [pooler-frontend](https://github.com/powerloom/pooler-frontend) that serves the Uniswap v2 dashboards hosted by the PowerLoom foundation on locations like  [https://uniswapv2.powerloom.io/](https://uniswapv2.powerloom.io/)  is a great example of a frontend specific web application that makes use of this API service.
 
 Among many things, the core API allows you to  **access the finalized CID as well as its contents at a given epoch ID for a project**.
 
 The main endpoint implementations can be found as follows:
 
 ```python reference
-https://github.com/PowerLoom/pooler/blob/5e7cc3812074d91e8d7d85058554bb1175bf8070/snapshotter/core_api.py#L186-L268
+https://github.com/PowerLoom/pooler/blob/fc08cdd951166ab0cea669d233cd28d0639f628d/snapshotter/core_api.py#L247-L339
 ```
 
 ```python reference
-https://github.com/PowerLoom/pooler/blob/5e7cc3812074d91e8d7d85058554bb1175bf8070/snapshotter/core_api.py#L273-L324
+https://github.com/PowerLoom/pooler/blob/fc08cdd951166ab0cea669d233cd28d0639f628d/snapshotter/core_api.py#L344-L404
 ```
 
 The first endpoint in GET /last_finalized_epoch/{project_id} returns the last finalized EpochId for a given project ID and the second one is GET /data/{epoch_id}/{project_id}/ which can be used to return the actual snapshot data for a given EpochId and ProjectId.

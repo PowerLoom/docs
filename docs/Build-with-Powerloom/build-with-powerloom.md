@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Build Applications with Powerloom
+# Building applications using Powerloom
 
 
 Powerloom Protocol offers a versatile platform for developers to build various blockchain-based applications.
@@ -15,19 +15,10 @@ Data Dashboards can leverage Powerloom to display blockchain data in an interact
 
 ### Extending Pooler to implement new datapoints
 
-The possibilities are endless with the diverse range of datasets you can implement. To illustrate this, let's examine an example:
+The possibilities are endless with the diverse range of datasets you can implement. To illustrate this, we have a guide that that can help you! 
 
-#### New Datapoint: 2 hours aggregate of only swap events
+[Extending UniswapV2 Dashboard](/docs/Build-with-Powerloom/UniswapV2%20Dashboard/Extending-Uniswapv2-Dashboard.md)
 
-From the information provided above, the following is left as an exercise for the reader to generate aggregate datasets at every epochId finalization for a pair contract, spanning 2 hours worth of snapshots and containing only Swap event logs and the trade volume generated from them as a result.
-
-> Feel free to fork the [pooler repo](https://github.com/powerloom/pooler) and commit these on your implementation branch. By following the steps recommended for developers for the overall setup on [`deploy`](https://github.com/powerloom/deploy), you can begin capturing aggregates for this datapoint.
-
-To set up this new data aggregation:
-
-1. Add a new entry for the aggregation worker class in the `config/aggregator.json` file.
-2. Create a new data model in [`utils/message_models.py`](https://github.com/PowerLoom/pooler/blob/main/snapshotter/modules/pooler/uniswapv2/utils/models/message_models.py). Use `UniswapTradesAggregateSnapshot` and `UniswapTradesSnapshot` as references.
-3. Look at the 24-hour aggregation example for guidance. Work on creating a 2-hour time span (`epochId` span) and focus on extracting only `Swap` events and their trade volumes.
 
 ---
 

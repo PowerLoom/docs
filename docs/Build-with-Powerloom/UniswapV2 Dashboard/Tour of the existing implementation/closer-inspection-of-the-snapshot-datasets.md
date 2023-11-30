@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 ---
+# Closer Inspection of the Snapshot Datasets
 
 Pooler is a Uniswap V2 specific implementation in the PowerLoom Protocol, designed to capture, process, and aggregate blockchain data. This documentation provides an in-depth look at how Pooler operates and how developers can utilize it for building data-rich applications.
 
@@ -47,7 +48,7 @@ This will allow you to connect to the Powerloom Prost 1D Chain testnet.
 
 To access and utilize the ABI of the protocol state contract from the Powerloom project, follow these steps:
 
-1. Visit the Powerloom 'pooler' repository on GitHub at this URL: [Powerloom pooler repository - ProtocolContract.json](https://github.com/PowerLoom/pooler/blob/testnet_5_pairs/snapshotter/static/abis/ProtocolContract.json).
+1. Visit the Powerloom 'pooler' repository on GitHub at this URL: [Powerloom pooler repository - ProtocolContract.json](https://github.com/PowerLoom/pooler/blob/main/snapshotter/static/abis/ProtocolContract.json).
 2. Locate the `ProtocolContract.json` file.
 3. Copy the contents of the file.
 4. Open the Remix IDE.
@@ -86,9 +87,9 @@ This process will allow you to review the aggregated data for the top pairs on U
 Before you dive into this section, please make sure you take a look into the [Project Configuration Section](./fetching-higher-order-datapoints.md#project-configuration)
 :::
 
-In the last section, we learned how to get data from the protocol state contract and see it in JSON format through the IPFS Gateway. Next, we're going to explore how trade data is processed in basic snapshots.
+In the last section, we explored how to get data from the protocol state contract and see it in JSON format through the IPFS Gateway. Next, we're going to explore how trade data is processed in basic snapshots.
 
-Our Pooler system has several classes that handle the hard work of processing and ensuring the data is correct. One of these classes is `TradeVolumeProcessor`, located at [`snapshotter/modules/pooler/uniswapv2/trade_volume.py`](https://github.com/PowerLoom/pooler/blob/main/snapshotter/modules/pooler/uniswapv2/trade_volume.py). This class uses the `GenericProcessorSnapshot` structure found in [`pooler/utils/callback_helpers.py`](https://github.com/PowerLoom/pooler/blob/main/pooler/utils/callback_helpers.py).
+Our Pooler system has several classes that handle the hard work of processing and ensuring the data is correct. One of these classes is `TradeVolumeProcessor`, located in the **Snapshotter-compute** Repo (eth_uniswapv2 branch)[`snapshotter-computer/aggregate/single_uniswap_trade_volume_24h.py`](hhttps://github.com/PowerLoom/snapshotter-computes/blob/eth_uniswapv2/aggregate/single_uniswap_trade_volume_24h.py). This class uses the `GenericProcessorSnapshot` structure found in [`snapshotter/utils/callback_helpers.py`](https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/callback_helpers.py).
 
 
 If you are planning to write your own extraction logic, here are few quick concepts that are crucial:
@@ -102,7 +103,7 @@ Additionally, `transformation_lambdas` are used for extra calculations on the sn
 
 
 ```python reference
-https://github.com/PowerLoom/pooler/blob/0e65170ac8160160d5e6978d512a7f0f89fcc9c2/snapshotter/modules/pooler/uniswapv2/trade_volume.py#L23-L28
+https://github.com/PowerLoom/snapshotter-computes/blob/74b2eaa452bfac8c0e4e0a7ed74a4d2748e9c224/aggregate/single_uniswap_trade_volume_24h.py#L110-L120
 ```
 The format of the output data can vary based on what you need it for. However, it's a good idea to use [`pydantic`](https://pypi.org/project/pydantic/) models, as they help organize and define the data structure clearly.
 
@@ -111,10 +112,10 @@ Pydantic Model is a Python Library that helps data validation and parsing, by us
 :::
 
 
-In this example related to Uniswap V2, the output is a data model named `UniswapTradesSnapshot`. This model is defined in a specific section of the Pooler code, located in the directory [`utils/models/message_models.py`](https://github.com/PowerLoom/pooler/blob/main/snapshotter/modules/pooler/uniswapv2/utils/models/message_models.py).
+In this example related to Uniswap V2, the output is a data model named `UniswapTradesSnapshot`. This model is defined in a specific section of the Pooler code, located in the Snapshotter Compute repository (eth_uniswapv2 branch) [`utils/models/message_models.py`](https://github.com/PowerLoom/snapshotter-computes/blob/eth_uniswapv2/utils/models/message_models.py).
 
 ```python reference
-https://github.com/PowerLoom/pooler/blob/0e65170ac8160160d5e6978d512a7f0f89fcc9c2/snapshotter/modules/pooler/uniswapv2/utils/models/message_models.py#L47-L55
+https://github.com/PowerLoom/snapshotter-computes/blob/74b2eaa452bfac8c0e4e0a7ed74a4d2748e9c224/utils/models/message_models.py#L47-L55
 ```
 
 The `TradeVolumeProcessor` collects and stores information about trades that happen within a specific range of blocks in the blockchain, known as the epoch. This range is defined by the lowest block number (`min_chain_height`) and the highest block number (`max_chain_height`) in that epoch.
@@ -125,11 +126,11 @@ The `TradeVolumeProcessor` collects and stores information about trades that hap
     
 -   The epoch size as described in the prior section on  [epoch generation](../../../Protocol/Specifications/Epoch.md)  can be considered to be constant for this specific implementation of the Uniswap v2 use case on PowerLoom Protocol, and by extension, the time duration captured within the epoch.
     
--   The finalized state and data CID corresponding to each epoch can be accessed on the smart contract on the anchor chain that holds the protocol state. The corresponding helpers for that can be found in  `get_project_epoch_snapshot()`  in  [`pooler/utils/data_utils`](https://github.com/PowerLoom/pooler/blob/main/pooler/utils/data_utils.py)
+-   The finalized state and data CID corresponding to each epoch can be accessed on the smart contract on the anchor chain that holds the protocol state. The corresponding helpers for that can be found in  `get_project_epoch_snapshot()`  in  [`pooler/snapshotter/utils/data_utils.py`](hhttps://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/data_utils.py)
 
 ```python reference
 
-https://github.com/PowerLoom/pooler/blob/1452c166bef7534568a61b3a2ab0ff94535d7229/pooler/utils/data_utils.py#L183-L191
+https://github.com/PowerLoom/pooler/blob/fc08cdd951166ab0cea669d233cd28d0639f628d/snapshotter/utils/data_utils.py#L273-L295
 
 ```
 
@@ -142,13 +143,13 @@ tail_epoch_id = current_epoch_id - int(time_in_seconds / (source_chain_epoch_siz
 
 ```python reference 
 
-https://github.com/PowerLoom/pooler/blob/1452c166bef7534568a61b3a2ab0ff94535d7229/pooler/utils/data_utils.py#L263-L290
+https://github.com/PowerLoom/pooler/blob/fc08cdd951166ab0cea669d233cd28d0639f628d/snapshotter/utils/data_utils.py#L507-L546
 ```
 
 The worker class for such aggregation is defined in  `config/aggregator.json`  in the following manner:
 
 ```json reference 
-https://github.com/PowerLoom/pooler/blob/1452c166bef7534568a61b3a2ab0ff94535d7229/config/aggregator.example.json#L3-L10
+https://github.com/PowerLoom/snapshotter-configs/blob/ae77941311155a9126205af08735c3dfa5d72ac2/aggregator.example.json#L3-L10
 
 ```
 

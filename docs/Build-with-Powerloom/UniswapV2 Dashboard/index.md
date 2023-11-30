@@ -70,4 +70,4 @@ Access [Pooler API Documentation](../Pooler-API-Docs/)
 
 Pooler’s design enables extensions and custom use case implementations. It offers a detailed guide for extending its capabilities, particularly with Uniswap v2 data points. Developers can add new configurations and data models as needed, ensuring Pooler’s adaptability to various requirements. We have a dedicated section in the documentation which walkthrough the details on further implementation and usecases
 
-_TODO: link to extending uniswap v2 dashboard_
+Check out our guide on [Extending UniswapV2 Dashboard](/docs/Build-with-Powerloom/UniswapV2%20Dashboard/Extending-Uniswapv2-Dashboard.md)
