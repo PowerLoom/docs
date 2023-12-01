@@ -54,15 +54,15 @@ Let's explore the details of the Pooler implementation. The image provided illus
 
 Data points are key metrics sourced from Uniswap V2 pair contracts, detailing how token trades are conducted. Our Pooler system processes this data into aggregated metrics, providing an overview of market trends, such as trade frequencies and average prices. These insights aid users in understanding market movements and asset performance, crucial for informed trading decisions within Uniswap V2.
 
- For an in-depth look, visit [Tour of Existing Implementation](../uniswapv2-dashboard/tour-of-existing-implementation/index.md).
+ For an in-depth look, visit [Tour of Existing Implementation](/docs/build-with-powerloom/building-use-cases/uniswapv2-dashboard/tour-of-existing-implementation/index.md).
 
 
 ---
-### Pooler APIs
+### Snapshotter Core API
 
-The Core API is a crucial element, allowing access to finalized protocol states on the anchor chain’s smart contract. Pooler’s functionality can be observed in action through the Uniswap v2 dashboards, like [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io/), powered by the Pooler foundation's API. 
+The Core API is a crucial element, allowing access to finalized protocol states on the anchor chain’s smart contract. This functionality can be observed in action through the Uniswap v2 dashboards, like [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io/), powered by the Snapshotter Core API hosted by Powerloom foundation.
 
-Access [Pooler API Documentation](../Pooler-API-Docs/)
+Access [Snapshotter Core API Documentation](/docs/snapshotter-core-api/)
 
 ---
 

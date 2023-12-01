@@ -19,7 +19,7 @@ Project IDs are unique identifiers in Pooler that correspond to specific pair co
 
   #### Config File: `projects.json` defines project types and associated smart contract addresses.
   - **Structure:**
--   `project_type`  - unique identifier prefix for the usecase,  [used to generate project ID](../../../protocol/specifications/snapshotter/snapshot-build.md)
+-   `project_type`  - unique identifier prefix for the usecase,  [used to generate project ID](protocol/specifications/snapshotter/snapshot-build.md)
 -   `projects` - smart contracts to extract data from, pooler can generate different snapshots from multiple sources as long as the Contract ABI is same
 -   `processor` - the actual compuation logic reference, while you can write the logic anywhere, it is recommended to write your implementation in pooler/modules folder
 ```json reference
@@ -80,6 +80,6 @@ try {
     }
 ```
 
-Check out our [Pooler API Docs](../../../Pooler-API-Docs/) for more information.
+Check out our [Snapshotter Core API docs](/docs/snapshotter-core-api/) for more information.
 
 Coming up, we're going to have a closer look at snapshot datasets in Pooler. You'll learn how they are made and how to get data from them. 

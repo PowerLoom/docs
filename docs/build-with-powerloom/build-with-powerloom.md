@@ -62,7 +62,7 @@ For Pooler to work properly, it needs certain configuration files:
 
 ```
 
--   Copy over  [`config/projects.example.json`](https://github.com/PowerLoom/pooler/blob/main/config/projects.example.json)  to  `config/projects.json`. For more details, read on in the  [UniswapV2 Dashboard Implementation](../build-with-powerloom/uniswapv2-dashboard/index.md) for this current implementation.
+-   Copy over  [`config/projects.example.json`](https://github.com/PowerLoom/pooler/blob/main/config/projects.example.json)  to  `config/projects.json`. For more details, read on in the  [UniswapV2 Dashboard Implementation](/build-with-powerloom/building-usecases/uniswapv2-dashboard) for this current implementation.
 
 In Pooler, `config/aggregator.json` is a file that outlines different types of data aggregation tasks performed over a span of snapshots. To set this up:
 
@@ -97,7 +97,7 @@ In Pooler, `config/aggregator.json` is a file that outlines different types of d
    ```
 
 
-The following configuration generates a collection of data sets of 24 hour trade volume as calculated by the worker above across multiple pair contracts. This can be seen by the  `aggregate_on`  key being set to  `MultiProject`. *  `projects_to_wait_for`  specifies the exact project IDs on which this collection will be generated once a snapshot build has been achieved for an  [`epochId`](../protocol/specifications/epoch.md).
+The following configuration generates a collection of data sets of 24 hour trade volume as calculated by the worker above across multiple pair contracts. This can be seen by the  `aggregate_on`  key being set to  `MultiProject`. *  `projects_to_wait_for`  specifies the exact project IDs on which this collection will be generated once a snapshot build has been achieved for an  [`epochId`](/docs/protocol/specifications/epoch.md).
 
 ```json
 

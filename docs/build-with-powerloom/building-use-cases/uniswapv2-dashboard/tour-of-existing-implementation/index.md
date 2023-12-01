@@ -6,7 +6,7 @@ sidebar_position: 0
 
 ### Data Points in Pooler
 
-![UniswapV2 Dashboard Powerloom](../../../../static/images/uniswapv2-dashboard-powerloom.png)
+![UniswapV2 Dashboard Powerloom](/images/uniswapv2-dashboard-powerloom.png)
 
 In Pooler, data points are specific, quantifiable elements derived from Uniswap V2 trading activities. These include:
 

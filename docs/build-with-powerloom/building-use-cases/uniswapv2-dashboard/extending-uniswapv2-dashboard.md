@@ -10,7 +10,7 @@ This documentation provides a step-by-step guide for developers looking to exten
 :::tip
 Prerequisities: Before we dive into the implementation of new data points, you may want to look at the concept of how the pooler functions and how it retrives and processes the data. 
 
-[Closer look into the Snapshot Datasets](/docs/build-with-powerloom/uniswapv2-dashboard/Tour%20of%20the%20existing%20implementation/closer-inspection-of-the-snapshot-datasets)
+[Closer look into the Snapshot Datasets](/docs/build-with-powerloom/uniswapv2-dashboard/tour-of-existing-implementation/closer-inspection-of-the-snapshot-datasets)
 :::
 
 ### Scenario: 2-Hour Aggregate of Swap Events

@@ -22,7 +22,7 @@ Pooler focuses on several key data points:
 Pooler uses decentralized CIDs (Content Identifiers) to query individual pair contract projects. This is crucial for accessing reliable and decentralized data. The CIDs correspond to specific data sets, making it easier to fetch relevant information.
 
 ### Fetching CID and Verifying it On-Chain!
-![API Calls for the a certain CID](../../../../static/images/uniswap-inspect.png)
+![API Calls for the a certain CID](/images/uniswap-inspect.png)
 
 The Uniswap v2 dashboard at https://uniswapv2.powerloom.io/ connects to a backend hosted by the Powerloom Foundation. This backend includes a service called `core_api.py` in the 'pooler' section. This service links directly to the protocol's final state as defined in the contract.
 
@@ -42,7 +42,7 @@ Once you have these details:
 
 This will allow you to connect to the Powerloom Prost 1D Chain testnet.
 
-![Chain-Details](../../../../static/images/Chain-details.png)
+![Chain-Details](/images/Chain-details.png)
 
 **Accessing the ABI of the protocol state Contract**
 
@@ -57,7 +57,7 @@ To access and utilize the ABI of the protocol state contract from the Powerloom 
 7. Save the file in Remix.
 
 This process will allow you to have the protocol state contract’s ABI available in the Remix editor for further development or interaction.
-![ABI Interacting](../../../../static/images/abi-interaction.png)
+![ABI Interacting](/images/abi-interaction.png)
 
 **Verify Uniswap v2 dashboard datasets**
 
@@ -124,7 +124,7 @@ The `TradeVolumeProcessor` collects and stores information about trades that hap
 
 -  As we explored in the previous section, the  `TradeVolumeProcessor`  logic takes care of capturing a snapshot of information regarding Uniswap v2 trades between the block heights of  `min_chain_height`  and  `max_chain_height`.
     
--   The epoch size as described in the prior section on  [epoch generation](../../../protocol/specifications/epoch.md)  can be considered to be constant for this specific implementation of the Uniswap v2 use case on PowerLoom Protocol, and by extension, the time duration captured within the epoch.
+-   The epoch size as described in the prior section on  [epoch generation](/docs/protocol/specifications/epoch.md)  can be considered to be constant for this specific implementation of the Uniswap v2 use case on PowerLoom Protocol, and by extension, the time duration captured within the epoch.
     
 -   The finalized state and data CID corresponding to each epoch can be accessed on the smart contract on the anchor chain that holds the protocol state. The corresponding helpers for that can be found in  `get_project_epoch_snapshot()`  in  [`pooler/snapshotter/utils/data_utils.py`](hhttps://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/data_utils.py)
 
@@ -157,4 +157,4 @@ Each finalized `epochId` is registered with a snapshot commit against the aggreg
 
 ## Extending Pooler for more Datapoints. 
 
-Implementing custom data points on top of existing pooler is easy. We have a section in [Build with Powerloom](../../build-with-powerloom.md) which covers this in detail. 
+Implementing custom data points on top of existing pooler is easy. We have a section in [Build with Powerloom](/docs/build-with-powerloom) which covers this in detail. 
