@@ -7,7 +7,7 @@ sidebar_position: 2
 ## Snapshot computation modules
 ---
 
-As briefly introduced in the section on snapshotter implementations that [leverage Git Submodules for specific computation logic](/docs/protocol/specifications/snapshotter/implementations.md), the modules are specified in the configuration for project types under the key `processor`.
+As briefly introduced in the section on snapshotter implementations that [leverage Git Submodules for specific computation logic](/docs/protocol/specifications/snapshotter/implementations), the modules are specified in the configuration for project types under the key `processor`.
 
 ```json reference 
 https://github.com/PowerLoom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json#L15-L28
@@ -51,7 +51,7 @@ https://github.com/PowerLoom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d0
 ```
 
 
-3. Else, we can have a [static list of contracts](/docs/protocol/data-sources.md#static-data-sources)
+3. Else, we can have a [static list of contracts](/docs/protocol/data-sources#static-data-sources)
 
 ### Data source specification: Bulk mode
 
@@ -71,7 +71,7 @@ https://github.com/PowerLoom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea
 
 This allows for the flexibility to filter through all transactions and blocks without the need for predefined data sources. 
 
-The `Processor Distributor` generates a `SnapshotProcessMessage` with bulk mode enabled for each project type. When snapshot workers receive this message, they leverage [common preloaders](/docs/protocol/specifications/snapshotter/preloading.md#shipped-preloaders)to filter out relevant data.
+The `Processor Distributor` generates a `SnapshotProcessMessage` with bulk mode enabled for each project type. When snapshot workers receive this message, they leverage [common preloaders](/docs/protocol/specifications/snapshotter/preloading#shipped-preloaders)to filter out relevant data.
 
 ```python reference
 https://github.com/PowerLoom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L717-L730
@@ -81,7 +81,7 @@ https://github.com/PowerLoom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d0
 Since common datapoints like block details, transaction receipts etc are preloaded, this approach can efficiently scale to accommodate a large number of project types with little to no increase in RPC (Remote Procedure Call) calls.
 :::
 
-Whenever a data source is added or removed by the [signaling ecosystem](/docs/protocol/data-sources.md#data-source-signaling), the protocol state smart contract emits a `ProjectUpdated` event with the following data model.
+Whenever a data source is added or removed by the [signaling ecosystem](/docs/protocol/data-sources#data-source-signaling), the protocol state smart contract emits a `ProjectUpdated` event with the following data model.
 
 ```python reference
 https://github.com/PowerLoom/pooler/blob/5892eeb9433d8f4b8aa677006d98a1dde0458cb7/snapshotter/utils/models/data_models.py#L102-L105
@@ -111,12 +111,12 @@ https://github.com/PowerLoom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc8
 ## Aggregate snapshots
 ---
 
-Aggregate and higher order snapshots that build on base snapshots are configured in their specific repos like the following in our [Uniswap V2 Dashboard use case](/docs/category/uniswapv2-dashboard). This is where you see the [dependency graph of snapshot composition](/docs/protocol/data-composition.md#dependency-graph) in action.
+Aggregate and higher order snapshots that build on base snapshots are configured in their specific repos like the following in our [Uniswap V2 Dashboard use case](/docs/category/uniswapv2-dashboard). This is where you see the [dependency graph of snapshot composition](/docs/protocol/data-composition#dependency-graph) in action.
 
 :::info
 
-* [Single project composition](/docs/protocol/data-composition.md#single-project-composition)
-* [Multi project composition](/docs/protocol/data-composition.md#multiple-projects-composition)
+* [Single project composition](/docs/protocol/data-composition#single-project-composition)
+* [Multi project composition](/docs/protocol/data-composition#multiple-projects-composition)
 * [Walkthrough of the snapshotter implementation for Uniswap V2 dashboard](docs/category/tour-of-the-existing-implementation)
 :::
 
@@ -133,7 +133,7 @@ https://github.com/PowerLoom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8b
   * For eg, a base snapshot build on a project ID `pairContract_trade_volume:0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc:UNISWAPV2` triggers the worker `AggreagateTradeVolumeProcessor` as defined in the `processor` config, against the pair contract `0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc`.
 * The span of epochs on which corresponding base snapshots will be aggregated is determined by the logic contained in the module specified in the `processor` key
 
-The following implementation aggregates [trade volume snapshots](/docs/build-with-powerloom/uniswapv2-dashboard/tour-of-existing-implementation/closer-inspection-of-the-snapshot-datasets.md#extracting-base-snapshots-trade-data-logic) across a span of 24 hours worth of epochs, if available. Else, it aggregates the entire span of epochs available on the protocol against the data market and reports it back.
+The following implementation aggregates [trade volume snapshots](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-inspection-of-the-snapshot-datasets#extracting-base-snapshots-trade-data-logic) across a span of 24 hours worth of epochs, if available. Else, it aggregates the entire span of epochs available on the protocol against the data market and reports it back.
 
 ```python reference
 https://github.com/PowerLoom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc860004d35786f4df/aggregate/single_uniswap_trade_volume_24h.py#L110-L121

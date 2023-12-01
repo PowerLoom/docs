@@ -10,7 +10,7 @@ You can tunnel into port `8002` of an instance running the snapshotter and right
 
 ## `GET /internal/snapshotter/epochProcessingStatus`
 
-As detailed out in the section on [epoch processing state transitions](Protocol/Specifications/epoch.md#state-transitions), this internal API endpoint offers the most detailed insight into each epoch's processing status as it passes through the snapshot builders and is sent out for consensus.
+As detailed out in the section on [epoch processing state transitions](protocol/specifications/epoch.md#state-transitions), this internal API endpoint offers the most detailed insight into each epoch's processing status as it passes through the snapshot builders and is sent out for consensus.
 
 > NOTE: The endpoint, though paginated and cached, serves a raw dump of insights into an epoch's state transitions and the payloads are significantly large enough for requests to timeout or to clog the internal API's limited resource. Hence it is advisable to query somewhere between 1 to 5 epochs. The same can be specified as the size query parameter.
 

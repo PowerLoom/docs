@@ -84,7 +84,7 @@ This process will allow you to review the aggregated data for the top pairs on U
 ## Extracting Base Snapshots: Trade Data Logic
 
 :::info
-Before you dive into this section, please make sure you take a look into the [Project Configuration Section](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/fetching-higher-order-datapoints.md#project-configuration)
+Before you dive into this section, please make sure you take a look into the [Project Configuration Section](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/fetching-higher-order-datapoints#project-configuration)
 :::
 
 In the last section, we explored how to get data from the protocol state contract and see it in JSON format through the IPFS Gateway. Next, we're going to explore how trade data is processed in basic snapshots.
@@ -124,7 +124,7 @@ The `TradeVolumeProcessor` collects and stores information about trades that hap
 
 -  As we explored in the previous section, the  `TradeVolumeProcessor`  logic takes care of capturing a snapshot of information regarding Uniswap v2 trades between the block heights of  `min_chain_height`  and  `max_chain_height`.
     
--   The epoch size as described in the prior section on  [epoch generation](/docs/protocol/specifications/epoch.md)  can be considered to be constant for this specific implementation of the Uniswap v2 use case on PowerLoom Protocol, and by extension, the time duration captured within the epoch.
+-   The epoch size as described in the prior section on  [epoch generation](/docs/protocol/specifications/epoch)  can be considered to be constant for this specific implementation of the Uniswap v2 use case on PowerLoom Protocol, and by extension, the time duration captured within the epoch.
     
 -   The finalized state and data CID corresponding to each epoch can be accessed on the smart contract on the anchor chain that holds the protocol state. The corresponding helpers for that can be found in  `get_project_epoch_snapshot()`  in  [`pooler/snapshotter/utils/data_utils.py`](hhttps://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/data_utils.py)
 

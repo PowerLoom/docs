@@ -39,7 +39,7 @@ Stay updated with all the latest updates from the Powerloom team and the communi
 ## Powerloom snapshotter peer
 
 Snapshotters play a crucial role in the powerloom ecosystem. Check out the following sections in our docs to understand their role better 
-* [Snapshotters overview](/docs/Snapshotter%20Node/Overview) 
+* [Snapshotters overview](/docs/build-with-powerloom/snapshotter-node/overview) 
 * [Join one of the available data market networks](/docs/category/joining-networks)
 ---
 ## See Powerloom in action :rocket:
@@ -60,7 +60,7 @@ We have detailed section that walk through the details of the powerloom protocol
    
 ### On-Chain Quest tracking
 
-Our newest release of the powerloom protocol enables the functionality to track onchain activity. If you are planning to run an On-chain activity quest or just want to track specific actions being perform on your chain, this use case fits the best! [On-Chain Quest Tracking](/docs/build-with-powerloom/On-Chain%20Activity%20Tracker/index.md)
+Our newest release of the powerloom protocol enables the functionality to track onchain activity. If you are planning to run an On-chain activity quest or just want to track specific actions being perform on your chain, this use case fits the best! [On-Chain Quest Tracking](/docs/build-with-powerloom/use-cases/existing-implementations/activity-tracking)
 
 
 ### UniswapV2 Dashboard
@@ -69,7 +69,7 @@ Visit the [Powerloom Pooler Section](/docs/build-with-powerloom/uniswapv2-dashbo
 
 ### Check out Pooler APIs
 
-Discover our customized APIs for Pooler, designed to provide real-time access and insights into the UniswapV2 data. [Pooler APIs Docs](/docs/Pooler-API-Docs/)
+Discover our customized APIs for Pooler, designed to provide real-time access and insights into the UniswapV2 data. [Snapshotter Core APIs Docs](/docs/build-with-powerloom/snapshotter-node/core-api/)
 
 
 ## Technical Community Calls
