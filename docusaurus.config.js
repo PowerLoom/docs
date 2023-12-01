@@ -99,7 +99,7 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/powerloom/docs',
+            href: 'https://github.com/powerloom',
             label: 'GitHub',
             position: 'right',
           },
@@ -109,38 +109,31 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Get Started',
-                to: '/docs/',
-              },
-            ],
+            label: 'Discord',
+            href: 'https://discord.com/invite/powerloom',
           },
           {
-            title: 'Community',
-            items: [
-              {
-                label: 'Discord',
-                href: 'https://discord.com/invite/powerloom',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/PowerloomHQ',
-              },
-            ],
+            label: 'Twitter',
+            href: 'https://twitter.com/PowerloomHQ',
           },
           {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/powerloom',
-              },
-            ],
+            label: 'Medium',
+            href: 'https://medium.com/powerloom',
+          },
+          {
+            label: 'Telegram',
+            href: 'https://t.me/powerloom',
+          },
+          {
+            label: 'Blog',
+            href: 'https://blog.powerloom.io',
+          },
+          {
+            label: 'LinkedIn',
+            href: 'https://www.linkedin.com/company/powerloom/',
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Powerloom. Inc`,
+        copyright: `Copyright © ${new Date().getFullYear()} Powerloom Inc.`,
       },
       prism: {
         theme: lightCodeTheme,
@@ -158,8 +151,8 @@ const config = {
           docsPluginId: "classic",
           config: {
             poolerdocs: {
-              specPath: "examples/pooler.yaml",
-              outputDir: "docs/Pooler-API-Docs",
+              specPath: "examples/core_api.yaml",
+              outputDir: "docs/Snapshotter Core API",
               downloadUrl:
                 "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
               sidebarOptions: {
