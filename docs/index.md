@@ -3,12 +3,9 @@ sidebar_position: 0
 ---
 # Introduction 
 
-## Powerloom Protocol
+Powerloom Protocol is a decentralized data protocol primarily aimed at serving the ever-growing data needs of smart contract-based applications like DeFi, games, and more users. We incentivize participating peers to reach a consensus on state transitions and event emissions observations across many smart contracts.
 
-
-The Powerloom Protocol is a decentralized data protocol designed to manage the increasing data requirements of applications that use smart contracts, such as DeFi platforms, games, and others. 
-
-The protocol encourages network participants to agree on the changes and events occurring within a variety of smart contracts. PowerLoom achieves this by creating data compositions from smaller, agreed-upon data segments. This approach ensures that the information provided by PowerLoom is both validated by peers and accurate. As a result, PowerLoom is an effective tool for applications that need detailed data, including dashboards, bots, data aggregators, and tools for tracking insights.
+By utilizing data compositions on smaller, consensus-reached data units, Powerloom stands as a peer-validated and accurate information source, empowering rich data applications like dashboards, bots, aggregators, and insights trackers.
 
 ![Powerloom Workflow](/images/introduction-image.png)
 
@@ -28,7 +25,7 @@ Here are some of the key features of Powerloom:
 
 **Time-series queries**: Datasets are available across precise time periods captured in epochs which can be further filtered and composed to serve use cases. This is useful for analytics and tracking trends.
 
-**Flexible Data Models:** Developers can define custom data schemas in "data markets" to track what's most valuable for their specific use case, beyond basic transactions.
+**Flexible Data Models:** Developers can contribute to data markets by building their own use cases and contributing to the "data markets" to track what's most valuable for their specific use case, beyond basic transactions.
 
 **Modular and Extensible:** PowerLoom has a modular architecture that makes it easy for developers to add support for new data sources, transform data, and build on top of existing data pipelines.
 
@@ -36,11 +33,27 @@ Here are some of the key features of Powerloom:
 Stay updated with all the latest updates from the Powerloom team and the community by joining our [Discord](https://discord.com/powerloom)
 :::
 
-## Powerloom snapshotter peer
+## Roles in the Powerloom Ecosystem
+The Powerloom ecosystem is made up of 6 different roles that work together to provide trusted and consensus backed data to applications.
 
-Snapshotters play a crucial role in the powerloom ecosystem. Check out the following sections in our docs to understand their role better 
-* [Snapshotters overview](/docs/build-with-powerloom/snapshotter-node/overview) 
-* [Join one of the available data market networks](/docs/category/joining-networks)
+### Snapshotter
+A Snapshotter is a node that captures crucial on-chain data transitions and event emissions. Snapshotter nodes are the backbone of the Powerloom ecosystem. They are responsible for capturing data from the blockchain and storing it in a decentralized manner. In order to become a snapshotter node, a node must stake a certain amount of Powerloom tokens. Snapshotter nodes are incentivized to capture data by receiving rewards in the form of Powerloom tokens for the work they do.
+
+### Validator
+Validators are responsible for validating blocks and securing the Prost Chain. In order to become a validator node, a node must stake a certain amount of Powerloom tokens. Validators are incentivized to validate blocks by receiving rewards in the form of Powerloom tokens for the work they do.
+
+### Curator
+Curators are responsible for building new use cases, keeping the current data market implementations up to date and ensuring that the data markets are healthy. Curators are incentivized to work through various grants, bounties and initiatives run by the Powerloom Foundation initially and later by the market participants.
+
+### Signaller
+A Signaller is a node that signals the importance of different data markets. They ensure that snapshotter resources are allocated to the most important data markets. Signallers are incentivized to signal by receiving rewards in the form of Powerloom tokens for the work they do.
+
+### Consumer
+Consumers are the end users of the data. They are the ones who use the data to build applications like dashboards, bots, aggregators, and insights trackers. Consumers need to pay a fee in the form of Powerloom tokens keep their data market active and to access the data
+
+### Watchmen
+Watchmen are the entities that are responsible for the accuracy of the data. They are responsible for ensuring that the data is accurate and that the snapshotter nodes are not malicious. Watchmen can basically challenge the data and if the data is found to be inaccurate, the snapshotter node that provided the data will be penalized and the watchman will be rewarded. However, since this is additional work for the network, it is important that the watchmen only challenge the data when they are sure that the data is inaccurate. Watchmen need to stake a certain amount of Powerloom tokens in order to challenge the data and if they are found to be wrong, their stake will be slashed. Watchmen are incentivized to challenge the data by receiving rewards in the form of Powerloom tokens for the work they do.
+
 ---
 ## See Powerloom in action :rocket:
 
@@ -53,28 +66,19 @@ Discover the practical application of Powerloom through Pooler, a Uniswap V2 Das
 ## Building with Powerloom
 
 To begin using Powerloom Protocol, you need to understand the workflow and architecture of the system. This involves familiarizing yourself with the different components and how they interact within the protocol.
-
-### Protocol Specification [Technical]
-
-We have detailed section that walk through the details of the powerloom protocol. This document offers a comprehensive view of how the protocol functions. [Dive into the Protocol](/docs/protocol/)
-   
-### On-Chain Quest tracking
-
-Our newest release of the powerloom protocol enables the functionality to track onchain activity. If you are planning to run an On-chain activity quest or just want to track specific actions being perform on your chain, this use case fits the best! [On-Chain Quest Tracking](/docs/build-with-powerloom/use-cases/existing-implementations/activity-tracking)
+The best way to start is by exploring the existing implementations present in [existing-implementations](/docs/build-with-powerloom/use-cases/existing-implementations/), understanding how they work, and how you can leverage them to build your own use cases. We have also provided some examples of how you can build your own use cases in the [building-use-cases](/docs/build-with-powerloom/use-cases/building-use-cases/) section.
 
 
-### UniswapV2 Dashboard
+### Utilising existing implementations to build your data application
 
-Visit the [Powerloom Pooler Section](/docs/build-with-powerloom/uniswapv2-dashboard/) to learn more about the Snapshotter implementation and its functionalities.
+Although the data generated by Powerloom protocol is decentralised and anyone can access it, it is not always easy to understand how to use it. To make it easier for developers to use the data, each snapshotter node comes with a set of APIs that can be used to access the data. These APIs are designed to be easy to use and can be used to build data applications like dashboards, bots, aggregators, and insights trackers.
 
-### Check out Pooler APIs
-
-Discover our customized APIs for Pooler, designed to provide real-time access and insights into the UniswapV2 data. [Snapshotter Core APIs Docs](/docs/build-with-powerloom/snapshotter-node/core-api/)
+Discover Snapshotter core APIs connected to nodes currently hosted by Powerloom foundation to build your own data applications. [Snapshotter Core APIs Docs](/docs/build-with-powerloom/snapshotter-node/core-api/)
 
 
-## Technical Community Calls
+## Walkthrough
 
-We have a detailed walkthrough of our network, how it functions and how one leverage the power of data using powerloom. You can watch these technical community calls: 
+We've been working on Powerloom protocol for quite some time now and the protocol has evolved quite a bit. We have a detailed walkthrough of our network, how it functions and how one leverage the power of data using powerloom. You can watch these technical community calls:
 
 ### Technical Community Call #1
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kTTmu3vhuEY?si=cD_mDEH0ohUy0n9x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -82,10 +86,6 @@ We have a detailed walkthrough of our network, how it functions and how one leve
 ### Technical Community Call #2
 <iframe width="560" height="315" src="https://www.youtube.com/embed/irRFUWtnfpw?si=BFAEfpNa2B_ahc3g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-
-## Conclusion
-
-This Quickstart Guide provides you with the necessary knowledge to begin exploring the Powerloom Protocol. For more detailed information, please refer to the other sections of this documentation, which cover the core protocol, build processes, specifications, and more.
 
 ## Something missing?
 If you find issues with the documentation or have suggestions on how to improve the documentation or the project in general, please [file an issue for us](https://github.com/powerloom/docs), or email us at support@powerloom.io 
