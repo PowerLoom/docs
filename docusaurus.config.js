@@ -13,8 +13,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Welcome to Powerloom Protocol Documentation',
-  tagline: 'PowerLoom is a decentralized data protocol built to serve the data needs of developers building on smart contract platforms like Ethereum, Polygon etc. It enables peers to reach consensus on observations of state transitions and event emissions across multiple contracts.',
+  title: 'Get Started with Powerloom',
+  tagline: 'Powerloom helps build advanced smart contract-based applications in DeFi, web3 gaming, and more with our streamlined cross-chain data integration.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -131,6 +131,10 @@ const config = {
           {
             label: 'LinkedIn',
             href: 'https://www.linkedin.com/company/powerloom/',
+          },
+          {
+            label: 'Website',
+            href: 'https://www.powerloom.io/',
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Powerloom Inc.`,

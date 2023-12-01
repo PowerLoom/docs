@@ -1,5 +1,5 @@
 {
-    "label": "Snapshotters",
+    "label": "Snapshotter Core API",
     "position": 2,
     "link": {
       "type": "generated-index",

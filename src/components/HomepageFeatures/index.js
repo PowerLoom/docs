@@ -5,37 +5,35 @@ import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
-    title: 'Snapshotters',
-    url: '/docs/category/snapshotters',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-    Learn more about the snapshotters and run your own!
-
-      </>
-    ),
-  },
-  {
-    title: 'Core Powerloom Protocol',
-    url: '/docs/category/protocol',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-       Learn more about the Core Powerloom Protocol!
-
-      </>
-    ),
-  },
-  {
     title: 'Build on Powerloom',
     url: '/docs/category/build-with-powerloom',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-       Learn about how to get started with powerloom
+        Learn how to build on Powerloom and integrate it into your application
       </>
     ),
   },
+  {
+    title: 'Snapshotter Node',
+    url: '/docs/category/snapshotter-node',
+    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    description: (
+      <>
+        Learn more about the snapshotter nodes and how to run your own!
+      </>
+    ),
+  },
+  {
+    title: 'Core Powerloom Protocol',
+    url: '/docs/category/protocol-overview',
+    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    description: (
+      <>
+        Deep dive into the core protocol design of Powerloom
+      </>
+    ),
+  }
 ];
 
 function Feature({Svg, title, description, url}) {

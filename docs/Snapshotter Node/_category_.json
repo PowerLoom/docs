@@ -1,0 +1,8 @@
+{
+    "label": "Snapshotter Node",
+    "position": 2,
+    "link": {
+      "type": "generated-index",
+      "description": "Dive deep into how snapshotter peers transform the powerloom network"
+    }
+  }
