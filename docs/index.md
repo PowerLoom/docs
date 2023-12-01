@@ -56,7 +56,7 @@ To begin using Powerloom Protocol, you need to understand the workflow and archi
 
 ### Protocol Specification [Technical]
 
-We have detailed section that walk through the details of the powerloom protocol. This document offers a comprehensive view of how the protocol functions. [Dive into the Protocol](./protocol/)
+We have detailed section that walk through the details of the powerloom protocol. This document offers a comprehensive view of how the protocol functions. [Dive into the Protocol](/docs/protocol/)
    
 ### On-Chain Quest tracking
 

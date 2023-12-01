@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Building applications using Powerloom
+# Accessing Data
 
 
 Powerloom Protocol offers a versatile platform for developers to build various blockchain-based applications.
@@ -17,7 +17,7 @@ Data Dashboards can leverage Powerloom to display blockchain data in an interact
 
 The possibilities are endless with the diverse range of datasets you can implement. To illustrate this, we have a guide that that can help you! 
 
-[Extending UniswapV2 Dashboard](/docs/build-with-powerloom/uniswapv2-dashboard/extending-uniswapv2-dashboard.md)
+[Extending UniswapV2 Dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/extending-uniswapv2-dashboard.md)
 
 
 ---

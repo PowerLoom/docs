@@ -84,7 +84,7 @@ This process will allow you to review the aggregated data for the top pairs on U
 ## Extracting Base Snapshots: Trade Data Logic
 
 :::info
-Before you dive into this section, please make sure you take a look into the [Project Configuration Section](./fetching-higher-order-datapoints.md#project-configuration)
+Before you dive into this section, please make sure you take a look into the [Project Configuration Section](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/fetching-higher-order-datapoints.md#project-configuration)
 :::
 
 In the last section, we explored how to get data from the protocol state contract and see it in JSON format through the IPFS Gateway. Next, we're going to explore how trade data is processed in basic snapshots.

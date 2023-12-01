@@ -1,8 +1,0 @@
-{
-    "label": "Tour of the Existing implementation",
-    "position": 2,
-    "link": {
-      "type": "generated-index",
-      "description": "Checkout the existing implementation and dive into the specifics of how the uniswapv2 dashboard functions"
-    }
-  }

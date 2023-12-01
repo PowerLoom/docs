@@ -136,6 +136,10 @@ const config = {
             label: 'Website',
             href: 'https://www.powerloom.io/',
           },
+          {
+            label: 'Careers',
+            href: 'https://careers.powerloom.io/'
+          }
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Powerloom Inc.`,
       },
@@ -156,7 +160,7 @@ const config = {
           config: {
             poolerdocs: {
               specPath: "examples/core_api.yaml",
-              outputDir: "docs/Snapshotter Core API",
+              outputDir: "docs/build-with-powerloom/snapshotter-node/core-api",
               downloadUrl:
                 "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
               sidebarOptions: {
