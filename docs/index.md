@@ -39,10 +39,8 @@ Stay updated with all the latest updates from the Powerloom team and the communi
 ## Powerloom snapshotter peer
 
 Snapshotters play a crucial role in the powerloom ecosystem. Check out the following sections in our docs to understand their role better 
-* [Snapshotters overview](/docs/Snapshotters/Overview) 
+* [Snapshotters overview](/docs/Snapshotter%20Node/Overview) 
 * [Join one of the available data market networks](/docs/category/joining-networks)
-* [Snapshotters specifications](/docs/category/snapshotter)
-
 ---
 ## See Powerloom in action :rocket:
 
@@ -58,16 +56,16 @@ To begin using Powerloom Protocol, you need to understand the workflow and archi
 
 ### Protocol Specification [Technical]
 
-We have detailed section that walk through the details of the powerloom protocol. This document offers a comprehensive view of how the protocol functions. [Dive into the Protocol](./Protocol/)
+We have detailed section that walk through the details of the powerloom protocol. This document offers a comprehensive view of how the protocol functions. [Dive into the Protocol](./protocol/)
    
 ### On-Chain Quest tracking
 
-Our newest release of the powerloom protocol enables the functionality to track onchain activity. If you are planning to run an On-chain activity quest or just want to track specific actions being perform on your chain, this use case fits the best! [On-Chain Quest Tracking](/docs/Build-with-Powerloom/On-Chain%20Activity%20Tracker/index.md)
+Our newest release of the powerloom protocol enables the functionality to track onchain activity. If you are planning to run an On-chain activity quest or just want to track specific actions being perform on your chain, this use case fits the best! [On-Chain Quest Tracking](/docs/build-with-powerloom/On-Chain%20Activity%20Tracker/index.md)
 
 
 ### UniswapV2 Dashboard
 
-Visit the [Powerloom Pooler Section](/docs/Build-with-Powerloom/UniswapV2%20Dashboard/) to learn more about the Snapshotter implementation and its functionalities.
+Visit the [Powerloom Pooler Section](/docs/build-with-powerloom/uniswapv2-dashboard/) to learn more about the Snapshotter implementation and its functionalities.
 
 ### Check out Pooler APIs
 
@@ -89,15 +87,6 @@ We have a detailed walkthrough of our network, how it functions and how one leve
 
 This Quickstart Guide provides you with the necessary knowledge to begin exploring the Powerloom Protocol. For more detailed information, please refer to the other sections of this documentation, which cover the core protocol, build processes, specifications, and more.
 
-## Staying informed
-- [GitHub](https://github.com/powerloom)
-- [Twitter](https://twitter.com/powerloomhq)
-- [Blog](https://blog.powerloom.io)
-- [Discord](https://discord.com/powerloom)
-
 ## Something missing?
 If you find issues with the documentation or have suggestions on how to improve the documentation or the project in general, please [file an issue for us](https://github.com/powerloom/docs), or email us at support@powerloom.io 
-
----
-Powerloom Protocol - The decentralized data layer for web3
 

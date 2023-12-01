@@ -124,7 +124,7 @@ The `TradeVolumeProcessor` collects and stores information about trades that hap
 
 -  As we explored in the previous section, the  `TradeVolumeProcessor`  logic takes care of capturing a snapshot of information regarding Uniswap v2 trades between the block heights of  `min_chain_height`  and  `max_chain_height`.
     
--   The epoch size as described in the prior section on  [epoch generation](../../../Protocol/Specifications/Epoch.md)  can be considered to be constant for this specific implementation of the Uniswap v2 use case on PowerLoom Protocol, and by extension, the time duration captured within the epoch.
+-   The epoch size as described in the prior section on  [epoch generation](../../../protocol/specifications/epoch.md)  can be considered to be constant for this specific implementation of the Uniswap v2 use case on PowerLoom Protocol, and by extension, the time duration captured within the epoch.
     
 -   The finalized state and data CID corresponding to each epoch can be accessed on the smart contract on the anchor chain that holds the protocol state. The corresponding helpers for that can be found in  `get_project_epoch_snapshot()`  in  [`pooler/snapshotter/utils/data_utils.py`](hhttps://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/data_utils.py)
 

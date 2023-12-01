@@ -6,6 +6,6 @@ sidebar_position: 4
 
 Refer to the following sections for detailed information on the state transitions that a snapshotter participates in while processing data sources per epoch.
 
-* [Epoch processing state transitions](Protocol/Specifications/Epoch.md#state-transitions)
+* [Epoch processing state transitions](Protocol/Specifications/epoch.md#state-transitions)
 * [Snapshotter internal APIs](/docs/Snapshotters/health-tracking.md)
   

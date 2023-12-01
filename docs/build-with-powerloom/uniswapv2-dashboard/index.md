@@ -54,7 +54,7 @@ Let's explore the details of the Pooler implementation. The image provided illus
 
 Data points are key metrics sourced from Uniswap V2 pair contracts, detailing how token trades are conducted. Our Pooler system processes this data into aggregated metrics, providing an overview of market trends, such as trade frequencies and average prices. These insights aid users in understanding market movements and asset performance, crucial for informed trading decisions within Uniswap V2.
 
- For an in-depth look, visit [Tour of Existing Implementation](../UniswapV2%20Dashboard/Tour%20of%20the%20existing%20implementation/index.md).
+ For an in-depth look, visit [Tour of Existing Implementation](../uniswapv2-dashboard/tour-of-existing-implementation/index.md).
 
 
 ---
@@ -70,4 +70,4 @@ Access [Pooler API Documentation](../Pooler-API-Docs/)
 
 Pooler’s design enables extensions and custom use case implementations. It offers a detailed guide for extending its capabilities, particularly with Uniswap v2 data points. Developers can add new configurations and data models as needed, ensuring Pooler’s adaptability to various requirements. We have a dedicated section in the documentation which walkthrough the details on further implementation and usecases
 
-Check out our guide on [Extending UniswapV2 Dashboard](/docs/Build-with-Powerloom/UniswapV2%20Dashboard/Extending-Uniswapv2-Dashboard.md)
+Check out our guide on [Extending UniswapV2 Dashboard](/docs/build-with-powerloom/uniswapv2-dashboard/extending-uniswapv2-dashboard.md)

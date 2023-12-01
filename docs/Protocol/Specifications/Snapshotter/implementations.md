@@ -10,7 +10,7 @@ The Snapshotter Peer is designed with a modular and highly configurable architec
 
 ## Snapshotter Core
 
-This foundational component defines all the essential interfaces and handles a wide range of tasks, from listening to epoch release events to distributing tasks and managing snapshot submissions. Read more about it in the detailed section on its [components](/docs/Protocol/Specifications/Snapshotter/components.md).
+This foundational component defines all the essential interfaces and handles a wide range of tasks, from listening to epoch release events to distributing tasks and managing snapshot submissions. Read more about it in the detailed section on its [components](/docs/protocol/specifications/snapshotter/components.md).
 
 
 ## Data market specific
@@ -40,6 +40,6 @@ The heart of the system resides in the `snapshotter/modules` directory that's li
 
 # Useful links
 
-* [Snapshot generation specifications](/docs/Protocol/Specifications/Snapshotter/snapshot_build.md)
-* [Data markets and sources](/docs/Protocol/data_sources.md)
-* [Composition of snapshots and higher order datapoints](/docs/Protocol/data_composition.md)
+* [Snapshot generation specifications](/docs/protocol/specifications/snapshotter/snapshot-build.md)
+* [Data markets and sources](/docs/protocol/data-sources.md)
+* [Composition of snapshots and higher order datapoints](/docs/protocol/data-composition.md)

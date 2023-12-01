@@ -110,7 +110,7 @@ const config = {
         links: [
           {
             label: 'Discord',
-            href: 'https://discord.com/invite/powerloom',
+            href: 'https://discord.com/powerloom',
           },
           {
             label: 'Twitter',
@@ -122,7 +122,7 @@ const config = {
           },
           {
             label: 'Telegram',
-            href: 'https://t.me/powerloom',
+            href: 'https://t.me/powerloomhq',
           },
           {
             label: 'Blog',
