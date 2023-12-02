@@ -1,30 +1,31 @@
 ---
 sidebar_position: 0
 ---
+
 # Protocol State
 
-## State overview
+## State Overview
 
 Every [data market](/docs/protocol/data-sources) has a final state that includes, but is not limited to the following:
 
-* Epoch size 
-* Epochs released in the past
-* Present epoch
-* Allowed snapshotter identities
-* To be implemented:
-  * allowed validator identities
-* Snapshot submission window
-* Snapshot submissions from allowed snapshotters
-* Project IDs on which submissions are accepted
-* Snapshot submissions as content identifiers(CIDs) per epoch
-  * occurrence count of their submissions
-  * mapping between allowed snapshotter identities and the CIDs they submitted
+- Epoch size 
+- Epochs released in the past
+- Present epoch
+- Allowed snapshotter identities
+- To be implemented:
+  - Allowed validator identities
+- Snapshot submission window
+- Snapshot submissions from allowed snapshotters
+- Project IDs on which submissions are accepted
+- Snapshot submissions as content identifiers(CIDs) per epoch
+  - Occurrence count of their submissions
+  - Mapping between allowed snapshotter identities and the CIDs they submitted
 
-## Implementation of the protocol state
+## Implementation of the Protocol State
 
-Presently the protocol state is implemented as a smart contract on an EVM compatible chain that is affectionately referred to internally as the Prost Chain.
+Presently, the protocol state is implemented as a smart contract on an EVM-compatible chain that is affectionately referred to internally as the Prost Chain.
 
-### Chain and contract address
+### Chain and Contract Address
 
 Depending on the network being joined from the [`deploy`](https://github.com/Powerloom/deploy/) repository, you can find the details of the network RPC as well as the deployed contract address from the example [`env.example`](https://github.com/PowerLoom/deploy/blob/eth_india/env.example) file.
 
@@ -34,10 +35,9 @@ https://github.com/PowerLoom/deploy/blob/7708906fc606df2eff84642fe54d2c47bd9137a
 
 ### ABI
 
-The [Application Binary Interface(ABI) to interact with the smart contract](https://github.com/PowerLoom/pooler/blob/main/snapshotter/static/abis/ProtocolContract.json) can be found within the snapshotter repository.
+The [Application Binary Interface (ABI) to interact with the smart contract](https://github.com/PowerLoom/pooler/blob/main/snapshotter/static/abis/ProtocolContract.json) can be found within the snapshotter repository.
 
-### State modification functions
----
+### State Modification Functions
 
 #### `function updateProjects(string[] calldata _projects, bool[] calldata _status) external onlyOwnerOrValidator`
 
@@ -49,7 +49,7 @@ Presently used to allow authorized snapshotters on our experimental testnets. To
 
 #### `function updateValidators(address[] calldata _validators, bool[] calldata _status) external onlyOwner`
 
-Self explanatory
+Self-explanatory.
 
 #### `function forceSkipEpoch(uint256 begin, uint256 end) public onlyOwner`
 
@@ -63,7 +63,7 @@ Used by the [epoch generator service](/docs/protocol/specifications/epoch#epoch-
 
 Used to submit snapshots by the allowed [snapshotter](/docs/category/snapshotter) identities.
 
-### State view functions
+### State View Functions
 ---
 
 #### Self-explanatory
