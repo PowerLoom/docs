@@ -53,7 +53,7 @@ https://github.com/PowerLoom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc8
 
 ### Implementation
 
-The implementation of these processes is detailed in the [Closer Inspection to Dataset Section](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-inspection-of-the-snapshot-datasets)
+The implementation of these processes is detailed in the [Closer Look at Snapshots](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-look-at-snapshots.md)
 
 
 The specific configurations for data points like pair reserves, token prices, trading volumes, and fees are outlined in `config/projects.json` and `config/aggregator.json`. These configurations dictate what data to capture and how to process it. We have covered that in the [Fetching higher order datasets](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/fetching-higher-order-datapoints).
