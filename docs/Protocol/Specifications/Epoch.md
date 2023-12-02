@@ -27,39 +27,39 @@ Then, it publishes an epoch `(h₁, h₂)` so that `h₂ - h₁ + 1 == size(E)`.
 
 ## State Transitions
 
-For every `epochId`, the following are a sequence of states that a 'project' goes through, from the point of its release until a snapshot is finalized after reaching consensus on the protocol.
+For every `epochId`, the following sequence of states represents the lifecycle of a 'project' from its release until a snapshot is finalized after reaching consensus on the protocol.
 
-The snapshotter nodes participate in these states according to the data sources configured by the data markets they participate in, and the status of the same can be diagnosed further with their internal APIs.
+Snapshotter nodes participate in these states according to the data sources configured by the data markets they are part of. The status of these states can be further diagnosed using their internal APIs.
 
 ### 1. `EPOCH_RELEASED`
 
-When an epoch is released on the protocol by the [epoch generator service](#epoch-generator).
+This state signifies that an epoch has been released on the protocol by the [epoch generator service](#epoch-generator).
 
 ### 2. `PRELOAD`
 
-For every project type's preloader configuration, this state is considered successful once all the preloading dependencies are satisfied.
+This state is considered successful once all the preloading dependencies specified in each project type's preloader configuration are satisfied.
 
 ### 3. `SNAPSHOT_BUILD`
 
-This state is considered successful when the snapshot data structure is computed and made ready for submission to the protocol for consensus. This applies to both base and aggregate snapshots.
+This state is considered successful when the snapshot data structure is computed and prepared for submission to the protocol for consensus. This applies to both base and aggregate snapshots.
 
 ### 4. `SNAPSHOT_SUBMIT_PAYLOAD_COMMIT`
 
-This is an internal state specific to snapshotter implementations where the snapshot-building worker processes, upon a successful `STATE_BUILD`, queue them up with the Payload Commit Service.
+This is an internal state specific to snapshotter implementations. In this state, the snapshot-building worker processes queue up the snapshots with the Payload Commit Service after a successful `STATE_BUILD`.
 
 ### 5. `RELAYER_SEND`
 
-The Payload commit service has sent the snapshot to a transaction relayer to submit to the protocol state contract.
+In this state, the Payload Commit Service has sent the snapshot to a transaction relayer for submission to the protocol state contract.
 
 ### 6. `SNAPSHOT_FINALIZE`
 
-Snapshot is finalized on the protocol.
+In this state, the snapshot is finalized on the protocol.
 
-## Force Consensus service 
+## Force Consensus Service 
 
-Force consensus is an optional mechanism that can be run by anyone in the network and is designed to trigger consensus checks for projects that didn't reach consensus automatically with a 51% majority within the submission window. This will force consensus if possible if the project submissions meet all internal criteria for consensus after the submission window is closed.
+The Force Consensus service is an optional mechanism that can be run by anyone in the network. It is designed to trigger consensus checks for projects that didn't reach consensus automatically with a 51% majority within the submission window. This service will force consensus, if possible, if the project submissions meet all internal criteria for consensus after the submission window has closed.
 
-Force Consensus works slightly differently than Epoch Generator and is heavily optimized to handle a lot of projects. The sequence diagram explaining the flow is given below.
+The Force Consensus service operates slightly differently than the Epoch Generator and is heavily optimized to handle a large number of projects. The sequence diagram explaining the flow is given below.
 
 ![Force consensus mechanism](https://raw.githubusercontent.com/PowerLoom/onchain-consensus/feat/force_consensus_only_relevant_projects/docs/images/force_consensus.png)
 
