@@ -5,7 +5,7 @@ sidebar_position: 0
 
 ## State overview
 
-Every [data market](/docs/Protocol/data-sources.md) has a final state that includes, but is not limited to the following:
+Every [data market](/docs/protocol/data-sources) has a final state that includes, but is not limited to the following:
 
 * Epoch size 
 * Epochs released in the past
@@ -41,7 +41,7 @@ The [Application Binary Interface(ABI) to interact with the smart contract](http
 
 #### `function updateProjects(string[] calldata _projects, bool[] calldata _status) external onlyOwnerOrValidator`
 
-Used by signalers and other actors in the [dynamic data market ecosystem](/docs/Protocol/data-sources.md#dynamic-data-sources).
+Used by signalers and other actors in the [dynamic data market ecosystem](/docs/protocol/data-sources#dynamic-data-sources).
 
 #### `function updateSnapshotters(address[] calldata _snapshotters, bool[] calldata _status) external onlyOwner`
 
@@ -53,11 +53,11 @@ Self explanatory
 
 #### `function forceSkipEpoch(uint256 begin, uint256 end) public onlyOwner`
 
-Optional usage for an [additional trusted service](/docs/Protocol/Specifications/Epoch.md#force-consensus-service) to ensure consensus is reached in case of unstable peers or actors in a data market.
+Optional usage for an [additional trusted service](/docs/protocol/specifications/epoch#force-consensus-service) to ensure consensus is reached in case of unstable peers or actors in a data market.
 
 #### `function releaseEpoch(uint256 begin, uint256 end) public onlyOwnerOrValidator`
 
-Used by the [epoch generator service](/docs/Protocol/Specifications/Epoch.md#epoch-generator).
+Used by the [epoch generator service](/docs/protocol/specifications/epoch#epoch-generator).
 
 #### `function submitSnapshot(string memory snapshotCid, uint256 epochId, string memory projectId, Request calldata request, bytes calldata signature) public`
 
