@@ -3,21 +3,23 @@ sidebar_position: 1
 ---
 
 # Tracking Wallet Interactions
-Let's say you want to do something as simple as tracking all the smart contract addresses a particular wallet interacts with from now on. You can do this by running a snapshotter node and writing a simple compute processor very similar to what we saw in the [activity tracking](/docs/category/on-chain-activity-tracking) section.
 
+Let's say you want to do something as simple as tracking all the smart contract addresses a particular wallet interacts with from now on. You can do this by running a snapshotter node and writing a simple compute processor very similar to what we saw in the [activity tracking](/docs/category/on-chain-activity-tracking) section.
 
 ## Pre-requisites
 
 :::tip
-Prerequisities: Before we dive into the implementation of new data points, you may want to look at the concept of how the pooler functions and how it retrives and processes the data. 
+Prerequisites: Before we dive into the implementation of new data points, you may want to look at the concept of how the pooler functions and how it retrieves and processes the data. 
 
 [On-Chain Activity Tracking](/docs/build-with-powerloom/use-cases/existing-implementations/activity-tracking/)
 :::
 
 ## Scenario: Tracking Wallet Transactions
+
 Let's use the example of tracking transactions of a wallet for Eth Chain. This involves capturing snapshots of transactions and their associated data.
 
 ## Steps to Implement this New Data Point
+
 1. **Getting Started**:
    You can follow [this guide](/docs/build-with-powerloom/snapshotter-node/getting-started#for-code-contributors) to get started with the node setup for custom implementations.
 
@@ -50,10 +52,10 @@ Let's use the example of tracking transactions of a wallet for Eth Chain. This i
     class TrackingWalletInteractionSnapshot(BaseSnapshot):
         wallet_address: str
         contract_addresses: List[str]
-   ```
+    ```
 
 4. **Focus on Wallet Interactions**:
-   You can simply fork and modify the BungeeBridgeProcessor to suit your needs. In this case, we will modify the data collection logic to concentrate on the wallet interactions. 
+   You can simply fork and modify the BungeeBridgeProcessor to suit your needs. In this case, we will modify the data collection logic to concentrate on the wallet interactions.
 
 A sample implementation of such a processor will look something like this
 ```python

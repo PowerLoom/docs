@@ -14,7 +14,7 @@ Container "<container_id>" is unhealthy.
 ERROR: Encountered errors while bringing up the project.
 ```
 
-Check if all the necessary docker containers are up and running. You should see an output against **docker ps** with the following containers listed:
+Check if all the necessary docker containers are up and running. You should see an output against docker ps with the following containers listed:
 
 ```bash
 #docker ps

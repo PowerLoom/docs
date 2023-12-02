@@ -3,19 +3,21 @@ sidebar_position: 0
 ---
 
 # Tracking Quests on ZkEVM
+
 Tracking on-chain activities can be a challenging task for developers. It requires a deep understanding of the underlying blockchain protocol and the ability to process large amounts of data per block.
 
-With the Snapshotter Peers, developers can easily track on-chain activities across various blockchains and protocols. The only thing they need to do is write a Snapshot Processor that extracts and return the relevant data from the list of transactions in a block which are already accessible to them, thanks to [preloading](/docs/protocol/specifications/snapshotter/preloading).
+With the Snapshotter Peers, developers can easily track on-chain activities across various blockchains and protocols. The only thing they need to do is write a Snapshot Processor that extracts and returns the relevant data from the list of transactions in a block which are already accessible to them, thanks to [preloading](/docs/protocol/specifications/snapshotter/preloading).
 
 ## Why On-Chain Activity Tracking Matters
 
 Being able to track on-chain activities is crucial for a wide range of applications, including: 
 - **Understanding User Interactions**: It helps in identifying patterns and trends in how users interact with different blockchain protocols.
 - **Identifying trends**: It helps in identifying trends in how users interact with different blockchain protocols. For example, it can be used to identify the most popular smart contracts or the most active wallet addresses.
-- **Signal to Tradign Strategies**: It can be used to identify potential trading opportunities based on the activity of specific wallet addresses or smart contracts.
+- **Signal to Trading Strategies**: It can be used to identify potential trading opportunities based on the activity of specific wallet addresses or smart contracts.
 - **Quest Completion Tracking**: It can be used to track the completion of quests or tasks on the blockchain. 
 
 For example, we at Powerloom use Quest completion tracking for our Testnet program participants. We leverage Snapshotter Peers to monitor on-chain activities of testnet participants across various chains and protocols. These quests predominantly operate in [Bulk Mode](/docs/protocol/specifications/snapshotter/snapshot-build#data-source-specification-bulk-mode) due to their one-time nature and the highly dynamic set of participants involved.
+
 ## Building an On-Chain Activity Tracker
 
 ### Snapshot Building
@@ -25,7 +27,7 @@ For example, `BungeeBridgeProcessor` located in [`snapshotter/modules/computes`]
 
 Any compute for base snapshots basically needs to implement the `compute` function.
 
-```python reference
+```python
 https://github.com/Powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/callback_helpers.py#L190-L195
 ```
 
@@ -42,7 +44,7 @@ https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/models/message_m
 
 The Infrastructure is scalable enough to handle high throughtput chains like ZkEvm in close to real time even with `Epoch`  size of 1 block.
 
-The `BungeeBridgeProcessor` then goes through all preloaded block transactions, filters out, and then generates relevant snapshots for wallet address that received funds from the Bungee Bridge refuel contract during that epoch.
+The `BungeeBridgeProcessor` then goes through all preloaded block transactions, filters out, and then generates relevant snapshots for wallet addresses that received funds from the Bungee Bridge refuel contract during that epoch.
 
 ```python reference
 https://github.com/PowerLoom/snapshotter-computes/blob/29199feab449ad0361b5867efcaae9854992966f/bungee_bridge.py#L40-L92
@@ -71,9 +73,8 @@ A configuration file [`config/projects.json`](https://github.com/Powerloom/snaps
 }
 ```
 
-The preloader dependencies like [`block_transactions`](https://github.com/Powerloom/pooler/blob/main/snapshotter/utils/preloaders/tx_receipts/preloader.py) are crucial as they define the initial data set that the snapshot builder will process.
+Critical dependencies, such as [`block_transactions`](https://github.com/Powerloom/pooler/blob/main/snapshotter/utils/preloaders/tx_receipts/preloader.py), are essential components defining the initial dataset processed by the snapshot builder.
 
+## Expanding to Monitor Additional On-chain Activities
 
-## Extending to track other on-chain activities
-
-Implementing custom snapshot processors is a straightforward process. We have a section in [Build with Powerloom](/docs/build-with-powerloom/use-cases/building-new-usecase) which covers this in detail.
+Extending the tracking of other on-chain activities through custom snapshot processors is a straightforward process. For detailed guidance on this topic, please refer to the [Build with Powerloom](/docs/build-with-powerloom/use-cases/building-new-usecase) section.

@@ -8,7 +8,7 @@ This documentation provides a step-by-step guide for developers looking to exten
 ## Extending with New Data Points
 
 :::tip
-Prerequisities: Before we dive into the implementation of new data points, you may want to look at the concept of how the pooler functions and how it retrives and processes the data. 
+Prerequisites: Before we dive into the implementation of new data points, you may want to look at the concept of how the pooler functions and how it retrieves and processes the data. 
 
 [Closer look into the Snapshot Datasets](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-look-at-snapshots)
 :::
@@ -25,8 +25,8 @@ We'll use the example of creating a new data point that aggregates only Swap eve
 2. **Configure Aggregation Worker**:
    In the `config/aggregator.json` file of your forked repository, add a new entry for your aggregation worker class. This class will be responsible for handling the new data aggregation task.
    - Define the `project_type` as something like `"aggregate_swap_events_2h"`.
--   Set `"aggregate_on"` to `"SingleProject"` or `"MultiProject"` depending on your aggregation logic.
--   Under `"processor"`, specify the module and class name of your new processor.
+   - Set `"aggregate_on"` to `"SingleProject"` or `"MultiProject"` depending on your aggregation logic.
+   - Under `"processor"`, specify the module and class name of your new processor.
 ```json 
 {
   "config": [
@@ -64,7 +64,6 @@ Extending the UniswapV2 Dashboard is an excellent opportunity for developers to:
 - **Learn and Experiment**: Gain hands-on experience with blockchain data and smart contract interactions.
 - **Create Custom Analytics**: Tailor the dashboard to specific analytical needs, making it more versatile and useful.
 - **Showcase Skills**: Use the extended dashboard as a portfolio piece in hackathons and professional settings.
-
 
 Extending the UniswapV2 Dashboard with new data points like a 2-hour aggregate of Swap events is an exciting thing to work on. It requires a good understanding of blockchain data, smart contract events, and data modeling. By following the steps outlined in this guide, developers can successfully enhance the dashboard, making it a more powerful tool for blockchain analytics and research.
 

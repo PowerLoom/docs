@@ -8,35 +8,34 @@ sidebar_position: 0
 
 ## System Event Detector
 
-The system event detector tracks events being triggered on the protocol state contract running on the anchor chain and forwards it to a callback queue with the appropriate routing key depending on the event signature and type among other information.
-
+The System Event Detector tracks events triggered on the protocol state contract running on the anchor chain and forwards them to a callback queue with the appropriate routing key, depending on the event signature and type, among other information.
 
 ## Process Hub Core
 
 The Process Hub Core, defined in [`process_hub_core.py`](https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/process_hub_core.py), serves as the primary process manager in the snapshotter.
-* Operated by the CLI tool [`processhub_cmd.py`](https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processhub_cmd.py), it is responsible for starting and managing the `SystemEventDetector` and `ProcessorDistributor` processes.
-* Additionally, it spawns the base snapshot and aggregator workers required for processing tasks from the `powerloom-backend-callback` queue. The number of workers and their configuration path can be adjusted in [`config/settings.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/settings.example.json).
+- Operated by the CLI tool [`processhub_cmd.py`](https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processhub_cmd.py), it is responsible for starting and managing the `SystemEventDetector` and `ProcessorDistributor` processes.
+- Additionally, it spawns the base snapshot and aggregator workers required for processing tasks from the `powerloom-backend-callback` queue. The number of workers and their configuration path can be adjusted in [`config/settings.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/settings.example.json).
 
 ## Processor Distributor
 The Processor Distributor, defined in [`processor_distributor.py`](https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py), is initiated using the `processhub_cmd.py` CLI.
+- It loads the preloader, base snapshotting, and aggregator config information from the settings file.
+- It reads the events forwarded by the event detector to the `f'powerloom-event-detector:{settings.namespace}:{settings.instance_id}'` RabbitMQ queue bound to a topic exchange as configured in `settings.rabbitmq.setup.event_detector.exchange`([code-ref: RabbitMQ exchanges and queue setup in pooler](https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/init_rabbitmq.py)).
+- It creates and distributes processing messages based on the preloader configuration present in `config/preloader.json`, the project configuration present in [`config/projects.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/projects.example.json), and [`config/aggregator.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/aggregator.example.json).
+  - For [`EpochReleased` events](#epoch-generation), it forwards such messages to base snapshot builders for data source contracts as configured in `config/projects.json` for the current epoch information contained in the event.
 
-* It loads the preloader, base snapshotting, and aggregator config information from the settings file
-* It reads the events forwarded by the event detector to the `f'powerloom-event-detector:{settings.namespace}:{settings.instance_id}'` RabbitMQ queue bound to a topic exchange as configured in `settings.rabbitmq.setup.event_detector.exchange`([code-ref: RabbitMQ exchanges and queue setup in pooler](https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/init_rabbitmq.py))
-* It creates and distributes processing messages based on the preloader configuration present in `config/preloader.json`, the project configuration present in [`config/projects.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/projects.example.json) and [`config/aggregator.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/aggregator.example.json)
-  * For [`EpochReleased` events](#epoch-generation), it forwards such messages to base snapshot builders for data source contracts as configured in `config/projects.json` for the current epoch information contained in the event.
-
-```python reference
+```python
 https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L1077-L1115
 ```
 
 
-## Delegation Workers for preloaders
+## Delegation Workers for Preloaders
 
-![Delegation worker dependent preloading architecture](/images/delegate_preloading.png)
+![Delegation Worker Dependent Preloading Architecture](/images/delegate_preloading.png)
 
-The preloaders often fetch and cache large volumes of data, for eg, all the transaction receipts for a block on the data source blockchain. In such a case, a single worker will never be enough to feasibly fetch the data for a timely base snapshot generation and subsequent aggregate snapshot generations to finally reach a consensus.
+Preloaders often fetch and cache large volumes of data, such as all the transaction receipts for a block on the data source blockchain. In such cases, a single worker is often insufficient to feasibly fetch the data for timely base snapshot generation and subsequent aggregate snapshot generations to reach a consensus.
 
-Hence such workers are defined as `delegate_tasks` in [`config/preloader.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/preloader.json) and the [process hub core](#process-hub-core) launches a certain number of workers as defined in the primary settings file, [`config/settings.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/settings.example.json) under the key `callback_worker_config.num_delegate_workers`.
+To address this, workers are defined as `delegate_tasks` in [`config/preloader.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/preloader.json). The [Process Hub Core](#process-hub-core) then launches a specific number of workers, as defined in the primary settings file, [`config/settings.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/settings.example.json), under the key `callback_worker_config.num_delegate_workers`.
+
 
 ```python reference
 https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/preloader.json#L19-L25
