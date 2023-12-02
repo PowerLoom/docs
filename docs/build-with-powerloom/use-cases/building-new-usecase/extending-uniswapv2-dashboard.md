@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 0
 ---
 # Extending Pooler 
 
@@ -17,7 +17,7 @@ Prerequisities: Before we dive into the implementation of new data points, you m
 
 We'll use the example of creating a new data point that aggregates only Swap events over a 2-hour period. This involves capturing snapshots of Swap event logs and trade volumes within this timeframe.
 
-### Steps to Implement the New Data Point
+### Steps to Implement this New Data Point
 
 1. **Getting Started**:
    You can follow [this guide](/docs/build-with-powerloom/snapshotter-node/getting-started#for-code-contributors) to get started with the node setup for custom implementations.
@@ -54,7 +54,7 @@ We'll use the example of creating a new data point that aggregates only Swap eve
    After implementation, rigorously test your new feature to ensure accuracy and efficiency. Validate that the data collected aligns with your intended 2-hour aggregation of Swap events.
 
 4. **Commit and Share Your Work**:
-   Once your implementation is complete and tested, commit your changes to your implementation branch. Share your work with the community by creating a pull request to the main Pooler repository, if desired.
+   Once your implementation is complete and tested, commit your changes to your implementation branch. Share your work with the community by creating a pull request to the main Computes repository, if desired.
 
 ## Why Extend the UniswapV2 Dashboard?
 
