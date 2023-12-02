@@ -113,4 +113,4 @@ In the end,
 
 Its API endpoints are used by a decoupled frontend adapter logic that ultimately support building of rich data products for smart contracts and other web3 based applications. 
 
-In our [`Building with Powerloom` section of docs](/docs/build-with-powerloom/building-use-cases/uniswapv2-dashboard/index.md), find out more about the way this API is used by a frontend adapter to serve a Uniswap v2 dashboard.
+In our [`All about Data` section of docs](/docs/build-with-powerloom/snapshotter-node/data), find out more about the way this API is used by a frontend adapter to serve a Uniswap v2 dashboard.

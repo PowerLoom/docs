@@ -7,7 +7,7 @@ sidebar_position: 2
 ## Snapshot Computation Modules
 ---
 
-As briefly introduced in the section on snapshotter implementations that [leverage Git Submodules for specific computation logic](/docs/protocol/specifications/snapshotter/implementations), the modules are specified in the configuration for project types under the key `processor`.
+As briefly introduced in the section on snapshotter implementations that [leverage Git Submodules for specific computation logic](/docs/build-with-powerloom/snapshotter-node/architecture), the modules are specified in the configuration for project types under the key `processor`.
 
 ```json reference
 https://github.com/Powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json#L15-L28
@@ -133,7 +133,7 @@ https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8b
   * For example, a base snapshot built on a project ID like `pairContract_trade_volume:0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc:UNISWAPV2` triggers the worker `AggregateTradeVolumeProcessor` as defined in the `processor` config, against the pair contract `0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc`.
 * The span of epochs on which corresponding base snapshots will be aggregated is determined by the logic contained in the module specified in the `processor` key.
 
-The following implementation aggregates [trade volume snapshots](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-inspection-of-the-snapshot-datasets#extracting-base-snapshots-trade-data-logic) across a span of 24 hours worth of epochs, if available. Otherwise, it aggregates the entire span of epochs available on the protocol against the data market and reports it back.
+The following implementation aggregates [trade volume snapshots](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-look-at-snapshots.md) across a span of 24 hours worth of epochs, if available. Otherwise, it aggregates the entire span of epochs available on the protocol against the data market and reports it back.
 
 
 ```python reference

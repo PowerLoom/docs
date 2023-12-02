@@ -77,4 +77,4 @@ Critical dependencies, such as [`block_transactions`](https://github.com/Powerlo
 
 ## Expanding to Monitor Additional On-chain Activities
 
-Extending the tracking of other on-chain activities through custom snapshot processors is a straightforward process. For detailed guidance on this topic, please refer to the [Build with Powerloom](/docs/build-with-powerloom/use-cases/building-new-usecase) section.
+Extending the tracking of other on-chain activities through custom snapshot processors is a straightforward process. For detailed guidance on this topic, please refer to the [Build with Powerloom](/docs/category/building-a-new-use-case) section.

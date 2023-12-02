@@ -51,4 +51,4 @@ Find more details in the [specifications of snapshot generation](/docs/protocol/
 
 ## Useful Links and Concepts
 
-* [Modular Architecture of Use Case-Specific Snapshotter Implementations](/docs/protocol/specifications/snapshotter/implementations)
+* [Modular Architecture of Use Case-Specific Snapshotter Implementations](/docs/build-with-powerloom/snapshotter-node/architecture)

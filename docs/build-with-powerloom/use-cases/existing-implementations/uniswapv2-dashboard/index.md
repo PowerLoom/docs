@@ -42,4 +42,4 @@ Data points are key metrics sourced from Uniswap V2 pair contracts, detailing ho
 Snapshotter Node's design enables extensions and custom use case implementations. A developer can extend the pooler compute files found in [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and config files found in [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2) to build their own custom use case implementations.
 
 We have a dedicated section in the documentation which walkthrough the details on further implementation and usecases extensions.
-Check out our guide on [Extending UniswapV2 Dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/extending-uniswapv2-dashboard)
+Check out our guide on [Extending Pooler](/docs/build-with-powerloom/use-cases/building-new-usecase/extending-uniswapv2-dashboard)

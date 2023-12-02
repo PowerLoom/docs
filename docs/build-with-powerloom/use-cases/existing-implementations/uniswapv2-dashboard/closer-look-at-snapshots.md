@@ -103,4 +103,4 @@ For a comprehensive understanding of Pooler computes, refer to the [snapshotter-
 
 ## Extending Pooler for Additional Datapoints
 
-It's straightforward to implement custom data points on top of the existing pooler. Our [Build with Powerloom](/docs/build-with-powerloom/use-cases/building-new-usecase/extending-uniswapv2-dashboard) section provides detailed coverage on this topic.
+It's straightforward to implement custom data points on top of the existing pooler. Our [Extending UniswapV2 dashboard](/docs/build-with-powerloom/use-cases/building-new-usecase/extending-uniswapv2-dashboard) section provides detailed coverage on this topic.
