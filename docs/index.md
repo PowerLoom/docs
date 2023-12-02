@@ -7,7 +7,7 @@ The Powerloom Protocol is a decentralized data protocol primarily designed to me
 
 By utilizing data compositions on smaller, consensus-reached data units, Powerloom stands as a peer-validated and accurate information source, empowering rich data applications such as dashboards, bots, aggregators, and insights trackers.
 
-![Powerloom Workflow](/images/introduction-image.png)
+![Powerloom Workflow](/images/protocol_workflow.png)
 
 :::tip
 **Powerloom in a nutshell:** Powerloom is analogous to a decentralized library catalog for blockchain data.
