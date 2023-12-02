@@ -31,12 +31,14 @@ import TabItem from "@theme/TabItem";
 Endpoint to get the status of a task for a given wallet address.
 
 Args:
+
     request (Request): The incoming request object.
     response (Response): The outgoing response object.
     task_status_request (TaskStatusRequest): The request body containing the task type and wallet address.
     rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit and authorization dependency. Defaults to rate_limit_auth_check.
 
 Returns:
+
     dict: A dictionary containing the status of the task and a message.
 
 ## Request
