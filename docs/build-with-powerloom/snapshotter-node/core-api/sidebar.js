@@ -5,7 +5,7 @@ module.exports = [{
     "type": "category",
     "label": "UNTAGGED",
     "items": [{
-        "type": "GET",
+        "type": "doc",
         "id": "Snapshotter Core API/health-check-health-get",
         "label": "Health Check",
         "className": "api-method get"
