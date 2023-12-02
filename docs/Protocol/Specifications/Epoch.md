@@ -23,7 +23,7 @@ Once the head of the chain has moved sufficiently ahead so that an epoch can be 
 
 and then publishes an epoch `(h₁, h₂)` so that `h₂ - h₁ + 1 == size(E)`. The next epoch, therefore, is tracked from `h₂ + 1`.
 
-![Epoch Relese process](https://raw.githubusercontent.com/PowerLoom/onchain-consensus/phase2/docs/images/epoch_generator.png)
+![Epoch Relese process](https://raw.githubusercontent.com/Powerloom/onchain-consensus/phase2/docs/images/epoch_generator.png)
 
 ## State transitions
 
@@ -57,4 +57,4 @@ Snapshot is finalized on the protocol.
 
 ## Useful links
 
-* [Epoch Generator source code on Github](https://github.com/PowerLoom/onchain-consensus/blob/63d09aa9ab1d98a2fed55e05b7760c12692fea83/epoch_generator.py)
+* [Epoch Generator source code on Github](https://github.com/Powerloom/onchain-consensus/blob/63d09aa9ab1d98a2fed55e05b7760c12692fea83/epoch_generator.py)

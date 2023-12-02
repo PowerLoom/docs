@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-# Introduction
+# Tracking Quests on ZkEVM
 Tracking on-chain activities can be a challenging task for developers. It requires a deep understanding of the underlying blockchain protocol and the ability to process large amounts of data per block.
 
 With the Snapshotter Peers, developers can easily track on-chain activities across various blockchains and protocols. The only thing they need to do is write a Snapshot Processor that extracts and return the relevant data from the list of transactions in a block which are already accessible to them, thanks to [preloading](/docs/protocol/specifications/snapshotter/preloading).
@@ -54,14 +54,18 @@ Each `wallet_address` is mapped to a `pydantic` snapshot object and submitted to
 
 ### Configuration
 
-A configuration file [`config/projects.json`](https://github.com/Powerloom/snapshotter-configs/blob/544f3f3355f0b25b99bac7fe8288cec1a4aea3f3/projects.example.json) specifies the details of the snapshots to be generated. For instance, sample config for  [`BungeeBridgeProcessor`](https://github.com/PowerLoom/snapshotter-computes/blob/zkevm_quests/bungee_bridge.py) for `zkevm:bungee_bridge` might look like this:
+A configuration file [`config/projects.json`](https://github.com/Powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json) specifies the details of the snapshots to be generated. For instance, sample config for  [`BungeeBridgeProcessor`](https://github.com/PowerLoom/snapshotter-computes/blob/zkevm_quests/bungee_bridge.py) for `zkevm:bungee_bridge` might look like this:
 
 ```json
 {
   "project_type": "zkevm:bungee_bridge",
-  "preload_tasks": ["block_transactions"],
-  "processor": {
-    "module": "snapshotter.modules.boost.bungee_bridge",
+  "projects":[],
+  "preload_tasks":[
+    "block_transactions"
+  ],
+  "bulk_mode": true,
+  "processor":{
+    "module": "snapshotter.modules.computes.bungee_bridge",
     "class_name": "BungeeBridgeProcessor"
   }
 }
