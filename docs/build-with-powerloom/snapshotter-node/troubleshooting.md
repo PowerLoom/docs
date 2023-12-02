@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 5
 ---
 
 # Troubleshooting
@@ -30,7 +30,8 @@ ee652fda8513   powerloom-audit-protocol               "bash -c 'sh init_pr…"  
 
 ### Accessing the logs:
 
-You can access the logs folders if you need to debug or monitor the services running on your Powerloom Snapshotter node. Each service has its log folder located within the  `logs`  directory.
+You can access the logs folders if you need to debug or monitor the services running on your Powerloom Snapshotter node. Logs can be found in `/logs` folder in the root directory of your node and the cloned `deploy` repository.
+
 
 These logs can provide valuable information for debugging or troubleshooting purposes. You can use them to identify any service errors or issues and take appropriate actions to resolve them.
 

@@ -1,11 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Accessing Data
-
-
-Powerloom Protocol offers a versatile platform for developers to build various blockchain-based applications.
 
 ## Data Dashboards
 
