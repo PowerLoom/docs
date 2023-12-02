@@ -9,7 +9,7 @@ sidebar_position: 2
 
 As briefly introduced in the section on snapshotter implementations that [leverage Git Submodules for specific computation logic](/docs/protocol/specifications/snapshotter/implementations), the modules are specified in the configuration for project types under the key `processor`.
 
-```json
+```json reference
 https://github.com/Powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json#L15-L28
 ```
 

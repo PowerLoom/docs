@@ -23,7 +23,7 @@ The Processor Distributor, defined in [`processor_distributor.py`](https://githu
 - It creates and distributes processing messages based on the preloader configuration present in `config/preloader.json`, the project configuration present in [`config/projects.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/projects.example.json), and [`config/aggregator.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/aggregator.example.json).
   - For [`EpochReleased` events](#epoch-generation), it forwards such messages to base snapshot builders for data source contracts as configured in `config/projects.json` for the current epoch information contained in the event.
 
-```python
+```python reference
 https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L1077-L1115
 ```
 

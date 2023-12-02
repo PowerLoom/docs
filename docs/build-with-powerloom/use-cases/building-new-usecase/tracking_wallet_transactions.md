@@ -58,6 +58,7 @@ Let's use the example of tracking transactions of a wallet for Eth Chain. This i
    You can simply fork and modify the BungeeBridgeProcessor to suit your needs. In this case, we will modify the data collection logic to concentrate on the wallet interactions.
 
 A sample implementation of such a processor will look something like this
+
 ```python
 class TrackingWalletInteractionSnapshot(GenericProcessorSnapshot):
     transformation_lambdas = None

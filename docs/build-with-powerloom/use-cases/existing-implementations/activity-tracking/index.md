@@ -27,7 +27,7 @@ For example, `BungeeBridgeProcessor` located in [`snapshotter/modules/computes`]
 
 Any compute for base snapshots basically needs to implement the `compute` function.
 
-```python
+```python reference
 https://github.com/Powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/callback_helpers.py#L190-L195
 ```
 
