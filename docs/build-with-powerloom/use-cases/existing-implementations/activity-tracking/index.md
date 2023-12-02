@@ -22,11 +22,11 @@ For developers, on-chain activity tracking is a gateway to:
 
 ### 1. Snapshot Builders
 
-Snapshot builders are the core components that capture blockchain activity. They are typically found in a specific implementation directory: [`snapshotter/modules/computes`](https://github.com/PowerLoom/snapshotter-computes/tree/1e145c7f458ce48b8cd2ac860c2ae4a78fad7ea9) in a project's repository. Each snapshot builder must implement a standard interface: [`GenericProcessorSnapshot`](https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/callback_helpers.py).
+Snapshot builders are the core components that capture blockchain activity. They are typically found in a specific implementation directory: [`snapshotter/modules/computes`](https://github.com/Powerloom/snapshotter-computes/tree/1e145c7f458ce48b8cd2ac860c2ae4a78fad7ea9) in a project's repository. Each snapshot builder must implement a standard interface: [`GenericProcessorSnapshot`](https://github.com/Powerloom/pooler/blob/main/snapshotter/utils/callback_helpers.py).
 
 
 ```python reference
-https://github.com/PowerLoom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/callback_helpers.py#L179-L197
+https://github.com/Powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/callback_helpers.py#L179-L197
 ```
 #### Key Components:
 
@@ -41,12 +41,12 @@ https://github.com/PowerLoom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990
 The `compute()` function should return an instance of a Pydantic model, encapsulating the snapshot data. This data is then uploaded to a storage solution like IPFS (InterPlanetary File System) for decentralized and persistent storage.
 
 ```python reference
-https://github.com/PowerLoom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/generic_worker.py#L179-L191
+https://github.com/Powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/generic_worker.py#L179-L191
 ```
 
 ### 3. Configuring the Snapshot Builder
 
-A configuration file [`config/projects.json`](https://github.com/PowerLoom/snapshotter-configs/blob/544f3f3355f0b25b99bac7fe8288cec1a4aea3f3/projects.example.json) specifies the details of the snapshots to be generated. For instance, a [snapshot builder](https://github.com/PowerLoom/snapshotter-computes/blob/29199feab449ad0361b5867efcaae9854992966f/bungee_bridge.py) for `zkevm:bungee_bridge` might look like this:
+A configuration file [`config/projects.json`](https://github.com/Powerloom/snapshotter-configs/blob/544f3f3355f0b25b99bac7fe8288cec1a4aea3f3/projects.example.json) specifies the details of the snapshots to be generated. For instance, a [snapshot builder](https://github.com/Powerloom/snapshotter-computes/blob/29199feab449ad0361b5867efcaae9854992966f/bungee_bridge.py) for `zkevm:bungee_bridge` might look like this:
 
 ```json
 {
@@ -59,7 +59,7 @@ A configuration file [`config/projects.json`](https://github.com/PowerLoom/snaps
 }
 ```
 
-The preloader dependencies like [`block_transactions`](https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/preloaders/tx_receipts/preloader.py) are crucial as they define the initial data set that the snapshot builder will process.
+The preloader dependencies like [`block_transactions`](https://github.com/Powerloom/pooler/blob/main/snapshotter/utils/preloaders/tx_receipts/preloader.py) are crucial as they define the initial data set that the snapshot builder will process.
 
 ### 4. Snapshot Processing
 

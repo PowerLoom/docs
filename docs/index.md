@@ -27,7 +27,7 @@ Here are some of the key features of Powerloom:
 
 **Flexible Data Models:** Developers can contribute to data markets by building their own use cases and contributing to the "data markets" to track what's most valuable for their specific use case, beyond basic transactions.
 
-**Modular and Extensible:** PowerLoom has a modular architecture that makes it easy for developers to add support for new data sources, transform data, and build on top of existing data pipelines.
+**Modular and Extensible:** Powerloom has a modular architecture that makes it easy for developers to add support for new data sources, transform data, and build on top of existing data pipelines.
 
 :::info
 Stay updated with all the latest updates from the Powerloom team and the community by joining our [Discord](https://discord.com/powerloom)

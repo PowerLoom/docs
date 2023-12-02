@@ -1,7 +1,7 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 ---
-# Extending the UniswapV2 Dashboard
+# Extending Pooler 
 
 This documentation provides a step-by-step guide for developers looking to extend the functionality of the UniswapV2 Dashboard, specifically focusing on implementing new data points. The goal is to empower developers to enhance the dashboard with custom features, making it a valuable tool in hackathons and blockchain analytics.
 
@@ -10,7 +10,7 @@ This documentation provides a step-by-step guide for developers looking to exten
 :::tip
 Prerequisities: Before we dive into the implementation of new data points, you may want to look at the concept of how the pooler functions and how it retrives and processes the data. 
 
-[Closer look into the Snapshot Datasets](/docs/build-with-powerloom/uniswapv2-dashboard/tour-of-existing-implementation/closer-inspection-of-the-snapshot-datasets)
+[Closer look into the Snapshot Datasets](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-look-at-snapshots)
 :::
 
 ### Scenario: 2-Hour Aggregate of Swap Events
@@ -19,13 +19,10 @@ We'll use the example of creating a new data point that aggregates only Swap eve
 
 ### Steps to Implement the New Data Point
 
-1. **Fork the Pooler Repository**:
-   Begin by forking the [Pooler repository](https://github.com/powerloom/pooler). This will be your workspace for implementing the new feature.
+1. **Getting Started**:
+   You can follow [this guide](/docs/build-with-powerloom/snapshotter-node/getting-started#for-code-contributors) to get started with the node setup for custom implementations.
 
-2. **Setup Development Environment**:
-   Follow the setup instructions in the [`deploy` repository](https://github.com/powerloom/deploy) to prepare your development environment. This step ensures you have all the necessary tools and dependencies.
-
-3. **Configure Aggregation Worker**:
+2. **Configure Aggregation Worker**:
    In the `config/aggregator.json` file of your forked repository, add a new entry for your aggregation worker class. This class will be responsible for handling the new data aggregation task.
    - Define the `project_type` as something like `"aggregate_swap_events_2h"`.
 -   Set `"aggregate_on"` to `"SingleProject"` or `"MultiProject"` depending on your aggregation logic.
@@ -47,16 +44,16 @@ We'll use the example of creating a new data point that aggregates only Swap eve
 }
 ```
 
-4. **Create a New Data Model**:
-   Develop a new data model in [`utils/message_models.py`](https://github.com/PowerLoom/snapshotter-computes/blob/eth_uniswapv2/utils/models/message_models.py). Use existing models like `UniswapTradesAggregateSnapshot` and `UniswapTradesSnapshot` as references. Your model should be tailored to capture and represent data specific to the 2-hour Swap event aggregation.
+1. **Create a New Data Model**:
+   Develop a new data model in [`utils/message_models.py`](https://github.com/Powerloom/snapshotter-computes/blob/eth_uniswapv2/utils/models/message_models.py). Use existing models like `UniswapTradesAggregateSnapshot` and `UniswapTradesSnapshot` as references. Your model should be tailored to capture and represent data specific to the 2-hour Swap event aggregation.
 
-5. **Focus on 2-Hour Time Span and Swap Events**:
+2. **Focus on 2-Hour Time Span and Swap Events**:
    Modify the data collection logic to concentrate on a 2-hour time span (`epochId`). Ensure that your implementation is set to extract only Swap event logs and their associated trade volumes. Refer to the existing 24-hour aggregation example for guidance on structuring your logic.
 
-6. **Testing and Validation**:
+3. **Testing and Validation**:
    After implementation, rigorously test your new feature to ensure accuracy and efficiency. Validate that the data collected aligns with your intended 2-hour aggregation of Swap events.
 
-7. **Commit and Share Your Work**:
+4. **Commit and Share Your Work**:
    Once your implementation is complete and tested, commit your changes to your implementation branch. Share your work with the community by creating a pull request to the main Pooler repository, if desired.
 
 ## Why Extend the UniswapV2 Dashboard?

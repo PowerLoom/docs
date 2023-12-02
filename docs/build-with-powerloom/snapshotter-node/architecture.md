@@ -22,7 +22,7 @@ Use case specific logic of generating snapshots as well as other configuration a
 
 The architecture has been designed to facilitate the seamless interchange of configuration and modules. Adapting the system to different use cases is as straightforward as changing a Git branch.
 
-You can observe the corresponding branches within [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/) and [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/) repos:
+You can observe the corresponding branches within [snapshotter-configs](https://github.com/Powerloom/snapshotter-configs/) and [snapshotter-computes](https://github.com/Powerloom/snapshotter-computes/) repos:
 
 #### Snapshotter Computes
 * `eth_uniswapv2`: Pooler implementation for Uniswap v2 dashboard
@@ -36,15 +36,15 @@ You can observe the corresponding branches within [snapshotter-configs](https://
 
 ### Configuration Files
 
-Configuration files, located in the `/config` directory are linked to [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/) repo, play a pivotal role in defining project types, specifying paths for individual compute modules, and managing various project-related settings.
+Configuration files, located in the `/config` directory are linked to [snapshotter-configs](https://github.com/Powerloom/snapshotter-configs/) repo, play a pivotal role in defining project types, specifying paths for individual compute modules, and managing various project-related settings.
 
 
 ### Compute Modules
 
-The heart of the system resides in the `snapshotter/modules` directory that's linked to [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/), where the actual computation logic for each project type is defined. These modules drive the snapshot generation process for specific project types.
+The heart of the system resides in the `snapshotter/modules` directory that's linked to [snapshotter-computes](https://github.com/Powerloom/snapshotter-computes/), where the actual computation logic for each project type is defined. These modules drive the snapshot generation process for specific project types.
 
 ## Building your own use case
-Working on a new use case is as simple as writing a new compute module and adding a new configuration file. The instructions to get started in `build-dev.sh` mode are available in the [Deploy repo](https://github.com/PowerLoom/deploy/tree/eth_india).
+Working on a new use case is as simple as writing a new compute module and adding a new configuration file. The instructions to get started in `build-dev.sh` mode are available in the [Deploy repo](https://github.com/Powerloom/deploy/tree/eth_india).
 
 # Useful links
 

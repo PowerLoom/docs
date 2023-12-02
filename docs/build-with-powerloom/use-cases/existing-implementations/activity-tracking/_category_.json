@@ -1,6 +1,6 @@
 {
     "label": "On Chain Activity Tracker",
-    "position": 3,
+    "position": 1,
     "link": {
       "type": "generated-index",
       "description": "Monitor Events and Transactions over various chains and protocols"

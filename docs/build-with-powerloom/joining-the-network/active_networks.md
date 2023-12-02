@@ -25,7 +25,7 @@ We just announced an incentivized testnet,  [register here](https://coinlist.co/
 
 1. Clone the repository against the testnet branch.
 
- `git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_testnet_5_pairs --branch testnet_5_pairs && cd powerloom_testnet_5_pairs`
+ `git clone https://github.com/Powerloom/deploy.git --single-branch powerloom_testnet_5_pairs --branch testnet_5_pairs && cd powerloom_testnet_5_pairs`
 
 2. Copy `env.example` to `.env`.
    - Ensure the following required variables are filled:
@@ -63,7 +63,7 @@ We just announced an incentivized testnet,  [register here](https://coinlist.co/
 :::info
 For detailed documentation on internal APIs and the low level details exposed by them, refer to the Pooler docs.
 
-Tunnel from your local machine to the remote deploy instance on the [`core_api`](https://github.com/PowerLoom/pooler/blob/testnet_5_pairs/README.md#core-api) port
+Tunnel from your local machine to the remote deploy instance on the [`core_api`](https://github.com/Powerloom/pooler/blob/testnet_5_pairs/README.md#core-api) port
 :::
 
 This opens up port 8002.
@@ -96,9 +96,9 @@ Visit `http://localhost:8002/current_epoch` on your browser to know the current 
 
 1. We have setup a bare-bones consensus dashboard at: [testnet-consensus.powerloom.io](https://testnet-consensus.powerloom.io/projects/aggregate_24h_stats_lite:10ecae2f52160690abffff26efeb45568e5d67ea0bc7d4485d9ffb10ef437f33:UNISWAPV2). In a 5-10 minutes, your snapshotter address will start show up - use the search box to filter the results.
 
-2. Once all the services are up and running, the front-end can be accessed via [Pooler Frontend](http://localhost:3000) to see a UNISWAPV2 summary data dashboard similar to [PowerLoom UNISWAPV2 Prod](https://uniswapv2.powerloom.io/).
+2. Once all the services are up and running, the front-end can be accessed via [Pooler Frontend](http://localhost:3000) to see a UNISWAPV2 summary data dashboard similar to [Powerloom UNISWAPV2 Prod](https://uniswapv2.powerloom.io/).
 
-    - Note that the data shown in your own dashboard will not be same as production UI on PowerLoom.io as the "lite mode" is only set to snapshot 7 pair contracts. Refer to contributors section below to enable all pairs.
+    - Note that the data shown in your own dashboard will not be same as production UI on Powerloom.io as the "lite mode" is only set to snapshot 7 pair contracts. Refer to contributors section below to enable all pairs.
 
 
 3. To shutdown services, just press `Ctrl+C` (and again to force).
