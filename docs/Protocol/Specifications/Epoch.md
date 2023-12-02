@@ -53,8 +53,14 @@ The Payload commit service has sent the snapshot to a transaction relayer to sub
 
 ### 6. `SNAPSHOT_FINALIZE`
 
-The snapshot is finalized on the protocol.
+Snapshot is finalized on the protocol.
 
-## Useful Links
+## Force Consensus service 
+
+Force consensus is an optional mechanism that can be run by anyone in the network and is designed to trigger consensus checks for projects that didn't reach consensus automatically with a 51% majority within the submission window. This will force consensus if possible if the project submissions meet all internal criteria for consensus after the submission window is closed.
+
+Force Consensus works slightly differently than Epoch Generator and is heavily optimized to handle a lot of projects. The sequence diagram explaining the flow is given below.
+
+![Force consensus mechanism](https://raw.githubusercontent.com/PowerLoom/onchain-consensus/feat/force_consensus_only_relevant_projects/docs/images/force_consensus.png)
 
 - [Epoch Generator Source Code on Github](https://github.com/Powerloom/onchain-consensus/blob/63d09aa9ab1d98a2fed55e05b7760c12692fea83/epoch_generator.py)

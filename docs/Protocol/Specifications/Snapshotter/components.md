@@ -101,4 +101,16 @@ Extracting data from the blockchain state and generating the snapshot can be a c
 
 ## Core API
 
-This component is one of the most important and allows you to access the finalized protocol state on the smart contract running on the anchor chain. Find it in [`core_api.py`](https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/core_api.py).
+This component is one of the most important and allows you to access the finalized protocol state on the smart contract running on the anchor chain. Find it in [`core_api.py`](https://github.com/PowerLoom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/core_api.py).
+
+In the end,
+
+* It provides a reliable gateway to the datasets finalized on the protocol state for a data market
+  * It abstracts away the parts that deal with varying interaces and APIs of 
+    * decentralized storage protcols like IPFS, Filecoin 
+    * other value added providers like Web3 Storage on such layers
+* It maintains a cache as well for redundancy and availability of the data sets
+
+Its API endpoints are used by a decoupled frontend adapter logic that ultimately support building of rich data products for smart contracts and other web3 based applications. 
+
+In our [`Building with Powerloom` section of docs](/docs/build-with-powerloom/building-use-cases/uniswapv2-dashboard/index.md), find out more about the way this API is used by a frontend adapter to serve a Uniswap v2 dashboard.
