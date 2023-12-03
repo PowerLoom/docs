@@ -5,7 +5,7 @@ import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
-    title: 'Build on Powerloom',
+    title: 'Build with Powerloom',
     url: '/docs/category/build-with-powerloom',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
