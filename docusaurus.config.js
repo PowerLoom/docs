@@ -18,7 +18,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://powerloom-docs-245iq.ondigitalocean.app/',
+  url: 'https://docs.powerloom.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -84,7 +84,7 @@ const config = {
 
 
       // Replace with your project's social card
-      image: 'img/powerloom-social-card.jpg',
+      image: 'img/powerloom-social-card.png',
       navbar: {
         title: 'Powerloom',
         logo: {
