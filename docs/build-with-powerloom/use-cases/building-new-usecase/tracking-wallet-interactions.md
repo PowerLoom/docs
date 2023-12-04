@@ -31,14 +31,14 @@ Let's use the example of tracking transactions of a wallet for Eth Chain. This i
   
     ```json
     {
-        "project_type": "eth:tracking_wallet_interactions",
+        "project_type": "eth:tracking_wallet_interaction",
         "projects":[],
         "preload_tasks":[
             "block_transactions"
         ],
         "bulk_mode": true,
         "processor":{
-            "module": "snapshotter.modules.computes.eth_tracking_wallet_interactions",
+            "module": "snapshotter.modules.computes.tracking_wallet_interaction",
             "class_name": "TrackingWalletInteractionProcessor"
         }
     }
@@ -49,9 +49,9 @@ Let's use the example of tracking transactions of a wallet for Eth Chain. This i
    The data model in this case will look something like this
    ```python
 
-    class TrackingWalletInteractionSnapshot(BaseSnapshot):
+    class TrackingWalletInteractionSnapshot(BaseModel):
         wallet_address: str
-        contract_addresses: List[str]
+        contract_address: str
     ```
 
 4. **Focus on Wallet Interactions**:
@@ -60,12 +60,29 @@ Let's use the example of tracking transactions of a wallet for Eth Chain. This i
 A sample implementation of such a processor will look something like this
 
 ```python
-class TrackingWalletInteractionSnapshot(GenericProcessorSnapshot):
+import json
+from typing import List
+from typing import Tuple
+from typing import Union
+
+from redis import asyncio as aioredis
+
+from .utils.event_log_decoder import EventLogDecoder
+from .utils.models.message_models import TrackingWalletInteractionSnapshot
+from snapshotter.utils.callback_helpers import GenericProcessorSnapshot
+from snapshotter.utils.default_logger import logger
+from snapshotter.utils.models.message_models import EthTransactionReceipt
+from snapshotter.utils.models.message_models import PowerloomSnapshotProcessMessage
+from snapshotter.utils.redis.redis_keys import epoch_txs_htable
+from snapshotter.utils.rpc import RpcHelper
+
+
+class TrackingWalletInteractionProcessor(GenericProcessorSnapshot):
     transformation_lambdas = None
 
     def __init__(self) -> None:
         self.transformation_lambdas = []
-        self._logger = logger.bind(module='TrackingWalletInteractionSnapshot')
+        self._logger = logger.bind(module='TrackingWalletInteractionProcessor')
 
     async def compute(
         self,
@@ -73,7 +90,7 @@ class TrackingWalletInteractionSnapshot(GenericProcessorSnapshot):
         redis_conn: aioredis.Redis,
         rpc_helper: RpcHelper,
 
-    ) -> Union[None, List[Tuple[str, BungeeBridgeSnapshot]]]:
+    ) -> Union[None, List[Tuple[str, TrackingWalletInteractionSnapshot]]]:
         min_chain_height = epoch.begin
         max_chain_height = epoch.end
 
@@ -85,11 +102,11 @@ class TrackingWalletInteractionSnapshot(GenericProcessorSnapshot):
         txs_hset = await redis_conn.hgetall(epoch_txs_htable(epoch.epochId))
         all_txs = {k.decode(): EthTransactionReceipt.parse_raw(v) for k, v in txs_hset.items()}
 
-        wallet_address = '0x555A64968E4803e27669D64e349Ef3d18FCa0895'
+        wallet_address = '0xae2Fc483527B8EF99EB5D9B44875F005ba1FaE13'
         wallet_txs = list(
             map(
                 lambda x: x.dict(), filter(
-                    lambda tx: tx.from == wallet_address,
+                    lambda tx: tx.from_field == wallet_address and tx.to,
                     all_txs.values(),
                 ),
             ),
@@ -99,16 +116,15 @@ class TrackingWalletInteractionSnapshot(GenericProcessorSnapshot):
         for tx in wallet_txs:
             snapshots.append(
                 (
-                    wallet_address.lower(),
+                    f"{wallet_address}_{tx['to']}",
                     TrackingWalletInteractionSnapshot(
                         wallet_address=wallet_address,
-                        contract_addresses=[tx['to']],
+                        contract_address=tx['to'],
                     ),
                 ),
             )
 
         return snapshots
-
 ```
 
 5. **Test your Processor**:
