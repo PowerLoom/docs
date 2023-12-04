@@ -18,7 +18,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://powerloom-docs-245iq.ondigitalocean.app/',
+  url: 'https://docs.powerloom.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -71,10 +71,6 @@ const config = {
         respectPrefersColorScheme: false,
       },
 
-
-
-      //Github Code Snippet Block
-      // github codeblock theme configuration
       codeblock: {
         showGithubLink: true,
         githubLinkLabel: 'View on GitHub',
@@ -84,7 +80,7 @@ const config = {
 
 
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/powerloom-social-card.png',
       navbar: {
         title: 'Powerloom',
         logo: {
@@ -162,7 +158,7 @@ const config = {
               specPath: "examples/core_api.yaml",
               outputDir: "docs/build-with-powerloom/snapshotter-node/core-api",
               downloadUrl:
-                "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
+                "https://raw.githubusercontent.com/PowerLoom/docs/main/examples/core_api.yaml",
               sidebarOptions: {
                 groupPathsBy: "tag",
                 categoryLinkSource: "tag",
