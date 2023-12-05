@@ -18,7 +18,7 @@ Every file and every block of data on the network has a unique hash associated w
 
 ![API Calls for a certain CID](/images/uniswap-inspect.png)
 
-For instance, the Powerloom Uniswap V2 dashboard (https://uniswapv2.powerloom.io/) connects to a snapshotter node hosted by the Powerloom Foundation. The frontend interacts with the [Snapshotter Core API](/docs/category/snapshotter-core-api) to access the data. Internally, the Core API interacts with the Protocol State Contract deployed on Powerloom Prost chain to fetch the data.
+For instance, the Powerloom Uniswap V2 dashboard (https://uniswapv2.powerloom.io/) connects to a snapshotter node hosted by the Powerloom Foundation. The frontend interacts with the Snapshotter Core API to access the data. Internally, the Core API interacts with the Protocol State Contract deployed on Powerloom Prost chain to fetch the data.
 
 ### Verifying Data
 
@@ -63,7 +63,7 @@ To verify data for any Project ID, follow these steps:
 2. Retrieve the finalized CID (Content Identifier) for this epoch.
 3. Access the dataset linked to this CID either through your local IPFS node or by using a public IPFS gateway (Public gateway link: https://ipfs.io/ipfs/{IPFS-CID})
 
-The logic to retrieve the CID from the protocol state contract can be extracted from the [Snapshotter Core API](/docs/category/snapshotter-core-api) codebase.
+The logic to retrieve the CID from the protocol state contract can be extracted from the Snapshotter Core API codebase.
 
 Here's the code to find the last finalized epoch for a project ID:
 ```python reference
