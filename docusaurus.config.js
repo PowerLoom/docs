@@ -78,8 +78,28 @@ const config = {
         showRunmeLink: false,
         runmeLinkLabel: 'Checkout via Runme'
       },
-
-
+      languageTabs: [
+        {
+          highlight: "bash",
+          language: "curl",
+          logoClass: "bash",
+        },
+        {
+          highlight: "javascript",
+          language: "nodejs",
+          logoClass: "nodejs",
+        },
+        {
+          highlight: "python",
+          language: "python",
+          logoClass: "python",
+        },
+        {
+          highlight: "go",
+          language: "go",
+          logoClass: "go",
+        },
+      ],
       // Replace with your project's social card
       image: 'img/powerloom-social-card.png',
       navbar: {
@@ -142,8 +162,7 @@ const config = {
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        additionalLanguages: ["ruby", "csharp", "php"],
+        darkTheme: darkCodeTheme
       },
 
     }),
