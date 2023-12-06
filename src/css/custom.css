@@ -39,3 +39,8 @@ body {
 html[data-theme='dark'] footer {
 background-color: #252526;
 }
+
+.button-css {
+  color:#1a8870
+
+}

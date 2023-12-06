@@ -7,7 +7,7 @@ const FeatureList = [
   {
     title: 'Build with Powerloom',
     url: '/docs/category/build-with-powerloom',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/build-with-powerloom.svg').default,
     description: (
       <>
         Learn how to build on Powerloom and integrate it into your application
@@ -17,7 +17,7 @@ const FeatureList = [
   {
     title: 'Snapshotter Node',
     url: '/docs/category/snapshotter-node',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/snapshotter-node.svg').default,
     description: (
       <>
         Learn more about the snapshotter nodes and how to run your own!
@@ -27,7 +27,7 @@ const FeatureList = [
   {
     title: 'Core Powerloom Protocol',
     url: '/docs/category/protocol-overview',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/core-protocol.svg').default,
     description: (
       <>
         Deep dive into the core protocol design of Powerloom
