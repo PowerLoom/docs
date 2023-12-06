@@ -3,10 +3,8 @@ info:
   title: Snapshotter Core API
   version: 0.1.0
 servers:
-  - url: https://eth-india-uniswapv2-eth/api/
-    description: Uniswap V2
-  - url: https://eth-india-zkevm-quests/api/
-    description: ZkEvm Quests
+  - url: https://pooler-api.powerloom.io
+    description: Pooler
 paths:
   /health:
     get:
@@ -15,14 +13,15 @@ paths:
         Endpoint to check the health of the Snapshotter service.
 
         Parameters:
+
         request (Request): The incoming request object.
         response (Response): The outgoing response object.
 
         Returns:
+
         dict: A dictionary containing the status of the service.
       operationId: health_check_health_get
-      security:
-        - api_key: []
+
       responses:
         '200':
           description: Successful Response
@@ -36,16 +35,17 @@ paths:
         Get the current epoch data from the protocol state contract.
 
         Args:
+
             request (Request): The incoming request object.
             response (Response): The outgoing response object.
             rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency.
             Defaults to Depends(rate_limit_auth_check,).
 
         Returns:
+
             dict: A dictionary containing the current epoch data.
       operationId: get_current_epoch_current_epoch_get
-      security:
-        - api_key: []
+
       responses:
         '200':
           description: Successful Response
@@ -59,12 +59,14 @@ paths:
         Get epoch information for a given epoch ID.
 
         Args:
+
             request (Request): The incoming request object.
             response (Response): The outgoing response object.
             epoch_id (int): The epoch ID for which to retrieve information.
             rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency. Defaults to rate_limit_auth_check.
 
         Returns:
+
             dict: A dictionary containing epoch information including timestamp, block number, and epoch end.
       operationId: get_epoch_info_epoch__epoch_id__get
       parameters:
@@ -74,8 +76,7 @@ paths:
             type: integer
           name: epoch_id
           in: path
-      security:
-        - api_key: []
+
       responses:
         '200':
           description: Successful Response
@@ -95,12 +96,14 @@ paths:
         Get the last finalized epoch information for a given project.
 
         Args:
+
             request (Request): The incoming request object.
             response (Response): The outgoing response object.
             project_id (str): The ID of the project to get the last finalized epoch information for.
             rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication dependency. Defaults to rate_limit_auth_check.
 
         Returns:
+
             dict: A dictionary containing the last finalized epoch information for the given project.
       operationId: get_project_last_finalized_epoch_info_last_finalized_epoch__project_id__get
       parameters:
@@ -110,8 +113,7 @@ paths:
             type: string
           name: project_id
           in: path
-      security:
-        - api_key: []
+
       responses:
         '200':
           description: Successful Response
@@ -131,6 +133,7 @@ paths:
         Get data for a given project and epoch ID.
 
         Args:
+
             request (Request): The incoming request.
             response (Response): The outgoing response.
             project_id (str): The ID of the project.
@@ -138,6 +141,7 @@ paths:
             rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check. Defaults to Depends(rate_limit_auth_check).
 
         Returns:
+
             dict: The data for the given project and epoch ID.
       operationId: get_data_for_project_id_epoch_id_data__epoch_id___project_id___get
       parameters:
@@ -153,8 +157,7 @@ paths:
             type: integer
           name: epoch_id
           in: path
-      security:
-        - api_key: []
+
       responses:
         '200':
           description: Successful Response
@@ -174,6 +177,7 @@ paths:
         Get finalized cid for a given project_id and epoch_id.
 
         Args:
+
             request (Request): The incoming request.
             response (Response): The outgoing response.
             project_id (str): The project id.
@@ -181,6 +185,7 @@ paths:
             rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.
 
         Returns:
+
             dict: The finalized cid for the given project_id and epoch_id.
       operationId: get_finalized_cid_for_project_id_epoch_id_cid__epoch_id___project_id___get
       parameters:
@@ -196,8 +201,7 @@ paths:
             type: integer
           name: epoch_id
           in: path
-      security:
-        - api_key: []
+
       responses:
         '200':
           description: Successful Response
@@ -217,15 +221,16 @@ paths:
         Returns the overall status of the snapshotter.
 
         Args:
+
             request (Request): The incoming request.
             response (Response): The outgoing response.
             rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check. Defaults to Depends(rate_limit_auth_check).
 
         Returns:
+
             dict: A dictionary containing the snapshotter status.
       operationId: get_snapshotter_overall_status_internal_snapshotter_status_get
-      security:
-        - api_key: []
+
       responses:
         '200':
           description: Successful Response
@@ -239,6 +244,7 @@ paths:
         Get snapshotter project level status.
 
         Args:
+
             request (Request): The request object.
             response (Response): The response object.
             project_id (str): The project ID.
@@ -246,6 +252,7 @@ paths:
             rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.
 
         Returns:
+
             dict: The snapshotter project status.
       operationId: get_snapshotter_project_level_status_internal_snapshotter_status__project_id__get
       parameters:
@@ -262,8 +269,7 @@ paths:
             default: false
           name: data
           in: query
-      security:
-        - api_key: []
+
       responses:
         '200':
           description: Successful Response
@@ -283,11 +289,13 @@ paths:
         Endpoint to get the epoch processing status report.
 
         Args:
+
             request (Request): The incoming request object.
             response (Response): The outgoing response object.
             rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency. Defaults to Depends(rate_limit_auth_check).
 
         Returns:
+        
             Page[SnapshotterEpochProcessingReportItem]: The paginated epoch processing status report.
       operationId: get_snapshotter_epoch_processing_status_internal_snapshotter_epochProcessingStatus_get
       parameters:
@@ -308,8 +316,7 @@ paths:
             default: 10
           name: size
           in: query
-      security:
-        - api_key: []
+
       responses:
         '200':
           description: Successful Response
@@ -330,12 +337,14 @@ paths:
         Endpoint to get the status of a task for a given wallet address.
 
         Args:
+
             request (Request): The incoming request object.
             response (Response): The outgoing response object.
             task_status_request (TaskStatusRequest): The request body containing the task type and wallet address.
             rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit and authorization dependency. Defaults to rate_limit_auth_check.
 
         Returns:
+
             dict: A dictionary containing the status of the task and a message.
       operationId: get_task_status_post_task_status_post
       requestBody:
@@ -344,8 +353,7 @@ paths:
             schema:
               $ref: '#/components/schemas/TaskStatusRequest'
         required: true
-      security:
-        - api_key: []
+
       responses:
         '200':
           description: Successful Response
@@ -359,11 +367,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
-  securitySchemes:
-    api_key:
-      type: apiKey
-      name: X-API-Key
-      in: header
   schemas:
     CustomizedPage_SnapshotterEpochProcessingReportItem_:
       title: CustomizedPage[SnapshotterEpochProcessingReportItem]

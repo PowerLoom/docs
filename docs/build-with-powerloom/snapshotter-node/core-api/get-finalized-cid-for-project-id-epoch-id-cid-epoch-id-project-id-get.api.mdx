@@ -1,0 +1,64 @@
+---
+id: get-finalized-cid-for-project-id-epoch-id-cid-epoch-id-project-id-get
+title: "Get Finalized Cid For Project Id Epoch Id"
+description: "Get finalized cid for a given project_id and epoch_id."
+sidebar_label: "Get Finalized Cid For Project Id Epoch Id"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVU1v2zAM/SuCTi2QJVmxk29Fv1agw4I226UtDNVmYrWOpEl0t8zIfx8p27GzbN12GTBgvkRmHh8p8pGuZQ4h89qhtkYm8gJQLLRRpf4Kuch0LhbWCyWW+hmMcN4+QoYpmZXJBTibFfQyvjN35tgvQ8IHQY+HTxUEFAfXzeEwEfMChDaZXWmz7P4fd+jgrAnA8ObU4m2FS9vgG3vrMMjjIKBv0a1VxIQY1uUnDrTpUoi2HuIVQlrqlcZUVVikOTjKgoxXbDsm00kB2dNI2FghVbY07Cein2A/kTFKkDeYHEy2HotTWKiqxCDQ7kWJ6Fi1a8DKm75wuc6wibDfBSTry32QI2kdUDRK9TKndi4B0y1RSkQpEaW9e9q5xv/6t3SISVOiIWqnvFoBgg8yua0l91B7oDDoKxjJQLdaKZnUEjWWQNFnbUMolZHEtWMbtYsaKjcjaYiMDH0gAmnWoFNYEOB3IpzFbg75qdOwBD8I0F1ql/5+JDtRBWY8mk75Z3cabqosgxAWVSk6ZRJLZimGQYYr50qdxXpPHgP71H2WG3pG8s3R0T7xR+pIHt3EmffW/wHr9u5v5/NZz9PRtGWwD1xUbppnRaBubpkDKl0OWU4by9ZRea/WXCqEVRgC90P17bmVpc3IsgrLjun+V6mwx4D+yjYXfiETZdbvF1F632up3uv+PZee0xmEeEetVEv4kRYbw0BXfEUxZ+seevtQAMDCtnMWB4SUlcgJzdKk7mS3mdS9xDcTggXwz90QVZ66IQtEF5LJxFlbgn+lnB47+xl8ae1qrC357MpnFnFRxNos7DDzG6NcKCzSmIoT60Eczy7JnwM2vtPx6/GU7+xswJWK4monhZf/+XbtnNB2Oacq9FMsBuO2k1Ddq/f/F+Rf/4K0ckf4ghNXKtqZJJao07pV+K3M4jpNBqs12dnjPP4F6Yuxdf2gAnzw5WbDZmqbX5Odjs/Ka/XAsqVJyHXgM03TQpUBXlBYlAQvnkPxs3S7FWJ4gTyrsuI3Oj7BeveTw7vjL0beFowWFFUIVE5jzLdv/j6mz43DgePel4BHfrt1Ls7mtI6+AVNvXuM=
+sidebar_class_name: "get api-method"
+info_path: docs/build-with-powerloom/snapshotter-node/core-api/snapshotter-core-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get Finalized Cid For Project Id Epoch Id</h1>
+
+<MethodEndpoint method={"get"} path={"/cid/{epoch_id}/{project_id}/"}></MethodEndpoint>
+
+
+
+Get finalized cid for a given project_id and epoch_id.
+
+Args:
+
+    request (Request): The incoming request.
+    response (Response): The outgoing response.
+    project_id (str): The project id.
+    epoch_id (int): The epoch id.
+    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit auth check dependency. Defaults to rate_limit_auth_check.
+
+Returns:
+
+    dict: The finalized cid for the given project_id and epoch_id.
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"required":true,"schema":{"title":"Project Id","type":"string"},"name":"project_id","in":"path"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"required":true,"schema":{"title":"Epoch Id","type":"integer"},"name":"epoch_id","in":"path"}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful Response
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"422"} value={"422"}><div>
+
+Validation Error
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>detail</strong><span className={"openapi-schema__name"}> object[]</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>loc</strong><span className={"openapi-schema__name"}> object[]</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><div><span className={"badge badge--info"}>anyOf</span><SchemaTabs><TabItem label={"MOD1"} value={"0-item-properties"}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+string
+
+</div></TabItem><TabItem label={"MOD2"} value={"1-item-properties"}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+integer
+
+</div></TabItem></SchemaTabs></div><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={false} name={"msg"} required={true} schemaName={"Message"} qualifierMessage={undefined} schema={{"title":"Message","type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"type"} required={true} schemaName={"Error Type"} qualifierMessage={undefined} schema={{"title":"Error Type","type":"string"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        0\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

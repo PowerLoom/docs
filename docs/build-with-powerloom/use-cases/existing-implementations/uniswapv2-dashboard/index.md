@@ -26,7 +26,7 @@ Let's explore the details of the Pooler implementation. The image provided illus
 #### Workflow: 
 1. The user accesses the Uniswap v2 dashboard through [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io).
 2. The dashboard makes calls to a foundation hosted node to get the latest aggregated data.
-3. These calls are handled by the Snapshotter Core API interface, running on the foundation hosted node.
+3. These calls are handled by the [Snapshotter Core API](/docs/category/snapshotter-core-api) interface, running on the foundation hosted node.
 4. The foundation nodes then fetch the relevant data from blockchain/Redis cache to optimize the response times.
 5. Once the data is retrieved, the frontend is rendered with the data.
 

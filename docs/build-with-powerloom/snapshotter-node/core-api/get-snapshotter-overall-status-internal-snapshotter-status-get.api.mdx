@@ -1,0 +1,50 @@
+---
+id: get-snapshotter-overall-status-internal-snapshotter-status-get
+title: "Get Snapshotter Overall Status"
+description: "Returns the overall status of the snapshotter."
+sidebar_label: "Get Snapshotter Overall Status"
+hide_title: true
+hide_table_of_contents: true
+api: eJztU8tu2zAQ/BWCpwRwJbdH3Yy0CAIUaJCkJycQGGltsaG4LLlyawj69+7qkdjpvafqotVqhpwdDntdQ6qiDWTR60LfAXXRJ0UNKDxANM6pRIa6pHA3dpM3ITVIBDF79I9+E/epkELxE+FnB4nUxd1UXBbqgTnWV9hav1/+Zws6BfQJBD5VMx472uOEn/oLwRCUzraWStNRU9YQmMvNr9LbcOuqgeplpXCcx7h5PeGpkaeEB55sZQShKsFn6jPsTOeI50auA/g6XbzfbIRejjPPLr2OXduKCrUZ37JvPKoKPRnrZYh3rs1+ZnqlMbDDwrip2fs9UHmCK2f/ywlfWs9NnukMM/9jKi+3uJV00etP67W8zo/3vqsqSGnXObVYzjzRyp4I3ITgZm/yH0k4vU48eWu4GuRZ6RaowVkws4Ohhj/yRV9+oi+f9DEqQeRxWNm21110TGiIQiryPCA6iB9MsFnAXxAdYptZZM659tsRp4enlbZ+h6KMLDmQsU7cvcIIanN7w3zZcOKus4/ZWrP2gIlaM47lTSvcayB1yv82p/5+UX6mon8z6/9d+ad3hY5BjovgN+XBMVyOc0xSP0dwq5cISt7eFpGv6TA5Og0HQKB9/2wSfI9uGKTNVscj97k8mGjNs+Rq+8RbNGBqXkNy+wIM0Ru+QkGCfzCuE0l/3RmJ6Osluf7yoIfhD5+i78U=
+sidebar_class_name: "get api-method"
+info_path: docs/build-with-powerloom/snapshotter-node/core-api/snapshotter-core-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get Snapshotter Overall Status</h1>
+
+<MethodEndpoint method={"get"} path={"/internal/snapshotter/status"}></MethodEndpoint>
+
+
+
+Returns the overall status of the snapshotter.
+
+Args:
+
+    request (Request): The incoming request.
+    response (Response): The outgoing response.
+    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check. Defaults to Depends(rate_limit_auth_check).
+
+Returns:
+
+    dict: A dictionary containing the snapshotter status.
+
+## Request
+
+<div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful Response
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

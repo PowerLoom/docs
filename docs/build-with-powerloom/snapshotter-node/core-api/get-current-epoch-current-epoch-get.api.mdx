@@ -1,0 +1,51 @@
+---
+id: get-current-epoch-current-epoch-get
+title: "Get Current Epoch"
+description: "Get the current epoch data from the protocol state contract."
+sidebar_label: "Get Current Epoch"
+hide_title: true
+hide_table_of_contents: true
+api: eJztU8Fu2zAM/RVBpxbIkmxH34KsKArsUHTdKS0CRWZitbKoSXS2wPC/j1TcFm73ATvMF1PUe9Ij9djrGrJNLpLDoCt9DaSoAWW7lCCQgoi2UbUho/YJ27IXExJa9CqTIYZioGQszR/CQ1ilQ64kUPwl+NlBJnVxdw4uK3XPfBcsti4cXvdx9wSFfybliCGDsM7RSMOODnimjYgpj7VsvWsdbU1HzbaGyEdw8pvkVpxaN2CfZwpLrcaPxwpPFZ4SHhftrBGEsoJXfA6EGoI9jRd9hb3pPGVFyLFs5ov3lxfq7LK05A6oS+GtK7WzVKlV+YuQdCotNC5IcX9v/lzPNEZIRdhNzQ91ANqOuG3BvVvxPnNeWpV11esvy6X8pg/+vbMWct53Xr30m3kiiM8SuInRjx1ZPGXh9Dpzfa3haJBvplugBkdVzI6GGl4sJoo4nyEdIbGWTa+75BnSEMVcLRYR0UP6ZKKbR/wFySO2c4fMmaq9LTg9PM60C3sULeTIgxQSTMwNEkFSa0ygVrc3zJcLz9zl/PN8qVltxEytKYUE08Lo+vXY9KtR7OTi/q0j/0fk3x0ROkV5ToLftIie4fLcxWn9aMqNnpqSjdSwHWSj73cmw4/kh0HS3Pd04jyHR5Oc2YnLNo98YAOmZhOKi5+BIXrFIxTF+EfjOxHwYWbEsK9Dcn11r4fhDy3K8M8=
+sidebar_class_name: "get api-method"
+info_path: docs/build-with-powerloom/snapshotter-node/core-api/snapshotter-core-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get Current Epoch</h1>
+
+<MethodEndpoint method={"get"} path={"/current_epoch"}></MethodEndpoint>
+
+
+
+Get the current epoch data from the protocol state contract.
+
+Args:
+
+    request (Request): The incoming request object.
+    response (Response): The outgoing response object.
+    rate_limit_auth_dep (RateLimitAuthCheck, optional): The rate limit authentication check dependency.
+    Defaults to Depends(rate_limit_auth_check,).
+
+Returns:
+
+    dict: A dictionary containing the current epoch data.
+
+## Request
+
+<div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful Response
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      
