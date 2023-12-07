@@ -30,7 +30,7 @@ Here are some key features of Powerloom:
 **Modular and Extensible:** Powerloom has a modular architecture that makes it easy for developers to add support for new data sources, transform data, and build on top of existing data pipelines.
 
 :::info
-Stay updated with all the latest news from the Powerloom team and the community by joining our [Discord](https://discord.com/powerloom).
+Stay updated with all the latest news from the Powerloom team and the community by joining our [Discord](https://powerloom.io/discord).
 :::
 
 ## Roles in the Powerloom Ecosystem

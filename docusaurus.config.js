@@ -127,7 +127,7 @@ const config = {
         links: [
           {
             label: 'Discord',
-            href: 'https://discord.com/powerloom',
+            href: 'https://powerloom.io/discord',
           },
           {
             label: 'Twitter',

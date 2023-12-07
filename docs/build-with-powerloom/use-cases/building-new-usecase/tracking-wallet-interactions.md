@@ -134,6 +134,6 @@ class TrackingWalletInteractionProcessor(GenericProcessorSnapshot):
    Once your implementation is complete and tested, commit your changes to your implementation branch. Share your work with the community by creating a pull request to the main Computes repository, if desired.
 
 
-If you have any questions while building / integrating, you can reach us out on our [discord](https://discord.com/powerloom).
+If you have any questions while building / integrating, you can reach us out on our [discord](https://powerloom.io/discord).
 
 If you're interested in understanding the working of core components of the protocol, you can check out the [protocol overview](/docs/category/protocol-overview) section.
