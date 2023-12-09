@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Tracking Wallet Interactions
@@ -55,7 +55,7 @@ Let's use the example of tracking transactions of a wallet for Eth Chain. This i
     ```
 
 4. **Focus on Wallet Interactions**:
-   You can simply fork and modify the BungeeBridgeProcessor to suit your needs. In this case, we will modify the data collection logic to concentrate on the wallet interactions.
+   You can simply fork and modify the `TrackingWalletInteractionProcessor` to suit your needs. In this case, we will modify the data collection logic to concentrate on the wallet interactions.
 
 A sample implementation of such a processor will look something like this
 
