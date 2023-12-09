@@ -3,7 +3,7 @@
  * and scoped locally.
  */
 
- .heroBanner {
+.heroBanner {
   padding: 4rem 2rem 2rem 4rem;
   text-align: center;
   position: relative;
@@ -22,21 +22,22 @@
 
   }
 }
+
 .hero__subtitle {
-  font-size: 11px; /* Set the font size to your desired size */
+  font-size: 11px;
+  /* Set the font size to your desired size */
   /* You may also want to adjust line height, weight, etc., to match your design */
-  line-height: 1.3; /* Example line height adjustment */
-  font-weight: normal; /* Example font weight adjustment */
+  line-height: 1.3;
+  /* Example line height adjustment */
+  font-weight: normal;
+  /* Example font weight adjustment */
 }
 
 /* You can also use media queries if you want to adjust the size responsively */
 @media (max-width: 768px) {
   .hero__subtitle {
-    font-size: 16px; /* Smaller font size on smaller screens */
+    font-size: 16px;
+    /* Smaller font size on smaller screens */
   }
 }
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
