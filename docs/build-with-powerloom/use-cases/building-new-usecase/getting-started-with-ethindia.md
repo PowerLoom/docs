@@ -7,7 +7,7 @@ sidebar_position: 0
 
 If you are building at [ETH India 2023](https://ethindia.co), we have a dedicated dashboard to get you started. 
 
-[Eth India 2023 Dashboard](https://ethindia2023.powerloom.io)
+[Eth India 2023 Dashboard](https://ethindia23.powerloom.io)
 
 ![Dashboard-image](../../../../static/images/dashboard1.png)
 
@@ -19,4 +19,8 @@ If your wallet is not added in 10-15 mins, you can reach us out on [Discord](htt
 
 ## API key: 
 
-You'll also have an API Key to access our API in your application. You can access the APIs documentation [here](https://docs.powerloom.io/docs/category/snapshotter-core-api).
+If you are planning to use APIs to access on-chain data. You can access the APIs documentation [here](https://docs.powerloom.io/docs/category/snapshotter-core-api).
+
+![API-key](../../../../static/images/APIkey.png)
+
+When you register on the dashboard, The API key is auto-generated and you use that to Authenticate and increase the rate-limit of the API calls. 
