@@ -72,6 +72,30 @@ const config = {
         respectPrefersColorScheme: false,
       },
 
+      typesense: {
+        // Replace this with the name of your index/collection.
+        // It should match the "index_name" entry in the scraper's "config.json" file.
+        typesenseCollectionName: 'powerloom',
+  
+        typesenseServerConfig: {
+          nodes: [
+            {
+              host: 'localhost',
+              port: 8108,
+              protocol: 'http',
+            },
+          ],
+          apiKey: 'xyz',
+        },
+  
+        // Optional: Typesense search parameters: https://typesense.org/docs/0.24.0/api/search.html#search-parameters
+        typesenseSearchParameters: {},
+  
+        // Optional
+        contextualSearch: true,
+      },
+  
+
       codeblock: {
         showGithubLink: true,
         githubLinkLabel: 'View on GitHub',
@@ -167,32 +191,32 @@ const config = {
 
     }),
 
-    plugins: [
-      [
-        "docusaurus-plugin-openapi-docs",
-        {
-          id: "openapi",
-          docsPluginId: "classic",
-          config: {
-            poolerdocs: {
-              specPath: "examples/core_api.yaml",
-              outputDir: "docs/build-with-powerloom/snapshotter-node/core-api",
-              downloadUrl:
-                "https://raw.githubusercontent.com/PowerLoom/docs/main/examples/core_api.yaml",
-              sidebarOptions: {
-                groupPathsBy: "tag",
-                categoryLinkSource: "tag",
-              },
+  plugins: [
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "openapi",
+        docsPluginId: "classic",
+        config: {
+          poolerdocs: {
+            specPath: "examples/core_api.yaml",
+            outputDir: "docs/build-with-powerloom/snapshotter-node/core-api",
+            downloadUrl:
+              "https://raw.githubusercontent.com/PowerLoom/docs/main/examples/core_api.yaml",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
             },
           },
         },
-      ],
+      },
     ],
+  ],
 
   themes: [
     'docusaurus-theme-github-codeblock',
-    'docusaurus-theme-openapi-docs'
-
+    'docusaurus-theme-openapi-docs',
+    'docusaurus-theme-search-typesense',
   ]
 };
 
