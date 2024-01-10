@@ -2,44 +2,57 @@
 sidebar_position: 0
 ---
 
-# Introduction
-
-## Pooler - UniswapV3 Data Market
-
-Pooler is a Uniswap-specific implementation within the Powerloom ecosystem, designed as a snapshotter. It functions by synchronizing with other snapshotter peers over a smart contract on the Powerloom Protocol testnet. This architecture, guided by state transitions, is both easily comprehensible and modifiable.
+# Pooler - UniswapV3 Implementation Details
 
 :::tip
-**Pooler in a Nutshell:**
-
-Forex, the foreign exchange market, involves currency trading and is known for its high liquidity and 24/7 operation. Pooler, in a parallel sense, operates continuously, capturing snapshots of Uniswap trades. Like Forex traders who analyze currency fluctuations to make profits, Pooler users can analyze trade volumes, liquidity reserves, and other metrics to understand market trends and potential profits in the Uniswap market.
-
-In essence, Pooler is to Uniswap what Forex platforms are to currency trading – a tool for real-time tracking and analysis, facilitating better understanding and potentially profitable decision-making in the dynamic world of cryptocurrency trading.
-:::
+Many of the details regarding architechture, extensability, and data points are the same for UniswapV3 and UniswapV2. Please refer to the [UniswapV2 documentation](docs/use-cases/existing-implementations/uniswapv2-dashboard/index) for this information. 
 
 
-### How it works
-Let's explore the details of the Pooler implementation. The image provided illustrates the operational flow of the UniswapV3 Dashboard hosted at [uniswapv3.powerloom.io](https://uniswapv3.powerloom.io).
+There are several key functionalities required to power our UniswapV3 Dashboard. 
+1. Pricing Token Assets
+2. Tick Retreival
+3. Token Reserves Calculation
 
-![Uniswap Dashboard Rendering](/images/dashboard-rendering-v3.png)
+## Pricing Token Assets
+
+In order to accurately price tokens held in UniswapV3 pools, we use three methodologies. The relevant function to retreive a tokens price attempts each of these methodologies in the order presented to provide a robust token price retreival method. 
+
+```python reference
+https://github.com/PowerLoom/snapshotter-computes/blob/980451a6da104ca3f8bc3880df82bdad2ef37da1/utils/helpers.py#L266-L273
+```
+
+### 1inch OffchainOracle
+
+Our primary token pricing method is the open source 1inch [OffchainOracle](https://github.com/1inch/spot-price-aggregator/blob/92ecd690dcd5b6c90fc413af2902d8c98bcfbabf/contracts/OffchainOracle.sol#L314-L316). We use the getRateToEthWithThreshold function to accurately aggregate prices from a number of on chain sources. 
+
+### UniswapV3 WETH Pairs
+Some tokens cannot be priced using the OffchainOracle. For these tokens, we look for a UniswapV3 WETH pair and retreive the current price of the token in terms of WETH. This is then converted to a human readable price and used for data point calculations
+
+### UniswapV3 Stable Pairs
+If no UniswapV3 WETH pair exists for a given token, we fallback to UniswapV3 Stable pairs. As above, we retreive the current price of the token and convert it to a human readable price for calculations. The stable coins supported are USDC, USDT, and DAI. 
+
+## Tick Retreival
+
+In order to calculate our Total Value Locked data point, we must retreive every populated tick in a given pool. We accomplish this by batching RPC state overload calls to a modified [1inch UniV3Helper](https://github.com/getjiggy/evm-helpers). Once we have retreived all populated ticks for a pool, we store this information in a redis cache. This functionality is implemented in the get_tick_info function:
+
+```python reference
+https://github.com/PowerLoom/snapshotter-computes/blob/980451a6da104ca3f8bc3880df82bdad2ef37da1/total_value_locked.py#L198-L206
+```
+
+## Token Reserves Calculation
+
+Once we have retreived the relevant tick information, we then calculate an initial token reserves for the pool according to the formulas found [here](https://atiselsts.github.io/pdfs/uniswap-v3-liquidity-math.pdf). Once these initial reserves are calculated for the starting block in an epoch, we listen for liquidity events for all other blocks in an epoch and update reserves for each block as necessary. Once again, we store this information in redis. After the initial reserves have been calculated, we switch to only listening for liquidity events in future epochs to prevent unnecessary RPC calls. Our token reserves calculation implementation can be found in the calculate_tvl_from_ticks function: 
+
+```python reference
+https://github.com/PowerLoom/snapshotter-computes/blob/980451a6da104ca3f8bc3880df82bdad2ef37da1/total_value_locked.py#L46
+```
 
 
-#### Workflow: 
-1. The user accesses the Uniswap v3 dashboard through [uniswapv3.powerloom.io](https://uniswapv3.powerloom.io).
-2. The dashboard makes calls to a foundation hosted node to get the latest aggregated data.
-3. These calls are handled by the [Snapshotter Core API](/docs/category/snapshotter-core-api) interface, running on the foundation hosted node.
-4. The foundation nodes then fetch the relevant data from blockchain/Redis cache to optimize the response times.
-5. Once the data is retrieved, the frontend is rendered with the data.
+For further questions and support, please reach out to us in [discord](https://powerloom.io/discord)!
 
 
-### Data Points and Aggregated Metrics in Pooler
 
-Data points are key metrics sourced from Uniswap V3 pair contracts, detailing how snapshots are built and stored. Pooler generates base trade snapshots as well as higher order aggregates per Epoch, providing an overview of market trends, such as trade frequencies and average prices. These insights aid users in understanding market movements and asset performance, crucial for informed trading decisions within Uniswap V3.
 
----
 
-### Development and Extension
 
-Snapshotter Node's design enables extensions and custom use case implementations. A developer can extend the pooler compute files found in [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/uniswapv3) and config files found in [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/uniswapv3) to build their own custom use case implementations.
 
-We have a dedicated section in the documentation which walkthrough the details on further implementation and usecases extensions.
-Check out our guide on [Extending Pooler](/docs/build-with-powerloom/use-cases/building-new-usecase/extending-uniswapv3-dashboard)
