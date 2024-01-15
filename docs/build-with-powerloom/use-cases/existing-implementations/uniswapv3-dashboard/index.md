@@ -6,7 +6,7 @@ sidebar_position: 0
 
 :::tip
 Many of the details regarding architechture, extensability, and data points are the same for UniswapV3 and UniswapV2. Please refer to the [UniswapV2 documentation](docs/use-cases/existing-implementations/uniswapv2-dashboard/index) for this information. 
-
+:::
 
 There are several key functionalities required to power our UniswapV3 Dashboard. 
 1. Pricing Token Assets
