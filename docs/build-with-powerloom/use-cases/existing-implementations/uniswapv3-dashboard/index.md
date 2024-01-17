@@ -33,7 +33,7 @@ If no UniswapV3 WETH pair exists for a given token, we fallback to UniswapV3 Sta
 
 ## Tick Retreival
 
-In order to calculate our Total Value Locked data point, we must retreive every populated tick in a given pool. We accomplish this by batching RPC state overload calls to a modified [1inch UniV3Helper](https://github.com/getjiggy/evm-helpers). Once we have retreived all populated ticks for a pool, we store this information in a redis cache. This functionality is implemented in the get_tick_info function:
+In order to calculate our Total Value Locked data point, we must retreive every populated tick in a given pool. We accomplish this by batching RPC state overload calls to a modified [1inch UniV3Helper](https://github.com/PowerLoom/evm-helpers/tree/pooler). Once we have retreived all populated ticks for a pool, we store this information in a redis cache. This functionality is implemented in the get_tick_info function:
 
 ```python reference
 https://github.com/PowerLoom/snapshotter-computes/blob/980451a6da104ca3f8bc3880df82bdad2ef37da1/total_value_locked.py#L198-L206
