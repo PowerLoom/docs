@@ -5,10 +5,10 @@ sidebar_position: 2
 # Testnet Phase 2
 
 ## Overview
-Phase 2 of the Powerloom testnet emphasizes user engagement in on-chain activities to assess the network's resilience. Participants are encouraged to interact with the network by signaling on-chain data, which is then captured by Powerloom Snapshotters. Users are rewarded for their involvement in various on-chain tasks designed to rigorously test the protocol's data capture capabilities.
+Phase 2 of the Powerloom testnet emphasizes user engagement in on-chain activities to assess the network's resilience. Participants are encouraged to interact with the network by signaling on-chain data, which is then captured by Powerloom Snapshotters. Users are rewarded for their involvement in various on-chain tasks designed.
 
 ## Key Activities
-Participants engage in multiple on-chain activities on Mercle, a partner platform. These include bridging assets from Ethereum to Polygon zkEVM, swapping assets, and providing liquidity. The data generated from these actions is integral to enhancing Powerloom's on-chain data pipeline.
+Participants engage in multiple on-chain activities on Mercle, a partner platform. These include bridging assets from Ethereum to Polygon zkEVM, swapping assets, and providing liquidity.
 
 ## Partnerships
 For Phase 2, Powerloom collaborated with several partners:
