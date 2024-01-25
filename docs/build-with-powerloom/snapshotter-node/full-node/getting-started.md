@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 # Getting Started
 
-Snapshotter (Full Node) has a complicated architectuer with multiple moving parts. The easiest way to get started is by using the Docker-based setup, recommended for most users.
+Snapshotter (Full Node) has a complicated architecture with multiple moving parts. The easiest way to get started is by using the Docker-based setup, recommended for most users.
 
 :::info
 #### You can use powerloom to build extensive applications. Our Devnet is coming soon.Please signup [Here](https://airtable.com/appr3wKRsn4VoOvpi/pagxxT6QcL0OwGH0e/form), and we'll reach out to you once it goes live! 
