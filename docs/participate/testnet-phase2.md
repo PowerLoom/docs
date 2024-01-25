@@ -2,19 +2,14 @@
 sidebar_position: 2
 ---
 
----
 
-sidebar_position: 2
-
----
-
-# Testnet Phase 2: An Exploration of On-Chain Engagement
+# Testnet Phase 2
 
 ## Overview of Phase 2
 Phase 2 of the Powerloom testnet emphasizes user engagement in on-chain activities to assess the network's resilience. Participants are encouraged to interact with the network by signaling on-chain data, which is then captured by Powerloom Snapshotters. Users are rewarded for their involvement in various on-chain tasks designed.
 
 ## Engaging On-Chain Activities
-Participants in Phase 2 engage in a variety of on-chain activities hosted on [MERCLE](https://mercle.xyz), a platform we've partnered with for this phase. This collaboration is a key part of our Phase 2 architecture, where we provide Mercle with a data feed that tracks activities completed by users on our partner protocols. These activities, or quests, are then recorded and rewarded with XP points, creating an incentivized environment for participants.
+Participants in Phase 2 engage in a variety of on-chain activities hosted on [Mercle](https://mercle.xyz), a platform we've partnered with for this phase. This collaboration is a key part of our Phase 2 architecture, where we provide Mercle with a data feed that tracks activities completed by users on our partner protocols. These activities, or quests, are then recorded and rewarded with XP points, creating an incentivized environment for participants.
 
 The range of tasks includes bridging assets from Ethereum to Polygon zkEVM, swapping assets, and contributing to liquidity pools. The following image provides a glimpse of our dashboard, displaying the completed tasks:
 
@@ -31,11 +26,11 @@ Phase 2 of the Powerloom testnet is significantly enhanced by collaborations wit
 4. [Quickswap](https://blog.powerloom.io/enhance-your-defi-experience-with-quickswap/)
 5. [Safe](https://blog.powerloom.io/navigating-web3-start-with-safe-wallet-setup-on-powerlooms-testnet/)
 
-These partnerships enrich the phase with diverse functionalities and opportunities. For detailed information about each of these ecosystem partners, please visit our dedicated page [here](https://powerloom.io/ecosystem).
+These partnerships enrich our phase 2 with diverse functionalities and opportunities. For detailed information about each of these ecosystem partners, please visit our ecosystem page [here](https://powerloom.io/ecosystem).
 
 For an in-depth understanding of Phase 2, encompassing all its vital aspects, we encourage you to read our [official blog post](https://blog.powerloom.io/dive-into-powerlooms-incentivized-testnet-quests-engage-experience-and-earn/). 
 
-Currently, Phase 2 is actively in progress and can be accessed at [MERCLE](https://app.mercle.xyz/powerloom-phase2/events), where participants can engage in the ongoing activities.
+Currently, Phase 2 is actively in progress and can be accessed at [Mercle](https://app.mercle.xyz/powerloom-phase2/events), where participants can engage in the ongoing activities.
 
 ## Code and Documentation
 
