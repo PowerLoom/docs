@@ -3,7 +3,7 @@ sidebar_position: 0
 ---
 # Introduction 
 
-The Powerloom Protocol is a decentralized data protocol primarily designed to meet the growing data requirements of smart contract-based applications, including DeFi, games, and other user-centric platforms. It incentivizes participating peers to achieve consensus on state transitions and event emission observations across multiple smart contracts.
+Powerloom Protocol is a decentralized data protocol primarily designed to meet the growing data requirements of smart contract-based applications, including DeFi, games, and other user-centric platforms. It incentivizes participating peers to achieve consensus on state transitions and event emission observations across multiple smart contracts.
 
 By utilizing data compositions on smaller, consensus-reached data units, Powerloom stands as a peer-validated and accurate information source, empowering rich data applications such as dashboards, bots, aggregators, and insights trackers.
 

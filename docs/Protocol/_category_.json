@@ -1,6 +1,6 @@
 {
     "label": "Protocol Overview",
-    "position":4,
+    "position":1,
     "link": {
       "type": "generated-index",
       "description": "Deep dive into the core concepts of Powerloom Protocol"
