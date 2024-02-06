@@ -71,7 +71,26 @@ It is recommended to run build.sh in a screen or tmux session so that the proces
 ## Without Docker Setup
 
 
-If you want to run the Snapshotter Lite Node without Docker, you need to make sure that you have Git, and Python 3.10.13 installed on your machine. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
+If you want to run the Snapshotter Lite Node without Docker, you need to make sure that you have Git, and Python version 3.9 or higher installed on your machine. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
+
+For simplicity, we recommend using miniconda and setting up an environment with the needed python version as shown below:-
+1. Install miniconda for your system:
+   ```bash
+   https://docs.conda.io/projects/miniconda/en/latest/
+   ```
+  
+2. Add miniconda to your path if not already done:
+   ```bash
+   export PATH="/Users/yourusername/miniconda3/bin:$PATH"
+   ```
+
+3. Create and activate a python environment:
+   ```bash
+   conda create -n myenv python=3.11
+   conda activate myenv
+   ```
+
+Once the environment is set, we can go ahead and run the lite node:-
 
 1. Clone this repository using the following command:
    ```bash
