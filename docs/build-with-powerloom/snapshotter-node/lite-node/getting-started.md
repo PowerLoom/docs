@@ -12,7 +12,7 @@ There are multiple ways to set up the Snapshotter Lite Node. You can either use 
 
 Before initiating the setup of the Snapshotter Node, it's important to add a burner wallet identity. This step is essential for the node's efficient operation.
 
-1. **Burner Wallet Addition:** It is crucial to use your burner wallet identity for snapshotting. Do not use the wallet through which you minted the slot.
+- **Burner Wallet Addition:** It is crucial to use your burner wallet identity for snapshotting. Do not use the wallet through which you minted the slot.
 
 - Refer to this [guide](#) for guidance on adding your burner wallet
 

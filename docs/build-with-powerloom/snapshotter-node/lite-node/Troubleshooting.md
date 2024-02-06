@@ -18,7 +18,7 @@ Inspect the `.env` file for the `SIGNER_WALLET_ADDRESS`. If there's a mismatch, 
 
 
 1. **Check Node Status:**
-   - Monitor the node's status through the terminal. To verify whether the node is operational, you can check out guide on [Monitoring the node status](./monitoring.md). 
+   - Monitor the node's status through the terminal. To verify whether the node is operational, you can check out guide on [Monitoring the node status](./monitoring). 
 
 2. **Review Setup Instructions:**
    - Revisit the setup instructions to confirm that all steps were followed correctly. Often, issues arise from missing or incorrectly executed setup procedures.
