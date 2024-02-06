@@ -8,13 +8,14 @@ This section provides a comprehensive guide to setting up and running the Snapsh
 
 There are multiple ways to set up the Snapshotter Lite Node. You can either use the Docker image or run it directly on your local machine. However, it is recommended to use the Docker image as it is the easiest and most reliable way to set up the Snapshotter Lite Node.
 
-## Adding your Burner Wallet:
+## Adding your Burner Wallet
 
 Before initiating the setup of the Snapshotter Node, it's important to add a burner wallet identity. This step is essential for the node's efficient operation.
 
 1. **Burner Wallet Addition:** It is crucial to use your burner wallet identity for snapshotting. Do not use the wallet through which you minted the slot.
-   - Refer to the provided instructional image for guidance on adding your burner wallet.
-  ![Adding Burner Wallet](/images/burner-wallet-add.png)
+
+- Refer to the provided instructional image for guidance on adding your burner wallet.
+![Adding Burner Wallet](/images/burner-wallet-add.png)
 
 ---
 
@@ -67,7 +68,8 @@ snapshotter-lite_1  | 0|core-api          | February 5, 2024 > 15:10:22 | INFO |
 It is recommended to run build.sh in a screen or tmux session so that the process continues running even after you close the terminal.
 :::
 
-## Without Docker Setup:
+---
+## Without Docker Setup
 
 
 If you want to run the Snapshotter Lite Node without Docker, you need to make sure that you have Git, and Python 3.10.13 installed on your machine. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).

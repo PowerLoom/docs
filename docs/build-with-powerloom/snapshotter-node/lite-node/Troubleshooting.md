@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 1
 title: Troubleshooting
 ---
 # Troubleshooting Node Issues
@@ -14,12 +14,13 @@ This section provides guidance on troubleshooting your node in case of encounter
 - You can validate this on your node dashboard. Choose the node whose identity you wish to confirm.
 ![Node-dashboard-identity-verification](/images/wallet-address-verification.png)
 
-Inspect the `.env` file for the `SIGNER_WALLET_ADDRESS`. If there's a mismatch, you should consider updating the details. If you want to update your wallet address for a particular node slot, you can check out the [changing the wallet section](#).
+Inspect the `.env` file for the `SIGNER_WALLET_ADDRESS`. If there's a mismatch, you should consider updating the details. If you want to update your wallet address for a particular node, you can check out the [changing the wallet section](#link-to-the-notion-page).
 
-2. **Check Node Status:**
-   - Monitor the node's status through the terminal. To verify whether the node is operational, you can check out guide on [verifying the node status](./monitoring.md). 
 
-3. **Review Setup Instructions:**
+1. **Check Node Status:**
+   - Monitor the node's status through the terminal. To verify whether the node is operational, you can check out guide on [Monitoring the node status](./monitoring.md). 
+
+2. **Review Setup Instructions:**
    - Revisit the setup instructions to confirm that all steps were followed correctly. Often, issues arise from missing or incorrectly executed setup procedures.
    - Verify your .env variables: 
      - `SOURCE_RPC_URL`: Confirm that the RPC URL you've provided is valid.. 

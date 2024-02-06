@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 title: Monitoring Node Status
 ---
 
@@ -15,7 +15,7 @@ This section will guide you through the process of Monitoring the status of your
    
    - A healthy snapshotter node will produce logs similar to the provided example screenshot. These logs indicate normal operation and successful snapshotting.
    ![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
-   
+
 
 2. **Checking Dashboard for Snapshot Status:**
   
