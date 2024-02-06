@@ -1,6 +1,6 @@
 ---
-sidebar_position: 1
-title: Running the Snapshotter Lite Node
+sidebar_position: 0
+title: Getting Started with Lite Node
 ---
 # Setting Up and Running the Snapshotter Lite Node
 
@@ -14,8 +14,7 @@ Before initiating the setup of the Snapshotter Node, it's important to add a bur
 
 1. **Burner Wallet Addition:** It is crucial to use your burner wallet identity for snapshotting. Do not use the wallet through which you minted the slot.
 
-- Refer to the provided instructional image for guidance on adding your burner wallet.
-![Adding Burner Wallet](/images/burner-wallet-add.png)
+- Refer to this [guide](#) for guidance on adding your burner wallet
 
 ---
 
