@@ -61,7 +61,7 @@ snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:21 | INFO |
 snapshotter-lite_1  | 0|core-api          | February 5, 2024 > 15:10:22 | INFO | 127.0.0.1:59776 - "GET /health HTTP/1.1" 200 | {} 
 ```
 
-- To stop the node, you can press Ctrl+C in the terminal where the node is running or docker-compose down in a new terminal window from the project directory.
+- To stop the node, you can press` Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
 
 :::note
 It is recommended to run build.sh in a screen or tmux session so that the process continues running even after you close the terminal.
@@ -91,22 +91,18 @@ If you want to run the Snapshotter Lite Node without Docker, you need to make su
 
 4. When prompted, enter `$SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY` (only required for the first time), this will create a `.env` file in the root directory of the project.
 
-5. Your node should start in background and you should start seeing logs in your terminal.
-6. To stop the node, you can run `pkill -f snapshotter` in a new terminal window.
+5. The node setup will complete in approximately 2-3 minutes, after which the snapshotting process begins automatically.
 
-1. **Snapshot Process:**
-   - Once the above variables are entered, the system will install few required libraries. 
-   - The setup will complete in approximately 2-3 minutes, after which the snapshotting process begins automatically.
-   - The process timing depends on the timeslot, as illustrated in the provided terminal screenshot.
+6. The process timing depends on the assigned timeslot, as illustrated in the provided terminal screenshot.
   ![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
 
 ### Stopping the Snapshotter Lite Node
 
-- **Command to Stop:**
-  - To exit the node, use the command `pkill -f snapshotter` in the terminal.
+  - To stop the node, use the command:
+  ```bash
+  pkill -f snapshotter
+  ```
   - This will halt the running node and all associated processes. 
-
-**Note:** The provided images and links are for instructional purposes and offer visual and detailed steps for the setup and operation of the Snapshotter Lite Node.
 
 ## Troubleshooting
 
