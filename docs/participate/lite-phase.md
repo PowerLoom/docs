@@ -21,7 +21,7 @@ After acquiring node slots, you can operate our Snapshotter Lite Node. This vers
 
 ## How Snapshotter Lite Node Functions within the PowerLoom Ecosystem
 
-The architecture of the Snapshotter Lite Node differs from the full node. It is vital in contributing to the data markets, starting with the UniswapV2 Data markets.
+The architecture of the Snapshotter Lite Node primarily differs from the full node implementation mainly because it reduces the overhead of messaging queues and streamlines other complex components. This is essential for contributing to data markets, beginning with the UniswapV2 Data Markets.
 
 ![UniswapV2 Dashboard](/images/uniswapv2-dashboard1.png)
 

@@ -9,7 +9,7 @@ This section will guide you through the process of Monitoring the status of your
 ## Steps to Confirm and Monitor Node Snapshotting Process
 
 1. **Terminal Status Check:**
-   - The primary method to verify node status is through the terminal, which displays log responses from the node.
+   - The quickest method to verify node status is through the terminal, which displays log responses from the node.
 
    - Monitor these logs to assess the health and activity of your node. 
    
