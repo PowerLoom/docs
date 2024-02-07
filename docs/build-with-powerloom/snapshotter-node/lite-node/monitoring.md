@@ -24,11 +24,11 @@ This section provides guidance on troubleshooting your node in case of encounter
 
 - **Confirm Setup Prerequisites**:
 
-Before proceeding, please double-check your system's configurations and the setup process. If you're using a Docker setup, ensure that Docker is actively running. For a non-Docker setup, verify that [prerequisite tools](./getting-started.md) such as Python and Git are installed.
+Before proceeding, please double-check your system's configurations and the setup process. If you're using a Docker setup, ensure that Docker is actively running. For a non-Docker setup, verify that [prerequisite tools](./getting-started/#2-non-docker-setup) such as Python and Git are installed.
 
 - **Review Setup Instructions:**
    - Revisit the [setup instructions](./getting-started) to confirm that all steps were followed correctly. Often, issues arise from missing or incorrectly executed setup procedures.
-   
+
    - Verify your .env variables: 
      - `SOURCE_RPC_URL`: Confirm that the RPC URL you've provided is valid.. 
      - `SIGNER_WALLET_ADDRESS`: Review your burner wallet address to ensure its correctness 
