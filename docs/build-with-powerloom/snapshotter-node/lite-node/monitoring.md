@@ -16,13 +16,6 @@ This section will guide you through the process of Monitoring the status of your
    - A healthy snapshotter node will produce logs similar to the provided example screenshot. These logs indicate normal operation and successful snapshotting.
    ![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
 
-
-2. **Checking [Dashboard](https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Ffree-vector%2Fwebsite-construction-background_1361-1388.jpg&tbnid=jctX16PDLh1WwM&vet=12ahUKEwir4rvC3ZaEAxUypWMGHRfhABYQMygHegUIARCGAQ..i&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Ffree-vector%2Fwebsite-construction-background_4664910.htm&docid=2Jq-qHXDvDmuyM&w=626&h=626&q=under%20construction&ved=2ahUKEwir4rvC3ZaEAxUypWMGHRfhABYQMygHegUIARCGAQ) for Snapshot Status:**   
-  To check the status of your snapshotter node, access your node dashboard. Once logged in, select the specific slot you wish to check. The snapshotter status will be indicated there. A status of '*complete*' in the **Current Day Status** signifies that the node is functioning correctly. Check the image below for reference: 
-
-  ![Current-day-status](/images/Current-day-status.png)
-
-
 ## Troubleshooting and Support
 
 - **Troubleshooting Guide:**

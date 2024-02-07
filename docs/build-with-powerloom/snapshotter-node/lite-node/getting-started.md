@@ -8,13 +8,10 @@ This section provides a comprehensive guide to setting up and running the Snapsh
 
 There are multiple ways to set up the Snapshotter Lite Node. You can either use the Docker image or run it directly on your local machine. However, it is recommended to use the Docker image as it is the easiest and most reliable way to set up the Snapshotter Lite Node.
 
-## Adding your Burner Wallet
+## Setting Up a Burner Wallet
+Prior to setting up the Snapshotter Node, it's crucial to establish a burner wallet identity, which is vital for the node's smooth functioning.
 
-Before initiating the setup of the Snapshotter Node, it's important to add a burner wallet identity. This step is essential for the node's efficient operation.
-
-- **Burner Wallet Addition:** It is crucial to use your burner wallet identity for snapshotting. Do not use the wallet through which you minted the slot.
-
-- Refer to this [guide](#) for guidance on adding your burner wallet
+To create a new burner wallet, simply generate a new account using Metamask or any other wallet provider.
 
 ---
 
@@ -47,7 +44,12 @@ If you're a developer and want to play around with the code, instead of running 
 ./build-dev.sh
 ```
 
-- When prompted, enter `$SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY` (only required for the first time), this will create a .env file in the root directory of the project.
+- During the setup, you'll be prompted to enter the following values:
+  - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address.
+  - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+This is a one-time configuration process that generates a .env file in the project's root directory.
 
 - This should start your snapshotter node and you should see something like this in your terminal logs
 
@@ -108,7 +110,12 @@ Once the environment is set, we can go ahead and run the lite node:-
    ./init.sh
    ```
 
-4. When prompted, enter `$SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY` (only required for the first time), this will create a `.env` file in the root directory of the project.
+4. During the setup, you'll be prompted to enter the following values:
+  - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address.
+  - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+This is a one-time configuration process that generates a .env file in the project's root directory.
 
 5. The node setup will complete in approximately 2-3 minutes, after which the snapshotting process begins automatically.
 
