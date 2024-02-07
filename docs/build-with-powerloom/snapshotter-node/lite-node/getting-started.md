@@ -32,14 +32,14 @@ For those choosing a VPS solution (like AWS, GCP, DigitalOcean, etc.):
 
 Snapshotter Lite is optimized for low resource usage, so these minimum requirements are quite manageable. Whether you're using a basic local computer or a modest VPS instance, setting up should be straightforward.
 
-## Setting Up a Burner Wallet
-Prior to setting up the Snapshotter Node, it's crucial to establish a burner wallet identity, which is vital for the node's smooth functioning.
+There are two distinct methods for deploying the Snapshotter node:
 
-To create a new burner wallet, simply generate a new account using Metamask or any other wallet provider.
+1. [**Docker Setup**](#1-docker-setup): We highly recommend this approach as it simplifies the setup process and facilitates a quick start.
+2. [**Non-Docker Setup**](#2-non-docker-setup): An alternative method for those who prefer not to use Docker.
 
 ---
 
-## Docker Setup:
+## 1. Docker Setup:
 
 - Install Docker on your machine. You can find the installation instructions for your operating system on the [official Docker website.](https://docs.docker.com/get-docker/)
 
@@ -57,16 +57,19 @@ This will clone the repository into a directory named `powerloom`.
 cd powerloom
 ```
 
-- Run `build.sh` to start the snapshotter lite node:
+- Run `build.sh` in the terminal to start the snapshotter lite node:
 
 ```bash
 ./build.sh
 ```
+
+:::info
 If you're a developer and want to play around with the code, instead of running build.sh, you can run the following command to start the snapshotter lite node:
 
 ```bash
 ./build-dev.sh
 ```
+:::
 
 - During the setup, you'll be prompted to enter the following values:
   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
@@ -94,7 +97,7 @@ It is recommended to run build.sh in a screen or tmux session so that the proces
 :::
 
 ---
-## Without Docker Setup
+## 2. Non-Docker Setup
 
 
 If you want to run the Snapshotter Lite Node without Docker, you need to make sure that you have Git, and Python version 3.9 or higher installed on your machine. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
@@ -118,18 +121,19 @@ For simplicity, we recommend using miniconda and setting up an environment with 
 
 Once the environment is set, we can go ahead and run the lite node:-
 
-1. Clone this repository using the following command:
+1. Clone this repository using the following command in the terminal:
    ```bash
    git clone https://github.com/PowerLoom/snapshotter-lite powerloom
    ```
     This will clone the repository into a directory named `powerloom`.
   
-2. Change your working directory to the `powerloom` directory:
+2. Change your working directory to the `powerloom` directory, open the terminal and type:
+
    ```bash
    cd powerloom
    ```
 
-3. Run `init.sh` to start the snapshotter lite node:
+3. Run `init.sh` command in the terminal to start the snapshotter lite node:
    ```bash
    ./init.sh
    ```
@@ -148,7 +152,7 @@ This is a one-time configuration process that generates a .env file in the proje
 
 ### Stopping the Snapshotter Lite Node
 
-  - To stop the node, use the command:
+  - To stop the node, use the command in the terminal:
   ```bash
   pkill -f snapshotter
   ```
