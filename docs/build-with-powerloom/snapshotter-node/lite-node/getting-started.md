@@ -23,6 +23,7 @@ The Snapshotter Lite Node is designed for minimal hardware demands, allowing it 
 For users running the node on personal hardware, the minimum specifications are:
 
 - **RAM:** At least 4 GB.
+- **CPU Core**:  Minimum of 4 Cores
 - **Disk Space:** A minimum of 40 GB.
 - **Operating System:** Windows, macOS, or Linux.
 - **Python:** Ensure Python 3.10 or newer is installed.
@@ -32,6 +33,7 @@ For users running the node on personal hardware, the minimum specifications are:
 For those choosing a VPS solution (like AWS, GCP, DigitalOcean, etc.):
 
 - **RAM:** A minimum of 4 GB.
+- **CPU Core**:  Minimum of 4 Cores
 - **Disk Space:** At least 40 GB.
 - **Operating System:** Windows or Linux.
 - **Python:** Ensure Python 3.10 or newer is installed.
