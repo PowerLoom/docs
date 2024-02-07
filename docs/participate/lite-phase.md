@@ -9,6 +9,12 @@ We are thrilled to announce that Public Mint for our Snapshotter Lite Node is li
 Our pre-mint successfully concluded on February 4th, 2024.
 For more details, please visit our blog post: [First Data Infrastructure Mint on Polygon](https://blog.powerloom.io/first-data-infrastructure-mint-on-polygon-launching-over-10-000-data-nodes/).
 
+:::info
+Important Announcement: Our Testnet is gearing up for launch shortly. In the interim, we invite developers to experiment with running our Snapshotter node.
+
+While currently operating the node does not yield rewards, this is an excellent opportunity to simulate and test the Snapshotter node, providing valuable insights into its functionality and operation.
+:::
+
 ## Introducing Snapshotter Lite Nodes
 
 After acquiring node slots, you can operate our Snapshotter Lite Node. This version is more streamlined than the full Snapshotter Node, requiring only a Python environment and considerably fewer resources. It's ideal for simpler scenarios that don't need data aggregation.
