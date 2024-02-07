@@ -18,7 +18,7 @@ After acquiring node slots, you can operate our Snapshotter Lite Node. This vers
 
 The architecture of the Snapshotter Lite Node differs from the full node. It is vital in contributing to the data markets, starting with the UniswapV2 Data markets.
 
-![screencapture-uniswapv2-powerloom-io-2024-02-06-19_54_51.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/0c23e60c-6343-4793-90be-1ef4d172143a/7efcb5f1-2030-48c9-af76-f5dc744ca059/screencapture-uniswapv2-powerloom-io-2024-02-06-19_54_51.png)
+![UniswapV2 Dashboard](/images/uniswapv2-dashboard1.png)
 
  By snapshotting data, your node contributes to the underlying data in populating the UniswapV2 Dashboard. Learn more about its architecture [here](https://github.com/PowerLoom/snapshotter-lite?tab=readme-ov-file#overview).
 
