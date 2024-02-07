@@ -181,4 +181,4 @@ This is a one-time configuration process that generates a .env file in the proje
 
 ## Troubleshooting
 
-If you encounter any issues, please refer to our [Troubleshooting section](./Troubleshooting.md) for more information. 
+If you encounter any issues, please refer to our [Troubleshooting section](./monitoring.md) for more information. 
