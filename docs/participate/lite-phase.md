@@ -4,11 +4,10 @@ sidebar_position: 0
 
 # Lite Node Phase
 
-We're excited to announce the launch of the public node mint! During the node sale, users can purchase up to 10 slots. Based on the slots minted, users can run their snapshotter nodes. 
+We are thrilled to announce that Public Mint for our Snapshotter Lite Node is live! This is an opportunity for everyone to participate in our Composable Data Network. You can now mint up to 10 slots and run your Snapshotter Lite Nodes.
 
-Our pre-mint successfully concluded on February 3, 2024. 
-
-For more details about the pre-mint, please visit our blog: [First Data Infrastructure Mint on Polygon](https://blog.powerloom.io/first-data-infrastructure-mint-on-polygon-launching-over-10-000-data-nodes/).
+Our pre-mint successfully concluded on February 4th, 2024.
+For more details, please visit our blog post: First Data Infrastructure Mint on Polygon.
 
 ## Introducing Snapshotter Lite Nodes
 
