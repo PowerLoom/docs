@@ -43,7 +43,7 @@ There are two distinct methods for deploying the Snapshotter node:
 
 - Install Docker on your machine. You can find the installation instructions for your operating system on the [official Docker website.](https://docs.docker.com/get-docker/)
 
-- Clone this repository using the following command:
+- Clone this repository using the following command in the terminal:
 
 ```bash 
 git clone https://github.com/PowerLoom/snapshotter-lite powerloom
@@ -108,10 +108,17 @@ For simplicity, we recommend using miniconda and setting up an environment with 
    https://docs.conda.io/projects/miniconda/en/latest/
    ```
   
-2. Add miniconda to your path if not already done:
+2. Verify the installation using the following command in your terminal
+   ```bash
+   conda --version
+   ```
+
+   Add miniconda to your path if the terminal does not identify conda as a valid command:
    ```bash
    export PATH="/Users/yourusername/miniconda3/bin:$PATH"
    ```
+
+   Replace yourusername with your actual username
 
 3. Create and activate a python environment:
    ```bash
