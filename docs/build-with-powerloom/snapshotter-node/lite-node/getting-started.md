@@ -8,6 +8,12 @@ This section provides a comprehensive guide to setting up and running the Snapsh
 
 There are multiple ways to set up the Snapshotter Lite Node. You can either use the Docker image or run it directly on your local machine. However, it is recommended to use the Docker image as it is the easiest and most reliable way to set up the Snapshotter Lite Node.
 
+:::info
+Important Announcement: Our Testnet is gearing up for launch shortly. In the interim, we invite developers to experiment with running our Snapshotter node.
+
+While currently operating the node does not yield rewards, this is an excellent opportunity to simulate and test the Snapshotter node, providing valuable insights into its functionality and operation.
+:::
+
 ## Hardware Requirements
 
 The Snapshotter Lite Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
@@ -16,17 +22,17 @@ The Snapshotter Lite Node is designed for minimal hardware demands, allowing it 
 
 For users running the node on personal hardware, the minimum specifications are:
 
-- **RAM:** At least 2 GB.
-- **Disk Space:** A minimum of 20 GB.
+- **RAM:** At least 4 GB.
+- **Disk Space:** A minimum of 40 GB.
 - **Operating System:** Windows, macOS, or Linux.
-- **Python:** Version 3.10 or newer must be installed.
+- **Python:** Ensure Python 3.10 or newer is installed.
 
 ### Requirements for Virtual Private Server (VPS)
 
 For those choosing a VPS solution (like AWS, GCP, DigitalOcean, etc.):
 
-- **RAM:** A minimum of 2 GB.
-- **Disk Space:** At least 20 GB.
+- **RAM:** A minimum of 4 GB.
+- **Disk Space:** At least 40 GB.
 - **Operating System:** Windows or Linux.
 - **Python:** Ensure Python 3.10 or newer is installed.
 
@@ -100,15 +106,19 @@ It is recommended to run build.sh in a screen or tmux session so that the proces
 ## 2. Non-Docker Setup
 
 
-If you want to run the Snapshotter Lite Node without Docker, you need to make sure that you have Git, and Python version 3.9 or higher installed on your machine. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
+If you want to run the Snapshotter Lite Node without Docker, you need to make sure that you have Git, and Python version 3.10 or higher installed on your machine and we recommend to use **python version 3.11.7**. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
 
-For simplicity, we recommend using miniconda and setting up an environment with the needed python version as shown below:-
-1. Install miniconda for your system:
+
+<details><summary> Optional: Installing Virtual Environment </summary>
+For simplicity, we recommend using miniconda and setting up an environment with the needed python version as shown below
+<p>
+
+#### Install miniconda for your system:
    ```bash
    https://docs.conda.io/projects/miniconda/en/latest/
    ```
   
-2. Verify the installation using the following command in your terminal
+#### Verify the installation using the following command in your terminal
    ```bash
    conda --version
    ```
@@ -120,13 +130,15 @@ For simplicity, we recommend using miniconda and setting up an environment with 
 
    Replace yourusername with your actual username
 
-3. Create and activate a python environment:
+##### Create and activate a python environment:
    ```bash
    conda create -n myenv python=3.11
    conda activate myenv
    ```
+</p>
+</details>
 
-Once the environment is set, we can go ahead and run the lite node:-
+Once python3 is installed, we can go ahead and run the lite node:-
 
 1. Clone this repository using the following command in the terminal:
    ```bash
