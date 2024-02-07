@@ -8,6 +8,30 @@ This section provides a comprehensive guide to setting up and running the Snapsh
 
 There are multiple ways to set up the Snapshotter Lite Node. You can either use the Docker image or run it directly on your local machine. However, it is recommended to use the Docker image as it is the easiest and most reliable way to set up the Snapshotter Lite Node.
 
+## Hardware Requirements
+
+The Snapshotter Lite Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
+
+### Local System Requirements
+
+For users running the node on personal hardware, the minimum specifications are:
+
+- **RAM:** At least 2 GB.
+- **Disk Space:** A minimum of 20 GB.
+- **Operating System:** Windows, macOS, or Linux.
+- **Python:** Version 3.10 or newer must be installed.
+
+### Requirements for Virtual Private Server (VPS)
+
+For those choosing a VPS solution (like AWS, GCP, DigitalOcean, etc.):
+
+- **RAM:** A minimum of 2 GB.
+- **Disk Space:** At least 20 GB.
+- **Operating System:** Windows or Linux.
+- **Python:** Ensure Python 3.10 or newer is installed.
+
+Snapshotter Lite is optimized for low resource usage, so these minimum requirements are quite manageable. Whether you're using a basic local computer or a modest VPS instance, setting up should be straightforward.
+
 ## Setting Up a Burner Wallet
 Prior to setting up the Snapshotter Node, it's crucial to establish a burner wallet identity, which is vital for the node's smooth functioning.
 
