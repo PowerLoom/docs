@@ -29,7 +29,7 @@ The architecture of the Snapshotter Lite Node differs from the full node. It is 
 
 ## Node Minting Process
 
-Minting a slot is straightforward. Follow our [Node Mint Guide](https://www.notion.so/Node-Slot-NFT-Mints-1a5e4f4de0164a1e877e233ea61fbd1f?pvs=21) for step-by-step instructions. Upon purchasing a slot, you'll gain access to the node Dashboard, enabling you to manage your node efficiently.
+Minting a slot is straightforward. Follow our [Node Mint Guide](https://www.notion.so/Node-Slot-NFT-Mints-1a5e4f4de0164a1e877e233ea61fbd1f?pvs=21) for step-by-step instructions.
 
 ## Hardware requirements:
 
