@@ -54,7 +54,7 @@ There are two distinct methods for deploying the Snapshotter node:
 - Clone this repository using the following command in the terminal:
 
 ```bash 
-git clone https://github.com/PowerLoom/snapshotter-lite powerloom
+git clone -b simulation_mode https://github.com/PowerLoom/snapshotter-lite powerloom
 ```
 
 This will clone the repository into a directory named `powerloom`.
@@ -144,7 +144,7 @@ Once python3 is installed, we can go ahead and run the lite node:-
 
 1. Clone this repository using the following command in the terminal:
    ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite powerloom
+   git clone -b simulation_mode https://github.com/PowerLoom/snapshotter-lite powerloom
    ```
     This will clone the repository into a directory named `powerloom`.
   
