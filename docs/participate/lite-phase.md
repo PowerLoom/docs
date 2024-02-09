@@ -10,8 +10,8 @@ We are excited to announce the launch of the public Mint for our Snapshotter Lit
 - ✅ Pre-Mint Kickoff: January 25th, 2024
 - ✅ Pre-Mint Closure: February 4th, 2024
 - ✅ Pre-Mint Selection: February 6th, 2024
-- ✅ Early Mint (Exclusive): February 7th, 2024 (ongoing)
-- ⏳ Public Mint Opens: February 9th, 2024
+- ✅ Early Mint (Exclusive): February 7th, 2024 
+- ⏳ Public Mint Opens: February 9th, 2024 (ongoing)
 
 We're proud to share that our early mint concluded successfully on February 9th, 2024, with over 1700 slots minted.
 
@@ -28,12 +28,11 @@ For additional insights, visit our blog post: [First Data Infrastructure Mint on
 Once you have acquired your node slots, you can begin operating our Snapshotter Lite Node. This streamlined version of the full Snapshotter Node requires only a Python environment and significantly fewer resources, making it ideal for less complex scenarios that do not require data aggregation.
 
 ## Role of the Snapshotter Lite Node in the PowerLoom Ecosystem
-
-The Snapshotter Lite Node's architecture is distinct from the full node version, mainly by reducing messaging queue overheads and simplifying other complex components. This streamlined design is crucial for contributing to data markets, starting with the [UniswapV2 Data Markets](https://uniswapv2.powerloom.io).
+The Snapshotter Lite Node's architecture is distinct from the full node version, in that messaging queue overheads are reduced and complex components have been simplified. This streamlined design is crucial for contributing to data markets, starting with the [UniswapV2 Data Markets](https://uniswapv2.powerloom.io).
 
 ![UniswapV2 Dashboard](/images/uniswapv2-dashboard1.png)
 
-Your node plays a vital role by snapshotting data, thus contributing to the data pool used in the UniswapV2 Dashboard. To understand more about its architecture, visit [Snapshotter Lite Node Overview](https://github.com/PowerLoom/snapshotter-lite?tab=readme-ov-file#overview).
+Your node plays a vital role by snapshotting data by contributing to the data pool used in the UniswapV2 Dashboard. To understand more about its architecture, visit [Snapshotter Lite Node Overview](https://github.com/PowerLoom/snapshotter-lite?tab=readme-ov-file#overview).
 
 ## The Node Minting Process
 
