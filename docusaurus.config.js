@@ -125,7 +125,7 @@ const config = {
         },
       ],
       // Replace with your project's social card
-      image: 'img/powerloom-social-card.png',
+      image: 'img/powerloom-social-card-CDN.png',
       navbar: {
         title: 'Powerloom',
         logo: {
