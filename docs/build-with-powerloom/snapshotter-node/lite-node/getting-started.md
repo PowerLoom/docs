@@ -54,7 +54,7 @@ There are two distinct methods for deploying the Snapshotter node:
 :::
 ---
 
-## 1. Docker Setup:
+## 1. Docker Setup
 
 - Install Docker on your machine. You can find the installation instructions for your operating system on the [official Docker website.](https://docs.docker.com/get-docker/)
 
@@ -117,7 +117,7 @@ It is recommended to run build.sh in a screen or tmux session so that the proces
 
 ---
 
-### Windows Docker Setup:
+### Windows Docker Setup
 
 Setting up the snapshotter node on Windows requires a few additional steps. We suggest using Docker for its ease and speed of setup. To begin with Docker, you must have the Windows Subsystem for Linux (WSL) installed. Please follow the guide provided below for detailed instructions.
 
@@ -190,8 +190,10 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
          You can create a burner wallet by simply creating a new wallet on Metamask.
          :::
 
+:::info
 This is a one-time configuration process that generates a .env file in the project's root directory.
 By following these steps, you can successfully set up snapshotter lite node on your Windows system. 
+:::
 
 ---
 ## 2. Non-Docker Setup

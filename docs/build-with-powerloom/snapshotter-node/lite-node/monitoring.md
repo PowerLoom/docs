@@ -32,7 +32,7 @@ Before proceeding, please double-check your system's configurations and the setu
    - Verify your .env variables: 
      - `SOURCE_RPC_URL`: Confirm that the RPC URL you've provided is valid.. 
      - `SIGNER_WALLET_ADDRESS`: Review your burner wallet address to ensure its correctness 
-     - `SIGNER_PRIVATE_KEY`: Cross-verify your Burner private key to identify any potential issues.
+     - `SIGNER_PRIVATE_KEY`: Cross-verify your burner private key to identify any potential issues.
   
 
 ## Additional Support
