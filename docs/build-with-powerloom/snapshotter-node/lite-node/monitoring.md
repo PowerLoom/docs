@@ -9,7 +9,7 @@ This section will guide you through the process of Monitoring the status of your
 ## Steps to Confirm and Monitor Node Snapshotting Process
 
 1. **Terminal Status Check:**
-   - The quickest method to verify node status is through the terminal, which displays log responses from the node.
+   - The primary method to verify node status is through the terminal, which displays log responses from the node.
 
    - Monitor these logs to assess the health and activity of your node. 
    
@@ -32,7 +32,7 @@ Before proceeding, please double-check your system's configurations and the setu
    - Verify your .env variables: 
      - `SOURCE_RPC_URL`: Confirm that the RPC URL you've provided is valid.. 
      - `SIGNER_WALLET_ADDRESS`: Review your burner wallet address to ensure its correctness 
-     - `SIGNER_PRIVATE_KEY`: Cross-verify your private key to identify any potential issues.
+     - `SIGNER_PRIVATE_KEY`: Cross-verify your burner private key to identify any potential issues.
   
 
 ## Additional Support
