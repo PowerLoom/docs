@@ -49,7 +49,7 @@ There are two distinct methods for deploying the Snapshotter node:
 
 
 :::info windows users
-For Macintosh or Linux users, please follow the setup instructions specified below. For Windows users, you can refer to the [**Windows Docker setup**](#windows-docker-setup) section, where you will find detailed instructions for Windows setup.
+ For Windows users, you can refer to the [**Windows Docker setup**](#windows-docker-setup) section, where you will find detailed instructions for Windows setup.
 :::
 ---
 

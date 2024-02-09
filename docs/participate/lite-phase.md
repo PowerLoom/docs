@@ -13,7 +13,6 @@ We are excited to announce the launch of the public Mint for our Snapshotter Lit
 - ✅ Early Mint (Exclusive): February 7th, 2024 
 - ⏳ Public Mint Opens: February 9th, 2024 (ongoing)
 
-We're proud to share that our early mint concluded successfully on February 9th, 2024, with over 1700 slots minted.
 
 For detailed information, please refer to our Snapshotter Node Mint documentation: [Snapshotter Node Mint Documentation](https://powerloom.network/mint-docs/)
 
