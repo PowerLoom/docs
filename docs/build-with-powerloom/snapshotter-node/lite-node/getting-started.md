@@ -6,9 +6,10 @@ title: Getting Started with Lite Node
 
 :::tip Important Note!
 
-This is the simulation setup we have created to test and understand how the snapshotter node works. Please note that operating this simulation node will not result in any rewards.
+📢 Please note that this setup is a simulation designed to let you experience and test the functionality of the snapshotter Node. It's important to note that the simulation setup will not yield any rewards.
 
-However, Once the testnet goes live on 12th February, you will be able to run the node and start earning rewards.
+However, once the testnet becomes operational on 12th February, 2024, you will have the opportunity to run the node and earn rewards.
+
 :::
 
 This section provides a comprehensive guide to setting up and running the Snapshotter Lite Node, including prerequisites and operational instructions.

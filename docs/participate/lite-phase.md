@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # Lite Node Phase
 
-We are excited to announce the launch of the public Mint for our Snapshotter Lite Node, now live and open to all! This marks a significant milestone in our Composable Data Network, offering everyone the chance to mint up to 10 slots and operate their own Snapshotter Lite Nodes.
+We are excited to announce the launch of the public Mint for our Snapshotter Lite Node, now live and open to all! This marks a significant milestone in our Composable Data Network, offering everyone the chance to mint node slots and operate their own Snapshotter Lite Nodes.
 
 ### Key Milestones in Our Node Mint Journey:
 - ✅ Pre-Mint Kickoff: January 25th, 2024
