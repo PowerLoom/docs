@@ -27,15 +27,17 @@ Follow the step-by-step instructions in the relevant guide to set up your Snapsh
 2. Assign Burner wallet
 3. Once added, you can start running the node. 
 
-:::info
+:::info Important note
 
-Important note: 
 1. It is recommended that the node operates continuously, 24/7.
 2. If you possess multiple slots, you must set up separate nodes for each. You have to use the same burner wallet, you must alter the `SLOT_ID` in your configuration for each node.
 
 :::
 
-We've organized the setup process by operating system. Select your operating system from the tabs below to begin. 
+We have streamlined the setup process based on your operating system. To begin, please choose your operating system from the tabs provided below.
+
+- For those looking to set up the node on a local Windows or Mac machine, please select the "Windows / MacOS" tab.
+- If you are configuring your node on a Linux VPS, select the "Linux" tab and follow the provided instructions to get started.
 
 ---
 
