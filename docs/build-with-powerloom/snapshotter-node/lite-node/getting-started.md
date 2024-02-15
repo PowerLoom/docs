@@ -398,7 +398,7 @@ While you're free to choose any provider, this guide specifically utilizes Digit
 
 The Snapshotter Lite Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
 
-For users running the node on personal hardware, the minimum specifications are:
+For users running the node on Virtual Private Servers (VPS), the minimum specifications are:
 
 - **RAM:** At least 4 GB.
 - **CPU Core**:  Minimum of 2 Cores
@@ -419,13 +419,13 @@ For users running the node on personal hardware, the minimum specifications are:
 
 <h3>Step 2: Accessing Your VPS </h3>
 
-- **SSH into Your VPS**: Use the following command from your terminal/command prompt, replacing `your_vps_ip` with the IP address of your VPS provided by Digital Ocean.  
+- **SSH into Your VPS**: Use the following command from your terminal/command prompt, replacing `your_vps_ip` with the IP address of your VPS.  
 
 ```bash
     ssh root@your_vps_ip
 ```
 
-- If you set up SSH keys, you should be logged in without needing a password. Otherwise, use the password sent to your email by Digital Ocean.
+- If you set up SSH keys, you should be logged in without needing a password. Otherwise, you can also set your password for the VPS.
 
 <h3>Step 3: Setting Up the Environment </h3>
 
