@@ -8,14 +8,22 @@ import TabItem from '@theme/TabItem';
 
 # Setting Up and Running the Snapshotter Lite Node
 
-This section provides a comprehensive guide to setting up and running the Snapshotter Lite Node, including prerequisites and operational instructions.
+This guide provides instructions for installing and running the Snapshotter Lite Node, covering prerequisites and operational procedures.
 
-There are multiple ways to set up the Snapshotter Lite Node. You can either use the Docker image or run it directly on your local machine. However, it is recommended to use the Docker image as it is the easiest and most reliable way to set up the Snapshotter Lite Node.
+The Snapshotter Lite Node can be set up using either the Docker image or by running natively on the local machine. However, using the Docker image is the recommended approach, as it provides the simplest and most reliable method for deployment.
 
+:::tip Node Mint
+Node Mint is now live at: https://mint.powerloom.network. For detailed information on our rewards structure, frequently asked questions, and other aspects related to node minting, please visit: https://powerloom.network/mint-docs/.
+
+:::
+
+Please review the prerequisites and follow the step-by-step instructions in the relevant guide to successfully set up your Snapshotter Lite Node. If you need further assistance, consult our troubleshooting documentation or reach out to our community for support.
+
+We've organized the setup process by operating system. Select your operating system from the tabs below to begin. 
 
 <!-- Grouping by OS and Setup type -->
 
-<Tabs groupId="operating-systems" className="unique-tabs">
+<Tabs groupId="operating-systems" className="unique-tabs" queryString="current-os">
   <TabItem value="win" label="Windows">
   The Snapshotter Lite node can operate on Windows systems when running in a Docker container. To set up the Snapshotter Lite node on Windows, follow the Docker installation and configuration instructions provided in this section.
 <Tabs groupId="setup-type">
@@ -83,7 +91,7 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
 - **Clone the Repository:**
    - Use the following command in WSL terminal to clone the repository:
      ```bash
-     git clone -b simulation_mode https://github.com/PowerLoom/snapshotter-lite powerloom
+     git clone https://github.com/PowerLoom/snapshotter-lite powerloom
      ```
 
 - **Navigate to the Repository Directory:**
@@ -99,18 +107,25 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
       ```
     - During the setup, you'll be prompted to enter the following values:
         - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+
         - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+
         - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
-         :::tip
-         You can create a burner wallet by simply creating a new wallet on Metamask.
-         :::
+        - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
 
-:::info
+:::tip
+  You can create a burner wallet by using any of these tools: 
+  - [Vanity-ETH](https://vanity-eth.tk/)
+  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
+:::
+
+
 This is a one-time configuration process that generates a .env file in the project's root directory.
 By following these steps, you can successfully set up snapshotter lite node on your Windows system. 
-:::
+
 ---
+
 </TabItem>
     <TabItem value="non-docker" label="Non-Docker">
    Currently, there are no specific instructions for running the Snapshotter Lite Node without Docker on Windows. Users are encouraged to use the Docker setup for Windows as detailed in the Docker Setup section above.
@@ -155,7 +170,7 @@ To install docker and docker compose on
 - Clone this repository using the following command in the terminal:
 
 ```bash 
-git clone -b simulation_mode https://github.com/PowerLoom/snapshotter-lite powerloom
+git clone https://github.com/PowerLoom/snapshotter-lite powerloom
 ```
 
 This will clone the repository into a directory named `powerloom`.
@@ -186,8 +201,12 @@ If you're a developer and want to play around with the code, instead of running 
 
 - During the setup, you'll be prompted to enter the following values:
   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+
   - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+
   - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+  - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
 
 
 :::tip
@@ -279,7 +298,7 @@ Once python3 is installed, we can go ahead and run the lite node:-
 
 1. Clone this repository using the following command in the terminal:
    ```bash
-   git clone -b simulation_mode https://github.com/PowerLoom/snapshotter-lite powerloom
+   git clone https://github.com/PowerLoom/snapshotter-lite powerloom
    ```
     This will clone the repository into a directory named `powerloom`.
   
@@ -296,14 +315,25 @@ Once python3 is installed, we can go ahead and run the lite node:-
 
 4. During the setup, you'll be prompted to enter the following values:
   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
-  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address.
+
+  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+
   - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+  - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+
+
+:::tip
+  You can create a burner wallet by using any of these tools: 
+  - [Vanity-ETH](https://vanity-eth.tk/)
+  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
+:::
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
 
-5. The node setup will complete in approximately 2-3 minutes, after which the snapshotting process begins automatically.
+1. The node setup will complete in approximately 2-3 minutes, after which the snapshotting process begins automatically.
 
-6. The process timing depends on the assigned timeslot, as illustrated in the provided terminal screenshot.
+2. The process timing depends on the assigned timeslot, as illustrated in the provided terminal screenshot.
   ![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
 
 <h3> Stopping the Snapshotter Lite Node </h3>
@@ -447,11 +477,21 @@ Follow the prompts to enter the required information.
 **Environment Setup**:  
 After initiating the process, the terminal will prompt you to enter the following information:
 
-1. `SOURCE_RPC_URL`: Use any Ethereum mainnet RPC to get started. You can sign up with an RPC provider like Infura or Quicknode or use Ankr, a public RPC.
+- During the setup, you'll be prompted to enter the following values:
+  - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-2. `SIGNER_ACCOUNT_ADDRESS`: Ensure you have added your burner wallet in the dashboard and assigned it to the node. (Refer to the previous section for more details.)
-    
-3. `SIGNER_ACCOUNT_PRIVATE_KEY`: Obtain your burner wallet's private key by navigating to the account details.
+  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+
+  - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+  - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+
+
+:::tip
+  You can create a burner wallet by using any of these tools: 
+  - [Vanity-ETH](https://vanity-eth.tk/)
+  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
+:::
 
 After entering these details, the node will start running the background processes.
 
