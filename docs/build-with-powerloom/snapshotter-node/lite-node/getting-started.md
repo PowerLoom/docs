@@ -277,9 +277,9 @@ The Snapshotter Lite Node is designed for minimal hardware demands, allowing it 
 For users running the node on personal hardware, the minimum specifications are:
 
 - **RAM:** At least 4 GB.
-- **CPU Core**:  Minimum of 4 Cores
+- **CPU Core**:  Minimum of 2 Cores
 - **Disk Space:** A minimum of 40 GB.
-- **Python:** Ensure Python 3.10 or newer is installed.
+- **Python:** Ensure Python 3.11 or newer is installed.
 
 If you want to run the Snapshotter Lite Node without Docker, you need to make sure that you have Git, and Python version 3.10 or higher installed on your machine and we recommend to use **python version 3.11.7**. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
 
@@ -392,6 +392,17 @@ While you're free to choose any provider, this guide specifically utilizes Digit
 
 - Hostinger 
 - DigitalOcean
+
+<h3> Hardware Requirements </h3>
+
+The Snapshotter Lite Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
+
+For users running the node on personal hardware, the minimum specifications are:
+
+- **RAM:** At least 4 GB.
+- **CPU Core**:  Minimum of 2 Cores
+- **Disk Space:** A minimum of 40 GB.
+- **Python:** Ensure Python 3.11 or newer is installed.
 
 <h3>Step 1: Creating Your VPS </h3>
 
