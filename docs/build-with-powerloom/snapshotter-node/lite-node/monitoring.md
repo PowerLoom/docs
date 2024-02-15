@@ -88,6 +88,25 @@ For your RPC provider, you have several reliable options, including:
 - **Infura**: Requires signup to obtain a key, which is ideal if you wish to monitor your RPC usage.
 - **Alchemy**: Similar to Infura, signup is necessary to receive a key, offering the advantage of tracking your RPC usage.
 
+## Restarting Your Node
+If you're experiencing issues or simply wish to restart your node, the process is straightforward:
+
+1. **Access the Node Directory:**
+   Open a terminal window and navigate to the directory of your Powerloom Snapshotter Node by executing:
+
+```bash
+   cd powerloom
+```
+
+2. **Execute the Build Script:**
+   Restart your node by re-running the `build.sh` script with the following command:
+
+```bash
+   ./build.sh
+```
+
+Congratulations, you have successfully restarted your node.
+
 ## Additional Support
 
 If you have followed these troubleshooting steps and still encounter issues, please contact us on [discord](https://discord.com/invite/powerloom) for further assistance. Our goal is to ensure your node runs smoothly, and we're here to help with any challenges you might face.
