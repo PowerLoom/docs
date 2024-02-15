@@ -27,6 +27,14 @@ Please review the prerequisites and follow the step-by-step instructions in the 
 2. Assign Burner wallet
 3. Once added, you can start running the node. 
 
+:::note
+
+Important note: 
+1. It is recommended that the node operates continuously, 24/7.
+2. If you possess multiple slots, you must set up separate nodes for each. You have to use the same burner wallet, you must alter the `SLOT_ID` in your configuration for each node.
+
+:::
+
 We've organized the setup process by operating system. Select your operating system from the tabs below to begin. 
 
 ---
