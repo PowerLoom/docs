@@ -17,7 +17,7 @@ Node Mint is now live at: https://mint.powerloom.network. For detailed informati
 
 :::
 
-Please review the prerequisites and follow the step-by-step instructions in the relevant guide to successfully set up your Snapshotter Lite Node. If you need further assistance, consult our troubleshooting documentation or reach out to our community for support.
+Follow the step-by-step instructions in the relevant guide to set up your Snapshotter Lite Node. If you need further assistance, refer to our troubleshooting documentation or reach out to us on [discord](https://discord.com/invite/powerloom) for support.
 
 ## Adding burner wallet to your node slot  
 
@@ -27,7 +27,7 @@ Please review the prerequisites and follow the step-by-step instructions in the 
 2. Assign Burner wallet
 3. Once added, you can start running the node. 
 
-:::note
+:::info
 
 Important note: 
 1. It is recommended that the node operates continuously, 24/7.
@@ -44,10 +44,10 @@ We've organized the setup process by operating system. Select your operating sys
 <Tabs groupId="operating-systems" className="unique-tabs" queryString="current-os">
   <TabItem value="win" label="Windows">
   The Snapshotter Lite node can operate on Windows systems when running in a Docker container. To set up the Snapshotter Lite node on Windows, follow the Docker installation and configuration instructions provided in this section.
-<Tabs groupId="setup-type">
-<TabItem value="docker" label="Docker">
+<Tabs groupId="setup-type" queryString="setup-type">
+<TabItem value="docker-setup-windows" label="Docker">
 
-<h2> Windows Docker Setup </h2>
+<h2 id="windows-setup"> Windows Docker Setup </h2>
 
 <h3> Hardware Requirements </h3>
 
@@ -157,15 +157,15 @@ If you encounter any issues while operating the node, please refer our [troubles
 ---
 
 </TabItem>
-    <TabItem value="non-docker" label="Non-Docker">
+    <TabItem value="non-docker-win" label="Non-Docker">
    Currently, there are no specific instructions for running the Snapshotter Lite Node without Docker on Windows. Users are encouraged to use the Docker setup for Windows as detailed in the Docker Setup section above.
     </TabItem>
     </Tabs>
   </TabItem>
 
 <TabItem value="mac" label="macOS">
-<Tabs groupId="setup-type">
-   <TabItem value="docker" label="Docker">
+<Tabs groupId="setup-type" queryString="setup-type">
+   <TabItem value="docker-setup-macos" label="Docker">
 
 <h2> Docker Setup for MacOS </h2>
 
@@ -267,7 +267,7 @@ If you encounter any issues while operating the node, please refer our [troubles
 ---
 
 </TabItem>
-<TabItem value="non-docker" label="Non-Docker">
+<TabItem value="non-docker-macos" label="Non-Docker">
 <h2>Non-Docker Setup for MacOS </h2>
 
 <h3> Hardware Requirements </h3>
@@ -379,8 +379,9 @@ If you encounter any issues while operating the node, please refer our [troubles
 
 </TabItem>
   <TabItem value="linux" label="Linux">
-
-<h2>Deploying a Snapshotter Lite Node on a Virtual Private Server (VPS) </h2>
+  <Tabs groupId="setup-type" queryString="setup-type">
+  <TabItem value="docker-setup-linux" label="Docker Setup">
+  <h2>Deploying a Snapshotter Lite Node on a Virtual Private Server (VPS) </h2>
 
 Deploying a Snapshotter Lite Node on a Virtual Private Server (VPS) ensures seamless 24/7 operation without utilizing your local resources.
 
@@ -554,6 +555,9 @@ Ensure your node is running correctly, and check the logs for any errors or conf
 
 - **Monitoring**: Regularly check the status of your node and the VPS to ensure everything is running smoothly.
 
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
