@@ -418,7 +418,7 @@ For users running the node on personal hardware, the minimum specifications are:
 
 <h3>Step 2: Accessing Your VPS </h3>
 
-- **SSH into Your VPS**: Use the following command from your terminal, replacing `your_vps_ip` with the IP address of your VPS provided by Digital Ocean.
+- **SSH into Your VPS**: Use the following command from your terminal/command prompt, replacing `your_vps_ip` with the IP address of your VPS provided by Digital Ocean.  
 
 ```bash
     ssh root@your_vps_ip
