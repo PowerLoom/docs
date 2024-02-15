@@ -27,11 +27,11 @@ Our Consensus Dashboard enables you to verify if your node slot is actively subm
 
 This section provides guidance on troubleshooting your node in case of encountered issues. The steps outlined below are designed to help identify and resolve common problems efficiently.
 
-### Confirm Setup Prerequisites:
+### Confirm setup Prerequisites
 
 Before proceeding, please double-check your system's configurations and the setup process. If you're using a Docker setup, ensure that Docker is actively running. For a non-Docker setup, verify that [prerequisite tools](./getting-started/#2-non-docker-setup) such as Python and Git are installed.
 
-### Review Setup Instructions:
+### Review setup Instructions
    - Revisit the [setup instructions](./getting-started) to confirm that all steps were followed correctly. Often, issues arise from missing or incorrectly executed setup procedures.
 
    - Verify your .env variables: 
@@ -80,7 +80,7 @@ Inside, you will find configurations similar to those shown in the provided scre
 
 This process allows you to easily update your node's configuration settings directly on the server.
 
-## RPC URLs 
+### RPC URLs 
 Sometimes, you may encounter errors related to RPC. Should this occur, it's important to verify that your RPC URL is accurate. For instructions on changing the RPC URL, please refer to the previously mentioned section.
 
 For your RPC provider, you have several reliable options, including:
@@ -88,7 +88,7 @@ For your RPC provider, you have several reliable options, including:
 - **Infura**: Requires signup to obtain a key, which is ideal if you wish to monitor your RPC usage.
 - **Alchemy**: Similar to Infura, signup is necessary to receive a key, offering the advantage of tracking your RPC usage.
 
-## Restarting Your Node
+### Restarting Your Node
 If you're experiencing issues or simply wish to restart your node, the process is straightforward:
 
 1. **Access the Node Directory:**
