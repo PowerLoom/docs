@@ -66,7 +66,7 @@ The `.env` file contains essential configuration details such as `SOURCE_RPC_URL
 ```
 
 Inside, you will find configurations similar to those shown in the provided screenshot.
-![]
+![EnvScreen](/images/env-screen.png)
 
 4. **Modifying Variables:**
    Update the variables as needed. To save and exit, press `CTRL+X`.
