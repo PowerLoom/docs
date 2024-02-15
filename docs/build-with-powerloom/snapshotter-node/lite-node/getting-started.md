@@ -44,343 +44,7 @@ We have streamlined the setup process based on your operating system. To begin, 
 <!-- Grouping by OS and Setup type -->
 
 <Tabs groupId="operating-systems" className="unique-tabs" queryString="current-os">
-  <TabItem value="win" label="Windows">
-  The Snapshotter Lite node can operate on Windows systems when running in a Docker container. To set up the Snapshotter Lite node on Windows, follow the Docker installation and configuration instructions provided in this section.
-<Tabs groupId="setup-type" queryString="setup-type">
-<TabItem value="docker-setup-windows" label="Docker">
-
-<h2 id="windows-setup"> Windows Docker Setup </h2>
-
-<h3> Hardware Requirements </h3>
-
-The Snapshotter Lite Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
-
-For users running the node on personal windows system, the minimum specifications are:
-
-- **RAM:** At least 4 GB.
-- **CPU Core**:  Minimum of 2 Cores
-- **Disk Space:** A minimum of 40 GB.
-- **Python:** Ensure Python 3.11 or newer is installed.
-
-Setting up the snapshotter node on Windows requires a few additional steps. We suggest using Docker for its ease and speed of setup. To begin with Docker, you must have the Windows Subsystem for Linux (WSL) installed. Please follow the guide provided below for detailed instructions.
-
-<h3> Initial Setup </h3>
-
-- **Open PowerShell:** 
-   - Start by opening PowerShell on your Windows machine. Search for `"PowerShell"` in the start menu and launch it.
-
-- **Install Windows Subsystem for Linux (WSL):**
-   - In the PowerShell window, enter the following command:
-     ```bash
-     wsl --install
-     ```
-   - This command installs the Windows Subsystem for Linux, necessary for running Docker.
-
-- **Download and Install Docker:**
-   - Download Docker from the [official website](https://docs.docker.com/get-docker/).
-   - Follow the installation instructions provided on the website.
-
-- **Restart Your Computer:**
-   - After installing Docker, restart your computer to apply all changes.
-
-- **Open Docker:**
-   - Post-restart, open Docker. This should automatically launch a Powershell console which will have WSL installed.
-
-- **Set Up Linux User Account:**
-   - In the newly opened powershell console, set up a new user account by entering a username and password.
-
-#### Granting Docker Permissions
-
-- **Modify Docker Group Permissions:**
-   - To grant Docker the necessary permissions, add your user to the Docker group with this command:
-     ```bash
-     sudo usermod -aG docker $USER
-     ```
-   - Logout and login again or restart the Docker service for the changes to take effect.
-
-- **Verify Docker Installation:**
-   - To confirm Docker is set up correctly, run:
-     ```bash
-     docker run hello-world
-     ```
-   - This command should display a message confirming Docker is functioning.
-
-<h4> Cloning the Repository and Running the Build Script </h4>
-
-- **Clone the Repository:**
-   - Use the following command in WSL terminal to clone the Snapshotter lite node repository:
-
-     ```bash
-     git clone https://github.com/PowerLoom/snapshotter-lite powerloom
-     ```
-
-- **Navigate to the Repository Directory:**
-    - Change to the cloned repository's directory:
-
-      ```bash
-      cd powerloom
-      ```
-
-- **Run the Build Script:**
-
-:::tip
-  Please do not use your main wallet to run the snapshotter lite node. It is advised to create a burner wallet by using any of these tools: 
-  - [Vanity-ETH](https://vanity-eth.tk/)
-  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
-
-Once you generate your wallet address, make sure you assign your burner wallet on your [snapshotter dashboard](#).
-
-:::
-
- - Execute the build script with:
-   ```bash
-      ./build.sh
-   ```
-    - During the setup, you'll be prompted to enter the following values:
-        - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
-
-        - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
-
-        - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
-
-        - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
-
-
-This is a one-time configuration process that generates a .env file in the project's root directory.
-
-After entering the required information, the setup will begin to construct the Docker container, which should be ready within a few minutes. Upon completion, you will see logs similar to the ones shown below:
-
-![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
-
-By adhering to these instructions, you can successfully configure the Snapshotter Lite Node on your Windows system.
-
-If you encounter any issues while operating the node, please refer our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
-
----
-
-</TabItem>
-    <TabItem value="non-docker-win" label="Non-Docker">
-   Currently, there are no specific instructions for running the Snapshotter Lite Node without Docker on Windows. Users are encouraged to use the Docker setup for Windows as detailed in the Docker Setup section above.
-    </TabItem>
-    </Tabs>
-  </TabItem>
-
-<TabItem value="mac" label="macOS">
-<Tabs groupId="setup-type" queryString="setup-type">
-   <TabItem value="docker-setup-macos" label="Docker">
-
-<h2> Docker Setup for MacOS </h2>
-
-<h3> Hardware Requirements </h3>
-
-The Snapshotter Lite Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
-
-<h3> MacOS System Requirements </h3>
-
-For users running the node on personal hardware, the minimum specifications are:
-
-- **RAM:** At least 4 GB.
-- **CPU Core**:  Minimum of 2 Cores
-- **Disk Space:** A minimum of 40 GB.
-- **Python:** Ensure Python 3.11 or newer is installed.
-
-
-<h3> Pre-requisitie tools </h3>
-
-- Install Docker on your machine. You can find the installation instructions for your operating system on the [official Docker website.](https://docs.docker.com/get-docker/)
-
-- Install git if your system doesn't have git installed. To install git in MacOS, please follow this guide: https://www.atlassian.com/git/tutorials/install-git 
-
-
-<h3> Installation </h3>
-
-- Clone the snapshotter lite repository using the following command in the terminal:
-
-```bash 
-git clone https://github.com/PowerLoom/snapshotter-lite powerloom
-```
-
-This will clone the repository into a directory named `powerloom`.
-
-- Change your working directory to the powerloom directory:
-
-```bash
-cd powerloom
-```
-
-- Run `build.sh` in the terminal to start the snapshotter lite node:
-
-```bash
-./build.sh
-```
-
-<details><summary>Optional: Only for Developers</summary>
-<p>
-
-If you're a developer and want to play around with the code, instead of running build.sh, you can run the following command to start the snapshotter lite node:
-
-```bash
-./build-dev.sh
-```
-
-</p>
-</details>
-
-:::tip
- Please do not use your main wallet to run the snapshotter lite node. It is advised to create a burner wallet by using any of these tools:
-
-  - [Vanity-ETH](https://vanity-eth.tk/)
-  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
-
-Once you generate your wallet address, make sure you assign your burner wallet on your [snapshotter dashboard](#).
-:::
-
-- During the setup, you'll be prompted to enter the following values:
-  - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
-
-  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
-
-  - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
-
-  - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
-
-
-This is a one-time configuration process that generates a .env file in the project's root directory.
-This should start your snapshotter node and you should see something like this in your terminal logs
-
-```bash
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:17 | INFO | Current block: 2208370| {'module': 'EventDetector'}
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:18 | DEBUG | Set source chain block time to 12.0| {'module': 'ProcessDistributor'}
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:20 | INFO | Snapshotter enabled: True| {'module': 'ProcessDistributor'}
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:20 | INFO | Snapshotter slot is set to 1| {'module': 'ProcessDistributor'}
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:20 | INFO | Snapshotter enabled: True| {'module': 'ProcessDistributor'}
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:21 | INFO | Snapshotter active: True| {'module': 'ProcessDistributor'}
-snapshotter-lite_1  | 0|core-api          | February 5, 2024 > 15:10:22 | INFO | 127.0.0.1:59776 - "GET /health HTTP/1.1" 200 | {} 
-```
-
-- To stop the node, you can press` Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
-
-This will halt the running node and all associated processes. 
-
-By following these steps, you can successfully configure the Snapshotter Lite Node on your Mac system.
-
-If you encounter any issues while operating the node, please refer our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
-
----
-
-</TabItem>
-<TabItem value="non-docker-macos" label="Non-Docker">
-<h2>Non-Docker Setup for MacOS </h2>
-
-<h3> Hardware Requirements </h3>
-
-The Snapshotter Lite Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
-
-For users running the node on personal hardware, the minimum specifications are:
-
-- **RAM:** At least 4 GB.
-- **CPU Core**:  Minimum of 2 Cores
-- **Disk Space:** A minimum of 40 GB.
-- **Python:** Ensure Python 3.11 or newer is installed.
-
-If you want to run the Snapshotter Lite Node without Docker, you need to make sure that you have Git, and Python version 3.10 or higher installed on your machine and we recommend to use **python version 3.11.7**. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
-
-
-<details><summary> Optional: Installing Virtual Environment </summary>
-For simplicity, we recommend using miniconda and setting up an environment with the needed python version as shown below
-<p>
-
-#### Install miniconda for your system:
-   ```bash
-   https://docs.conda.io/projects/miniconda/en/latest/
-   ```
-  
-#### Verify the installation using the following command in your terminal
-   ```bash
-   conda --version
-   ```
-
-   Add miniconda to your path if the terminal does not identify conda as a valid command:
-   ```bash
-   export PATH="/Users/yourusername/miniconda3/bin:$PATH"
-   ```
-
-   Replace yourusername with your actual username
-
-##### Create and activate a python environment:
-   ```bash
-   conda create -n myenv python=3.11
-   conda activate myenv
-   ```
-</p>
-</details>
-
-Once python3 is installed, we can go ahead and run the lite node:-
-
-1. Clone this repository using the following command in the terminal:
-```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite powerloom
-```
-This will clone the repository into a directory named `powerloom`.
-  
-2. Change your working directory to the `powerloom` directory, open the terminal and type:
-
-```bash
-   cd powerloom
-```
-
-3. Run `init.sh` command in the terminal to start the snapshotter lite node:
-```bash
-   ./init.sh
-```
-:::tip
- Please do not use your main wallet to run the snapshotter lite node. It is advised to create a burner wallet by using any of these tools:
-
-  - [Vanity-ETH](https://vanity-eth.tk/)
-  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
-
-Once you generate your wallet address, make sure you assign your burner wallet on your [snapshotter dashboard](#).
-:::
-
-
-4. During the setup, you'll be prompted to enter the following values:
-
-  - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
-
-  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
-
-  - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
-
-  - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
-
-
-This is a one-time configuration process that generates a .env file in the project's root directory.
-
-1. The node setup will complete in approximately 2-3 minutes, after which the snapshotting process begins automatically.
-
-2. To confirm the health of your node you can check your terminal logs as illustrated in the provided screenshot.
-  ![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
-
-<h3> Stopping the Snapshotter Lite Node </h3>
-
-To stop the node, use the command in the terminal:
-```bash
-pkill -f snapshotter
-```
-
-This will halt the running node and all associated processes.
-
-By following these steps, you can successfully configure the Snapshotter Lite Node on your Mac system.
-
-If you encounter any issues while operating the node, please refer our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
-
----
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-  <TabItem value="linux" label="Linux">
+  <TabItem value="VPS-setup" label="VPS Setup (Linux)">
   <Tabs groupId="setup-type" queryString="setup-type">
   <TabItem value="docker-setup-linux" label="Docker Setup">
   <h2>Deploying a Snapshotter Lite Node on a Virtual Private Server (VPS) </h2>
@@ -393,8 +57,9 @@ While you're free to choose any provider, this guide specifically utilizes Digit
 
 <h3>Recommended VPS Providers: </h3>
 
-- Hostinger 
 - DigitalOcean
+- Hostinger 
+
 
 <h3> Hardware Requirements </h3>
 
@@ -482,7 +147,7 @@ Once the Docker repository is added successfully, let’s install Docker and nec
 Navigate to the directory where you want to install the node and clone the repository:
 
 ```bash
-    git clone https://github.com/PowerLoom/snapshotter-lite powerloom
+    git clone https://github.com/PowerLoom/snapshotter-lite powerloom-testnet
 ```
 
 2. **Navigate to the Directory**:  
@@ -562,6 +227,343 @@ Ensure your node is running correctly, and check the logs for any errors or conf
 </Tabs>
 
 </TabItem>
+
+<TabItem value="mac/linux" label="macOS/Linux">
+<Tabs groupId="setup-type" queryString="setup-type">
+   <TabItem value="docker-setup-macos" label="Docker Setup">
+
+<h2> Docker Setup for MacOS </h2>
+
+<h3> Hardware Requirements </h3>
+
+The Snapshotter Lite Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
+
+<h3> MacOS System Requirements </h3>
+
+For users running the node on personal hardware, the minimum specifications are:
+
+- **RAM:** At least 4 GB.
+- **CPU Core**:  Minimum of 2 Cores
+- **Disk Space:** A minimum of 40 GB.
+- **Python:** Ensure Python 3.11 or newer is installed.
+
+
+<h3> Pre-requisitie tools </h3>
+
+- Install Docker on your machine. You can find the installation instructions for your operating system on the [official Docker website.](https://docs.docker.com/get-docker/)
+
+- Install git if your system doesn't have git installed. To install git in MacOS, please follow this guide: https://www.atlassian.com/git/tutorials/install-git 
+
+
+<h3> Installation </h3>
+
+- Clone the snapshotter lite repository using the following command in the terminal:
+
+```bash 
+git clone https://github.com/PowerLoom/snapshotter-lite powerloom-testnet
+```
+
+This will clone the repository into a directory named `powerloom`.
+
+- Change your working directory to the powerloom directory:
+
+```bash
+cd powerloom
+```
+
+- Run `build.sh` in the terminal to start the snapshotter lite node:
+
+```bash
+./build.sh
+```
+
+<details><summary>Optional: Only for Developers</summary>
+<p>
+
+If you're a developer and want to play around with the code, instead of running build.sh, you can run the following command to start the snapshotter lite node:
+
+```bash
+./build-dev.sh
+```
+
+</p>
+</details>
+
+:::tip
+ Please do not use your main wallet to run the snapshotter lite node. It is advised to create a burner wallet by using any of these tools:
+
+  - [Vanity-ETH](https://vanity-eth.tk/)
+  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
+
+Once you generate your wallet address, make sure you assign your burner wallet on your [snapshotter dashboard](#).
+:::
+
+- During the setup, you'll be prompted to enter the following values:
+  - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+
+  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+
+  - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+  - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+
+
+This is a one-time configuration process that generates a .env file in the project's root directory.
+This should start your snapshotter node and you should see something like this in your terminal logs
+
+```bash
+snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:17 | INFO | Current block: 2208370| {'module': 'EventDetector'}
+snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:18 | DEBUG | Set source chain block time to 12.0| {'module': 'ProcessDistributor'}
+snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:20 | INFO | Snapshotter enabled: True| {'module': 'ProcessDistributor'}
+snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:20 | INFO | Snapshotter slot is set to 1| {'module': 'ProcessDistributor'}
+snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:20 | INFO | Snapshotter enabled: True| {'module': 'ProcessDistributor'}
+snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:21 | INFO | Snapshotter active: True| {'module': 'ProcessDistributor'}
+snapshotter-lite_1  | 0|core-api          | February 5, 2024 > 15:10:22 | INFO | 127.0.0.1:59776 - "GET /health HTTP/1.1" 200 | {} 
+```
+
+- To stop the node, you can press` Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
+
+This will halt the running node and all associated processes. 
+
+By following these steps, you can successfully configure the Snapshotter Lite Node on your Mac system.
+
+If you encounter any issues while operating the node, please refer our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
+
+---
+
+</TabItem>
+<TabItem value="non-docker-macos" label="Non-Docker Setup">
+<h2>Non-Docker Setup for MacOS </h2>
+
+<h3> Hardware Requirements </h3>
+
+The Snapshotter Lite Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
+
+For users running the node on personal hardware, the minimum specifications are:
+
+- **RAM:** At least 4 GB.
+- **CPU Core**:  Minimum of 2 Cores
+- **Disk Space:** A minimum of 40 GB.
+- **Python:** Ensure Python 3.11 or newer is installed.
+
+If you want to run the Snapshotter Lite Node without Docker, you need to make sure that you have Git, and Python version 3.10 or higher installed on your machine and we recommend to use **python version 3.11.7**. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
+
+
+<details><summary> Optional: Installing Virtual Environment </summary>
+For simplicity, we recommend using miniconda and setting up an environment with the needed python version as shown below
+<p>
+
+#### Install miniconda for your system:
+   ```bash
+   https://docs.conda.io/projects/miniconda/en/latest/
+   ```
+  
+#### Verify the installation using the following command in your terminal
+   ```bash
+   conda --version
+   ```
+
+   Add miniconda to your path if the terminal does not identify conda as a valid command:
+   ```bash
+   export PATH="/Users/yourusername/miniconda3/bin:$PATH"
+   ```
+
+   Replace yourusername with your actual username
+
+##### Create and activate a python environment:
+   ```bash
+   conda create -n myenv python=3.11
+   conda activate myenv
+   ```
+</p>
+</details>
+
+Once python3 is installed, we can go ahead and run the lite node:-
+
+1. Clone this repository using the following command in the terminal:
+```bash
+   git clone https://github.com/PowerLoom/snapshotter-lite powerloom-testnet
+```
+This will clone the repository into a directory named `powerloom`.
+  
+2. Change your working directory to the `powerloom` directory, open the terminal and type:
+
+```bash
+   cd powerloom
+```
+
+3. Run `init.sh` command in the terminal to start the snapshotter lite node:
+```bash
+   ./init.sh
+```
+:::tip
+ Please do not use your main wallet to run the snapshotter lite node. It is advised to create a burner wallet by using any of these tools:
+
+  - [Vanity-ETH](https://vanity-eth.tk/)
+  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
+
+Once you generate your wallet address, make sure you assign your burner wallet on your [snapshotter dashboard](#).
+:::
+
+
+4. During the setup, you'll be prompted to enter the following values:
+
+  - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+
+  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+
+  - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+  - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+
+
+This is a one-time configuration process that generates a .env file in the project's root directory.
+
+1. The node setup will complete in approximately 2-3 minutes, after which the snapshotting process begins automatically.
+
+2. To confirm the health of your node you can check your terminal logs as illustrated in the provided screenshot.
+  ![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
+
+<h3> Stopping the Snapshotter Lite Node </h3>
+
+To stop the node, use the command in the terminal:
+```bash
+pkill -f snapshotter
+```
+
+This will halt the running node and all associated processes.
+
+By following these steps, you can successfully configure the Snapshotter Lite Node on your Mac system.
+
+If you encounter any issues while operating the node, please refer our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
+
+---
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+
+<TabItem value="win" label="Windows">
+  The Snapshotter Lite node can operate on Windows systems when running in a Docker container. To set up the Snapshotter Lite node on Windows, follow the Docker installation and configuration instructions provided in this section.
+<Tabs groupId="setup-type" queryString="setup-type">
+<TabItem value="docker-setup-windows" label="Docker Setup">
+
+<h2 id="windows-setup"> Windows Docker Setup </h2>
+
+<h3> Hardware Requirements </h3>
+
+The Snapshotter Lite Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
+
+For users running the node on personal windows system, the minimum specifications are:
+
+- **RAM:** At least 4 GB.
+- **CPU Core**:  Minimum of 2 Cores
+- **Disk Space:** A minimum of 40 GB.
+- **Python:** Ensure Python 3.11 or newer is installed.
+
+Setting up the snapshotter node on Windows requires a few additional steps. We suggest using Docker for its ease and speed of setup. To begin with Docker, you must have the Windows Subsystem for Linux (WSL) installed. Please follow the guide provided below for detailed instructions.
+
+<h3> Initial Setup </h3>
+
+- **Open PowerShell:** 
+   - Start by opening PowerShell on your Windows machine. Search for `"PowerShell"` in the start menu and launch it.
+
+- **Install Windows Subsystem for Linux (WSL):**
+   - In the PowerShell window, enter the following command:
+     ```bash
+     wsl --install
+     ```
+   - This command installs the Windows Subsystem for Linux, necessary for running Docker.
+
+- **Download and Install Docker:**
+   - Download Docker from the [official website](https://docs.docker.com/get-docker/).
+   - Follow the installation instructions provided on the website.
+
+- **Restart Your Computer:**
+   - After installing Docker, restart your computer to apply all changes.
+
+- **Open Docker:**
+   - Post-restart, open Docker. This should automatically launch a Powershell console which will have WSL installed.
+
+- **Set Up Linux User Account:**
+   - In the newly opened powershell console, set up a new user account by entering a username and password.
+
+#### Granting Docker Permissions
+
+- **Modify Docker Group Permissions:**
+   - To grant Docker the necessary permissions, add your user to the Docker group with this command:
+     ```bash
+     sudo usermod -aG docker $USER
+     ```
+   - Logout and login again or restart the Docker service for the changes to take effect.
+
+- **Verify Docker Installation:**
+   - To confirm Docker is set up correctly, run:
+     ```bash
+     docker run hello-world
+     ```
+   - This command should display a message confirming Docker is functioning.
+
+<h4> Cloning the Repository and Running the Build Script </h4>
+
+- **Clone the Repository:**
+   - Use the following command in WSL terminal to clone the Snapshotter lite node repository:
+
+   ```bash
+     git clone https://github.com/PowerLoom/snapshotter-lite powerloom-testnet
+   ```
+
+- **Navigate to the Repository Directory:**
+    - Change to the cloned repository's directory:
+
+      ```bash
+      cd powerloom
+      ```
+
+- **Run the Build Script:**
+
+:::tip
+  Please do not use your main wallet to run the snapshotter lite node. It is advised to create a burner wallet by using any of these tools: 
+  - [Vanity-ETH](https://vanity-eth.tk/)
+  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
+
+Once you generate your wallet address, make sure you assign your burner wallet on your [snapshotter dashboard](#).
+
+:::
+
+ - Execute the build script with:
+   ```bash
+      ./build.sh
+   ```
+    - During the setup, you'll be prompted to enter the following values:
+        - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+
+        - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+
+        - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+        - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+
+
+This is a one-time configuration process that generates a .env file in the project's root directory.
+
+After entering the required information, the setup will begin to construct the Docker container, which should be ready within a few minutes. Upon completion, you will see logs similar to the ones shown below:
+
+![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
+
+By adhering to these instructions, you can successfully configure the Snapshotter Lite Node on your Windows system.
+
+If you encounter any issues while operating the node, please refer our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
+
+---
+
+</TabItem>
+    <TabItem value="non-docker-win" label="Non-Docker Setup">
+   Currently, there are no specific instructions for running the Snapshotter Lite Node without Docker on Windows. Users are encouraged to use the Docker setup for Windows as detailed in the Docker Setup section above.
+    </TabItem>
+    </Tabs>
+  </TabItem>
 </Tabs>
 
 ## Troubleshooting
