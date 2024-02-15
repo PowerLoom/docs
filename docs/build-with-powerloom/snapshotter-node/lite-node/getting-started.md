@@ -19,7 +19,13 @@ Node Mint is now live at: https://mint.powerloom.network. For detailed informati
 
 Please review the prerequisites and follow the step-by-step instructions in the relevant guide to successfully set up your Snapshotter Lite Node. If you need further assistance, consult our troubleshooting documentation or reach out to our community for support.
 
-## Adding burner wallet to your node slot
+## Adding burner wallet to your node slot  
+
+//TODO 
+
+1. Sign in to your Snapshotter Dashboard
+2. Assign Burner wallet
+3. Once added, you can start running the node. 
 
 We've organized the setup process by operating system. Select your operating system from the tabs below to begin. 
 
