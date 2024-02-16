@@ -146,7 +146,7 @@ Navigate to the directory where you want to install the node and clone the repos
 Change to the directory of the cloned repository:
 
 ```bash
-    cd powerloom
+    cd powerloom-testnet
 ```
 
 <h3>Step 5: Running the Node </h3>
@@ -255,12 +255,12 @@ For users running the node on personal hardware, the minimum specifications are:
 git clone https://github.com/PowerLoom/snapshotter-lite powerloom-testnet
 ```
 
-This will clone the repository into a directory named `powerloom`.
+This will clone the repository into a directory named `powerloom-testnet`.
 
 - Change your working directory to the powerloom directory:
 
 ```bash
-cd powerloom
+cd powerloom-testnet
 ```
 
 - Run `build.sh` in the terminal to start the snapshotter lite node:
@@ -376,12 +376,12 @@ Once python3 is installed, we can go ahead and run the lite node:-
 ```bash
    git clone https://github.com/PowerLoom/snapshotter-lite powerloom-testnet
 ```
-This will clone the repository into a directory named `powerloom`.
+This will clone the repository into a directory named `powerloom-testnet`.
   
-2. Change your working directory to the `powerloom` directory, open the terminal and type:
+2. Change your working directory to the `powerloom-testnet` directory, open the terminal and type:
 
 ```bash
-   cd powerloom
+   cd powerloom-testnet
 ```
 
 3. Run `init.sh` command in the terminal to start the snapshotter lite node:
@@ -510,7 +510,7 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
     - Change to the cloned repository's directory:
 
       ```bash
-      cd powerloom
+      cd powerloom-testnet
       ```
 
 - **Run the Build Script:**

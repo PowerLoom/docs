@@ -130,13 +130,13 @@ If you wish to perform a complete reset of your node or start afresh with the Sn
       git clone https://github.com/PowerLoom/snapshotter-lite powerloom-testnet
       ```
 
-      This command creates a new `powerloom` directory containing the node's files.
+      This command creates a new `powerloom-testnet` directory containing the node's files.
 
    b. **Initialize the Node:**
       Change into the newly created directory:
 
       ```bash
-      cd powerloom
+      cd powerloom-testnet
       ```
 
       Then, initiate the setup process by executing the initialization script:
