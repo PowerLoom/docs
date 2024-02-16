@@ -62,7 +62,7 @@ For users running the node on Virtual Private Servers (VPS), the minimum specifi
 - **RAM:** At least 4 GB.
 - **CPU Core**:  Minimum of 2 Cores
 - **Disk Space:** A minimum of 40 GB.
-- **Python:** Ensure Python 3.11 or newer is installed.
+- **Python:** Ensure Python 3.11 is installed.
 
 <h3>Step 1: Creating Your VPS </h3>
 
@@ -95,13 +95,13 @@ For users running the node on Virtual Private Servers (VPS), the minimum specifi
 ```
 
 2. **Install Python**:  
-Ensure Python 3.10 or newer is installed on your VPS. You can install Python by executing:
+Ensure Python 3.11 is installed on your VPS. You can install Python by executing:
 
 ```bash 
     sudo apt-get install python3-pip -y
 ```
 
-3. **Install Git**:  
+1. **Install Git**:  
 Git is necessary for cloning the Snapshotter Lite repository. Install it using:
 
 ```bash
@@ -237,7 +237,7 @@ For users running the node on personal hardware, the minimum specifications are:
 - **RAM:** At least 4 GB.
 - **CPU Core**:  Minimum of 2 Cores
 - **Disk Space:** A minimum of 40 GB.
-- **Python:** Ensure Python 3.11 or newer is installed.
+- **Python:** Ensure Python 3.11 is installed.
 
 
 <h3> Pre-requisitie tools </h3>
@@ -336,7 +336,7 @@ For users running the node on personal hardware, the minimum specifications are:
 - **RAM:** At least 4 GB.
 - **CPU Core**:  Minimum of 2 Cores
 - **Disk Space:** A minimum of 40 GB.
-- **Python:** Ensure Python 3.11 or newer is installed.
+- **Python:** Ensure Python 3.11 is installed.
 
 If you want to run the Snapshotter Lite Node without Docker, you need to make sure that you have Git, and Python version 3.10 or higher installed on your machine and we recommend to use **python version 3.11.7**. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
 
@@ -452,7 +452,7 @@ For users running the node on personal windows system, the minimum specification
 - **RAM:** At least 4 GB.
 - **CPU Core**:  Minimum of 2 Cores
 - **Disk Space:** A minimum of 40 GB.
-- **Python:** Ensure Python 3.11 or newer is installed.
+- **Python:** Ensure Python 3.11 is installed.
 
 Setting up the snapshotter node on Windows requires a few additional steps. We suggest using Docker for its ease and speed of setup. To begin with Docker, you must have the Windows Subsystem for Linux (WSL) installed. Please follow the guide provided below for detailed instructions.
 
