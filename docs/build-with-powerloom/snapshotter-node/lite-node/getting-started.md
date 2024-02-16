@@ -200,10 +200,10 @@ CTRL+A+D
 Ensure your node is running correctly, and check the logs for any errors or confirmations of successful operations. 
 
 
-If you have configured the node for the first time, you should have a log message similar to the one shown below.
+Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
-To confirm if your node is running correctly, you should have similar logs in your terminal:
+If you are node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 <h3>Step 6: Maintaining Your Node </h3>
@@ -300,10 +300,10 @@ Once you generate your wallet address, make sure you assign your burner wallet o
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
 
-If you have configured the node for the first time, you should have a log message similar to the one shown below.
+Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
-To confirm if your node is running correctly, you should have similar logs in your terminal:
+If you are node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 - To stop the node, you can press` Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
@@ -406,10 +406,10 @@ This is a one-time configuration process that generates a .env file in the proje
 
 1. The node setup will complete in approximately 2-3 minutes, after which the snapshotting process begins automatically.
 
-2. If you have configured the node for the first time, you should have a log message similar to the one shown below.
+Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
- To confirm the health of your node you can check your terminal logs as illustrated in the provided screenshot.:
+If you are node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 <h3> Stopping the Snapshotter Lite Node </h3>
@@ -538,10 +538,10 @@ This is a one-time configuration process that generates a .env file in the proje
 
 After entering the required information, the setup will begin to construct the Docker container, which should be ready within a few minutes. 
 
-If you have configured the node for the first time, you should have a log message similar to the one shown below.
+Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
-To confirm if your node is running correctly, you should have similar logs in your terminal:
+If you are node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 By adhering to these instructions, you can successfully configure the Snapshotter Lite Node on your Windows system.
