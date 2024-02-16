@@ -203,7 +203,7 @@ Ensure your node is running correctly, and check the logs for any errors or conf
 Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
-If you are node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
+If your node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 <h3>Step 6: Maintaining Your Node </h3>
@@ -303,7 +303,7 @@ This is a one-time configuration process that generates a .env file in the proje
 Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
-If you are node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
+If your node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 - To stop the node, you can press` Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
@@ -409,7 +409,7 @@ This is a one-time configuration process that generates a .env file in the proje
 Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
-If you are node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
+If your node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 <h3> Stopping the Snapshotter Lite Node </h3>
@@ -541,7 +541,7 @@ After entering the required information, the setup will begin to construct the D
 Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
-If you are node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
+If your node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 By adhering to these instructions, you can successfully configure the Snapshotter Lite Node on your Windows system.
