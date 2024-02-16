@@ -94,21 +94,14 @@ For users running the node on Virtual Private Servers (VPS), the minimum specifi
     sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-2. **Install Python**:  
-Ensure Python 3.11 is installed on your VPS. You can install Python by executing:
-
-```bash 
-    sudo apt-get install python3-pip -y
-```
-
-1. **Install Git**:  
+2. **Install Git**:  
 Git is necessary for cloning the Snapshotter Lite repository. Install it using:
 
 ```bash
     sudo apt-get install git -y
 ```
 
-4. **Install Docker and Docker Compose:**   
+3. **Install Docker and Docker Compose:**   
 Ensure Docker and Docker Compose are installed. You can install docker on Ubuntu using the following commands:
 
 ```bash
