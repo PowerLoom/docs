@@ -204,9 +204,14 @@ If you want to exit your screen, type the command in the terminal:
 CTRL+A+D
 ```
 
-Ensure your node is running correctly, and check the logs for any errors or confirmations of successful operations. To confirm if your node is running correctly, you should have similar logs in your terminal:
+Ensure your node is running correctly, and check the logs for any errors or confirmations of successful operations. 
 
-![Sample node logs](/images/snapshotter-node-running-terminal.png)
+
+If you have configured the node for the first time, you should have a log message similar to the one shown below.
+![Start node logs](/images/node-start-status.png)
+
+To confirm if your node is running correctly, you should have similar logs in your terminal:
+![Sample node logs](/images/node-status-new.png)
 
 <h3>Step 6: Maintaining Your Node </h3>
 
@@ -301,17 +306,12 @@ Once you generate your wallet address, make sure you assign your burner wallet o
 
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
-This should start your snapshotter node and you should see something like this in your terminal logs
 
-```bash
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:17 | INFO | Current block: 2208370| {'module': 'EventDetector'}
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:18 | DEBUG | Set source chain block time to 12.0| {'module': 'ProcessDistributor'}
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:20 | INFO | Snapshotter enabled: True| {'module': 'ProcessDistributor'}
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:20 | INFO | Snapshotter slot is set to 1| {'module': 'ProcessDistributor'}
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:20 | INFO | Snapshotter enabled: True| {'module': 'ProcessDistributor'}
-snapshotter-lite_1  | 1|snapshotter-lite  | February 5, 2024 > 15:10:21 | INFO | Snapshotter active: True| {'module': 'ProcessDistributor'}
-snapshotter-lite_1  | 0|core-api          | February 5, 2024 > 15:10:22 | INFO | 127.0.0.1:59776 - "GET /health HTTP/1.1" 200 | {} 
-```
+If you have configured the node for the first time, you should have a log message similar to the one shown below.
+![Start node logs](/images/node-start-status.png)
+
+To confirm if your node is running correctly, you should have similar logs in your terminal:
+![Sample node logs](/images/node-status-new.png)
 
 - To stop the node, you can press` Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
 
@@ -413,8 +413,11 @@ This is a one-time configuration process that generates a .env file in the proje
 
 1. The node setup will complete in approximately 2-3 minutes, after which the snapshotting process begins automatically.
 
-2. To confirm the health of your node you can check your terminal logs as illustrated in the provided screenshot.
-  ![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
+2. If you have configured the node for the first time, you should have a log message similar to the one shown below.
+![Start node logs](/images/node-start-status.png)
+
+ To confirm the health of your node you can check your terminal logs as illustrated in the provided screenshot.:
+![Sample node logs](/images/node-status-new.png)
 
 <h3> Stopping the Snapshotter Lite Node </h3>
 
@@ -540,9 +543,13 @@ Once you generate your wallet address, make sure you assign your burner wallet o
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
 
-After entering the required information, the setup will begin to construct the Docker container, which should be ready within a few minutes. Upon completion, you will see logs similar to the ones shown below:
+After entering the required information, the setup will begin to construct the Docker container, which should be ready within a few minutes. 
 
-![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
+If you have configured the node for the first time, you should have a log message similar to the one shown below.
+![Start node logs](/images/node-start-status.png)
+
+To confirm if your node is running correctly, you should have similar logs in your terminal:
+![Sample node logs](/images/node-status-new.png)
 
 By adhering to these instructions, you can successfully configure the Snapshotter Lite Node on your Windows system.
 

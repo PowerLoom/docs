@@ -115,43 +115,17 @@ If you wish to perform a complete reset of your node or start afresh with the Sn
    To delete the `powerloom` directory and all its contents, use the command:
 
    ```bash
-   sudo rm -rf powerloom
+   rm -rf powerloom
    ```
 
    This action cannot be undone, so ensure that you wish to proceed with the reset.
 
 3. **Reinstalling the Snapshotter Lite Node:**
-   After successfully removing the directory, you're ready to reinstall the Snapshotter Lite Node. Follow these steps for reinstallation:
-
-   a. **Clone the Repository:**
-      Clone the Snapshotter Lite Node repository from GitHub to your system with the following command:
-
-      ```bash
-      git clone https://github.com/PowerLoom/snapshotter-lite powerloom-testnet
-      ```
-
-      This command creates a new `powerloom-testnet` directory containing the node's files.
-
-   b. **Initialize the Node:**
-      Change into the newly created directory:
-
-      ```bash
-      cd powerloom-testnet
-      ```
-
-      Then, initiate the setup process by executing the initialization script:
-
-      ```bash
-      ./init.sh
-      ```
-
-      Follow the on-screen prompts to configure your node settings, such as the RPC URL, signer account details, and slot ID.
-
-By completing these steps, you will have successfully reset and reinstalled your Snapshotter Lite Node, ready for operation.
+   After successfully removing the directory, you're ready to reinstall the Snapshotter Lite Node. Follow the steps on our [Getting Started section](./getting-started.md).
 
 ---
 
-### Restarting your Node
+### Reconfiguring your Node
 If you're experiencing issues or simply wish to restart your node, the process is straightforward:
 
 1. **Access the Node Directory:**
