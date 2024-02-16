@@ -150,7 +150,7 @@ Here's a developer-friendly markdown version of your instructions for setting up
 
 ## Setting Up Multiple Nodes on a VPS
 
-If you're looking to run multiple nodes, each must be set up individually. The process described below is based on what I've learned through trial and error. It outlines how to clone the repository twice for two different nodes and manage them using the `screen` utility.
+If you're looking to run multiple nodes, each must be set up individually. This section gives an example on how to clone the repository twice for two different nodes and manage them using the `screen` utility.
 
 ### Clone the Repository
 
