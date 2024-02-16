@@ -189,11 +189,11 @@ After initiating the process, the terminal will prompt you to enter the followin
 - During the setup, you'll be prompted to enter the following values:
   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+  - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
 
-  - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+  - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
-  - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+  - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
 
 After entering these details, the node will start running the background processes.
 
@@ -293,11 +293,11 @@ Once you generate your wallet address, make sure you assign your burner wallet o
 - During the setup, you'll be prompted to enter the following values:
   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+  - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
 
-  - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+  - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
-  - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+  - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
 
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
@@ -402,11 +402,11 @@ Once you generate your wallet address, make sure you assign your burner wallet o
 
   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-  - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+  - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
 
-  - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+  - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
-  - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+  - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
 
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
@@ -531,11 +531,11 @@ Once you generate your wallet address, make sure you assign your burner wallet o
     - During the setup, you'll be prompted to enter the following values:
         - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-        - `SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+        - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
 
-        - `SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+        - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
-        - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+        - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
 
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
