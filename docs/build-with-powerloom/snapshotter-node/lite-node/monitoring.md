@@ -144,80 +144,110 @@ If you're experiencing issues or simply wish to restart your node, the process i
 
 Congratulations, you have successfully restarted your node.
 
-Here's a developer-friendly markdown version of your instructions for setting up multiple nodes:
-
 ---
 
 ## Setting Up Multiple Nodes on a VPS
 
-If you're looking to run multiple nodes, each must be set up individually. This section gives an example on how to clone the repository twice for two different nodes and manage them using the `screen` utility.
+If you're looking to run multiple nodes, you can use our Multi-node setup python scipt. This section will guide you through setting up and managing multiple nodes.
 
-### Clone the Repository
+### Clone the Multi-node setup script:
 
-First, clone the repository twice, each into a separate directory to distinguish between the two nodes:
-
-```bash
-git clone https://github.com/PowerLoom/snapshotter-lite powerloom-testnet  # for node1
-git clone https://github.com/PowerLoom/snapshotter-lite powerloom-testnet1 # for node2
-```
-
-### Setup Node 1
-
-1. Create a new screen for node1:
-
-    ```bash
-    screen -S node1
-    ```
-
-2. You will be redirected to a new screen. Navigate to the directory of the first node:
-
-    ```bash
-    cd powerloom-testnet
-    ```
-
-3. Build the node:
-
-    ```bash
-    ./build.sh
-    ```
-
-4. Once node1 is operational, detach from the screen session by pressing `Ctrl` + `A`, then `D`.
-
-### Setup Node 2
-
-1. Create a new screen for node2:
-
-    ```bash
-    screen -S node2
-    ```
-
-2. You will be redirected to a new screen. Navigate to the directory of the second node:
-
-    ```bash
-    cd powerloom-testnet1
-    ```
-
-3. Build the node:
-
-    ```bash
-    ./build.sh
-    ```
-
-4. Once node2 is operational, detach from the screen session by pressing `Ctrl` + `A`, then `D`.
-
-### Managing Nodes
-
-To check if a node is running correctly, reattach to its screen session:
+First, clone our multi-node script to get started:
 
 ```bash
-screen -r node1 # For node1
-# or
-screen -r node2 # For node2
+git clone https://github.com/PowerLoom/snapshotter-lite-multi-setup
 ```
 
-Remember to detach from the screen session once done by pressing `Ctrl` + `A`, then `D`.
+navigate to the directory, type the below command on your terminal:
 
-> A special shoutout goes to our Discord community member - #avinsgolakiya for creating this guide.
+    ```bash
+    cd snapshotter-lite-multi-setup
+    ```
+
+### Setting Up the Environment
+
+It is imperative to create an isolated virtual environment that includes the necessary Python version and modules. This approach ensures that the global Python installations on the VPS or your local machine are not altered.
+
+#### Installing `Pyenv`
+
+Follow the steps below to install `pyenv`. Begin by opening the terminal and executing the command to install the required packages:
+
+```bash
+sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+```
+
+After installing the packages, run the following command to execute the script for `pyenv` installation:
+
+```bash
+curl https://pyenv.run | bash
+```
+
+Next, add `pyenv` to the bashrc file:
+
+```bash
+cd
+nano ./bashrc
+```
+
+Inside the `nano` editor, add the following lines:
+
+```bash
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+```
+
+To save changes in the `.bashrc` file, press `ctrl + x`. 
+
+Refresh the terminal by typing:
+
+```bash
+source ~/.bashrc
+```
+
+Now, proceed to install Python 3.11.5:
+
+```bash
+pyenv install 3.11.5
+```
+
+#### Installing `pyenv-virtualenv`
+
+Execute the commands below to install `pyenv-virtualenv`:
+
+```bash
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+pyenv virtualenv 3.11.5 ss_lite_multi_311
+pyenv local ss_lite_multi_311
+```
+
+#### Executing the Setup
+
+Follow these steps for setup execution:
+
+```bash
+# Prepare the .env file
+./init.sh
+# Install all Python requirements
+pip install -r requirements.txt
+# Execute the setup
+python multi_clone.py
+```
+
+During the multi-node setup process, you will encounter prompts on your screen:
+
+**Do you want to terminate all running containers and screen sessions of testnet nodes? (y/n)**
+- Use this option to stop all your active containers or node instances.
+
+**Do you wish to deploy a custom range of slot IDs (indices start at 0, enter in the format [begin, end])? (indices/n)**
+- For example, to spawn the first 4 slot IDs as nodes, enter `[0, 3]`, where 0 is the starting index, and 3 refers to the fourth element in the array of slot IDs associated with the wallet holder.
+
+**Enter the batch size for deployment**
+- Entering a batch size of 1 deploys all nodes simultaneously. A batch size of 2 splits them into two groups, if possible, and so on.
+
+You should have multiple screens created based on the number of slots you have.
+
 
 ---
 
