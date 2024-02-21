@@ -189,12 +189,12 @@ cd
 nano ./bashrc
 ```
 
-Inside the `nano` editor, add the following lines:
+Inside the `nano` editor, add the following lines at the end of the file:
 
 ```bash
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 ```
 
 To save changes in the `.bashrc` file, press `ctrl + x`. 
@@ -216,15 +216,13 @@ pyenv install 3.11.5
 Execute the commands below to install `pyenv-virtualenv`:
 
 ```bash
-git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
-echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 pyenv virtualenv 3.11.5 ss_lite_multi_311
 pyenv local ss_lite_multi_311
 ```
 
 #### Executing the Setup
 
-Follow these steps for setup execution:
+To establish a multi-node setup, follow these steps:
 
 ```bash
 # Prepare the .env file
