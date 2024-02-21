@@ -234,19 +234,22 @@ pip install -r requirements.txt
 # Execute the setup
 python multi_clone.py
 ```
+When you execute `python multi_clone.py`, you will see the following prompts that guide you through setting up your node(s).
 
-During the multi-node setup process, you will encounter prompts on your screen:
+1. **Terminate Existing containers:** "Do you want to kill all running containers and screen sessions of testnet nodes? (y/n) n"
 
-**Do you want to terminate all running containers and screen sessions of testnet nodes? (y/n)**
-- Use this option to stop all your active containers or node instances.
+- Type `y` Use this option and stop all active containers or node instances. This will clean up all the older containers. Please cross-check your running containers before executing this command. 
 
-**Do you wish to deploy a custom range of slot IDs (indices start at 0, enter in the format [begin, end])? (indices/n)**
-- For example, to spawn the first 4 slot IDs as nodes, enter `[0, 3]`, where 0 is the starting index, and 3 refers to the fourth element in the array of slot IDs associated with the wallet holder.
+2. **Custom Slot ID Deployment:** "Do you want to deploy a custom index of slot IDs (indices begin at 0, enter in the format [begin, end])? (indices/n)"
 
-**Enter the batch size for deployment**
-- Entering a batch size of 1 deploys all nodes simultaneously. A batch size of 2 splits them into two groups, if possible, and so on.
+- For instance, to deploy the first four slot IDs as nodes, input `[0, 3]`, where 0 is the start index, and 3 represents the fourth element in the slot ID array associated with the wallet holder. If you want to deploy the entire array of slot IDs, type `n`.
 
-You should have multiple screens created based on the number of slots you have.
+1. **Deployment Batch Size:** " Enter the batch size into which you wish to split the deployment"
+
+- A batch size of 1 means nodes will be deployed one by one, in batch size of 1. A batch size of 2 takes two nodes at a time and proceeds with deployment, and so on.
+
+If you encounter any issues, please contact us [discord](https://discord.com/invite/powerloom).
+
 
 
 ---
