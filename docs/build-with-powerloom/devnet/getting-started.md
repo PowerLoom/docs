@@ -7,10 +7,10 @@ sidebar_position: 0
 
 :::info
 #### Our testnet network is live!! 
-To access the testnet and build exciting applications, you need to mint a no-cost NFT on sepolia network. This minted NFT will act as an access to the network. 
+To access the testnet and build exciting data applications, you need to mint a no-cost NFT on sepolia network. This minted NFT will act as an access to the network. 
 :::
 
-You can build 
+Kickstart your journey into building data-driven decentralized applications (DApps) with Powerloom by setting up your own development network (Devnet) version of the Snapshotter Lite node. This initial step empowers you with the capabilities for data extraction and composition, essential for applications that require data aggregation and complex calculations. Our Devnet environment is designed to facilitate developers in either expanding upon [our pre-existing use cases](../use-cases/existing-implementations/) or innovating [entirely new applications](../use-cases/building-new-usecase/) using Powerloom's robust framework.
 
 ## System Requirements
 
@@ -35,7 +35,7 @@ In any case, it is highly recommended to signup with one of these providers to a
 ## Running the Node
 Whether you are developing your own application or extending our existing use cases, setting up your Snapshotter node is a crucial step. Follow the process outlined below to ensure a smooth setup:
 
-### For Snapshotters (Existing Use Cases)
+### For Existing Use Cases
 
 1. **Cloning the Deploy Repo** - Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `devnet`. 
     ```bash
@@ -60,9 +60,7 @@ Whether you are developing your own application or extending our existing use ca
 
 3. **Running the Node** - Run  `./build.sh` (ideally in a `screen`) to start the Snapshotter Node
 
-   
-
-### For Developers (New Use Cases)
+### For Developers building new use cases
 Extending existing use cases or building your own use cases requires a slightly different setup. Follow the process outlined below to ensure a smooth setup:
 
 
@@ -72,6 +70,12 @@ Extending existing use cases or building your own use cases requires a slightly 
    - Snapshotter Computes: https://github.com/PowerLoom/snapshotter-configs 
 
    Once the above branches are forked, you should have the above two repositories in your profile. 
+
+:::note
+We have two types of Protocol State Contracts tailored to different Epoch Sizes, catering to the varying complexities of applications you might be developing:
+- For straightforward applications that monitor activities at each block height or number, our Epoch Size 1 contract is the perfect fit.
+- For more advanced projects, like complex data marketplaces or applications requiring intricate computations, our Epoch Size 10 contract is designed to meet these needs.
+:::
 
 2. **Cloning the Deploy Repo** - Clone the repository against the testnet branch. Open the terminal and run the below command to clone the deploy repo in a directory named `devnet`. 
 
@@ -114,7 +118,7 @@ Extending existing use cases or building your own use cases requires a slightly 
    This is a one time step and resets the codebase to the latest version of the branch. If you have made any changes to the codebase, make sure to commit them before running this command.You need to run this command only once after cloning the repository.
    :::
 
-- **Running the Node** - Run  `./build.sh` (ideally in a `screen`) to start the Snapshotter Node
+- **Running the Node** - Run  `./build-dev.sh` (ideally in a `screen`) to start the Snapshotter Node
 
 
 ## Troubleshooting Errors
