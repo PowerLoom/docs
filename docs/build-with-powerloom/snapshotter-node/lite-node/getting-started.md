@@ -22,7 +22,7 @@ Follow the step-by-step instructions in the relevant guide to set up your Snapsh
 :::info Important note
 
 1. It is recommended that the node operates continuously, 24/7.
-2. If you possess multiple slots, you must set up separate nodes for each. You have to use the same burner wallet, you must alter the `SLOT_ID` in your configuration for each node.
+2. If you possess multiple slots, refer to the section on [setting up multiple nodes](#setting-up-multiple-nodes-on-a-vps) for further details. 
 
 :::
 
@@ -34,6 +34,8 @@ We have streamlined the setup process based on your operating system. To begin, 
 ---
 
 <!-- Grouping by OS and Setup type -->
+
+## Setting up the Snapshotter Lite node
 
 <Tabs groupId="operating-systems" className="unique-tabs" queryString="current-os">
   <TabItem value="VPS-setup" label="VPS Setup (Linux)">
@@ -168,12 +170,12 @@ Initiate the snapshotter lite node setup by typing the command in the terminal:
 Follow the prompts to enter the required information.
 
 :::tip
- Please do not use your main wallet to run the snapshotter lite node. It is advised to create a burner wallet by using any of these tools:
+ Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 
   - [Vanity-ETH](https://vanity-eth.tk/)
   - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-Once you generate your wallet address, make sure you assign your burner wallet on your [snapshotter dashboard](#).
+Once generated, make sure you assign your burner wallet on your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
 :::
     
 **Environment Setup**:  
@@ -280,12 +282,12 @@ If you're a developer and want to play around with the code, instead of running 
 </details>
 
 :::tip
- Please do not use your main wallet to run the snapshotter lite node. It is advised to create a burner wallet by using any of these tools:
+ Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 
   - [Vanity-ETH](https://vanity-eth.tk/)
   - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-Once you generate your wallet address, make sure you assign your burner wallet on your [snapshotter dashboard](#).
+Once generated, make sure you assign your burner wallet on your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
 :::
 
 - During the setup, you'll be prompted to enter the following values:
@@ -382,12 +384,12 @@ This will clone the repository into a directory named `powerloom-testnet`.
    ./init.sh
 ```
 :::tip
- Please do not use your main wallet to run the snapshotter lite node. It is advised to create a burner wallet by using any of these tools:
+ Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 
   - [Vanity-ETH](https://vanity-eth.tk/)
   - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-Once you generate your wallet address, make sure you assign your burner wallet on your [snapshotter dashboard](#).
+Once generated, make sure you assign your burner wallet on your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
 :::
 
 
@@ -512,11 +514,12 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
 - **Run the Build Script:**
 
 :::tip
-  Please do not use your main wallet to run the snapshotter lite node. It is advised to create a burner wallet by using any of these tools: 
+ Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+
   - [Vanity-ETH](https://vanity-eth.tk/)
   - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-Once you generate your wallet address, make sure you assign your burner wallet on your [snapshotter dashboard](#).
+Once generated, make sure you assign your burner wallet on your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
 
 :::
 
@@ -557,6 +560,132 @@ If you encounter any issues while operating the node, please refer our [troubles
     </Tabs>
   </TabItem>
 </Tabs>
+
+---
+
+## Setting Up Multiple Nodes on a VPS
+
+If you're looking to run multiple nodes, you can use our Multi-node setup python scipt. This section will guide you through setting up and managing multiple nodes.
+
+### Clone the Multi-node setup script
+
+First, clone our multi-node script to get started:
+
+```bash
+git clone https://github.com/PowerLoom/snapshotter-lite-multi-setup
+```
+
+navigate to the directory, type the below command on your terminal:
+
+    ```bash
+    cd snapshotter-lite-multi-setup
+    ```
+
+### Setting Up the Environment
+
+It is imperative to create an isolated virtual environment that includes the necessary Python version and modules. This approach ensures that the global Python installations on the VPS or your local machine are not altered.
+
+#### Installing `Pyenv`
+
+Follow the steps below to install `pyenv`. Begin by opening the terminal and executing the command to install the required packages:
+
+```bash
+sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+```
+
+After installing the packages, run the following command to execute the script for `pyenv` installation:
+
+```bash
+curl https://pyenv.run | bash
+```
+
+Next, add `pyenv` to the bashrc file:
+
+```bash
+cd
+nano ~/.bashrc
+```
+
+Inside the `nano` editor, add the following lines at the end of the file:
+
+```bash
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+```
+
+To save changes in the `.bashrc` file, press `ctrl + x`. 
+
+Refresh the terminal by typing:
+
+```bash
+source ~/.bashrc
+```
+
+Now, proceed to install Python 3.11.5:
+
+```bash
+pyenv install 3.11.5
+```
+
+#### Installing `pyenv-virtualenv`
+
+Execute the commands below to install `pyenv-virtualenv`:
+
+```bash
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+pyenv virtualenv 3.11.5 ss_lite_multi_311
+pyenv local ss_lite_multi_311
+```
+
+#### Executing the Setup
+
+To establish a multi-node setup, follow these steps:
+
+```bash
+# Prepare the .env file
+./init.sh
+# Install all Python requirements
+pip install -r requirements.txt
+# Execute the setup
+python multi_clone.py
+```
+When you execute `python multi_clone.py`, you will see the following prompts that guide you through setting up your node(s).
+
+1. **Terminate Existing containers:** "Do you want to kill all running containers and screen sessions of testnet nodes? (y/n) n"
+
+- Type `y` Use this option and stop all active containers or node instances. This will clean up all the older containers. Please cross-check your running containers before executing this command. 
+
+2. **Custom Slot ID Deployment:** "Do you want to deploy a custom index of slot IDs (indices begin at 0, enter in the format [begin, end])? (indices/n)"
+
+- For instance, to deploy the first four slot IDs as nodes, input `[0, 3]`, where 0 is the start index, and 3 represents the fourth element in the slot ID array associated with the wallet holder. If you want to deploy the entire array of slot IDs, type `n`.
+
+3. **Deployment Batch Size:** " Enter the batch size into which you wish to split the deployment"
+
+- A batch size of 1 means nodes will be deployed one by one, in batch size of 1. A batch size of 2 takes two nodes at a time and proceeds with deployment, and so on.
+
+Following the setup prompts, the script will configure your node slots to run in separate screen sessions. To view the logs for a specific node slot, you can use the following commands:
+
+To list all active screen sessions:
+```bash
+screen -ls
+```
+This command displays all currently running screen sessions.
+
+![screen-command](/images/screen-command.png)
+
+To attach to a specific node slot's screen session and check its status, use:
+```bash
+screen -r <screenId>
+```
+Note: Replace `<screenId>` with the actual ID of the screen session you wish to access.
+
+To detach from the screen session and leave it running in the background, press `Ctrl + A` followed by `D`.
+
+For more instructions and further assistance, please visit our [multi-node setup](https://github.com/PowerLoom/snapshotter-lite-multi-setup/?tab=readme-ov-file) repository.
+
+---
 
 ## Troubleshooting
 
