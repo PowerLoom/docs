@@ -11,9 +11,9 @@ You can mint our DevNet slot from our [Mint page](https://mint-devnet.powerloom.
 
 ## What is Powerloom Devnet? 
 
-Powerloom Devnet is a special development environment that allows developers to easily build and test data-driven applications on the Powerloom platform. It provides a sandbox where you can experiment, learn, and create without impacting the main network.
+Powerloom Devnet is a special development environment that allows developers to easily build and test data-driven applications on Powerloom. It provides a sandbox where you can experiment, learn, and create without impacting the main network.
 
-With a Devnet slot, you get access to Powerloom's powerful indexing capabilities and APIs. This enables you to efficiently retrieve and analyze blockchain data to power your applications. Whether you're building a simple prototype or a complex production-ready system, Devnet makes the development process smooth and straightforward.
+Devnet enables you to efficiently customize and analyze blockchain data to power your applications. Whether you're building a simple prototype or a complex applications, Devnet makes the development process smooth and straightforward.
 
 ## Why Use Powerloom Devnet?
 
