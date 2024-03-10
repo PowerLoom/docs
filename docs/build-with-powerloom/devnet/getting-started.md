@@ -35,10 +35,10 @@ Whether you are developing your own application or extending our existing use ca
 
 ### Step 1: Clone the Deploy Repo
 
-Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom-devnet`.
+Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom-deploy`.
 
 ```bash
-git clone https://github.com/PowerLoom/deploy.git --single-branch devnet_deploy && cd powerloom-devnet
+git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
 ```
 
 ### Step 2: Fork the Computes and Config Templates
