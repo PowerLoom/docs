@@ -5,7 +5,7 @@ sidebar_position: 1
 
 :::tip Devnet Program is live!
 
-You can mint our DevNet slot from our [Mint page](https://mint-devnet.powerloom.dev). Once minted, you can navigate to the [getting started](../build-with-powerloom/devnet/getting-started.md) section to kickstart your devnet journey.  
+You can mint our Devnet slot from our [Mint page](https://devnet-mint.powerloom.dev/). Once minted, you can navigate to the [getting started](../build-with-powerloom/devnet/getting-started.md) section to kickstart your devnet journey.  
 
 :::
 

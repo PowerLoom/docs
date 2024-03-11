@@ -5,8 +5,9 @@ sidebar_position: 0
 # Getting Started
 
 :::info
-#### Our DevNet network is live!
-To access the DevNet and build exciting data applications, you need to mint a no-cost NFT on the Sepolia network. This minted NFT will act as access to the network.
+#### Our Devnet network is live!
+To access the Devnet and build exciting data applications, you need to mint a no-cost NFT on the Sepolia network. This minted NFT will act as access to the network.
+https://devnet-mint.powerloom.dev 
 :::
 
 Kickstart your journey into building data-driven decentralized applications (DApps) with Powerloom by setting up your own development network (Devnet) version of the Snapshotter Lite node. This initial step empowers you with the capabilities for data extraction and composition, essential for applications that require data aggregation and complex calculations. Our Devnet environment is designed to facilitate developers in either expanding upon [our pre-existing use cases](../use-cases/existing-implementations/) or innovating [entirely new applications](../use-cases/building-new-usecase/) using Powerloom's robust framework.
@@ -85,7 +86,7 @@ Once you have forked the above repositories, clone them locally as well.
    - `NAMESPACE`: The unique key used to identify your project namespace.
    - `POWERLOOM_REPORTING_URL`: `https://devnet-reporting.powerloom.dev` The URL for reporting to PowerLoom.
    - `PROST_CHAIN_ID`: For Devnet, it's `104`.
-   - `SLOT_ID`: Enter your DevNet Slot ID. [You can find the slotID on the dashboard]
+   - `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID on the dashboard]
 
 4. Optional variables:
 
@@ -115,7 +116,7 @@ Run the command
 ./build-dev.sh
 ```
 (ideally in a `screen`) to start the Snapshotter Node. 
-Once you start the node, you can check your status from the DevNet dashboard or you can check your node logs.
+Once you start the node, you can check your status from the Devnet dashboard or you can check your node logs.
 
 ## Troubleshooting Errors
 
