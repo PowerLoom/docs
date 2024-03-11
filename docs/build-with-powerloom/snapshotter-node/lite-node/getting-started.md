@@ -282,7 +282,7 @@ If you're a developer and want to play around with the code, instead of running 
 </details>
 
 :::tip
- Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+ Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 
   - [Vanity-ETH](https://vanity-eth.tk/)
   - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
