@@ -384,7 +384,7 @@ This will clone the repository into a directory named `powerloom-testnet`.
    ./init.sh
 ```
 :::tip
- Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+ Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 
   - [Vanity-ETH](https://vanity-eth.tk/)
   - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
@@ -393,7 +393,7 @@ Once generated, make sure you assign your burner wallet on your [snapshotter das
 :::
 
 
-4. During the setup, you'll be prompted to enter the following values:
+1. During the setup, you'll be prompted to enter the following values:
 
   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 

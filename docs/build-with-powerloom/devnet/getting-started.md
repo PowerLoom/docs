@@ -59,11 +59,7 @@ Once you have forked the above repositories, clone them locally as well.
 
 3. Fill in the following required variables in the `.env` file:
 
-   - `SOURCE_RPC_URL`: The URL for Ethereum RPC (Local node/Infura/Alchemy) service.
-
-   :::note
-   As of now, we only support Ethereum. Support for other chains is coming soon.
-   :::
+   - `SOURCE_RPC_URL`: The URL for Source RPC (Local node/Infura/Alchemy) service.
 
    - `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This is your burner wallet address added on the Devnet dashboard. **Using a burner account is highly recommended**. 
 
