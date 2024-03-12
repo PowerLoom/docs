@@ -49,7 +49,7 @@ git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_depl
 
 ### Step 2: Fork the Snapshotter Computes and Snapshotter Config Repositories
 
-Our system leverages the Git submodule architecture to seamlessly manage these components. To dive deeper into how these elements integrate and function within our larger system, check out our [architecture documentation](../../Protocol/Specifications/Snapshotter/).
+Our system leverages the Git submodule architecture to seamlessly manage these components. To dive deeper into how these elements integrate and function within our larger system, check out our [architecture documentation](https://docs.powerloom.io/docs/build-with-powerloom/snapshotter-node/architecture).
 To optimize your development process, we recommend forking the templates for:
 
 - Snapshotter Configs: https://github.com/PowerLoom/snapshotter-computes
@@ -84,13 +84,13 @@ git clone https://github.com/<your_github_username>/snapshotter-configs
    - `PROST_RPC_URL`: `https://rpc-prost1d.powerloom.io` The URL for the Powerloom Protocol Chain RPC service.
    - `PROTOCOL_STATE_CONTRACT`: The contract address for the protocol state.
 
-   :::note
-   We offer two types of Protocol State Contracts, each tailored to different Epoch Sizes, to cater to the unique complexities of your application:
+:::note
+We offer two types of Protocol State Contracts, each tailored to different Epoch Sizes, to cater to the unique complexities of your application:
    - Epoch Size 1 Contract: `0x750129050859a00bCe706B9Bb43f7117EE0c344b`
    - Epoch Size 10 Contract: `0x5B1f374C7680B310CD68351B8e9e6BeD34d8884f`
-  
-  Consider the complexity and requirements of your application when selecting the appropriate Protocol State Contract. This will ensure optimal performance and efficiency for your specific use case.
-   :::
+
+Consider the complexity and requirements of your application when selecting the appropriate Protocol State Contract. This will ensure optimal performance and efficiency for your specific use case.
+:::
   
    - `RELAYER_HOST`: `https://relayer-devnet-1d.powerloom.dev` The host address for the relayer.
    - `NAMESPACE`: The unique key used to identify your project namespace.
@@ -98,7 +98,7 @@ git clone https://github.com/<your_github_username>/snapshotter-configs
    - `PROST_CHAIN_ID`: For Devnet, it's `104`.
    - `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID on the dashboard]
 
-1. Optional variables:
+4. Optional variables:
 
    - `IPFS_URL`: The URL for the IPFS (InterPlanetary File System) service in HTTP(s) (e.g., `https://ipfs.infura.io:5001`) or multiaddr format (e.g., `/dns4/ipfs.infura.io/tcp/5001/https`).
    - `IPFS_API_KEY`: The API key for the IPFS service (if required).
