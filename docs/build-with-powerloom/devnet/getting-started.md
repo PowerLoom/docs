@@ -5,18 +5,21 @@ sidebar_position: 0
 # Getting Started
 
 :::info
-#### Our Devnet network is live!
-To access the Devnet and build exciting data applications, you need to mint a no-cost NFT on the Sepolia network. This minted NFT will act as access to the network.
-https://devnet-mint.powerloom.dev 
+#### Our Devnet is live!
+Get access to the Devnet and build exciting data applications, you can mint a no-cost NFT slot on the Sepolia network. Devnet mint page: https://devnet-mint.powerloom.dev
 :::
 
-Kickstart your journey into building data-driven decentralized applications (DApps) with Powerloom by setting up your own development network (Devnet) version of the Snapshotter Lite node. This initial step empowers you with the capabilities for data extraction and composition, essential for applications that require data aggregation and complex calculations. Our Devnet environment is designed to facilitate developers in either expanding upon [our pre-existing use cases](../use-cases/existing-implementations/) or innovating [entirely new applications](../use-cases/building-new-usecase/) using Powerloom's robust framework.
+Kickstart your journey to build data application with Powerloom by setting up your own Snapshotter Lite node on our devnet.
+
+Our Devnet environment is designed to facilitate developers in:
+- expanding upon [our pre-existing use cases](../use-cases/existing-implementations/)
+- innovating [entirely new applications](../use-cases/building-new-usecase/)
 
 ## System Requirements
 
 1. Latest version of `docker` (`>= 20.10.21`) and `docker-compose` (`>= v2.13.0`)
 
-2. At least 4 core CPU, 8GB RAM, and 50GB SSD - make sure to choose the correct spec when deploying to Github Codespaces.
+2. At least 4 core CPU, 8GB RAM, and 50GB SSD
 
 3. IPFS node
     - While we have __included__ a node in our autobuild docker setup, the IPFS daemon can consume __*a lot*__ of resources - it is not recommended to run this on a personal computer unless you have a strong internet connection and dedicated CPU+RAM.
@@ -26,15 +29,17 @@ Kickstart your journey into building data-driven decentralized applications (DAp
 4. RPC URL for `Ethereum mainnet` or the chain you're working on.
 
 :::note
-RPC usage can depend on your use case. If your use case is complicated and needs to make a lot of RPC calls, it is recommended to run your own RPC node instead of using third-party RPC services as it can be expensive.
 
-In any case, it is highly recommended to sign up with one of these providers to at least track usage even if you aren't on a paid plan: [Alchemy](https://alchemy.com/?r=15ce6db6d0a109d5), [Infura](https://infura.io), [Quicknode](https://www.quicknode.com?tap_a=67226-09396e&tap_s=3491854-f4a458), etc. Please reach out to us if none of the options are viable.
+Your RPC usage depends on your specific use case. If your application requires a high volume of RPC calls, we recommend running your own RPC node to avoid potentially expensive third-party service costs.
+
+If you want to monitor your RPC usage, we recommend signing up with a provider like Alchemy, Infura or Quicknode.
+If none of these options work for you, please reach out to our team for assistance.
 :::
 
-## Running the Node
+## Running the Snapshotter Node
 Whether you are developing your own application or extending our existing use cases, setting up your Snapshotter node is a crucial step. Follow the process outlined below to ensure a smooth setup:
 
-### Step 1: Clone the Deploy Repo
+### Step 1: Clone the Snapshotter Deploy Repository
 
 Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom-deploy`.
 
@@ -42,16 +47,24 @@ Clone the repository against the respective branch (main by default). Open the t
 git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
 ```
 
-### Step 2: Fork the Computes and Config Templates
+### Step 2: Fork the Snapshotter Computes and Snapshotter Config Repositories
 
-For an optimized development process, it's recommended to fork the templates for [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/). Our system utilizes the Git submodule architecture to manage these components efficiently. For a deeper understanding of how these elements integrate and function within our larger system, please refer to our [architecture documentation](../../index.md). This approach ensures a streamlined and cohesive development workflow.
+Our system leverages the Git submodule architecture to seamlessly manage these components. To dive deeper into how these elements integrate and function within our larger system, check out our [architecture documentation](../../Protocol/Specifications/Snapshotter/).
+To optimize your development process, we recommend forking the templates for:
 
-   - Snapshotter Configs: https://github.com/PowerLoom/snapshotter-computes
-   - Snapshotter Computes: https://github.com/PowerLoom/snapshotter-configs 
+- Snapshotter Configs: https://github.com/PowerLoom/snapshotter-computes
+- Snapshotter Computes: https://github.com/PowerLoom/snapshotter-configs 
 
-Once you have forked the above repositories, clone them locally as well.
+Once you have forked the above repositories, next step is to clone them on your local system as well. 
 
-### Step 3: Configure the ENV
+```bash
+git clone https://github.com/<your_github_username>/snapshotter-computes
+```
+```bash
+git clone https://github.com/<your_github_username>/snapshotter-configs
+```
+
+### Step 3: Configure the environment variables
 
 1. In the deploy repo's directory, create a new file named `.env`.
 
@@ -72,10 +85,11 @@ Once you have forked the above repositories, clone them locally as well.
    - `PROTOCOL_STATE_CONTRACT`: The contract address for the protocol state.
 
    :::note
-   We have two types of Protocol State Contracts tailored to different Epoch Sizes, catering to the varying complexities of applications you might be developing:
-
-   - For straightforward applications that monitor activities at each block height or number, our Epoch Size 1 contract is the perfect fit.
-   - For more advanced projects, like complex data marketplaces or applications requiring intricate computations, our Epoch Size 10 contract is designed to meet these needs.
+   We offer two types of Protocol State Contracts, each tailored to different Epoch Sizes, to cater to the unique complexities of your application:
+   - Epoch Size 1 Contract: `0x750129050859a00bCe706B9Bb43f7117EE0c344b`
+   - Epoch Size 10 Contract: `0x5B1f374C7680B310CD68351B8e9e6BeD34d8884f`
+  
+  Consider the complexity and requirements of your application when selecting the appropriate Protocol State Contract. This will ensure optimal performance and efficiency for your specific use case.
    :::
   
    - `RELAYER_HOST`: `https://relayer-devnet-1d.powerloom.dev` The host address for the relayer.
@@ -84,7 +98,7 @@ Once you have forked the above repositories, clone them locally as well.
    - `PROST_CHAIN_ID`: For Devnet, it's `104`.
    - `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID on the dashboard]
 
-4. Optional variables:
+1. Optional variables:
 
    - `IPFS_URL`: The URL for the IPFS (InterPlanetary File System) service in HTTP(s) (e.g., `https://ipfs.infura.io:5001`) or multiaddr format (e.g., `/dns4/ipfs.infura.io/tcp/5001/https`).
    - `IPFS_API_KEY`: The API key for the IPFS service (if required).
@@ -100,16 +114,17 @@ Set up the codebase by running the `bootstrap.sh` command in the terminal:
 ./bootstrap.sh
 ```
 
-:::note
-This is a one-time step and resets the codebase to the latest version of the branch. If you have made any changes to the codebase, make sure to commit them before running this command. You only need to run this command once after cloning the repository.
+:::info
+This is a one-time step that resets the codebase to the latest version of the branch. 
+After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
 :::
 
-### Step 5: Run the Node
+### Step 5: Run the Snapshotter Node
 
 Run the command
 
 ```bash
-./build-dev.sh
+./build.sh
 ```
 (ideally in a `screen`) to start the Snapshotter Node. 
 Once you start the node, you can check your status from the Devnet dashboard or you can check your node logs.
