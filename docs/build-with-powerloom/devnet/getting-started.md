@@ -93,7 +93,7 @@ This should allow developers to build and experiment with a variety of use cases
    - `RELAYER_HOST`: The relayer URL for the Powerloom Protocol Chain.
    - `NAMESPACE`: The unique key used to identify your project namespace.
    - `POWERLOOM_REPORTING_URL`: The URL for reporting to PowerLoom.
-   - `PROST_CHAIN_ID`: For Devnet, it's `104`.
+   - `PROST_CHAIN_ID`: Enter the Devnet chain ID
    - `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID on the dashboard]
 
 1. Optional variables:
