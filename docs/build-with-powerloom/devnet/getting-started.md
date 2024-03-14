@@ -67,9 +67,9 @@ git clone https://github.com/<your_github_username>/snapshotter-configs
 
 1. In the deploy repo's directory, create a new file named `.env`.
 
-2. Copy the contents of `env.example` to `.env`.
+2. Copy the contents of [`env.example`](https://github.com/PowerLoom/deploy/blob/devnet/env.example) to `.env`.
 
-3. Fill in the following required variables in the `.env` file:
+3. Fill in the required variables in the `.env` file:
 
    - `SOURCE_RPC_URL`: The URL for Source RPC (Local node/Infura/Alchemy) service.
 
@@ -102,7 +102,6 @@ This should allow developers to build and experiment with a variety of use cases
    - `IPFS_API_KEY`: The API key for the IPFS service (if required).
    - `IPFS_API_SECRET`: The API secret for the IPFS service (if required).
    - `SLACK_REPORTING_URL`: The URL for reporting to Slack.
-   - `WEB3_STORAGE_TOKEN`: The token for Web3.Storage. You can generate or retrieve this token from your [API tokens page](https://web3.storage/tokens/?create=true) after signing up for a free plan at web3.storage.
 
 ### Step 4: Set Up the Codebase
 
