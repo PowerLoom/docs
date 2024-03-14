@@ -49,7 +49,7 @@ git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_depl
 
 Our system leverages the Git submodule architecture to seamlessly manage these components. To dive deeper into how these elements integrate and function within our larger system, check out our [architecture documentation](https://docs.powerloom.io/docs/build-with-powerloom/snapshotter-node/architecture).
 
-To optimize your development process, we recommend forking the templates for:
+To optimize the development process, we recommend forking the templates for:
 
 - Snapshotter Configs: https://github.com/PowerLoom/snapshotter-computes
 - Snapshotter Computes: https://github.com/PowerLoom/snapshotter-configs 
@@ -96,7 +96,7 @@ This should allow developers to build and experiment with a variety of use cases
    - `PROST_CHAIN_ID`: Enter the Devnet chain ID
    - `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID on the dashboard]
 
-1. Optional variables:
+   Optional variables:
 
    - `IPFS_URL`: The URL for the IPFS (InterPlanetary File System) service in HTTP(s) (e.g., `https://ipfs.infura.io:5001`) or multiaddr format (e.g., `/dns4/ipfs.infura.io/tcp/5001/https`).
    - `IPFS_API_KEY`: The API key for the IPFS service (if required).
@@ -124,7 +124,7 @@ Run the command
 ./build.sh
 ```
 (ideally in a `screen`) to start the Snapshotter Node. 
-Once you start the node, you can check your status from the Devnet dashboard or you can check your node logs.
+Once you start the node, you can check your status from the [devnet dashboard](https://mint-devnet.powerloom.network) or you can check your node logs.
 
 ## Troubleshooting Errors
 
@@ -135,7 +135,7 @@ If the `.env` file is filled up correctly, all services will execute one by one.
     
 Make sure your snapshotter address is registered. Ensure that you have minted the Devnet Slot from the [devnet dashboard](https://mint-devnet.powerloom.network) and your burner wallet has been added.
 
-Refer to our [troubleshooting guide](../../build-with-powerloom/snapshotter-node/full-node/troubleshooting.md) if you encounter any other issues with your node.
+Refer to our [troubleshooting section](../../build-with-powerloom/snapshotter-node/full-node/troubleshooting.md) if you encounter any other issues with your node.
 
 ## Stopping the Node
 
