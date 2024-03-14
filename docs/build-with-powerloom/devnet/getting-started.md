@@ -141,7 +141,7 @@ Refer to our [troubleshooting section](../../build-with-powerloom/snapshotter-no
 
 1. To shutdown services, press `Ctrl+C` (and again to force).
 
-2. If you encounter issues with data, you can do a clean **reset** by running the following command before restarting from Step 5:
+2. If you encounter issues with data, you can do a clean **reset** by running the following command before restarting from [Step 5](#step-5-run-the-snapshotter-node):
 
 ```bash
 docker-compose --profile ipfs down --volumes
