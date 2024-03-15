@@ -25,7 +25,7 @@ Here are a few exciting examples on what can be built using powerloom:
 
 Ready to embark on your Devnet journey? Follow these simple steps:
 
-1. Visit our [Mint page](https://mint-devnet.powerloom.dev) to mint your Devnet slot.
+1. Visit our [Mint page](https://devnet-mint.powerloom.dev) to mint your Devnet slot.
 2. Once minted, head over to the [Getting Started guide](../build-with-powerloom/devnet/getting-started.md) for a step-by-step walkthrough on setting up your development environment.
 3. Join our [developer community](https://discord.com/invite/powerloom) to connect with fellow builders, ask questions, and share your projects.
 
