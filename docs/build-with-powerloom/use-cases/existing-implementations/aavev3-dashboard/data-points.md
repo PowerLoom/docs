@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Datapoints
 
-![AaveV3 Dashboard Powerloom](/images/aavev3-dashboard.png)
+![AaveV3 Dashboard Powerloom](/images/aavev3-dashboard-powerloom.png)
 
 In AaveV3-Pooler, data points are specific, quantifiable elements derived from Aave V3 lending activities. 
 Each snapshot inherits `Snapshot Base` which looks something like this
@@ -18,54 +18,25 @@ The following type of Base Snapshots are generated for the Aave V3 Dashboard
 
 The total supplied and borrowed amounts, supply and borrow interest rates, and the indices used to compute future rate changes. 
 The asset snapshot looks something like this:
-```
-class AavePoolTotalAssetSnapshot(SnapshotBase):
-    totalAToken: Dict[
-        str,
-        AaveSupplyData,
-    ]  # block number to corresponding total supply
-    liquidityRate: Dict[str, int]
-    liquidityIndex: Dict[str, int]
-    totalVariableDebt: Dict[str, AaveDebtData]
-    totalStableDebt: Dict[str, AaveDebtData]
-    variableBorrowRate: Dict[str, int]
-    stableBorrowRate: Dict[str, int]
-    variableBorrowIndex: Dict[str, int]
-    lastUpdateTimestamp: Dict[str, int]
-    isolationModeTotalDebt: Dict[str, int]
-    assetDetails: Dict[str, AssetDetailsData]
-    rateDetails: Dict[str, RateDetailsData]
-    availableLiquidity: Dict[str, AaveSupplyData]
+
+```python reference
+https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/message_models.py#L26-L42
 ```
 * **1a. AaveSupplyData and AaveDebtData**
 
     The nominal token amount and the token amount in terms of USD at the time of snapshotting:
-    ```
-    class AaveSupplyData(BaseModel):
-        token_supply: int = 0
-        usd_supply: float = 0
 
-
-    class AaveDebtData(BaseModel):
-        token_debt: int = 0
-        usd_debt: float = 0
+    ```python reference
+    https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/data_models.py#L65-L72
     ```
 * **1b. AssetDetailsData**
 
     Additional asset details including the maximum loan to value ratio, liquidation information, the asset's reserve factor, borrow/supply caps, and available eMode options.
 
     Please see the Aave V3 Protocol [Documentation](https://docs.aave.com/risk/asset-risk/risk-parameters) for further information.
-    ```
-    class AssetDetailsData(BaseModel):
-        ltv: float
-        liqThreshold: float
-        liqBonus: float
-        resFactor: float
-        borrowCap: int
-        supplyCap: int
-        eLtv: float
-        eliqThreshold: float
-        eliqBonus: float
+
+    ```python reference
+    https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/data_models.py#L25-L34
     ```
 
 *   **1c. RateDetailsData**
@@ -73,52 +44,34 @@ class AavePoolTotalAssetSnapshot(SnapshotBase):
     Additional rate details describing the interest rate strategy for the asset.
 
     Please see the Aave V3 Protocol [Documentation](https://docs.aave.com/risk/liquidity-risk/borrow-interest-rate) for further information.
-    ```
-    class RateDetailsData(BaseModel):
-        varRateSlope1: float
-        varRateSlope2: float
-        stableRateSlope1: float
-        stableRateSlope2: float
-        baseStableRate: float
-        baseVarRate: float
-        optimalRate: float
-        utilRate: float = 0
+
+    ```python reference
+    https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/data_models.py#L37-L45
     ```
 
 **2. Volume by Action Snapshot**
 
 The asset's total volume by action for the Epoch, and the corresponding events for each action emitted by the blockchain. 
 The volume by action snapshot looks something like this:
- ```
-class AaveSupplyVolumeSnapshot(SnapshotBase):
-    borrow: volumeData
-    repay: volumeData
-    supply: volumeData
-    withdraw: volumeData
-    liquidation: volumeData
-    events: List[Dict]
-    liquidationList: List[liquidationData]
+
+```python reference
+https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/message_models.py#L91-L98
 ```
 
 * **2a. volumeData**
 
     The total nominal token volume and the volume in terms of USD at the time of snapshotting:
-    ```
-    class volumeData(BaseModel):
-        totalUSD: float = 0.0
-        totalToken: int = 0
+
+    ```python reference
+    https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/data_models.py#L92-L94
     ```
 
 * **3a. liquidationData**
 
     Additional details describing a liquidation action:
-    ```
-    class liquidationData(BaseModel):
-        collateralAsset: str
-        debtAsset: str
-        debtToCover: volumeData
-        liquidatedCollateral: volumeData
-        blockNumber: int
+
+    ```python reference
+    https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/data_models.py#L117-L122
     ```
 
 These base snapshots are used as the data source for higher order aggregates. These aggregates are then used to generate the data points present in the Aave V3 Dashboard. Refer to [data-composition](/docs/protocol/data-composition) for more details on how data points are composed.
@@ -126,78 +79,32 @@ These base snapshots are used as the data source for higher order aggregates. Th
 Following aggregate snapshots are generated by AaveV3-Pooler using base snapshots.
 
 **1. Top Assets by Marketshare Snapshot:** All assets organized by total market share on the protocol. The top assets by marketshare snapshot looks something like this:
-```
-class AaveTopAssetSnapshot(BaseModel):
-    name: str
-    symbol: str
-    decimals: int
-    address: str
-    totalAToken: AaveTopSupplyData
-    liquidityApy: float
-    totalVariableDebt: AaveTopDebtData
-    variableApy: float
-    isIsolated: bool
 
-
-class AaveTopAssetsSnapshot(AggregateBase):
-    assets: List[AaveTopAssetSnapshot] = []
-    complete: bool = True
+```python reference
+https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/message_models.py#L55-L69
 ```
 
 **2. 24 Hour Volume by Action Snapshot:** 24 hour volume by action for each asset per Epoch. The 24 hour volume by action snapshot looks something like this:
-```
-class AaveVolumeAggregateSnapshot(AggregateBase):
-    totalBorrow: volumeData
-    totalRepay: volumeData
-    totalSupply: volumeData
-    totalWithdraw: volumeData
-    totalLiquidatedCollateral: volumeData
-    complete: bool = True
+
+```python reference
+https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/message_models.py#L101-L107
 ```
 
 **3. Top Assets by 24 Hour Volume Snapshot:** All assets organized by total 24 hour total volume by action. The top assets by volume snapshot looks something like this:
-```
-class AaveTopAssetVolumeSnapshot(BaseModel):
-    name: str
-    symbol: str
-    address: str
-    totalBorrow: volumeData
-    totalRepay: volumeData
-    totalSupply: volumeData
-    totalWithdraw: volumeData
-    totalLiquidatedCollateral: volumeData
-    borrowChange24h: float
-    repayChange24h: float
-    supplyChange24h: float
-    withdrawChange24h: float
-    liquidationChange24h: float
 
-
-class AaveTopAssetsVolumeSnapshot(AggregateBase):
-    assets: List[AaveTopAssetVolumeSnapshot] = []
-    complete: bool = True
+```python reference
+https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/message_models.py#L110-L128
 ```
 
 **4. 6 Hour Average Rate Snapshot:** Average supply and borrow rates over the previous 6 hours per Epoch. The 6 hour rate snapshot looks something like this:
-```
-class AaveAprAggregateSnapshot(AggregateBase):
-    avgLiquidityRate: float = 0
-    avgVariableRate: float = 0
-    avgStableRate: float = 0
-    avgUtilizationRate: float = 0
-    timestamp: int = 0
-    complete: bool = True
+
+```python reference
+https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/message_models.py#L82-L88
 ```
 
 **5. 24 hours Total Market Stats Snapshot:** 24 hour stats for the entire Aave lending market. The 24 hours stats snapshot looks something like this
-```
-class AaveMarketStatsSnapshot(AggregateBase):
-    totalMarketSize: float
-    totalAvailable: float
-    totalBorrows: float
-    marketChange24h: float
-    availableChange24h: float
-    borrowChange24h: float
-    complete: bool = True
+
+```python reference
+https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/message_models.py#L72-L79
 ```
 
