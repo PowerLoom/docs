@@ -51,8 +51,8 @@ Our system leverages the Git submodule architecture to seamlessly manage these c
 
 To optimize the development process, we recommend forking the templates for:
 
-- Snapshotter Configs: https://github.com/PowerLoom/snapshotter-computes
-- Snapshotter Computes: https://github.com/PowerLoom/snapshotter-configs 
+- Snapshotter Configs: https://github.com/PowerLoom/snapshotter-configs
+- Snapshotter Computes: https://github.com/PowerLoom/snapshotter-computes
 
 Once you have forked the above repositories, next step is to clone them on your local system. 
 
