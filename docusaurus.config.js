@@ -13,8 +13,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Get Started with Powerloom',
-  tagline: 'Powerloom helps build advanced smart contract-based applications in DeFi, web3 gaming, and more with our streamlined cross-chain data integration.',
+  title: 'Welcome to Powerloom Docs!',
+  tagline: 'Powerloom Protocol is the Composable Data Network that empowers builders to unlock rich data applications within Web3. It makes building advanced innovative contract-based applications in DeFi and web3 gaming more straightforward.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
