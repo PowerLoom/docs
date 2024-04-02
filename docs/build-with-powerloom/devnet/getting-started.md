@@ -1,18 +1,10 @@
 ---
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 # Getting Started
 
-:::info
-#### Our Devnet is live!
-Get access to the Devnet and build exciting data applications, you can mint a no-cost NFT slot on the Sepolia network. Devnet mint page: https://devnet-mint.powerloom.dev
-:::
 
-Start building data application with Powerloom by setting up your own Snapshotter node on our devnet.
-Our Devnet environment is designed to facilitate developers in:
-- expanding upon [our pre-existing use cases](../use-cases/existing-implementations/)
-- innovating [new applications](../use-cases/building-new-usecase/)
 
 ## System Requirements
 
@@ -47,7 +39,7 @@ git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_depl
 
 ### Step 2: Fork the Snapshotter Computes and Snapshotter Config Repositories
 
-Our system leverages the Git submodule architecture to seamlessly manage these components. To dive deeper into how these elements integrate and function within our larger system, check out our [architecture documentation](https://docs.powerloom.io/docs/build-with-powerloom/snapshotter-node/architecture).
+Our system leverages the Git submodule architecture to seamlessly manage these components. To dive deeper into how these elements integrate and function within our larger system, check out the [architecture documentation](https://docs.powerloom.io/docs/build-with-powerloom/snapshotter-node/architecture).
 
 To optimize the development process, we recommend forking the templates for:
 
