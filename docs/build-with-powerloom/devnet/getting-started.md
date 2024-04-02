@@ -3,10 +3,25 @@ sidebar_position: 1
 ---
 
 # Getting Started
+This section will guide you through the necessary steps to set up and get started with the Devnet environment. By following these instructions, you'll be able to quickly configure your Devnet and start building data applications on Powerloom.
 
+## Minting the Devnet Slot
+To get started with Devnet, you'll need to mint a no-cost NFT slot on the Sepolia network. Follow these steps:
 
+1. Visit https://devnet-mint.powerloom.dev to begin the minting process.
+2. Once the NFT slot is minted, navigate to the [dashboard](https://devnet-mint.powerloom.dev/dashboard).
+3. In the dashboard, assign the burner wallet to your node slot.
 
-## System Requirements
+After completing these steps, you'll be ready to start using Devnet. The next step is to configure and run our snapshotter node. 
+
+## Setting up the Snapshotter Node
+A snapshotter peer, as part of the Powerloom Protocol, does exactly what the name suggests: It synchronizes with other snapshotter peers over a smart contract running on the Powerloom Prost chain. 
+
+Whether you are developing your own application or extending our existing use cases, setting up your Snapshotter node is a crucial step.
+
+The snapshotter node is a crucial part of our Powerloom protocol. Dive deep into the technical aspects of the snapshotter [here](/docs/build-with-powerloom/snapshotter-node/).
+
+### System Requirements
 
 1. Latest version of `docker` (`>= 20.10.21`) and `docker-compose` (`>= v2.13.0`)
 
@@ -26,10 +41,10 @@ Your RPC usage depends on your specific use case. If your application requires a
 If you want to monitor your RPC usage, we recommend signing up with a provider like Alchemy, Infura or Quicknode.
 :::
 
-## Running the Snapshotter Node
-Whether you are developing your own application or extending our existing use cases, setting up your Snapshotter node is a crucial step. Follow the process outlined below to ensure a smooth setup:
+### Running the Snapshotter Node
+Follow the process outlined below to ensure a smooth setup
 
-### Step 1: Clone the Snapshotter Deploy Repository
+#### Step 1: Clone the Snapshotter Deploy Repository
 
 Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom-deploy`.
 
@@ -37,7 +52,7 @@ Clone the repository against the respective branch (main by default). Open the t
 git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
 ```
 
-### Step 2: Fork the Snapshotter Computes and Snapshotter Config Repositories
+#### Step 2: Fork the Snapshotter Computes and Snapshotter Config Repositories
 
 Our system leverages the Git submodule architecture to seamlessly manage these components. To dive deeper into how these elements integrate and function within our larger system, check out the [architecture documentation](https://docs.powerloom.io/docs/build-with-powerloom/snapshotter-node/architecture).
 
@@ -55,7 +70,7 @@ git clone https://github.com/<your_github_username>/snapshotter-computes
 git clone https://github.com/<your_github_username>/snapshotter-configs
 ```
 
-### Step 3: Configure the environment variables
+#### Step 3: Configure the environment variables
 
 1. In the deploy repo's directory, create a new file named `.env`.
 
@@ -95,7 +110,7 @@ This should allow developers to build and experiment with a variety of use cases
    - `IPFS_API_SECRET`: The API secret for the IPFS service (if required).
    - `SLACK_REPORTING_URL`: The URL for reporting to Slack.
 
-### Step 4: Set Up the Codebase
+#### Step 4: Set Up the Codebase
 
 Set up the codebase by running the `bootstrap.sh` command in the terminal:
 
@@ -108,7 +123,7 @@ This is a one-time step that resets the codebase to the latest version of the br
 After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
 :::
 
-### Step 5: Run the Snapshotter Node
+#### Step 5: Run the Snapshotter Node
 
 Run the command
 
@@ -118,7 +133,7 @@ Run the command
 (ideally in a `screen`) to start the Snapshotter Node. 
 Once you start the node, you can check your status from the [devnet dashboard](https://mint-devnet.powerloom.network) or you can check your node logs.
 
-## Troubleshooting Errors
+### Troubleshooting Errors
 
 If the `.env` file is filled up correctly, all services will execute one by one. The logs can fill up quickly, so remember to [safely detach](https://linuxize.com/post/how-to-use-linux-screen/) from the screen when not using it. If you see the following error:
     
@@ -129,7 +144,7 @@ Make sure your snapshotter address is registered. Ensure that you have minted th
 
 Refer to our [troubleshooting section](../../build-with-powerloom/snapshotter-node/full-node/troubleshooting.md) if you encounter any other issues with your node.
 
-## Stopping the Node
+### Stopping the Node
 
 1. To shutdown services, press `Ctrl+C` (and again to force).
 
@@ -138,3 +153,6 @@ Refer to our [troubleshooting section](../../build-with-powerloom/snapshotter-no
 ```bash
 docker-compose --profile ipfs down --volumes
 ```
+
+## Next Steps
+In this section, we covered the steps to set up your Devnet and run the snapshotter node. In the next section, we'll guide you through the process of creating a data application from scratch using Powerloom.
