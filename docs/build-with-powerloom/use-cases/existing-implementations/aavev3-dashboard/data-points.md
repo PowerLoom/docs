@@ -66,7 +66,7 @@ https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/message
     https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/data_models.py#L92-L94
     ```
 
-* **3a. liquidationData**
+* **2b. liquidationData**
 
     Additional details describing a liquidation action:
 
