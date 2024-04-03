@@ -61,6 +61,9 @@ To optimize the development process, we recommend forking the templates for:
 - Snapshotter Configs: https://github.com/PowerLoom/snapshotter-configs
 - Snapshotter Computes: https://github.com/PowerLoom/snapshotter-computes
 
+
+When forking the repository, ensure that the *"Copy the main branch only" * option is left unchecked. This will allow you to clone all the branches associated with the repository, not just the main branch.
+
 Once you have forked the above repositories, next step is to clone them on your local system. 
 
 ```bash
