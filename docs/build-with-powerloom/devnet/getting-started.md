@@ -11,7 +11,7 @@ This section will guide you through the necessary steps to set up and get starte
 To get started with Devnet, you'll need to mint a no-cost NFT slot on the Sepolia network. 
 
 <Admonition type="tip" icon="📢" title="Ethereum Sepolia Faucet">
-You require ETH Sepolia to mint the NFT slot. If you don't have sufficient balance, you can get ETH Sepolia from this link: https://faucet.quicknode.com/drip
+To mint the NFT slot, ETH on the Sepolia network is required. If your balance is insufficient, you can obtain Sepolia ETH through the following link: https://faucet.quicknode.com/drip
 </Admonition>
 
 Follow these steps:
