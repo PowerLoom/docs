@@ -16,8 +16,8 @@ Devnet provides developers with a sandbox environment to build and test data-dri
 
 Start building data application with Powerloom by setting up your own Snapshotter node on our devnet.
 Our Devnet environment is designed to facilitate developers in:
-- expanding upon [our pre-existing use cases](../use-cases/existing-implementations/)
-- innovating [new applications](../use-cases/building-new-usecase/)
+- expanding upon [our pre-existing use cases](../../category/existing-implementations)
+- innovating [new applications](../../category/building-a-new-use-case)
 
 ## Chains Supported
 
@@ -36,6 +36,6 @@ To begin building your applications, head over to the [getting started](./gettin
 
 
 ## Quick Links
-- [Protocol Overview](../../category/protocol-overview/)
-- [Use Cases](../../category/use-cases/)
+- [Protocol Overview](../../category/protocol-overview)
+- [Use Cases](../../category/use-cases)
 - [Discord Support](https://discord.com/invite/powerloom)
