@@ -36,6 +36,6 @@ To begin building your applications, head over to the [getting started](./gettin
 
 
 ## Quick Links
-- [Protocol Overview](../../Protocol/)
-- [Use Cases](../use-cases/)
+- [Protocol Overview](../../category/protocol-overview/)
+- [Use Cases](../../category/use-cases/)
 - [Discord Support](https://discord.com/invite/powerloom)
