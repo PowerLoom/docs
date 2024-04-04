@@ -176,5 +176,5 @@ docker-compose --profile ipfs down --volumes
 
 ## Quick Links
 - [Protocol Overview](../../Protocol/)
-- [Use Cases](../use-cases/)
+- [Use Cases](../../category/use-cases/)
 - [Discord Support](https://discord.com/invite/powerloom)
