@@ -25,9 +25,8 @@ We currently support the following chains (Mainnet and Testnet). If you want to 
 
 | Chain    | Mainnet | Testnet |
 |----------|---------|---------|
-| Ethereum | ✓       | ✓       |
-| Polygon  | ✓       | ✓       |
-| Base     | ✓       | ✓       |
+| Ethereum | ✓       |         |
+| Sepolia  |         | ✓       |
 
 ---
 
