@@ -159,10 +159,21 @@ bash build.sh
 
 #### Step 7: Assign your Burner Wallet
 
-Enter your burner wallet address when prompted.
+```bash
+Do you want to assign a burner wallet to a slot? (yes/no):
+```
+
+Enter yes and then enter your burner wallet address when prompted.
 - This is the `SIGNER_ACCOUNT_ADDRESS` that was set during Step 3.
 
-Next, you will be prompted to enter a private key.
+
+Next, you will be prompted to enter a private key:
+
+```bash
+To assign a burner wallet to a slot, you need to sign a message with the private key of the Account holding the slot.
+Private Key:
+```
+
 - Please not that this is *not* asking for the private key to your burner wallet.
 - Enter the private key of the wallet **used to mint** the the slot.
 
