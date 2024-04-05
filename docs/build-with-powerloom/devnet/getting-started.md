@@ -17,8 +17,10 @@ To mint the NFT slot, ETH on the Sepolia network is required. If your balance is
 Follow these steps:
 
 1. Visit https://devnet-mint.powerloom.dev to begin the minting process.
-2. Once the NFT slot is minted, navigate to the [dashboard](https://devnet-mint.powerloom.dev/dashboard).
-3. In the dashboard, assign the burner wallet to your node slot.
+2. Once the NFT slot is minted, search for the transaction hash of your NFT mint on the [Sepolia block explorer](https://sepolia.etherscan.io/).
+    - For Metamask: The transaction will be under the `Activity` section.
+    - For other wallets: Search for your wallet address in the Sepolia block explorer and the mint will be the latest transaction.
+3. Locate the minted Token ID under the `ERC-1155 Tokens Transferred` section for later use in the node setup.
 
 After completing these steps, you'll be ready to start using Devnet. The next step is to configure and run our snapshotter node. 
 
@@ -97,6 +99,7 @@ git clone https://github.com/<your_github_username>/snapshotter-configs
 - `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This should be your burner wallet address added on the [Devnet dashboard](https://devnet-mint.powerloom.dev/dashboard). You can create a new burner wallet from https://vanity-eth.tk/ 
 
 - `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the burner wallet address.
+- `SLOT_ID`: The ERC-1155 Token ID assigned during minting.
 - `SNAPSHOT_CONFIG_REPO`: https://github.com/your-username/snapshotter-configs [Change the username to your GitHub profile to point to your forked snapshotter-configs repository.]
 - `SNAPSHOT_CONFIG_REPO_BRANCH`: Change to your own branch or use the `devnet` branch if you are getting started.
 - `SNAPSHOTTER_COMPUTE_REPO`:  https://github.com/your-username/snapshotter-computes [Change the username to your GitHub profile to point to your forked snapshotter-computes repository.]
@@ -116,7 +119,7 @@ This should allow developers to build and experiment with a variety of use cases
 - `NAMESPACE`: The unique key used to identify your project namespace.
 - `POWERLOOM_REPORTING_URL`: The URL for reporting to PowerLoom.
 - `PROST_CHAIN_ID`: Enter the Devnet chain ID
-- `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID on the [Devnet dashboard](https://devnet-mint.powerloom.dev/dashboard)]
+- `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID on the [Sepolia block explorer](https://sepolia.etherscan.io/) by searching for the transaction hash of your node mint.]
 
 Optional variables:
 
@@ -145,7 +148,13 @@ Run the command
 ```bash
 bash build.sh
 ```
-Once you start the node, you can check your status from the [devnet dashboard](https://mint-devnet.powerloom.network) or you can check your node logs.
+
+#### Step 6: Assign your Burner Wallet
+
+Enter your burner wallet address when prompted.
+- Burner wallets can be generated using [Vanity-ETH](https://vanity-eth.tk/)
+
+Next, enter the private key of the wallet used to mint the node.
 
 ### Troubleshooting Errors
 
