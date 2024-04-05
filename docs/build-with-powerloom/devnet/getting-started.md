@@ -16,13 +16,23 @@ To mint the NFT slot, ETH on the Sepolia network is required. If your balance is
 
 Follow these steps:
 
-1. Visit https://devnet-mint.powerloom.dev to begin the minting process.
-2. Once the NFT slot is minted, use one of the following options to locate your minted Slot ID for later use in the node setup.
+1. Visit https://devnet-mint.powerloom.dev to begin the minting process. You will be prompted to connect your wallet that contains Sepolia ETH.
+
+2. Click mint to being the minting process after connecting your wallet.
+
+![Mint Dashboard](/images/devnet_mint_dashboard.png)
+
+3. Once the NFT slot is minted, use one of the following options to locate your minted Slot ID for later use in the node setup.
     - Navigate to the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard) to see a list of your minted slots.
+
+    ![Devnet Dashboard](/images/devnet_slots_dashboard.png)
+
     - Search for the transaction hash of your NFT mint on the [Sepolia block explorer](https://sepolia.etherscan.io/).
         - For Metamask: The transaction will be under the `Activity` section.
         - For other wallets: Search for your wallet address in the Sepolia block explorer and the mint will be the latest transaction.
         - Locate the minted Token ID under the `ERC-1155 Tokens Transferred` section.
+
+    ![Block Explorer](/images/sepolia_blockexplorer_example.png)
 
 After completing these steps, you'll be ready to start using Devnet. The next step is to configure and run our snapshotter node. 
 
