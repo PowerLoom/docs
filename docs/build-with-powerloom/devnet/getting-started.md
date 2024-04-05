@@ -17,8 +17,12 @@ To mint the NFT slot, ETH on the Sepolia network is required. If your balance is
 Follow these steps:
 
 1. Visit https://devnet-mint.powerloom.dev to begin the minting process.
-2. Once the NFT slot is minted, navigate to the [dashboard](https://devnet-mint.powerloom.dev/dashboard).
-3. In the dashboard, assign the burner wallet to your node slot.
+2. Once the NFT slot is minted, use one of the following options to locate your minted Slot ID for later use in the node setup.
+    - Navigate to the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard) to see a list of your minted slots.
+    - Search for the transaction hash of your NFT mint on the [Sepolia block explorer](https://sepolia.etherscan.io/).
+        - For Metamask: The transaction will be under the `Activity` section.
+        - For other wallets: Search for your wallet address in the Sepolia block explorer and the mint will be the latest transaction.
+        - Locate the minted Token ID under the `ERC-1155 Tokens Transferred` section.
 
 After completing these steps, you'll be ready to start using Devnet. The next step is to configure and run our snapshotter node. 
 
@@ -94,9 +98,8 @@ git clone https://github.com/<your_github_username>/snapshotter-configs
 
 - `SOURCE_RPC_URL`: The URL for Source RPC (Local node/Infura/Alchemy) service.
 
-- `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This should be your burner wallet address added on the [Devnet dashboard](https://devnet-mint.powerloom.dev/dashboard). You can create a new burner wallet from https://vanity-eth.tk/ 
-
-- `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the burner wallet address.
+- `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This should be an unused "burner" address that does not need to have any token balance. You can create a new burner wallet from https://vanity-eth.tk/. During later steps, this address will be registered against the `SlOT_ID` on the `PROTOCOL_STATE_CONTRACT` that is set in this `.env`.
+- `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the burner wallet addresss
 - `SNAPSHOT_CONFIG_REPO`: https://github.com/your-username/snapshotter-configs [Change the username to your GitHub profile to point to your forked snapshotter-configs repository.]
 - `SNAPSHOT_CONFIG_REPO_BRANCH`: Change to your own branch or use the `devnet` branch if you are getting started.
 - `SNAPSHOTTER_COMPUTE_REPO`:  https://github.com/your-username/snapshotter-computes [Change the username to your GitHub profile to point to your forked snapshotter-computes repository.]
@@ -116,7 +119,7 @@ This should allow developers to build and experiment with a variety of use cases
 - `NAMESPACE`: The unique key used to identify your project namespace.
 - `POWERLOOM_REPORTING_URL`: The URL for reporting to PowerLoom.
 - `PROST_CHAIN_ID`: Enter the Devnet chain ID
-- `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID on the [Devnet dashboard](https://devnet-mint.powerloom.dev/dashboard)]
+- `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID by visiting the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard), or on the [Sepolia block explorer](https://sepolia.etherscan.io/) by searching for the transaction hash of your node mint]
 
 Optional variables:
 
@@ -138,14 +141,41 @@ This is a one-time step that resets the codebase to the latest version of the br
 After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
 :::
 
-#### Step 5: Run the Snapshotter Node
+#### Step 5: 
+
+Install the required dependencies using pip:
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Step 6: Run the Snapshotter Node
 
 Run the command
 
 ```bash
 bash build.sh
 ```
-Once you start the node, you can check your status from the [devnet dashboard](https://mint-devnet.powerloom.network) or you can check your node logs.
+
+#### Step 7: Assign your Burner Wallet
+
+```bash
+Do you want to assign a burner wallet to a slot? (yes/no):
+```
+
+Enter yes and then enter your burner wallet address when prompted.
+- This is the `SIGNER_ACCOUNT_ADDRESS` that was set during [Step 3](#step-3-configure-the-environment-variables).
+
+
+Next, you will be prompted to enter a private key:
+
+```bash
+To assign a burner wallet to a slot, you need to sign a message with the private key of the Account holding the slot.
+Private Key:
+```
+
+- Please note that this is *not* asking for the private key to your burner wallet.
+- Enter the private key of the wallet [**used to mint** the devnet slot](#minting-the-devnet-slot).
 
 ### Troubleshooting Errors
 
@@ -158,7 +188,7 @@ If the `.env` file is filled up correctly, all services will execute one by one.
     powerloom_depoy-pooler-1 exited with code 1
 ```
     
-Make sure your snapshotter address is registered. Ensure that you have minted the Devnet Slot from the [devnet dashboard](https://mint-devnet.powerloom.network) and your burner wallet has been added.
+Make sure your snapshotter address is registered. Ensure that you have minted the Devnet Slot from the [devnet dashboard](https://mint-devnet.powerloom.network) and your burner wallet has been added correctly during Step 6.
 
 Refer to our [troubleshooting section](../../build-with-powerloom/snapshotter-node/full-node/troubleshooting.md) if you encounter any other issues with your node.
 
