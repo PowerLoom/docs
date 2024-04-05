@@ -96,7 +96,7 @@ git clone https://github.com/<your_github_username>/snapshotter-configs
 
 - `SOURCE_RPC_URL`: The URL for Source RPC (Local node/Infura/Alchemy) service.
 
-- `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This should be your burner wallet address added on the [Devnet dashboard](https://devnet-mint.powerloom.dev/dashboard). You can create a new burner wallet from https://vanity-eth.tk/ 
+- `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This should be your burner wallet address. You can create a new burner wallet from https://vanity-eth.tk/ 
 
 - `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the burner wallet address.
 - `SLOT_ID`: The ERC-1155 Token ID assigned during minting.
@@ -167,7 +167,7 @@ If the `.env` file is filled up correctly, all services will execute one by one.
     powerloom_depoy-pooler-1 exited with code 1
 ```
     
-Make sure your snapshotter address is registered. Ensure that you have minted the Devnet Slot from the [devnet dashboard](https://mint-devnet.powerloom.network) and your burner wallet has been added.
+Make sure your snapshotter address is registered. Ensure that you have minted the Devnet Slot from the [devnet dashboard](https://mint-devnet.powerloom.network) and your burner wallet has been added correctly during Step 6.
 
 Refer to our [troubleshooting section](../../build-with-powerloom/snapshotter-node/full-node/troubleshooting.md) if you encounter any other issues with your node.
 
