@@ -143,7 +143,15 @@ This is a one-time step that resets the codebase to the latest version of the br
 After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
 :::
 
-#### Step 5: Run the Snapshotter Node
+#### Step 5: 
+
+Install the required dependencies using pip:
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Step 6: Run the Snapshotter Node
 
 Run the command
 
@@ -151,7 +159,7 @@ Run the command
 bash build.sh
 ```
 
-#### Step 6: Assign your Burner Wallet
+#### Step 7: Assign your Burner Wallet
 
 Enter your burner wallet address when prompted.
 - Burner wallets can be generated using [Vanity-ETH](https://vanity-eth.tk/)
