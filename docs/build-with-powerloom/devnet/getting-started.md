@@ -162,7 +162,9 @@ bash build.sh
 Enter your burner wallet address when prompted.
 - Burner wallets can be generated using [Vanity-ETH](https://vanity-eth.tk/)
 
-Next, enter the private key of the wallet used to mint the node.
+Next, you will be prompted to enter a private key.
+- Please not that this is *not* asking for the private key to your burner wallet.
+- Enter the private key of the wallet **used to mint** the the slot.
 
 ### Troubleshooting Errors
 
