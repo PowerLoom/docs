@@ -17,10 +17,12 @@ To mint the NFT slot, ETH on the Sepolia network is required. If your balance is
 Follow these steps:
 
 1. Visit https://devnet-mint.powerloom.dev to begin the minting process.
-2. Once the NFT slot is minted, search for the transaction hash of your NFT mint on the [Sepolia block explorer](https://sepolia.etherscan.io/).
-    - For Metamask: The transaction will be under the `Activity` section.
-    - For other wallets: Search for your wallet address in the Sepolia block explorer and the mint will be the latest transaction.
-3. Locate the minted Token ID under the `ERC-1155 Tokens Transferred` section for later use in the node setup.
+2. Once the NFT slot is minted, use one of the following options to locate your minted Slot ID for later use in the node setup.
+    - Navigate to the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard) to see a list of your minted slots.
+    - Search for the transaction hash of your NFT mint on the [Sepolia block explorer](https://sepolia.etherscan.io/).
+        - For Metamask: The transaction will be under the `Activity` section.
+        - For other wallets: Search for your wallet address in the Sepolia block explorer and the mint will be the latest transaction.
+        - Locate the minted Token ID under the `ERC-1155 Tokens Transferred` section.
 
 After completing these steps, you'll be ready to start using Devnet. The next step is to configure and run our snapshotter node. 
 
@@ -119,7 +121,7 @@ This should allow developers to build and experiment with a variety of use cases
 - `NAMESPACE`: The unique key used to identify your project namespace.
 - `POWERLOOM_REPORTING_URL`: The URL for reporting to PowerLoom.
 - `PROST_CHAIN_ID`: Enter the Devnet chain ID
-- `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID on the [Sepolia block explorer](https://sepolia.etherscan.io/) by searching for the transaction hash of your node mint.]
+- `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID by visiting the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard), or on the [Sepolia block explorer](https://sepolia.etherscan.io/) by searching for the transaction hash of your node mint]
 
 Optional variables:
 
