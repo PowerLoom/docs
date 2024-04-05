@@ -99,9 +99,7 @@ git clone https://github.com/<your_github_username>/snapshotter-configs
 - `SOURCE_RPC_URL`: The URL for Source RPC (Local node/Infura/Alchemy) service.
 
 - `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This should be your burner wallet address. You can create a new burner wallet from https://vanity-eth.tk/ 
-
-- `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the burner wallet address.
-- `SLOT_ID`: The ERC-1155 Token ID assigned during minting.
+- `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the burner wallet addresss
 - `SNAPSHOT_CONFIG_REPO`: https://github.com/your-username/snapshotter-configs [Change the username to your GitHub profile to point to your forked snapshotter-configs repository.]
 - `SNAPSHOT_CONFIG_REPO_BRANCH`: Change to your own branch or use the `devnet` branch if you are getting started.
 - `SNAPSHOTTER_COMPUTE_REPO`:  https://github.com/your-username/snapshotter-computes [Change the username to your GitHub profile to point to your forked snapshotter-computes repository.]
