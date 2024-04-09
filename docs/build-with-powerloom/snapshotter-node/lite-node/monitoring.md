@@ -57,7 +57,7 @@ The `.env` file contains essential configuration details such as `SOURCE_RPC_URL
    Change to the directory where your Powerloom Snapshotter Lite Node is located:
 
 ```bash
-   cd powerloom
+   cd powerloom-testnet
 ```
 
 3. **Editing the .env File:**
@@ -98,13 +98,13 @@ For your RPC provider, you have several reliable options, including:
 If you wish to perform a complete reset of your node or start afresh with the Snapshotter Lite Node, the following steps will guide you through the process:
 
 1. **Locate the Existing Directory:**
-   Begin by opening your terminal. Locate the `powerloom` directory by entering the following command:
+   Begin by opening your terminal. Locate the `powerloom-testnet` directory by entering the following command:
 
    ```bash
    ls
    ```
 
-   This command lists all files and directories, allowing you to confirm the presence of the `powerloom` directory.
+   This command lists all files and directories, allowing you to confirm the presence of the `powerloom-testnet` directory.
 
 
 :::warning Warning
@@ -112,10 +112,10 @@ If you wish to perform a complete reset of your node or start afresh with the Sn
 :::
 
 2. **Remove the Directory:**
-   To delete the `powerloom` directory and all its contents, use the command:
+   To delete the `powerloom-testnet` directory and all its contents, use the command:
 
    ```bash
-   rm -rf powerloom
+   rm -rf powerloom-testnet
    ```
 
    This action cannot be undone, so ensure that you wish to proceed with the reset.
@@ -132,7 +132,7 @@ If you're experiencing issues or simply wish to restart your node, the process i
    Open a terminal window and navigate to the directory of your Powerloom Snapshotter Node by executing:
 
 ```bash
-   cd powerloom
+   cd powerloom-testnet
 ```
 
 2. **Execute the Build Script:**
