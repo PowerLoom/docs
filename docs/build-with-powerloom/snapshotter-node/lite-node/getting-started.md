@@ -565,7 +565,7 @@ If you encounter any issues while operating the node, please refer our [troubles
 
 ## Setting Up Multiple Nodes on a VPS
 
-If you're looking to run multiple nodes, you can use our Multi-node setup python scipt. This section will guide you through setting up and managing multiple nodes.
+Use our Multi-Node setup python script to run multiple nodes. This section will guide you through setting up and managing multiple nodes.
 
 ### Clone the Multi-node setup script
 
@@ -575,7 +575,7 @@ First, clone our multi-node script to get started:
 git clone https://github.com/PowerLoom/snapshotter-lite-multi-setup
 ```
 
-navigate to the directory, type the below command on your terminal:
+Navigate to the directory & type the below command on your terminal:
 
     ```bash
     cd snapshotter-lite-multi-setup
@@ -587,7 +587,8 @@ It is imperative to create an isolated virtual environment that includes the nec
 
 #### Installing `Pyenv`
 
-Follow the steps below to install `pyenv`. Begin by opening the terminal and executing the command to install the required packages:
+Follow the steps below to install `pyenv`. 
+Open the terminal and execute the below command to install the required packages:
 
 ```bash
 sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
@@ -622,7 +623,7 @@ Refresh the terminal by typing:
 source ~/.bashrc
 ```
 
-Now, proceed to install Python 3.11.5:
+Next, proceed to install Python 3.11.5:
 
 ```bash
 pyenv install 3.11.5
@@ -655,7 +656,7 @@ When you execute `python multi_clone.py`, you will see the following prompts tha
 
 1. **Terminate Existing containers:** "Do you want to kill all running containers and screen sessions of testnet nodes? (y/n) n"
 
-- Type `y` Use this option and stop all active containers or node instances. This will clean up all the older containers. Please cross-check your running containers before executing this command. 
+- Type `y`. Use this option and stop all active containers or node instances. This will clean up all the older containers. Remember to cross-check your running containers before executing this command. 
 
 2. **Custom Slot ID Deployment:** "Do you want to deploy a custom index of slot IDs (indices begin at 0, enter in the format [begin, end])? (indices/n)"
 
