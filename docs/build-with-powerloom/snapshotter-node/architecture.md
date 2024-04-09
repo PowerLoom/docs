@@ -41,7 +41,7 @@ Configuration files, located in the `/config` directory and linked to [snapshott
 The heart of the system resides in the `snapshotter/modules` directory, linked to [snapshotter-computes](https://github.com/Powerloom/snapshotter-computes/), where the actual computation logic for each project type is defined. These modules drive the snapshot generation process for specific project types.
 
 ## Building Your Own Use Case
-Working on a new use case is as simple as writing a new compute module and adding a new configuration file. Instructions to get started in `build-dev.sh` mode are available in the [Deploy repo](https://github.com/Powerloom/deploy/tree/eth_india).
+Working on a new use case is as simple as writing a new compute module and adding a new configuration file. Instructions to get started in `build-dev.sh` mode are available in the [Deploy repo](https://github.com/Powerloom/deploy/tree/devnet).
 
 # Useful Links
 

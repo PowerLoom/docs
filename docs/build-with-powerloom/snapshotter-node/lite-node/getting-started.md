@@ -170,7 +170,7 @@ Initiate the snapshotter lite node setup by typing the command in the terminal:
 Follow the prompts to enter the required information.
 
 :::tip
- Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+ Please do not use your NFT minting wallet to run the snapshotter lite node. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 
   - [Vanity-ETH](https://vanity-eth.tk/)
   - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
@@ -205,7 +205,7 @@ Ensure your node is running correctly, and check the logs for any errors or conf
 Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
-If your node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
+If your node is generating snapshots during the assigned timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 <h3>Step 6: Maintaining Your Node </h3>
@@ -244,7 +244,7 @@ For users running the node on personal hardware, the minimum specifications are:
 
 - Install Docker on your machine. You can find the installation instructions for your operating system on the [official Docker website.](https://docs.docker.com/get-docker/)
 
-- Install git if your system doesn't have git installed. To install git in MacOS, please follow this guide: https://www.atlassian.com/git/tutorials/install-git 
+- Install git if your system doesn't have git installed. To install git on MacOS, please follow this guide: https://www.atlassian.com/git/tutorials/install-git 
 
 
 <h3> Installation </h3>
@@ -282,12 +282,12 @@ If you're a developer and want to play around with the code, instead of running 
 </details>
 
 :::tip
- Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+ Please do not use your NFT minting wallet to run the snapshotter lite node. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 
   - [Vanity-ETH](https://vanity-eth.tk/)
   - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-Once generated, make sure you assign your burner wallet on your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
+Once generated, make sure you assign your burner wallet to your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
 :::
 
 - During the setup, you'll be prompted to enter the following values:
@@ -305,7 +305,7 @@ This is a one-time configuration process that generates a .env file in the proje
 Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
-If your node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
+If your node is generating snapshots during the assigned timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 - To stop the node, you can press` Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
@@ -337,7 +337,7 @@ If you want to run the Snapshotter Lite Node without Docker, you need to make su
 
 
 <details><summary> Optional: Installing Virtual Environment </summary>
-For simplicity, we recommend using miniconda and setting up an environment with the needed python version as shown below
+For simplicity, we recommend using miniconda and setting up an environment with the needed Python version as shown below
 <p>
 
 #### Install miniconda for your system:
@@ -373,7 +373,7 @@ Once python3 is installed, we can go ahead and run the lite node:-
 ```
 This will clone the repository into a directory named `powerloom-testnet`.
   
-2. Change your working directory to the `powerloom-testnet` directory, open the terminal and type:
+2. Change your working directory to the `powerloom-testnet` directory, open the terminal, and type:
 
 ```bash
    cd powerloom-testnet
@@ -384,16 +384,16 @@ This will clone the repository into a directory named `powerloom-testnet`.
    ./init.sh
 ```
 :::tip
- Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+ Please do not use your NFT minting wallet to run the snapshotter lite node. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 
   - [Vanity-ETH](https://vanity-eth.tk/)
   - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-Once generated, make sure you assign your burner wallet on your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
+Once generated, make sure you assign your burner wallet to your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
 :::
 
 
-4. During the setup, you'll be prompted to enter the following values:
+1. During the setup, you'll be prompted to enter the following values:
 
   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
@@ -406,12 +406,12 @@ Once generated, make sure you assign your burner wallet on your [snapshotter das
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
 
-1. The node setup will complete in approximately 2-3 minutes, after which the snapshotting process begins automatically.
+1. The node setup will be completed in approximately 2-3 minutes, after which the snapshotting process begins automatically.
 
 Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
-If your node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
+If your node is generating snapshots during the assigned timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 <h3> Stopping the Snapshotter Lite Node </h3>
@@ -425,7 +425,7 @@ This will halt the running node and all associated processes.
 
 By following these steps, you can successfully configure the Snapshotter Lite Node on your Mac system.
 
-If you encounter any issues while operating the node, please refer our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
+If you encounter any issues while operating the node, please refer to our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
 
 ---
 
@@ -445,7 +445,7 @@ If you encounter any issues while operating the node, please refer our [troubles
 
 The Snapshotter Lite Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
 
-For users running the node on personal windows system, the minimum specifications are:
+For users running the node on a personal Windows system, the minimum specifications are:
 
 - **RAM:** At least 4 GB.
 - **CPU Core**:  Minimum of 2 Cores
@@ -514,7 +514,7 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
 - **Run the Build Script:**
 
 :::tip
- Please do not use your NFT minting wallet to run the snapshotter lite node.The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+ Please do not use your NFT minting wallet to run the snapshotter lite node. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 
   - [Vanity-ETH](https://vanity-eth.tk/)
   - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
@@ -544,12 +544,12 @@ After entering the required information, the setup will begin to construct the D
 Everytime you restart the node, you should have a log message similar to the one shown below.
 ![Start node logs](/images/node-start-status.png)
 
-If your node is generating snapshots during the assign timeslot, you should have similar logs in your terminal:
+If your node is generating snapshots during the assigned timeslot, you should have similar logs in your terminal:
 ![Sample node logs](/images/node-status-new.png)
 
 By adhering to these instructions, you can successfully configure the Snapshotter Lite Node on your Windows system.
 
-If you encounter any issues while operating the node, please refer our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
+If you encounter any issues while operating the node, please refer to our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
 
 ---
 
@@ -565,7 +565,7 @@ If you encounter any issues while operating the node, please refer our [troubles
 
 ## Setting Up Multiple Nodes on a VPS
 
-Use our Multi-Node setup python script to run multiple nodes. This section will guide you through setting up and managing multiple nodes.
+If you're looking to run multiple nodes, you can use our Multi-node setup python script. This section will guide you through setting up and managing multiple nodes.
 
 ### Clone the Multi-node setup script
 

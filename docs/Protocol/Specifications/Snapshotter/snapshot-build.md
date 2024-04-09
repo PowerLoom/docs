@@ -117,7 +117,7 @@ Aggregate and higher-order snapshots that build on base snapshots are configured
 
 - [Single Project Composition](/docs/protocol/data-composition#single-project-composition)
 - [Multi-Project Composition](/docs/protocol/data-composition#multiple-projects-composition)
-- [Walkthrough of the Snapshotter Implementation for Uniswap V2 Dashboard](docs/category/tour-of-the-existing-implementation)
+- [Walkthrough of the Snapshotter Implementation for Uniswap V2 Dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/)
 :::
 
 The order and dependencies of these compositions are specified according to the `aggregate_on` key.
