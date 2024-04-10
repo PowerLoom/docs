@@ -93,20 +93,20 @@ Visit the [Data Points](/docs/build-with-powerloom/use-cases/existing-implementa
 
 ### Adding an Aggregate Snapshot
 
-For this example, we will add a 6-hour "Volume by Action" aggregate using the 24-hour volume aggregate as a reference. The data for the 24-hour volume aggregate is already retrieved by the `BulkVolumeEventsPreloader` and processed using the `AggregateSupplyVolumeProcessor` as seen in this [compute](https://github.com/PowerLoom/snapshotter-computes/blob/aave/aggregate/single_aave_volume_24h.py#L108).
+For this example, we will add a 6-hour volume by action aggregate using the 24-hour volume aggregate as a reference. The data for the 24-hour volume aggregate is already retrieved by the `BulkVolumeEventsPreloader` and processed using the `AggregateSupplyVolumeProcessor` as seen in this [compute](https://github.com/PowerLoom/snapshotter-computes/blob/aave/aggregate/single_aave_volume_24h.py#L108).
 
 1. **Create the Aggregation Worker Processor**:
 
-    In the `aggregate/` directory of your forked `snapshotter-computes` repository, create a Python file that will contain your new processor.
+    In the `aggregate/` directory of your forked `snapshotter-computes` repository, create a Python file containing your new processor.
     - Name the file something like `single_aave_volume_6h.py`
-    - For now, this will be used as a placeholder and will be filled in with the processor's logic in later steps.
+    - For now, this will be used as a placeholder and filled in with the processor's logic in later steps.
     - Visit the Aggregate Snapshots section of the [Snapshot Generation](docs/Protocol/Specifications/Snapshotter/snapshot-build.md) page for more information on Aggregate Processors
 
 2. **Configure Aggregation Worker**:
 
    In the `aggregator.json` file of your forked `snapshotter-configs` repository, add a new entry for your aggregation worker class. This class will be responsible for handling the new data aggregation task.
    - Define the `project_type` as something like `single_aave_volume_6h`.
-   - Set `aggregate_on` to `SingleProject` since we will be extending the current SingleProject 24-hour implementation.
+   - Set `aggregate_on` to `SingleProject` since we will extend the current SingleProject 24-hour implementation.
    - Under `processor`, specify the module and class name of your new processor created in Step 1.
 
     ```json 
