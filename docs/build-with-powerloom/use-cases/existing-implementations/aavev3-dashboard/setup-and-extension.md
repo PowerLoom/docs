@@ -93,7 +93,7 @@ Visit the [Data Points](/docs/build-with-powerloom/use-cases/existing-implementa
 
 ### Adding an Aggregate Snapshot
 
-For this example, we will add a 6-hour volume by action aggregate using the 24-hour volume aggregate as a reference. The data for the 24-hour volume aggregate is already retrieved by the `BulkVolumeEventsPreloader` and processed using the `AggregateSupplyVolumeProcessor` as seen in this [compute](https://github.com/PowerLoom/snapshotter-computes/blob/aave/aggregate/single_aave_volume_24h.py#L108).
+For this example, we will add a 6-hour volume-by-action aggregate using the 24-hour volume aggregate as a reference. The data for the 24-hour volume aggregate is already retrieved by the `BulkVolumeEventsPreloader` and processed using the `AggregateSupplyVolumeProcessor` as seen in this [compute](https://github.com/PowerLoom/snapshotter-computes/blob/aave/aggregate/single_aave_volume_24h.py#L108).
 
 1. **Create the Aggregation Worker Processor**:
 
@@ -128,11 +128,11 @@ For this example, we will add a 6-hour volume by action aggregate using the 24-h
 
 3. **Modify the Processor Logic**:
 
-    Modify the data collection logic to concentrate on a 6-hour time span (`epochId`). Refer to the existing 24-hour aggregation example for guidance on structuring your logic. The 24-hour aggregate currently collects data for all core Aave V3 "Actions" that can be taken on-chain. You may continue to collect data for all Action's events, or you may choose to focus on a single Action. Keep in mind that you will need to create a new data model in the `utils/message_models.py` file in your `snapshotter-computes` fork if you choose to change the snapshot data. See the [`AaveVolumeAggregateSnapshot`](https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/message_models.py#L101-L107) for reference.
+    Modify the data collection logic to concentrate on a 6-hour time span (`epochId`). Refer to the existing 24-hour aggregation example for guidance on structuring your logic. The 24-hour aggregate currently collects data for all core Aave V3 "actions" that can be taken on-chain. You may continue to collect data for all action's events, or you may choose to focus on a single action. Keep in mind that you will need to create a new data model in the `utils/message_models.py` file in your `snapshotter-computes` fork if you choose to change the snapshot data. See the [`AaveVolumeAggregateSnapshot`](https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/message_models.py#L101-L107) for reference.
 
 4. **Testing and Validation**:
 
-   After implementation, rigorously test your new feature to ensure accuracy and efficiency. Validate that the data collected aligns with your intended 6-hour aggregation of each asset's Volume by Action.
+   After implementation, rigorously test your new feature to ensure accuracy and efficiency. Validate that the data collected aligns with your intended 6-hour aggregation of each asset's volume-by-action.
 
 5. **Commit and Share Your Work**:
 
