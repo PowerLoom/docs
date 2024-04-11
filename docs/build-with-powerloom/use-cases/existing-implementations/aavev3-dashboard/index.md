@@ -12,7 +12,7 @@ The Dashboard is hosted at [aave-v3.powerloom.io/](https://aave-v3.powerloom.io/
 
 ### Data Points and Aggregated Metrics
 
-Data points are essential elements that serve as the foundational units upon which base snapshots are built. In the Aave protocol, they capture key information about loans, such as the total supplied and borrowed amounts, interest rates, and asset prices at the time of the lending. These base data points are snapshotted and then aggregated by AaveV3-Pooler to provide broader loan market statistics & insights, such as 24-hour lending/borrowing volumes and historical apr rates. Due to their inherent complexity, participants may find lending markets challenging to navigate. Access to actionable metrics is important for users seeking to deploy their capital efficiently and at the appropriate risk levels.
+Data points are essential elements that serve as the foundational units upon which base snapshots are built. In the Aave protocol, they capture key information about loans, such as the total supplied and borrowed amounts, interest rates, and asset prices at the time of the lending. These base data points are snapshotted and then aggregated by AaveV3-Pooler to provide broader loan market statistics & insights, such as 24-hour lending/borrowing volumes and historical APR rates. Due to their inherent complexity, participants may find lending markets challenging to navigate. Access to actionable metrics is important for users seeking to deploy their capital efficiently and at the appropriate risk levels.
 
 ---
 
@@ -21,4 +21,4 @@ Data points are essential elements that serve as the foundational units upon whi
 Snapshotter Node's design enables extensions and custom use case implementations. A developer can extend the pooler compute files found in [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and config files found in [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2) to build their own custom use case implementations.
 
 The documentation has a dedicated section that discusses further implementation and use-case extensions.
-Check out our guide on [Extending Pooler](/docs/build-with-powerloom/use-cases/building-new-usecase/extending-uniswapv2-dashboard) -->
+Check out our guide on [Setup and Extension](/docs/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/setup-and-extension.md) -->
