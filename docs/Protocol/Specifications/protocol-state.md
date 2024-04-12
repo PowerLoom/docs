@@ -27,11 +27,7 @@ Presently, the protocol state is implemented as a smart contract on an EVM-compa
 
 ### Chain and Contract Address
 
-Depending on the network being joined from the [`deploy`](https://github.com/Powerloom/deploy/) repository, you can find the details of the network RPC as well as the deployed contract address from the example [`env.example`](https://github.com/PowerLoom/deploy/blob/eth_india/env.example) file.
-
-```bash reference
-https://github.com/PowerLoom/deploy/blob/7708906fc606df2eff84642fe54d2c47bd9137ab/env.example#L10-L14
-```
+Depending on the node type, the network RPC and the deployed contract address can be found in the `env.example` file in either the [`deploy`](https://github.com/Powerloom/deploy/) (for Full Nodes) and [`snapshotter`](https://github.com/Powerloom/snapshotter-lite) repositories (for Lite Nodes).
 
 ### ABI
 
