@@ -1,4 +1,5 @@
-Setting Up Multiple Nodes on a VPS
+## Setting Up Multiple Nodes on a VPS
+
 If you're looking to run multiple nodes, you can use our Multi-node setup python script. This section will guide you through setting up and managing multiple nodes.
 
 Clone the Multi-node setup script
