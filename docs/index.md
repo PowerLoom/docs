@@ -66,7 +66,7 @@ Discover the practical application of Powerloom through Pooler, a Uniswap V2 Das
 ## Building with Powerloom
 
 To begin using the Powerloom Protocol, you need to understand the workflow and architecture of the system. This involves familiarizing yourself with the different components and how they interact within the protocol.
-The best way to start is by exploring the existing implementations present in [existing-implementations](/docs/category/existing-implementations), understanding how they work, and how you can leverage them to build your own use cases. We have also provided examples of how you can build your own use cases in the [building-use-cases](/docs/category/building-a-new-use-case) section.
+The best way to start is by exploring the [existing-implementations](/docs/category/existing-implementations), understanding how they work, and how you can leverage them to [build your own use cases](/docs/category/building-a-new-use-case).
 
 ### Utilizing Existing Implementations to Build Your Data Application
 
