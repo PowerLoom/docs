@@ -615,7 +615,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
 
-To save changes in the `.bashrc` file, press `ctrl + x`. 
+To save changes in the `.bashrc` file, press `ctrl + o`. 
 
 Refresh the terminal by typing:
 
