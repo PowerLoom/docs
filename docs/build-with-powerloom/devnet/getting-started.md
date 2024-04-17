@@ -348,6 +348,8 @@ Private Key:
 - Please note that this is *not* asking for the private key to your burner wallet.
 - Enter the private key of the wallet [**used to mint** the devnet slot](#minting-the-devnet-slot).
 
+</TabItem>
+</Tabs>
 
 ### Troubleshooting Errors
 
