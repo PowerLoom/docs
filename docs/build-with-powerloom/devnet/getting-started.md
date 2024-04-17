@@ -72,7 +72,7 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
 :::
 
 <Tabs groupId="operating-systems" className="unique-tabs" queryString="current-os">
-  <TabItem value="macOS-setup" label="macOS">
+  <TabItem value="macOS-setup" label="macOS/Linux">
   <h2>Deploying a Snapshotter Node on macOS/Linux</h2>
 
 ### Running the Snapshotter Node
