@@ -184,10 +184,8 @@ Private Key:
 
 
 </TabItem>
-</Tabs>
 
 <TabItem value="windows" label="Windows">
-<Tabs groupId="setup-type" queryString="setup-type">
 <h2>Deploying a Snapshotter Node on Windows</h2>
 
 ### Initial Setup | Docker
