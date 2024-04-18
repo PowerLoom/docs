@@ -42,7 +42,7 @@ Devnet is a network environment for developers to test and develop blockchain ap
 
 ### Data Markets
 
-Data markets are defined by a schema specifying state variables, event log topics, and specific transactions across any smart contract instances that make the decentralized application. eg. A defi protocol like uniswap. In a data market, datasets are data collections, while data sources are the providers of these datasets. 
+Data markets are defined by a schema specifying state variables, event log topics, and specific transactions across any smart contract instances that make the decentralized application. eg. A defi protocol like uniswap. In a data market, datasets are snapshotted data collections, while data sources are the contracts that are being snapshotted.
 
 Click [here](https://docs.powerloom.io/docs/Protocol/data-sources) to learn more about Data Markets.
 
