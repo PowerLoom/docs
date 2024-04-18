@@ -141,6 +141,18 @@ Set up the codebase by running the `bootstrap.sh` command in the terminal:
 bash bootstrap.sh
 ```
 
+Step 3: Set Up the Codebase
+Set up the codebase by running the `bootstrap.sh` command in the terminal. Developers may use different shells, such as bash or zsh. Adjust the command accordingly:
+
+For bash:
+
+```bash
+bash bootstrap.sh
+```
+```zsh
+zsh bootstrap.sh
+```
+
 :::info
 This is a one-time step that resets the codebase to the latest version of the branch. 
 After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
@@ -153,12 +165,18 @@ Install the required dependencies using pip:
 ```bash
 pip3 install -r requirements.txt
 ```
+```zsh
+pip3 install -r requirements.txt
+```
 
 #### Step 5: Run the Snapshotter Node
 
 Run the command
 
 ```bash
+bash build.sh
+```
+```zsh
 bash build.sh
 ```
 
@@ -273,15 +291,20 @@ You can find the latest Epoch Contracts in the [example.env](https://github.com/
 This should allow developers to build and experiment with a variety of use cases. If you have any custom needs, reach out to the [team](https://discord.com/invite/powerloom)
 :::
 
-**Already Given:**  
+**Pre-supplied:**
+
+:::info 
+Unless it is a customized need or instructed by us, the below need not be changed or modified.
+
+:::
 
 - `SNAPSHOT_CONFIG_REPO`: https://github.com/powerloom/snapshotter-configs
 - `SNAPSHOT_CONFIG_REPO_BRANCH`: devnet
 - `SNAPSHOTTER_COMPUTE_REPO`: https://github.com/powerloom/snapshotter-computes
 - `SNAPSHOTTER_COMPUTE_REPO_BRANCH`: devnet
-- `PROST_RPC_URL`: The URL for the Powerloom Protocol Chain RPC service.
+- `PROST_RPC_URL`: The Powerloom Protocol Chain RPC service URL.
 - `RELAYER_HOST`: The relayer URL for the Powerloom Protocol Chain.
-- `NAMESPACE`: The unique key used to identify your project namespace.
+- `NAMESPACE`: The unique key to identify your project namespace.
 - `POWERLOOM_REPORTING_URL`: The URL for reporting to PowerLoom.
 - `PROST_CHAIN_ID`: The Devnet chain ID
 
@@ -300,6 +323,18 @@ Set up the codebase by running the `bootstrap.sh` command in the terminal:
 bash bootstrap.sh
 ```
 
+Step 3: Set Up the Codebase
+Set up the codebase by running the `bootstrap.sh` command in the terminal. Developers may use different shells, such as bash or zsh. Adjust the command accordingly:
+
+For bash:
+
+```bash
+bash bootstrap.sh
+```
+```zsh
+zsh bootstrap.sh
+```
+
 :::info
 This is a one-time step that resets the codebase to the latest version of the branch. 
 After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
@@ -312,12 +347,18 @@ Install the required dependencies using pip:
 ```bash
 pip3 install -r requirements.txt
 ```
+```zsh
+pip3 install -r requirements.txt
+```
 
 #### Step 5: Run the Snapshotter Node
 
 Run the command
 
 ```bash
+bash build.sh
+```
+```zsh
 bash build.sh
 ```
 
@@ -329,7 +370,6 @@ Do you want to assign a burner wallet to a slot? (yes/no):
 
 Enter yes and then enter your burner wallet address when prompted.
 - This is the `SIGNER_ACCOUNT_ADDRESS` that was set during [Step 3](#step-3-configure-the-environment-variables).
-
 
 Next, you will be prompted to enter a private key:
 
