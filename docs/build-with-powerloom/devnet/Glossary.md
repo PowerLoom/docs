@@ -28,7 +28,7 @@ The "Prost Chain" refers to the foundational blockchain infrastructure the Power
 
 ### Protocol State (on Prost Chain)
 
-Protocol State represents the current state of the network, which Snapshotter Peers or anyone else can refer to if the entity needs access to current or historical data references. The protocol state is constantly updated as new epochs are released, and data gets submitted to the protocol state contract residing on the Prost Chain.
+Protocol State represents the current state of the network, which Snapshotter Peers or anyone else can refer to if the entity needs access to current or historical data references.
 
 ### Devnet
 Devnet is a network environment for developers to test and develop blockchain applications. Devnet provides a sandbox environment to test ideas like data dashboards. As an individual, you can develop your own snapshotting logic, write the data application & use these snapshots without requiring any consensus on said snapshots from other snapshotter nodes.
