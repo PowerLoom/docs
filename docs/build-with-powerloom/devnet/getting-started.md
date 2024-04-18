@@ -90,11 +90,9 @@ The above command itself navigates you to the Repository Directory `powerloom-de
 
 #### Step 2: Configure the environment variables
 
-1. In the deploy repo's directory, create a new file named `.env`.
+1. `cp env.example .env` Copies the contents of the file named `env.example` to a new file named `.env`. 
 
-2. Copy the contents of [`env.example`](https://github.com/PowerLoom/deploy/blob/devnet/env.example) to `.env`.
-
-3. Fill in the required variables in the `.env` file:
+2. Fill in the required variables in the `.env` file:
 
 #### During the creation of the .env file, add the following details: 
 - `SOURCE_RPC_URL`: The URL for Source RPC (Local node/Infura/Alchemy) service.
@@ -104,7 +102,7 @@ The above command itself navigates you to the Repository Directory `powerloom-de
 - `PROTOCOL_STATE_CONTRACT`: Choose the contract address for the protocol state with respect to the Epoch size.
 
 :::note
-Currently, there are two variations of Protocol State Contracts available. One where [Epoch](../../Protocol/Specifications/Epoch.md) size is set to 1 and other where epoch size is set to 10 blocks. 
+Currently, there are two variations of Protocol State Contracts available. One where [Epoch](../../Protocol/Specifications/Epoch.md) size is set to 1 and the other where epoch size is set to 10 blocks. 
 
 You can find the latest Epoch Contracts in the [example.env](https://github.com/PowerLoom/deploy/blob/devnet/env.example) file. 
 
@@ -122,9 +120,9 @@ Unless it is a customized need or instructed by us, the below need not be change
 - `SNAPSHOT_CONFIG_REPO_BRANCH`: devnet
 - `SNAPSHOTTER_COMPUTE_REPO`: https://github.com/powerloom/snapshotter-computes
 - `SNAPSHOTTER_COMPUTE_REPO_BRANCH`: devnet
-- `PROST_RPC_URL`: The URL for the Powerloom Protocol Chain RPC service.
+- `PROST_RPC_URL`: The Powerloom Protocol Chain RPC service URL.
 - `RELAYER_HOST`: The relayer URL for the Powerloom Protocol Chain.
-- `NAMESPACE`: The unique key used to identify your project namespace.
+- `NAMESPACE`: The unique key to identify your project namespace.
 - `POWERLOOM_REPORTING_URL`: The URL for reporting to PowerLoom.
 - `PROST_CHAIN_ID`: The Devnet chain ID
 
@@ -135,7 +133,7 @@ Unless it is a customized need or instructed by us, the below need not be change
 - `IPFS_API_SECRET`: The API secret for the IPFS service (if required).
 - `SLACK_REPORTING_URL`: The URL for reporting to Slack.
 
-#### Step 3 Set Up the Codebase
+#### Step 3: Set Up the Codebase
 
 Set up the codebase by running the `bootstrap.sh` command in the terminal:
 
