@@ -141,6 +141,7 @@ For bash:
 ```bash
 bash bootstrap.sh
 ```
+or
 ```zsh
 zsh bootstrap.sh
 ```
@@ -165,6 +166,7 @@ Run the command
 ```bash
 bash build.sh
 ```
+or
 ```zsh
 zsh build.sh
 ```
@@ -312,6 +314,7 @@ For bash:
 ```bash
 bash bootstrap.sh
 ```
+or
 ```zsh
 zsh bootstrap.sh
 ```
@@ -336,6 +339,7 @@ Run the command
 ```bash
 bash build.sh
 ```
+or
 ```zsh
 zsh build.sh
 ```
