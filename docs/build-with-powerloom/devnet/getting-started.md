@@ -134,14 +134,6 @@ Unless it is a customized need or instructed by us, the below need not be change
 - `SLACK_REPORTING_URL`: The URL for reporting to Slack.
 
 #### Step 3: Set Up the Codebase
-
-Set up the codebase by running the `bootstrap.sh` command in the terminal:
-
-```bash
-bash bootstrap.sh
-```
-
-Step 3: Set Up the Codebase
 Set up the codebase by running the `bootstrap.sh` command in the terminal. Developers may use different shells, such as bash or zsh. Adjust the command accordingly:
 
 For bash:
@@ -165,9 +157,6 @@ Install the required dependencies using pip:
 ```bash
 pip3 install -r requirements.txt
 ```
-```zsh
-pip3 install -r requirements.txt
-```
 
 #### Step 5: Run the Snapshotter Node
 
@@ -177,7 +166,7 @@ Run the command
 bash build.sh
 ```
 ```zsh
-bash build.sh
+zsh build.sh
 ```
 
 #### Step 6: Assign your Burner Wallet
@@ -188,7 +177,6 @@ Do you want to assign a burner wallet to a slot? (yes/no):
 
 Enter yes and then enter your burner wallet address when prompted.
 - This is the `SIGNER_ACCOUNT_ADDRESS` that was set during [Step 3](#step-3-configure-the-environment-variables).
-
 
 Next, you will be prompted to enter a private key:
 
@@ -317,13 +305,6 @@ Unless it is a customized need or instructed by us, the below need not be change
 
 #### Step 3: Set Up the Codebase
 
-Set up the codebase by running the `bootstrap.sh` command in the terminal:
-
-```bash
-bash bootstrap.sh
-```
-
-Step 3: Set Up the Codebase
 Set up the codebase by running the `bootstrap.sh` command in the terminal. Developers may use different shells, such as bash or zsh. Adjust the command accordingly:
 
 For bash:
@@ -347,9 +328,6 @@ Install the required dependencies using pip:
 ```bash
 pip3 install -r requirements.txt
 ```
-```zsh
-pip3 install -r requirements.txt
-```
 
 #### Step 5: Run the Snapshotter Node
 
@@ -359,7 +337,7 @@ Run the command
 bash build.sh
 ```
 ```zsh
-bash build.sh
+zsh build.sh
 ```
 
 #### Step 6: Assign your Burner Wallet
