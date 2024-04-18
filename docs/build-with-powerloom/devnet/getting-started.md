@@ -367,6 +367,7 @@ If the `.env` file is filled up correctly, all services will execute one by one.
 Make sure your snapshotter address is registered. Ensure you have minted the Devnet Slot from the [devnet dashboard](https://mint-devnet.powerloom.network) and your burner wallet has been added correctly during Step 6.
 
 Refer to our [troubleshooting section](../../build-with-powerloom/snapshotter-node/full-node/troubleshooting.md) if you encounter any other issues with your node.
+
 ---
 ### Stopping the Node
 
