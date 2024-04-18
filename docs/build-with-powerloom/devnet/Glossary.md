@@ -5,7 +5,6 @@ Key terms, concepts, and acronyms used in Powerloom's Devnet
 ### Snapshotter Peers & Nodes
 
 Snapshotter peers are participants in the Powerloom network who capture and verify data snapshots. Snapshotter nodes, run by Snapshotter peers, generate these snapshots at predetermined intervals or epochs. Both are crucial for data accuracy and integrity in the decentralized Powerloom ecosystem.
-_Reference Example: h_
 
 ### Snapshots
 
@@ -25,7 +24,7 @@ Extracting data from the blockchain state and generating the snapshot can be a c
 
 ### Prost Chain
 
-The "Prost Chain" refers to the foundational blockchain infrastructure utilized by the Powerloom Network, serving as the anchor chain for storing proofs.
+The "Prost Chain" refers to the foundational blockchain infrastructure the Powerloom Network utilizes, serving as the anchor chain for storing proofs.
 
 ### Protocol State (on Prost Chain)
 
@@ -45,6 +44,8 @@ Devnet is a network environment for developers to test and develop blockchain ap
 
 Data markets are defined by a schema specifying state variables, event log topics, and specific transactions across any smart contract instances that make the decentralized application. eg. A defi protocol like uniswap. In a data market, datasets are data collections, while data sources are the providers of these datasets. 
 
+Click [here](https://docs.powerloom.io/docs/Protocol/data-sources) to learn more about Data Markets.
+
 ### Environment Variables
 
 Environment variables are external configurations that affect runtime behavior without modifying the code directly. They include network details, contract addresses, token parameters, security settings, feature flags, debugging options, and integration parameters. They offer flexibility, security, and maintainability by enabling dynamic adjustments of contract behavior across different deployment environments.
@@ -63,11 +64,13 @@ Find more details in the specifications of [snapshot generation](https://docs.po
 
 ### Snapshot Composition
 
-The protocol state collects finalised snapshots for incremental epochs against contracts configured as data sources. These snapshots can be further composed according to the use case. 
+The protocol state collects finalized snapshots for incremental epochs against contracts configured as data sources. These snapshots can be further composed according to the use case. 
 
 We can compose snapshots on top of base snapshots for single or multiple contracts by: 
 - Combining individual snapshots of trade volume and fees across multiple pair contracts.
 - Spanning a specific set of epochs that satisfy a time duration (e.g., 24 hours).
+
+To learn more about Snapshot Composition, start with this [guide](https://docs.powerloom.io/docs/Protocol/data-composition), then explore [Data Points](https://docs.powerloom.io/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/data-points) for a use case-driven approach, and finally read through [Closer Look at Snapshots](https://docs.powerloom.io/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-look-at-snapshots) for a detailed understanding. 
 
 ---
 
