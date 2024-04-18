@@ -351,6 +351,8 @@ Private Key:
 </TabItem>
 </Tabs>
 
+---
+
 ### Troubleshooting Errors
 
 If the `.env` file is filled up correctly, all services will execute one by one.
@@ -362,18 +364,22 @@ If the `.env` file is filled up correctly, all services will execute one by one.
     powerloom_depoy-pooler-1 exited with code 1
 ```
     
-Make sure your snapshotter address is registered. Ensure that you have minted the Devnet Slot from the [devnet dashboard](https://mint-devnet.powerloom.network) and your burner wallet has been added correctly during Step 6.
+Make sure your snapshotter address is registered. Ensure you have minted the Devnet Slot from the [devnet dashboard](https://mint-devnet.powerloom.network) and your burner wallet has been added correctly during Step 6.
 
 Refer to our [troubleshooting section](../../build-with-powerloom/snapshotter-node/full-node/troubleshooting.md) if you encounter any other issues with your node.
-
+---
 ### Stopping the Node
 
-1. To shutdown services, press `Ctrl+C` (and again to force).
+1. To shut down services, press `Ctrl+C` for macOS/Linux & `Ctrl + Break` for Windows (and again to force).
 
 2. If you encounter issues with data, you can do a clean **reset** by running the following command before restarting from [Step 5](#step-5-run-the-snapshotter-node):
 
 ```bash
 docker-compose --profile ipfs down --volumes
+```
+or 
+```bash
+docker compose --profile ipfs down --volumes
 ```
 
 ---
