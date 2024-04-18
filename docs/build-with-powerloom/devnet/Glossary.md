@@ -31,7 +31,7 @@ The "Prost Chain" refers to the foundational blockchain infrastructure the Power
 Protocol State represents the current state of the network, which Snapshotter Peers or anyone else can refer to if the entity needs access to current or historical data references. The protocol state is constantly updated as new epochs are released, and data gets submitted to the protocol state contract residing on the Prost Chain.
 
 ### Devnet
-Devnet is a network environment for developers to test and develop blockchain applications. It offers flexibility, speed, and debugging capabilities. Devnet provides a sandbox environment to test ideas like data dashboards.
+Devnet is a network environment for developers to test and develop blockchain applications. Devnet provides a sandbox environment to test ideas like data dashboards. As an individual, you can develop your own snapshotting logic, write the data application & use these snapshots without requiring any consensus on said snapshots from other snapshotter nodes.
 
 :::success info
 #### Our Devnet is live!
@@ -72,10 +72,9 @@ We can compose snapshots on top of base snapshots for single or multiple contrac
 
 To learn more about Snapshot Composition, start with this [guide](https://docs.powerloom.io/docs/Protocol/data-composition), then explore [Data Points](https://docs.powerloom.io/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/data-points) for a use case-driven approach, and finally read through [Closer Look at Snapshots](https://docs.powerloom.io/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-look-at-snapshots) for a detailed understanding. 
 
----
+### Relayers
+Entities or nodes within a decentralized network responsible for relaying or forwarding messages, transactions, or data between different participants. Relayers play a crucial role in facilitating communication and interoperability within distributed systems.
 
-Relayers: Entities or nodes within a decentralized network responsible for relaying or forwarding messages, transactions, or data between different participants. Relayers play a crucial role in facilitating communication and interoperability within distributed systems.
+### Pre-loaders
+Software components, scripts, or routines used to load or initialize data, resources, or configurations before the main application or system starts. Pre-loaders ensure that necessary dependencies are available and set up properly to enable smooth operation of the application.
 
-Pre-loaders: Software components, scripts, or routines used to load or initialize data, resources, or configurations before the main application or system starts. Pre-loaders ensure that necessary dependencies are available and set up properly to enable smooth operation of the application.
-
----
