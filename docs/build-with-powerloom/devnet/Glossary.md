@@ -4,7 +4,7 @@ Key terms, concepts, and acronyms used in Powerloom's Devnet
 
 ### Snapshotter Peers & Nodes
 
-Snapshotter peers are participants in the Powerloom network who capture and verify data snapshots. Snapshotter nodes, run by Snapshotter peers, generate these snapshots at predetermined intervals or epochs. Both are crucial for data accuracy and integrity in the decentralized Powerloom ecosystem.
+Snapshotter peers are participants in the Powerloom network who capture and verify data snapshots. Snapshotter nodes, run by Snapshotter peers, generate these snapshots at predetermined intervals or epochs. The peers are crucial for data accuracy and integrity in the decentralized Powerloom ecosystem.
 
 ### Snapshots
 
@@ -20,11 +20,11 @@ Each Snapshotter makes observations specific to the state transitions spanning t
 
 Remote Procedure Calls (RPCs), allow a program to request a service from another program on a different computer in a network. In the blockchain, an RPC node lets users and applications interact with the blockchain without needing to know network details.
 
-Extracting data from the blockchain state and generating the snapshot can be a complex task. The RPC Helper, defined in utils/rpc.py, has many helper functions to make this process easier. It handles all the retry and caching logic so developers can focus on efficiently building their use cases.
+Extracting data from the blockchain state and generating the snapshot can be complex. The RPC Helper, has many helper functions to make this process easier. It handles all the retry and caching logic so developers can focus on efficiently building their use cases.
 
 ### Prost Chain
 
-The "Prost Chain" refers to the foundational blockchain infrastructure the Powerloom Network utilizes, serving as the anchor chain for storing proofs.
+The "Prost Chain" refers to the foundational blockchain infrastructure the Powerloom Network utilizes, serving as the anchor chain for storing proofs. The Prost Chain also coordinates activity between different categories of peers on the network. For, e.g., it coordinates consensus between snapshots to finalize snapshots per epoch; it also acts as the distribution point for releasing epochs.
 
 ### Protocol State (on Prost Chain)
 
