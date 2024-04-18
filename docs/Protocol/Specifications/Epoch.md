@@ -8,7 +8,7 @@ An epoch denotes a range of block heights on the data source blockchain where sm
 
 All peers synchronize and achieve consensus around incremental epochs according to their specific responsibilities. For example, snapshotter peers reach consensus around snapshots—base and aggregate—per epoch. This information gets finalized into the protocol state as snapshot datasets available as content identifiers on decentralized storage mediums like IPFS and Filecoin.
 
-![Epoch](static/images/Epoch.png)
+![Epoch](/images/Epoch.png)
 
 The size of an epoch is configurable, referred to as `size(E)`.
 
