@@ -86,14 +86,9 @@ Clone the repository against the respective branch (main by default). Open the t
 git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
 ```
 
-#### Step 2: Navigate to the Repository Directory:
-Change to the cloned repository's directory:
+The above command itself navigates you to the Repository Directory `powerloom-deploy`
 
-```bash    
-    cd powerloom-deploy
-```
-
-#### Step 3: Configure the environment variables
+#### Step 2: Configure the environment variables
 
 1. In the deploy repo's directory, create a new file named `.env`.
 
@@ -116,7 +111,12 @@ You can find the latest Epoch Contracts in the [example.env](https://github.com/
 This should allow developers to build and experiment with a variety of use cases. If you have any custom needs, reach out to the [team](https://discord.com/invite/powerloom)
 :::
 
-**Already Given:**  
+**Pre-supplied:**
+
+:::info 
+Unless it is a customized need or instructed by us, the below need not be changed or modified.
+
+:::
 
 - `SNAPSHOT_CONFIG_REPO`: https://github.com/powerloom/snapshotter-configs
 - `SNAPSHOT_CONFIG_REPO_BRANCH`: devnet
@@ -135,7 +135,7 @@ This should allow developers to build and experiment with a variety of use cases
 - `IPFS_API_SECRET`: The API secret for the IPFS service (if required).
 - `SLACK_REPORTING_URL`: The URL for reporting to Slack.
 
-#### Step 4: Set Up the Codebase
+#### Step 3 Set Up the Codebase
 
 Set up the codebase by running the `bootstrap.sh` command in the terminal:
 
@@ -148,7 +148,7 @@ This is a one-time step that resets the codebase to the latest version of the br
 After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
 :::
 
-#### Step 5: 
+#### Step 4: 
 
 Install the required dependencies using pip:
 
@@ -156,7 +156,7 @@ Install the required dependencies using pip:
 pip3 install -r requirements.txt
 ```
 
-#### Step 6: Run the Snapshotter Node
+#### Step 5: Run the Snapshotter Node
 
 Run the command
 
@@ -164,7 +164,7 @@ Run the command
 bash build.sh
 ```
 
-#### Step 7: Assign your Burner Wallet
+#### Step 6: Assign your Burner Wallet
 
 ```bash
 Do you want to assign a burner wallet to a slot? (yes/no):
@@ -245,14 +245,9 @@ Clone the repository against the respective branch (main by default). Open the t
 git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
 ```
 
-#### Step 2: Navigate to the Repository Directory:
-Change to the cloned repository's directory:
+The above command itself navigates you to the Repository Directory `powerloom-deploy`
 
-```bash    
-    cd powerloom-deploy
-```
-
-#### Step 3: Configure the environment variables
+#### Step 2: Configure the environment variables
 
 1. In the deploy repo's directory, create a new file named `.env`.
 
@@ -299,7 +294,7 @@ This should allow developers to build and experiment with a variety of use cases
 - `IPFS_API_SECRET`: The API secret for the IPFS service (if required).
 - `SLACK_REPORTING_URL`: The URL for reporting to Slack.
 
-#### Step 4: Set Up the Codebase
+#### Step 3: Set Up the Codebase
 
 Set up the codebase by running the `bootstrap.sh` command in the terminal:
 
@@ -312,7 +307,7 @@ This is a one-time step that resets the codebase to the latest version of the br
 After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
 :::
 
-#### Step 5: 
+#### Step 4: 
 
 Install the required dependencies using pip:
 
@@ -320,7 +315,7 @@ Install the required dependencies using pip:
 pip3 install -r requirements.txt
 ```
 
-#### Step 6: Run the Snapshotter Node
+#### Step 5: Run the Snapshotter Node
 
 Run the command
 
@@ -328,7 +323,7 @@ Run the command
 bash build.sh
 ```
 
-#### Step 7: Assign your Burner Wallet
+#### Step 6: Assign your Burner Wallet
 
 ```bash
 Do you want to assign a burner wallet to a slot? (yes/no):
@@ -351,9 +346,7 @@ Private Key:
 </TabItem>
 </Tabs>
 
----
-
-### Troubleshooting Errors
+<h3>Troubleshooting Errors</h3>
 
 If the `.env` file is filled up correctly, all services will execute one by one.
 
@@ -368,8 +361,7 @@ Make sure your snapshotter address is registered. Ensure you have minted the Dev
 
 Refer to our [troubleshooting section](../../build-with-powerloom/snapshotter-node/full-node/troubleshooting.md) if you encounter any other issues with your node.
 
----
-### Stopping the Node
+<h3>Stopping the Node</h3>
 
 1. To shut down services, press `Ctrl+C` for macOS/Linux & `Ctrl + Break` for Windows (and again to force).
 
