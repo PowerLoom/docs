@@ -24,7 +24,7 @@ Extracting data from the blockchain state and generating the snapshot can be com
 
 ### Prost Chain
 
-The "Prost Chain" refers to the foundational blockchain infrastructure the Powerloom Network utilizes, serving as the anchor chain for storing proofs. The Prost Chain also coordinates activity between different categories of peers on the network. For, e.g., it coordinates consensus between snapshots to finalize snapshots per epoch; it also acts as the distribution point for releasing epochs.
+The "Prost Chain" refers to the foundational blockchain infrastructure the Powerloom Network utilizes, serving as the anchor chain for storing proofs. The Prost Chain also coordinates activity between different categories of peers on the network. For example, it coordinates consensus between snapshots to finalize snapshots per epoch; it also acts as the distribution point for releasing epochs.
 
 ### Protocol State (on Prost Chain)
 
