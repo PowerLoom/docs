@@ -31,7 +31,7 @@ Follow these steps:
 
     - Search for the transaction hash of your NFT mint on the [Sepolia block explorer](https://sepolia.etherscan.io/).
         - For Metamask: The transaction will be under the `Activity` section.
-        - For other wallets: Search for your wallet address in the Sepolia block explorer and the mint will be the latest transaction.
+        - For other wallets: Search for your wallet address in the Sepolia block explorer; the mint will be the latest transaction.
         - Locate the minted Token ID under the `ERC-1155 Tokens Transferred` section.
 
     ![Block Explorer](/images/sepolia_blockexplorer_example.png)
@@ -141,12 +141,13 @@ For bash:
 ```bash
 bash bootstrap.sh
 ```
+or
 ```zsh
 zsh bootstrap.sh
 ```
 
 :::info
-This is a one-time step that resets the codebase to the latest version of the branch. 
+This one-time step resets the `powerloom_deploy` codebase to the latest version of the `devnet` branch. 
 After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
 :::
 
@@ -165,6 +166,7 @@ Run the command
 ```bash
 bash build.sh
 ```
+or
 ```zsh
 zsh build.sh
 ```
@@ -312,12 +314,13 @@ For bash:
 ```bash
 bash bootstrap.sh
 ```
+or
 ```zsh
 zsh bootstrap.sh
 ```
 
 :::info
-This is a one-time step that resets the codebase to the latest version of the branch. 
+This is a one-time step that resets the `powerloom_deploy` codebase to the latest version of the `devnet` branch. 
 After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
 :::
 
@@ -336,6 +339,7 @@ Run the command
 ```bash
 bash build.sh
 ```
+or
 ```zsh
 zsh build.sh
 ```
