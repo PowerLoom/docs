@@ -3,6 +3,8 @@ sidebar_position: 1
 ---
 
 import Admonition from '@theme-original/Admonition';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Getting Started
 This section will guide you through the necessary steps to set up and get started with the Devnet environment. By following these instructions, you'll be able to quickly configure your Devnet and start building data applications on Powerloom.
@@ -29,7 +31,7 @@ Follow these steps:
 
     - Search for the transaction hash of your NFT mint on the [Sepolia block explorer](https://sepolia.etherscan.io/).
         - For Metamask: The transaction will be under the `Activity` section.
-        - For other wallets: Search for your wallet address in the Sepolia block explorer and the mint will be the latest transaction.
+        - For other wallets: Search for your wallet address in the Sepolia block explorer; the mint will be the latest transaction.
         - Locate the minted Token ID under the `ERC-1155 Tokens Transferred` section.
 
     ![Block Explorer](/images/sepolia_blockexplorer_example.png)
@@ -65,109 +67,111 @@ Your RPC usage depends on your specific use case. If your application requires a
 If you want to monitor your RPC usage, we recommend signing up with a provider like Alchemy, Infura or Quicknode.
 :::
 
+:::info 
+Setting up the snapshotter node on Windows requires a few additional steps. We suggest using Docker because of its ease of setup and speed. To begin with Docker, you must have the Windows Subsystem for Linux (WSL) installed. Please follow the guide provided below for detailed instructions.
+:::
+
+<Tabs groupId="operating-systems" className="unique-tabs" queryString="current-os">
+  <TabItem value="macOS-setup" label="macOS/Linux">
+  <h2>Deploying a Snapshotter Node on macOS/Linux</h2>
+
 ### Running the Snapshotter Node
 Follow the process outlined below to ensure a smooth setup
 
 #### Step 1: Clone the Snapshotter Deploy Repository
 
-Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom-deploy`.
+Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`.
 
 ```bash
 git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
 ```
 
-#### Step 2: Fork the Snapshotter Computes and Snapshotter Config Repositories
+The above command itself navigates you to the Repository Directory `powerloom_deploy`
 
-Our system leverages the Git submodule architecture to seamlessly manage these components. To dive deeper into how these elements integrate and function within our larger system, check out the [architecture documentation](https://docs.powerloom.io/docs/build-with-powerloom/snapshotter-node/architecture).
+#### Step 2: Configure the environment variables
 
-To optimize the development process, we recommend forking the templates for:
+1. `cp env.example .env` Copies the contents of the file named `env.example` to a new file named `.env`. 
 
-- Snapshotter Configs: https://github.com/PowerLoom/snapshotter-configs
-- Snapshotter Computes: https://github.com/PowerLoom/snapshotter-computes
+2. Fill in the required variables in the `.env` file:
 
-:::info
-When forking the repository, ensure that the *"Copy the main branch only" * option is left unchecked. This will allow you to clone all the branches associated with the repository, not just the main branch.
-:::
-
-Once you have forked the above repositories, next step is to clone them on your local system. 
-
-```bash
-git clone https://github.com/<your_github_username>/snapshotter-computes
-```
-```bash
-git clone https://github.com/<your_github_username>/snapshotter-configs
-```
-
-#### Step 3: Configure the environment variables
-
-1. In the deploy repo's directory, create a new file named `.env`.
-
-2. Copy the contents of [`env.example`](https://github.com/PowerLoom/deploy/blob/devnet/env.example) to `.env`.
-
-3. Fill in the required variables in the `.env` file:
-
+#### During the creation of the .env file, add the following details: 
 - `SOURCE_RPC_URL`: The URL for Source RPC (Local node/Infura/Alchemy) service.
-
 - `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This should be an unused "burner" address that does not need to have any token balance. You can create a new burner wallet from [our tool](https://devnet-mint.powerloom.dev/burner). During later steps, this address will be registered against the `SLOT_ID` on the `PROTOCOL_STATE_CONTRACT` that is set in this `.env`.
-- `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the burner wallet addresss
-- `SNAPSHOT_CONFIG_REPO`: https://github.com/your-username/snapshotter-configs [Change the username to your GitHub profile to point to your forked snapshotter-configs repository.]
-- `SNAPSHOT_CONFIG_REPO_BRANCH`: Change to your own branch or use the `devnet` branch if you are getting started.
-- `SNAPSHOTTER_COMPUTE_REPO`:  https://github.com/your-username/snapshotter-computes [Change the username to your GitHub profile to point to your forked snapshotter-computes repository.]
-- `SNAPSHOTTER_COMPUTE_REPO_BRANCH`: Change to your own branch or use the `devnet` branch if you are getting started.
-- `PROST_RPC_URL`: The URL for the Powerloom Protocol Chain RPC service.
-- `PROTOCOL_STATE_CONTRACT`: The contract address for the protocol state.
+- `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the burner wallet address
+- `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID by visiting the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard), or on the [Sepolia block explorer](https://sepolia.etherscan.io/) by searching for the transaction hash of your node mint]
+- `PROTOCOL_STATE_CONTRACT`: Choose the contract address for the protocol state with respect to the Epoch size.
 
 :::note
-Currently, there are two variations of Protocol State Contracts available. One where [Epoch](../../Protocol/Specifications/Epoch.md) size is set to 1 and other where epoch size is set to 10 blocks. 
+Currently, there are two variations of Protocol State Contracts available. One where [Epoch](../../Protocol/Specifications/Epoch.md) size is set to 1 and the other where epoch size is set to 10 blocks. 
 
 You can find the latest Epoch Contracts in the [example.env](https://github.com/PowerLoom/deploy/blob/devnet/env.example) file. 
 
 This should allow developers to build and experiment with a variety of use cases. If you have any custom needs, reach out to the [team](https://discord.com/invite/powerloom)
 :::
 
+**Pre-supplied:**
+
+:::info 
+Unless it is a customized need or instructed by us, the below need not be changed or modified.
+
+:::
+
+- `SNAPSHOT_CONFIG_REPO`: https://github.com/powerloom/snapshotter-configs
+- `SNAPSHOT_CONFIG_REPO_BRANCH`: devnet
+- `SNAPSHOTTER_COMPUTE_REPO`: https://github.com/powerloom/snapshotter-computes
+- `SNAPSHOTTER_COMPUTE_REPO_BRANCH`: devnet
+- `PROST_RPC_URL`: The Powerloom Protocol Chain RPC service URL.
 - `RELAYER_HOST`: The relayer URL for the Powerloom Protocol Chain.
-- `NAMESPACE`: The unique key used to identify your project namespace.
+- `NAMESPACE`: The unique key to identify your project namespace.
 - `POWERLOOM_REPORTING_URL`: The URL for reporting to PowerLoom.
-- `PROST_CHAIN_ID`: Enter the Devnet chain ID
-- `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID by visiting the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard), or on the [Sepolia block explorer](https://sepolia.etherscan.io/) by searching for the transaction hash of your node mint]
+- `PROST_CHAIN_ID`: The Devnet chain ID
 
-Optional variables:
+**Optional variables:**
 
-- `IPFS_URL`: The URL for the IPFS (InterPlanetary File System) service in HTTP(s) (e.g., `https://ipfs.infura.io:5001`) or multiaddr format (e.g., `/dns4/ipfs.infura.io/tcp/5001/https`).
+- `IPFS_URL`: The URL for the IPFS (InterPlanetary File System) service in HTTP(s) (e.g., `https://ipfs.infura.io:5001`) or multiaddr format (e.g., `/dns4/ipfs.infura.io/tcp/5001/https`).
 - `IPFS_API_KEY`: The API key for the IPFS service (if required).
 - `IPFS_API_SECRET`: The API secret for the IPFS service (if required).
 - `SLACK_REPORTING_URL`: The URL for reporting to Slack.
 
-#### Step 4: Set Up the Codebase
+#### Step 3: Set Up the Codebase
+Set up the codebase by running the `bootstrap.sh` command in the terminal. Developers may use different shells, such as bash or zsh. Adjust the command accordingly:
 
-Set up the codebase by running the `bootstrap.sh` command in the terminal:
+For bash:
 
 ```bash
 bash bootstrap.sh
 ```
+or
+```zsh
+zsh bootstrap.sh
+```
 
 :::info
-This is a one-time step that resets the codebase to the latest version of the branch. 
+This one-time step resets the `powerloom_deploy` codebase to the latest version of the `devnet` branch. 
 After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
 :::
 
-#### Step 5: 
+#### Step 4: 
 
 Install the required dependencies using pip:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
-#### Step 6: Run the Snapshotter Node
+#### Step 5: Run the Snapshotter Node
 
 Run the command
 
 ```bash
 bash build.sh
 ```
+or
+```zsh
+zsh build.sh
+```
 
-#### Step 7: Assign your Burner Wallet
+#### Step 6: Assign your Burner Wallet
 
 ```bash
 Do you want to assign a burner wallet to a slot? (yes/no):
@@ -175,7 +179,6 @@ Do you want to assign a burner wallet to a slot? (yes/no):
 
 Enter yes and then enter your burner wallet address when prompted.
 - This is the `SIGNER_ACCOUNT_ADDRESS` that was set during [Step 3](#step-3-configure-the-environment-variables).
-
 
 Next, you will be prompted to enter a private key:
 
@@ -187,7 +190,184 @@ Private Key:
 - Please note that this is *not* asking for the private key to your burner wallet.
 - Enter the private key of the wallet [**used to mint** the devnet slot](#minting-the-devnet-slot).
 
-### Troubleshooting Errors
+
+</TabItem>
+
+<TabItem value="windows" label="Windows">
+<h2>Deploying a Snapshotter Node on Windows</h2>
+
+### Initial Setup | Docker
+
+- **Open PowerShell:**
+    - Start by opening PowerShell on your Windows machine. Search for `"PowerShell"` in the start menu and launch it.
+- **Install Windows Subsystem for Linux (WSL):**
+    - In the PowerShell window, enter the following command:
+        
+        ```bash
+        wsl --install
+        
+        ```
+        
+    - This command installs the Windows Subsystem for Linux, necessary for running Docker.
+- **Download and Install Docker:**
+    - Download Docker from the [official website](https://docs.docker.com/get-docker/).
+    - Follow the installation instructions provided on the website.
+- **Restart Your Computer:**
+    - After installing Docker, restart your computer to apply all changes.
+- **Open Docker:**
+    - Post-restart, open Docker. This should automatically launch a Powershell console which will have WSL installed.
+- **Set Up Linux User Account:**
+    - In the newly opened powershell console, set up a new user account by entering a username and password.
+
+### Granting Docker Permissions
+
+
+- **Modify Docker Group Permissions:**
+    - To grant Docker the necessary permissions, add your user to the Docker group with this command:
+        
+        ```bash
+        sudo usermod -aG docker $USER
+        
+        ```
+        
+    - Logout and login again or restart the Docker service for the changes to take effect.
+- **Verify Docker Installation:**
+    - To confirm Docker is set up correctly, run:
+        
+        ```bash
+        docker run hello-world
+        
+        ```
+        
+    - This command should display a message confirming Docker is functioning.
+
+### Running the Snapshotter Node
+Follow the process outlined below to ensure a smooth setup
+
+#### Step 1: Clone the Snapshotter Deploy Repository
+
+Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom-deploy`.
+
+```bash
+git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
+```
+
+The above command itself navigates you to the Repository Directory `powerloom-deploy`
+
+#### Step 2: Configure the environment variables
+
+1. In the deploy repo's directory, create a new file named `.env`.
+
+2. Copy the contents of [`env.example`](https://github.com/PowerLoom/deploy/blob/devnet/env.example) to `.env`.
+
+3. Fill in the required variables in the `.env` file:
+    - use `dir` to check all existing files under the created directory “powerloom_deploy”
+    - use `start env.example` to open env.example file
+    - to create a new .env file use syntax `echo. > .env`
+    - to copy contents from `env.example` to `.env` use code `type env.example > .env`
+    - to open & check contents of `.env` use code `type .env`
+   
+#### During the creation of the .env file, add the following details: 
+- `SOURCE_RPC_URL`: The URL for Source RPC (Local node/Infura/Alchemy) service.
+- `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This should be an unused "burner" address that does not need to have any token balance. You can create a new burner wallet from [our tool](https://devnet-mint.powerloom.dev/burner). During later steps, this address will be registered against the `SLOT_ID` on the `PROTOCOL_STATE_CONTRACT` that is set in this `.env`.
+- `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the burner wallet address
+- `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID by visiting the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard), or on the [Sepolia block explorer](https://sepolia.etherscan.io/) by searching for the transaction hash of your node mint]
+- `PROTOCOL_STATE_CONTRACT`: Choose the contract address for the protocol state with respect to the Epoch size.
+
+:::note
+Currently, there are two variations of Protocol State Contracts available. One where [Epoch](../../Protocol/Specifications/Epoch.md) size is set to 1 and other where epoch size is set to 10 blocks. 
+
+You can find the latest Epoch Contracts in the [example.env](https://github.com/PowerLoom/deploy/blob/devnet/env.example) file. 
+
+This should allow developers to build and experiment with a variety of use cases. If you have any custom needs, reach out to the [team](https://discord.com/invite/powerloom)
+:::
+
+**Pre-supplied:**
+
+:::info 
+Unless it is a customized need or instructed by us, the below need not be changed or modified.
+
+:::
+
+- `SNAPSHOT_CONFIG_REPO`: https://github.com/powerloom/snapshotter-configs
+- `SNAPSHOT_CONFIG_REPO_BRANCH`: devnet
+- `SNAPSHOTTER_COMPUTE_REPO`: https://github.com/powerloom/snapshotter-computes
+- `SNAPSHOTTER_COMPUTE_REPO_BRANCH`: devnet
+- `PROST_RPC_URL`: The Powerloom Protocol Chain RPC service URL.
+- `RELAYER_HOST`: The relayer URL for the Powerloom Protocol Chain.
+- `NAMESPACE`: The unique key to identify your project namespace.
+- `POWERLOOM_REPORTING_URL`: The URL for reporting to PowerLoom.
+- `PROST_CHAIN_ID`: The Devnet chain ID
+
+**Optional variables:**
+
+- `IPFS_URL`: The URL for the IPFS (InterPlanetary File System) service in HTTP(s) (e.g., `https://ipfs.infura.io:5001`) or multiaddr format (e.g., `/dns4/ipfs.infura.io/tcp/5001/https`).
+- `IPFS_API_KEY`: The API key for the IPFS service (if required).
+- `IPFS_API_SECRET`: The API secret for the IPFS service (if required).
+- `SLACK_REPORTING_URL`: The URL for reporting to Slack.
+
+#### Step 3: Set Up the Codebase
+
+Set up the codebase by running the `bootstrap.sh` command in the terminal. Developers may use different shells, such as bash or zsh. Adjust the command accordingly:
+
+For bash:
+
+```bash
+bash bootstrap.sh
+```
+or
+```zsh
+zsh bootstrap.sh
+```
+
+:::info
+This is a one-time step that resets the `powerloom_deploy` codebase to the latest version of the `devnet` branch. 
+After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
+:::
+
+#### Step 4: 
+
+Install the required dependencies using pip:
+
+```bash
+pip3 install -r requirements.txt
+```
+
+#### Step 5: Run the Snapshotter Node
+
+Run the command
+
+```bash
+bash build.sh
+```
+or
+```zsh
+zsh build.sh
+```
+
+#### Step 6: Assign your Burner Wallet
+
+```bash
+Do you want to assign a burner wallet to a slot? (yes/no):
+```
+
+Enter yes and then enter your burner wallet address when prompted.
+- This is the `SIGNER_ACCOUNT_ADDRESS` that was set during [Step 3](#step-3-configure-the-environment-variables).
+
+Next, you will be prompted to enter a private key:
+
+```bash
+To assign a burner wallet to a slot, you need to sign a message with the private key of the Account holding the slot.
+Private Key:
+```
+
+- Please note that this is *not* asking for the private key to your burner wallet.
+- Enter the private key of the wallet [**used to mint** the devnet slot](#minting-the-devnet-slot).
+
+</TabItem>
+</Tabs>
+
+<h3>Troubleshooting Errors</h3>
 
 If the `.env` file is filled up correctly, all services will execute one by one.
 
@@ -198,18 +378,22 @@ If the `.env` file is filled up correctly, all services will execute one by one.
     powerloom_depoy-pooler-1 exited with code 1
 ```
     
-Make sure your snapshotter address is registered. Ensure that you have minted the Devnet Slot from the [devnet dashboard](https://mint-devnet.powerloom.network) and your burner wallet has been added correctly during Step 6.
+Make sure your snapshotter address is registered. Ensure you have minted the Devnet Slot from the [devnet dashboard](https://devnet-mint.powerloom.dev/dashboard) and your burner wallet has been added correctly during Step 6.
 
 Refer to our [troubleshooting section](../../build-with-powerloom/snapshotter-node/full-node/troubleshooting.md) if you encounter any other issues with your node.
 
-### Stopping the Node
+<h3>Stopping the Node</h3>
 
-1. To shutdown services, press `Ctrl+C` (and again to force).
+1. To shut down services, press `Ctrl+C` for macOS/Linux & `Ctrl + Break` for Windows (and again to force).
 
 2. If you encounter issues with data, you can do a clean **reset** by running the following command before restarting from [Step 5](#step-5-run-the-snapshotter-node):
 
 ```bash
 docker-compose --profile ipfs down --volumes
+```
+or 
+```bash
+docker compose --profile ipfs down --volumes
 ```
 
 ---
