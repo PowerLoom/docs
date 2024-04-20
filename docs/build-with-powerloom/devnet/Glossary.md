@@ -1,4 +1,8 @@
-Key terms, concepts, and acronyms used in Powerloom's Devnet
+---
+sidebar_position: 3
+---
+
+## Key terms, concepts, and acronyms used in Powerloom's Devnet
 
 ---
 

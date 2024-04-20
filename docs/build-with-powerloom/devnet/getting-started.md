@@ -219,7 +219,8 @@ Private Key:
 - **Set Up Linux User Account:**
     - In the newly opened powershell console, set up a new user account by entering a username and password.
 
-### Granting Docker Permissions[](https://docs.powerloom.io/docs/build-with-powerloom/snapshotter-node/lite-node/getting-started?current-os=win&setup-type=docker-setup-windows#granting-docker-permissions)
+### Granting Docker Permissions
+
 
 - **Modify Docker Group Permissions:**
     - To grant Docker the necessary permissions, add your user to the Docker group with this command:
