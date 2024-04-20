@@ -80,13 +80,13 @@ Follow the process outlined below to ensure a smooth setup
 
 #### Step 1: Clone the Snapshotter Deploy Repository
 
-Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom-deploy`.
+Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`.
 
 ```bash
 git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
 ```
 
-The above command itself navigates you to the Repository Directory `powerloom-deploy`
+The above command itself navigates you to the Repository Directory `powerloom_deploy`
 
 #### Step 2: Configure the environment variables
 
