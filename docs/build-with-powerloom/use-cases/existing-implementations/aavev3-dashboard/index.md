@@ -18,7 +18,7 @@ Data points are essential elements that serve as the foundational units upon whi
 
 ### Development and Extension
 
-Snapshotter Node's design enables extensions and custom use case implementations. A developer can extend the pooler compute files found in [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and config files found in [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2) to build their own custom use case implementations.
+The Pooler framework builds upon the modular architecture of a Snapshotter Node and enables extensions and custom use case implementations. A developer can extend the pooler compute files found in [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/aave) and config files found in [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/aave) to build their own custom use case implementations.
 
 The documentation has a dedicated section that discusses further implementation and use-case extensions.
-Check out our guide on [Setup and Extension](/docs/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/setup-and-extension.md) -->
+Check out our guide on [Setup and Extension](/docs/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/setup-and-extension.md).
