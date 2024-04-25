@@ -9,6 +9,8 @@ import TabItem from '@theme/TabItem';
 # Getting Started
 This section will guide you through the necessary steps to set up and get started with the Devnet environment. By following these instructions, you'll be able to quickly configure your Devnet and start building data applications on Powerloom.
 
+Watch this tutorial below to get a detailed walk-through of Powerloom Devnet node setup.
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/L1OOjhVpAEY?si=GXpBua9QxUuXccSa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Minting the Devnet Slot
