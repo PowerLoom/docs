@@ -53,8 +53,10 @@ When creating a burner wallet, prioritize security by managing private keys secu
 ### How do I deploy my Snapshotter node once the environment is configured?
 After configuring the environment variables, set the powerloom_deploy codebase by running the `bootstrap.sh` command in the terminal. Developers may use different shells, such as bash or zsh.
 
+:::info 
 **Note**: This is a one-time step that resets the `powerloom_deploy` codebase to the latest version of the `devnet` branch. After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
-    
+:::
+
 ### What data source chains are supported?
 We support Ethereum Mainnet and Sepolia Testnet.
     
