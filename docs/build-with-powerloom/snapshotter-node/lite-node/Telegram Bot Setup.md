@@ -9,7 +9,7 @@ Introducing the Powerloom Telegram Bot ‘PowerloomReportingBot’. This bot ser
 - Step 1: Find the telegram bot by searching ‘PowerloomSnapshotterReportingService’ on Telegram
 - Step 2: Type ‘/start’ to activate the bot. This will provide you with a Chat ID.
 
-![ChatID start](static/images/chatID-start.png)
+![ChatID start](/images/chatID-start.png)
 
 Enter the ChatID when prompted on the terminal during the node setup. 
 
