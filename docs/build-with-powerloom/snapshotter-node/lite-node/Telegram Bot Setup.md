@@ -11,18 +11,24 @@ Introducing the Powerloom Telegram Bot ‘PowerloomReportingBot’. This bot ser
 
 ![chatID-start](/images/chatID-start.png)
 
+### If you are a new Snapshotter, setting up your node
 Enter the ChatID when prompted on the terminal during the node setup. 
 
-If you are an existing snapshotter, 
-1. Update your `.env` file with the generated ChatID & the Telegram Reporting URL, as seen in the image below: 
-2. Run the build setup again
+### If you are an existing snapshotter, 
+
+Here's what you can do:
+
+A. 
+  - Update your `.env` file with the generated ChatID & the Telegram Reporting URL, as seen in the image below.
+  - Run the build setup again
 
 ![updated-env-screenshot](/images/updated-env-screenshot.png)
 
 OR
 
-1. Delete your existing `.env` file & Run the build setup again.
-2. Enter the ChatID when prompted on the terminal.
+B.
+  - Delete your existing `.env` file & Run the build setup again.
+  - Enter the ChatID when prompted on the terminal.
 
 ![terminal-prompt](/images/terminal-prompt.png)
 
