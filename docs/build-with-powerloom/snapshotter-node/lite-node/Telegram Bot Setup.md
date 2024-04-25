@@ -1,8 +1,9 @@
 ### Setting up your Telegram Bot | Node Health Monitoring 
 
-This guide provides instructions for setting up your Powerloom Telegram Bot to monitor your Node Health for failed or missed Snapshots. The snapshotter-lite nodes currently require manual monitoring to discover any issues with the node.
 
-Introducing the Powerloom Telegram Bot ‘PowerloomReportingBot’. This bot service should maintain an internal health state and report any issues to operators such as failed or missed snapshots. 
+This guide provides instructions for setting up your Powerloom Telegram Bot to monitor the health of your node for failed or missed snapshots. The Snapshotter-lite nodes currently require manual monitoring to detect any issues.
+
+Introducing the Powerloom Telegram Bot, ‘PowerloomReportingBot’. This bot service maintains an internal health state and reports any issues to operators, such as failed or missed snapshots 
 
 ### Follow the steps below to set up your Node Health Monitoring process using Telegram.
 
@@ -14,7 +15,7 @@ Introducing the Powerloom Telegram Bot ‘PowerloomReportingBot’. This bot ser
 ### If you are a new Snapshotter, setting up your node
 Enter the ChatID when prompted on the terminal during the node setup. 
 
-### If you are an existing snapshotter, 
+### If you are an existing Snapshotter, 
 
 Here's what you can do:
 
