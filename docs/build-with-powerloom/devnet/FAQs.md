@@ -55,7 +55,7 @@ After configuring the environment variables, set the powerloom_deploy codebase b
 
 **Note**: This is a one-time step that resets the `powerloom_deploy` codebase to the latest version of the `devnet` branch. After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
     
-### What chains are supported?
+### What data source chains are supported?
 We support Ethereum Mainnet and Sepolia Testnet.
     
 ### What steps should I follow to perform a clean reset of my node?
