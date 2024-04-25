@@ -9,23 +9,22 @@ Introducing the Powerloom Telegram Bot ‘PowerloomReportingBot’. This bot ser
 - Step 1: Find the telegram bot by searching ‘PowerloomSnapshotterReportingService’ on Telegram
 - Step 2: Type ‘/start’ to activate the bot. This will provide you with a Chat ID.
 
-Image1 (chatid & start)
+![ChatID start](static/images/chatID-start.png)
 
 Enter the ChatID when prompted on the terminal during the node setup. 
 
 If you are an existing snapshotter, 
-1. Update your `.env` file with the generated ChatID & the Telegram Reporting URL , as seen in the image below: 
+1. Update your `.env` file with the generated ChatID & the Telegram Reporting URL, as seen in the image below: 
 2. Run the build setup again
 
-Image2 (.env ss with tg marked)
+![updated env screenshot](static/images/updated-env-screenshot.png)
 
 OR
 
 1. Delete your existing `.env` file & Run the build setup again.
 2. Enter the ChatID when prompted on the terminal.
 
-Image3 (terminal prompt tg)
-
+![terminal prompt tg](static/images/terminal-prompt.png)
 
 ### To check if the Bot is successfully running, try these:
 
@@ -34,11 +33,7 @@ Image3 (terminal prompt tg)
 
 If you see messages of failed or missed snapshots like the images below, know that the bot is running successfully. 
 
-Image4 (fail message)
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0c23e60c-6343-4793-90be-1ef4d172143a/eb0ad172-db9b-4671-b1f4-b7eaf2b3de28/Untitled.png)
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0c23e60c-6343-4793-90be-1ef4d172143a/bb40c964-cc51-49ac-aecd-a35589c0cad8/Untitled.png)
+![fail message](static/images/failed-snapshot.png)
 
 ---
 
