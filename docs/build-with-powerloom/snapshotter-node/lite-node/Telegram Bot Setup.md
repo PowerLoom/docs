@@ -12,11 +12,10 @@ Introducing the Powerloom Telegram Bot, ‘PowerloomReportingBot’. This bot se
 
 ![chatID-start](/images/chatID-start.png)
 
-### If you are a new Snapshotter,
-Enter the ChatID when prompted on the terminal during the node setup. 
+### If you are setting up the node for the first time, 
+Enter the ChatID when prompted on the terminal during the node setup.** 
 
-### If you are an existing Snapshotter, 
-
+### If you have an existing installation, 
 Here's what you can do:
 
 A. 
