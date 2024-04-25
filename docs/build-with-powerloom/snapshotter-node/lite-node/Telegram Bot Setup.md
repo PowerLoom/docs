@@ -6,7 +6,7 @@ Introducing the Powerloom Telegram Bot ‘PowerloomReportingBot’. This bot ser
 
 ### Follow the steps below to set up your Node Health Monitoring process using Telegram.
 
-- Step 1: Find the telegram bot by searching ‘PowerloomSnapshotterReportingService’ on Telegram
+- Step 1: Find the telegram bot by searching ‘PowerloomReportingBot’ on Telegram
 - Step 2: Type ‘/start’ to activate the bot. This will provide you with a Chat ID.
 
 ![chatID-start](/images/chatID-start.png)
@@ -28,8 +28,8 @@ OR
 
 ### To check if the Bot is successfully running, try these:
 
-- Limit API request Rates
-- Limit the API being requested
+- Limit API request rates per second
+- Limit the API being requested by specifying the allowed API methods. (e.g. eth_getBlockNumber)
 
 If you see messages of failed or missed snapshots like the images below, know that the bot is running successfully. 
 
