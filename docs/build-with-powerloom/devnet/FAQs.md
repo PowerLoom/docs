@@ -12,7 +12,6 @@ To mint a Devnet slot on the Sepolia network, visit this page provided by Powerl
     
 ### What is a Snapshotter node?
 
-
 Snapshotter peers are participants in the Powerloom network who run Snapshotter Nodes which capture and verify data snapshots at predetermined intervals or epochs.
     
 ### How do you check the Slot ID of your minted devnet slot?
@@ -30,7 +29,7 @@ To configure the environment variables, follow these steps:
   2. Fill in the required variables in .env `SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY`, `SLOT_ID`, `PROTOCOL_STATE_CONTRACT`.
 
 ### Where can I find documentation on Snapshotter Configs and Computes?
-You can find the documentation for Snapshotter Configs and Computes here. The pooler computes and config files are found in [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2).
+You can find the documentation for Snapshotter Configs and Computes in the docs. The pooler computes and config files are found in [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2).
     
 ### What is RPC? 
 In blockchain, RPC (Remote Procedure Calls) nodes allow users and apps to interact with the blockchain without network details. The RPC Helper simplifies the data extraction process from the blockchain state and generates snapshots.
@@ -44,7 +43,9 @@ You can use the macOS, Linux, or Windows to run the Snapshotter node. For more d
 ### What is a burner wallet and how do you generate one? 
 A burner/disposable wallet is a type of cryptocurrency wallet that is designed for temporary use. Burner wallets are often used for small transactions or events where security and long-term storage are not priorities.
 
+:::tip 
 **Note:** Please do not use your NFT minting wallet to run the Snapshotter lite node. The safest approach is to generate and assign a burner wallet using tools like [Vanity-ETH](https://vanity-eth.tk/) and [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
+:::
 
 ### What security measures should I consider when creating a burner wallet?
 When creating a burner wallet, prioritize security by managing private keys securely, limiting funds stored, performing offline transactions, regularly backing up data, ensuring a secure environment, using trusted sources, considering multi-signature wallets, and staying informed about security practices.
@@ -74,11 +75,15 @@ To shut down services, use the keyboard shortcut **`Ctrl + C`** on macOS/Linux o
 Yes, you can run the setup in different languages. The Snapshotter node is a complex system with multiple components written in different languages. Pooler is a Python program, while Audit Protocol is coded in Go. Since Pooler and Audit Protocol communicate via RabbitMQ, either component can be ported to different languages, making the Snapshotter node accessible to developers unfamiliar with Python or Go.
     
 ### What is the purpose of the PROTOCOL_STATE_CONTRACT variable?
-This variable specifies the protocol state's contract address, which depends on the Epoch size. Currently, there are options for Epoch sizes of 1 and 10, allowing developers to experiment with different use cases.
+This PROTOCOL_STATE_CONTRACT variable specifies the protocol state's contract address. Different protocol state contracts depend on the data source contract's chain and the Epoch size of that chain that developers prefer. 
+
+Currently, there are options for Epoch sizes of 1 and 10, where epoch size 1 is better for real-time use cases, while 10 is more suitable for aggregated dataset use cases like data dashboards, giving developers the flexibility to experiment with different scenarios.
 
 ### What is the Relayer Host?
-The Relayer Host is the relayer URL for the Powerloom Protocol Chain. The relayer is a node within a decentralized network responsible for relaying or forwarding messages, transactions, or data between different participants. Relayers play a crucial role in facilitating communication and interoperability. 
-    
+The Relayer Host is the URL for the relayer, a specialized node within the decentralized network, used in the Powerloom Protocol Chain. 
+Powerloom operates relayers that handle transactions that submit snapshots to the protocol state contract on behalf of snapshotter nodes. 
+This ensures they do not have to spend gas fees to submit snapshots on the Powerloom protocol chain, aka Prost.
+
 ### How do I check if my node is running?
 To check if your node is running actively, navigate to the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard). Click the "Check Node Status" button to refresh & check the status.
     
