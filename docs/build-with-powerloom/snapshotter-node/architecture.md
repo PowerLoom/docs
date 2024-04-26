@@ -17,6 +17,7 @@ Use case-specific logic for generating snapshots and other configurations are av
 
 * DEXs like Uniswap v2, Quickswap
 * Bridges like bungee.exchange, Owlto finance
+* Lending markets like Aave and Compound 
 
 The architecture has been designed to facilitate the seamless interchange of configuration and modules. Adapting the system to different use cases is as straightforward as changing a Git branch.
 
@@ -25,11 +26,15 @@ You can observe the corresponding branches within [snapshotter-configs](https://
 #### Snapshotter Computes
 * `eth_uniswapv2`: Pooler implementation for the Uniswap v2 dashboard
 * `eth_uniswapv2_lite`: Pooler implementation for the Uniswap v2 dashboard but without the calculation of complex aggregate data points from scratch.
+* `aave`: Pooler implementation for the Aave v3 dashboard
+* `aave-lite`: Pooler implementation for the Aave v3 dashboard but without the calculation of complex aggregate data points from scratch.
 * `zkevm_quests`: Implementation for Quests on Polygon zkEVM
 
 #### Snapshotter Configs
 * `eth_uniswapv2_5_pairs`: Pooler lite mode config with only 5 chosen Uniswap v2 pair contracts
 * `eth_uniswapv2`: Pooler config with only 180 Uniswap v2 pair contracts
+* `aave`: Pooler config with all Aave v3 asset contracts
+* `aave-lite`: Pooler config to be used with the aave-lite compute branch
 * `zkevm_quests`: Config for Quests on Polygon zkEVM
 
 ### Configuration Files

@@ -1,9 +1,9 @@
 ---
 sidebar_position: 0
 ---
-# Extending Pooler 
+# Extending Uniswap V2 dashboard usecase
 
-This documentation provides a step-by-step guide for developers looking to extend the functionality of the UniswapV2 Dashboard, specifically focusing on implementing new data points. The goal is to empower developers to enhance the dashboard with custom features, making it a valuable tool in hackathons and blockchain analytics.
+This documentation provides a step-by-step guide for developers looking to extend the functionality of the UniswapV2 Dashboard use case, specifically focusing on implementing new data points. The goal is to empower developers to enhance the dashboard with custom features, making it a valuable tool in hackathons and blockchain analytics.
 
 ## Extending with New Data Points
 
