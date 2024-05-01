@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Datapoints
 
-![UniswapV2 Dashboard Powerloom](/images/uniswapv2-dashboard-powerloom.png)
+![UniswapV2 Dashboard Powerloom](/images/uniswapv2-dashboard-powerloom-2.png)
 
 In Pooler, data points are specific, quantifiable elements derived from Uniswap V2 trading activities. 
 Each snapshot inherits `Snapshot Base` which looks something like this
