@@ -102,7 +102,7 @@ https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d0
 
 ### Example of snapshot computation
 
-#### Base snapshot of trade events for the [Uniswap V2 dashboard data market](/docs/category/uniswapv2-dashboard):
+#### Base snapshot of trade events for the [Uniswap V2 dashboard data market](/docs/category/uniswap-dashboard):
 ```python reference
 https://github.com/Powerloom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc860004d35786f4df/trade_volume.py#L14-L44
 ```
@@ -111,7 +111,7 @@ https://github.com/Powerloom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc8
 ## Aggregate Snapshots
 ---
 
-Aggregate and higher-order snapshots that build on base snapshots are configured in their specific repositories, such as the following in our [Uniswap V2 Dashboard use case](/docs/category/uniswapv2-dashboard). This is where you can observe the [dependency graph of snapshot composition](/docs/protocol/data-composition#dependency-graph) in action.
+Aggregate and higher-order snapshots that build on base snapshots are configured in their specific repositories, such as the following in our [Uniswap V2 Dashboard use case](/docs/category/uniswap-dashboard). This is where you can observe the [dependency graph of snapshot composition](/docs/protocol/data-composition#dependency-graph) in action.
 
 :::info
 
@@ -133,7 +133,7 @@ https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8b
   * For example, a base snapshot built on a project ID like `pairContract_trade_volume:0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc:UNISWAPV2` triggers the worker `AggregateTradeVolumeProcessor` as defined in the `processor` config, against the pair contract `0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc`.
 * The span of epochs on which corresponding base snapshots will be aggregated is determined by the logic contained in the module specified in the `processor` key.
 
-The following implementation aggregates [trade volume snapshots](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-look-at-snapshots.md) across a span of 24 hours worth of epochs, if available. Otherwise, it aggregates the entire span of epochs available on the protocol against the data market and reports it back.
+The following implementation aggregates [trade volume snapshots](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/closer-look-at-snapshots.md) across a span of 24 hours worth of epochs, if available. Otherwise, it aggregates the entire span of epochs available on the protocol against the data market and reports it back.
 
 
 ```python reference
