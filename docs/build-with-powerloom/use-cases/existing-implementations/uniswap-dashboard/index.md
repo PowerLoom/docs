@@ -4,9 +4,9 @@ sidebar_position: 0
 
 # Introduction
 
-## Pooler - UniswapV2 Data Market
+## Pooler - UniswapV2 and UniswapV3 Data Markets
 
-Pooler is a Uniswap-specific implementation within the Powerloom ecosystem, designed as a snapshotter. It functions by synchronizing with other snapshotter peers over a smart contract on the Powerloom Protocol testnet. This architecture, guided by state transitions, is both easily comprehensible and modifiable.
+Pooler is a Uniswap-specific implementation within the Powerloom ecosystem, designed as a snapshotter. It functions by synchronizing with other snapshotter peers over a smart contract on the Powerloom Protocol testnet. This architecture, guided by state transitions, is both easily comprehensible and modifiable. The Powerloom Protocol supports snapshotting for both the V2 and V3 smart contracts for Uniswap.
 
 :::tip
 **Pooler in a Nutshell:**
@@ -33,13 +33,13 @@ Let's explore the details of the Pooler implementation. The image provided illus
 
 ### Data Points and Aggregated Metrics in Pooler
 
-Data points are key metrics sourced from Uniswap V2 pair contracts, detailing how snapshots are built and stored. Pooler generates base trade snapshots as well as higher order aggregates per Epoch, providing an overview of market trends, such as trade frequencies and average prices. These insights aid users in understanding market movements and asset performance, crucial for informed trading decisions within Uniswap V2.
+Data points are key metrics sourced from Uniswap V2 or V3 pair contracts, detailing how snapshots are built and stored. Pooler generates base trade snapshots as well as higher order aggregates per Epoch, providing an overview of market trends, such as trade frequencies and average prices. These insights aid users in understanding market movements and asset performance, crucial for informed trading decisions while participating in the Uniswap protocol.
 
 ---
 
 ### Development and Extension
 
-Snapshotter Node's design enables extensions and custom use case implementations. A developer can extend the pooler compute files found in [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and config files found in [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2) to build their own custom use case implementations.
+Snapshotter Node's design enables extensions and custom use case implementations. A developer can extend the pooler UniswapV2 compute files found in [snapshotter-computes (V2)](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and config files found in [snapshotter-configs (V2)](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2), or the UniswapV3 compute files found in [snapshotter-computes (V3)](https://github.com/PowerLoom/snapshotter-computes/tree/uniswapv3-v1) and the associated config files in [snapshotter-configs (V3)](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv3) to build their own custom use case implementations.
 
 We have a dedicated section in the documentation which walkthrough the details on further implementation and usecases extensions.
 Check out our guide on [Extending Pooler](/docs/build-with-powerloom/use-cases/building-new-usecase/extending-uniswapv2-dashboard)
