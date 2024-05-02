@@ -64,7 +64,7 @@ A lightweight and disposable cryptocurrency wallet designed for temporary or sin
 ### Project IDs 
 
 All data sources are tracked with a project ID on the protocol. Think of it as a stream of datasets, finalized by consensus against each epoch released on the protocol. The snapshotter node attempts to retrieve data sources corresponding to the projects key from the protocol state.
-Find more details in the specifications of [snapshot generation](https://docs.powerloom.io/docs/protocol/specifications/snapshotter/snapshot-build#project-id-generation).
+Find more details in the specifications of [snapshot generation](https://docs.powerloom.io/docs/Protocol/Specifications/Snapshotter/snapshot-build#project-id-generation).
 
 ### Snapshot Composition
 

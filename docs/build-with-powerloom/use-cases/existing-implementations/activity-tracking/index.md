@@ -6,7 +6,7 @@ sidebar_position: 0
 
 Tracking on-chain activities can be a challenging task for developers. It requires a deep understanding of the underlying blockchain protocol and the ability to process large amounts of data per block.
 
-With the Snapshotter Peers, developers can easily track on-chain activities across various blockchains and protocols. The only thing they need to do is write a Snapshot Processor that extracts and returns the relevant data from the list of transactions in a block which are already accessible to them, thanks to [preloading](/docs/protocol/specifications/snapshotter/preloading).
+With the Snapshotter Peers, developers can easily track on-chain activities across various blockchains and protocols. The only thing they need to do is write a Snapshot Processor that extracts and returns the relevant data from the list of transactions in a block which are already accessible to them, thanks to [preloading](/docs/Protocol/Specifications/Snapshotter/preloading).
 
 ## Why On-Chain Activity Tracking Matters
 
@@ -16,7 +16,7 @@ Being able to track on-chain activities is crucial for a wide range of applicati
 - **Signal to Trading Strategies**: It can be used to identify potential trading opportunities based on the activity of specific wallet addresses or smart contracts.
 - **Quest Completion Tracking**: It can be used to track the completion of quests or tasks on the blockchain. 
 
-For example, we at Powerloom use Quest completion tracking for our Testnet program participants. We leverage Snapshotter Peers to monitor on-chain activities of testnet participants across various chains and protocols. These quests predominantly operate in [Bulk Mode](/docs/protocol/specifications/snapshotter/snapshot-build#data-source-specification-bulk-mode) due to their one-time nature and the highly dynamic set of participants involved.
+For example, we at Powerloom use Quest completion tracking for our Testnet program participants. We leverage Snapshotter Peers to monitor on-chain activities of testnet participants across various chains and protocols. These quests predominantly operate in [Bulk Mode](/docs/Protocol/Specifications/Snapshotter/snapshot-build#data-source-specification-bulk-mode) due to their one-time nature and the highly dynamic set of participants involved.
 
 ## Building an On-Chain Activity Tracker
 

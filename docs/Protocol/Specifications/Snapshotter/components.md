@@ -91,7 +91,7 @@ https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d0
 Upon receiving a message from the processor distributor after preloading is complete, the workers do most of the heavy lifting along with some sanity checks and then call the `compute()` callback function on the project's configured snapshot worker class to transform the dependent data points as cached by the preloaders to finally generate the base snapshots.
 
 :::info
-[Snapshot generation specification](/docs/protocol/specifications/snapshotter/snapshot-build)
+[Snapshot generation specification](/docs/Protocol/Specifications/Snapshotter/snapshot-build)
 :::
 
 ## RPC Helper

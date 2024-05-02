@@ -50,7 +50,7 @@ https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d0
 ```
 
 
-3. Else, we can have a [static list of contracts](/docs/protocol/data-sources#static-data-sources)
+3. Else, we can have a [static list of contracts](/docs/Protocol/data-sources#static-data-sources)
 
 ### Data Source Specification: Bulk Mode
 
@@ -70,7 +70,7 @@ https://github.com/Powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea
 
 This allows for flexibility to filter through all transactions and blocks without the need for predefined data sources.
 
-The `Processor Distributor` generates a `SnapshotProcessMessage` with bulk mode enabled for each project type. When snapshot workers receive this message, they leverage [common preloaders](/docs/protocol/specifications/snapshotter/preloading#shipped-preloaders) to filter out relevant data.
+The `Processor Distributor` generates a `SnapshotProcessMessage` with bulk mode enabled for each project type. When snapshot workers receive this message, they leverage [common preloaders](/docs/Protocol/Specifications/Snapshotter/preloading#shipped-preloaders) to filter out relevant data.
 
 
 ```python reference
@@ -81,7 +81,7 @@ https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d0
 Since common datapoints like block details, transaction receipts, etc., are preloaded, this approach can efficiently scale to accommodate a large number of project types with little to no increase in RPC (Remote Procedure Call) calls.
 :::
 
-Whenever a data source is added or removed by the [signaling ecosystem](/docs/protocol/data-sources#data-source-signaling), the protocol state smart contract emits a `ProjectUpdated` event with the following data model.
+Whenever a data source is added or removed by the [signaling ecosystem](/docs/Protocol/data-sources#data-source-signaling), the protocol state smart contract emits a `ProjectUpdated` event with the following data model.
 
 ```python reference
 https://github.com/Powerloom/pooler/blob/5892eeb9433d8f4b8aa677006d98a1dde0458cb7/snapshotter/utils/models/data_models.py#L102-L105
@@ -111,12 +111,12 @@ https://github.com/Powerloom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc8
 ## Aggregate Snapshots
 ---
 
-Aggregate and higher-order snapshots that build on base snapshots are configured in their specific repositories, such as the following in our [Uniswap V2 Dashboard use case](/docs/category/uniswapv2-dashboard). This is where you can observe the [dependency graph of snapshot composition](/docs/protocol/data-composition#dependency-graph) in action.
+Aggregate and higher-order snapshots that build on base snapshots are configured in their specific repositories, such as the following in our [Uniswap V2 Dashboard use case](/docs/category/uniswapv2-dashboard). This is where you can observe the [dependency graph of snapshot composition](/docs/Protocol/data-composition#dependency-graph) in action.
 
 :::info
 
-- [Single Project Composition](/docs/protocol/data-composition#single-project-composition)
-- [Multi-Project Composition](/docs/protocol/data-composition#multiple-projects-composition)
+- [Single Project Composition](/docs/Protocol/data-composition#single-project-composition)
+- [Multi-Project Composition](/docs/Protocol/data-composition#multiple-projects-composition)
 - [Walkthrough of the Snapshotter Implementation for Uniswap V2 Dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/)
 :::
 

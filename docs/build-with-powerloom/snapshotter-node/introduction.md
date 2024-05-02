@@ -16,7 +16,7 @@ Due to its decentralized nature, the snapshotter specification and its implement
   - Trading strategies and bots
 - A snapshotter peer can load past epochs, indexes, and aggregates from a decentralized state and have access to a rich history of data.
   - All datasets are decentralized on IPFS/Filecoin.
-  - The power of these decentralized storage networks can be leveraged fully by applying the [principle of composability](/docs/protocol/data-composition).
+  - The power of these decentralized storage networks can be leveraged fully by applying the [principle of composability](/docs/Protocol/data-composition).
 
 Powerloom relies on snapshotter peers to generate consensus-backed data instead of relying on centralized oracles. This approach helps mitigate issues like single points of failure, outdated data, or dependence on particular data providers. The decentralized, peer-to-peer structure of Powerloom ensures consistent availability and reliability of consensus-backed data.
 
