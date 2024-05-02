@@ -182,7 +182,6 @@ Do you want to assign a burner wallet to a slot? (yes/no):
 ```
 
 Enter yes and then enter your burner wallet address when prompted.
-- This is the `SIGNER_ACCOUNT_ADDRESS` that was set during [Step 3](#step-3-configure-the-environment-variables).
 
 Next, you will be prompted to enter a private key:
 
@@ -191,7 +190,7 @@ To assign a burner wallet to a slot, you need to sign a message with the private
 Private Key:
 ```
 
-- Please note that this is *not* asking for the private key to your burner wallet.
+- Please note that this is asking for the private key to your wallet.
 - Enter the private key of the wallet [**used to mint** the devnet slot](#minting-the-devnet-slot).
 
 
