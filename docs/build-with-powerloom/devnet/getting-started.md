@@ -175,18 +175,18 @@ or
 zsh build.sh
 ```
 
-#### Step 6: Assign your Burner Wallet
+#### Step 6: Assign your Wallet
 
 ```bash
-Do you want to assign a burner wallet to a slot? (yes/no):
+Do you want to assign a wallet to a slot? (yes/no):
 ```
 
-Enter yes and then enter your burner wallet address when prompted.
+Enter yes and then enter your wallet address when prompted.
 
 Next, you will be prompted to enter a private key:
 
 ```bash
-To assign a burner wallet to a slot, you need to sign a message with the private key of the Account holding the slot.
+To assign a wallet to a slot, you need to sign a message with the private key of the Account holding the slot.
 Private Key:
 ```
 
