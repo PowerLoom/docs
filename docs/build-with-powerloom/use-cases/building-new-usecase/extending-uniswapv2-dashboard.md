@@ -1,9 +1,9 @@
 ---
 sidebar_position: 0
 ---
-# Extending Pooler 
+# Extending Uniswap V2 dashboard usecase
 
-This documentation provides a step-by-step guide for developers looking to extend the functionality of the UniswapV2 Dashboard, specifically focusing on implementing new data points. The goal is to empower developers to enhance the dashboard with custom features, making it a valuable tool in hackathons and blockchain analytics.
+This documentation provides a step-by-step guide for developers looking to extend the functionality of the UniswapV2 Dashboard use case, specifically focusing on implementing new data points. The goal is to empower developers to enhance the dashboard with custom features, making it a valuable tool in hackathons and blockchain analytics.
 
 ## Extending with New Data Points
 
@@ -20,7 +20,7 @@ We'll use the example of creating a new data point that aggregates only Swap eve
 ### Steps to Implement this New Data Point
 
 1. **Getting Started**:
-   You can follow [this guide](/docs/build-with-powerloom/snapshotter-node/getting-started#for-code-contributors) to get started with the node setup for custom implementations.
+   You can follow [this guide](/docs/build-with-powerloom/snapshotter-node/full-node/getting-started#for-code-contributors) to get started with the node setup for custom implementations.
 
 2. **Configure Aggregation Worker**:
    In the `config/aggregator.json` file of your forked repository, add a new entry for your aggregation worker class. This class will be responsible for handling the new data aggregation task.

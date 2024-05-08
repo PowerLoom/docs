@@ -127,7 +127,7 @@ curl -X 'GET' \
     {
       "epochId": 12,
       "submittedSnapshotCid": "snapshotcid",
-      "submittedSnapshot": {}
+      "submittedSnapshot": {},
       "finalizedSnapshotCid": "finalizedsnapshotcid",
       "finalizedSnapshot": {},
       "reason": "reason for incorrect submission"

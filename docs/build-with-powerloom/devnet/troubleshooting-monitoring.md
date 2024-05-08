@@ -1,8 +1,8 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 ---
 
-# Troubleshooting
+# Troubleshooting and Monitoring
 
 
 ## Debugging:
@@ -14,7 +14,7 @@ Container "<container_id>" is unhealthy.
 ERROR: Encountered errors while bringing up the project.
 ```
 
-Check if all the necessary docker containers are up and running. You should see an output against docker ps with the following containers listed:
+Check if all the necessary docker containers are up and running. You should see an output against `docker ps` command with the following containers listed:
 
 ```bash
 #docker ps
@@ -39,6 +39,16 @@ Feel free to explore the logs folders and review the logs of different services 
 
 If everything is functioning properly and you are able to check the status on the dashboard, it indicates that your node is working correctly.
 
+
+---
+
+## Node Status Monitoring
+
+To Check if your node is running actively, navigate to the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard) and you can check the status of your node. To refresh the status, click on the "Check Node Status" button. 
+
+![Devnet Node status](/images/node-status-dashboard-devnet.png)
+
+
 :::info
-If the issues still persists, you can raise a ticket on our [Discord Support](https://discord.com/channels/777248105636560948/1146936525544759457)
+If the issues still persists, you can reach out to us on the `#Developer Channel` on our [Discord Support](https://discord.com/channels/777248105636560948/1146936525544759457)
 :::

@@ -10,27 +10,27 @@ const FeatureList = [
     Svg: require('@site/static/img/build-with-powerloom.svg').default,
     description: (
       <>
-        Learn how to build on Powerloom and integrate it into your application
+        Learn how to utilize Powerloom Protocol for building your own Decentralized Finance (DeFi) applications.
       </>
     ),
   },
   {
-    title: 'Snapshotter Node',
+    title: 'Snapshotter Nodes',
     url: '/docs/category/snapshotter-node',
     Svg: require('@site/static/img/snapshotter-node.svg').default,
     description: (
       <>
-        Learn more about the snapshotter nodes and how to run your own!
+        Dive into Snapshotter Nodes. Learn about its architecture, variations, and setting up your own.
       </>
     ),
   },
   {
-    title: 'Core Powerloom Protocol',
+    title: 'Protocol Core',
     url: '/docs/category/protocol-overview',
     Svg: require('@site/static/img/core-protocol.svg').default,
     description: (
       <>
-        Deep dive into the core protocol design of Powerloom
+        Learn about the Powerloom Protocol specifications, Data Markets, Snapshot Composition, and more.
       </>
     ),
   }

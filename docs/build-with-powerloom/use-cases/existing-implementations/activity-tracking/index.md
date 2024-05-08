@@ -42,7 +42,7 @@ The `compute` function is the main part where we create and process snapshots. I
 https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/models/message_models.py#L46-L50
 ```
 
-The Infrastructure is scalable enough to handle high throughtput chains like ZkEvm in close to real time even with `Epoch`  size of 1 block.
+The Infrastructure is scalable enough to handle high throughput chains like ZkEvm in close to real time even with `Epoch`  size of 1 block.
 
 The `BungeeBridgeProcessor` then goes through all preloaded block transactions, filters out, and then generates relevant snapshots for wallet addresses that received funds from the Bungee Bridge refuel contract during that epoch.
 

@@ -12,7 +12,7 @@ Before you dive into this section, please make sure you take a look into the [Sn
 
 Snapshotter node has several interfaces defined to handle the heavy lifting so that you can focus on just writing computes modules. For example, `TradeVolumeProcessor`, located in the **Snapshotter-computes** [`snapshotter-computer/trade_volume.py`](https://github.com/Powerloom/snapshotter-computes/blob/eth_uniswapv2/trade_volume.py), is one of the base Processor computes for Pooler. This class uses the `GenericProcessorSnapshot` structure found in [`snapshotter/utils/callback_helpers.py`](https://github.com/Powerloom/pooler/blob/main/snapshotter/utils/callback_helpers.py).
 
-Any compute for base snapshots basically needs to implement the `compute` function.
+Any processor for base snapshots needs to implement the `compute` function.
 
 ```python reference
 https://github.com/Powerloom/snapshotter-computes/blob/74b2eaa452bfac8c0e4e0a7ed74a4d2748e9c224/trade_volume.py#L23-L28
@@ -72,10 +72,10 @@ https://github.com/Powerloom/snapshotter-configs/blob/ae77941311155a9126205af087
 
 `AggregateTradeVolumeProcessor`, located in the **Snapshotter-computes** [`snapshotter-computer/aggregate/single_uniswap_trade_volume_24h.py`](https://github.com/Powerloom/snapshotter-computes/blob/eth_uniswapv2/aggregate/single_uniswap_trade_volume_24h.py) is one of the aggregate computes for Pooler. This class uses the `GenericProcessorAggregate` structure found in [`snapshotter/utils/callback_helpers.py`](https://github.com/Powerloom/pooler/blob/main/snapshotter/utils/callback_helpers.py).
 
-Any compute for base snapshots basically needs to implement the `compute` function.
+Any processor for aggregate snapshots needs to implement the `compute` function.
 
 ```python reference
-https://github.com/PowerLoom/snapshotter-computes/blob/74b2eaa452bfac8c0e4e0a7ed74a4d2748e9c224/aggregate/single_uniswap_trade_volume_24h.py#L58-L66
+https://github.com/PowerLoom/snapshotter-computes/blob/74b2eaa452bfac8c0e4e0a7ed74a4d2748e9c224/aggregate/single_uniswap_trade_volume_24h.py#L110-L118
 ```
 
 The `compute` function is the main part where we create and process snapshots. It uses these inputs:
@@ -87,7 +87,7 @@ The `compute` function is the main part where we create and process snapshots. I
 - `protocol_state_contract`: Protocol state contract Web3 object.
 - `project_id`: Project ID for which the aggregate snapshot is being generated.
   
-`msg_object` is either of type `PowerloomSnapshotSubmittedMessage` or `PowerloomCalculateAggregateMessage` for even more complex aggregats.
+`msg_object` is either of type `PowerloomSnapshotSubmittedMessage` or `PowerloomCalculateAggregateMessage` for even more complex aggregates.
 
 PowerloomSnapshotSubmittedMessage contains the following information:
 ```python reference

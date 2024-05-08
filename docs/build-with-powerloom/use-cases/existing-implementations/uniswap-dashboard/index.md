@@ -13,7 +13,7 @@ Pooler is a Uniswap-specific implementation within the Powerloom ecosystem, desi
 
 Forex, the foreign exchange market, involves currency trading and is known for its high liquidity and 24/7 operation. Pooler, in a parallel sense, operates continuously, capturing snapshots of Uniswap trades. Like Forex traders who analyze currency fluctuations to make profits, Pooler users can analyze trade volumes, liquidity reserves, and other metrics to understand market trends and potential profits in the Uniswap market.
 
-In essence, Pooler is to Uniswap what Forex platforms are to currency trading – a tool for real-time tracking and analysis, facilitating better understanding and potentially profitable decision-making in the dynamic world of cryptocurrency trading.
+In essence, Pooler is to Uniswap and other DeFi product what Forex platforms are to currency trading – a tool for real-time tracking and analysis, facilitating better understanding and potentially profitable decision-making in the dynamic world of cryptocurrency trading.
 :::
 
 
@@ -42,4 +42,4 @@ Data points are key metrics sourced from Uniswap V2 or V3 pair contracts, detail
 Snapshotter Node's design enables extensions and custom use case implementations. A developer can extend the pooler UniswapV2 compute files found in [snapshotter-computes (V2)](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and config files found in [snapshotter-configs (V2)](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2), or the UniswapV3 compute files found in [snapshotter-computes (V3)](https://github.com/PowerLoom/snapshotter-computes/tree/uniswapv3-v1) and the associated config files in [snapshotter-configs (V3)](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv3) to build their own custom use case implementations.
 
 We have a dedicated section in the documentation which walkthrough the details on further implementation and usecases extensions.
-Check out our guide on [Extending Pooler](/docs/build-with-powerloom/use-cases/building-new-usecase/extending-uniswapv2-dashboard)
+Check out our guide on [Extending Uniswap V2 dashboard usecase.](/docs/build-with-powerloom/use-cases/building-new-usecase/extending-uniswapv2-dashboard)
