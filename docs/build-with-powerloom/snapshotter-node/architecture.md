@@ -26,6 +26,7 @@ You can observe the corresponding branches within [snapshotter-configs](https://
 #### Snapshotter Computes
 * `eth_uniswapv2`: Pooler implementation for the Uniswap v2 dashboard
 * `eth_uniswapv2_lite`: Pooler implementation for the Uniswap v2 dashboard but without the calculation of complex aggregate data points from scratch.
+* `eth_uniswapv3`: Pooler implementation for the Uniswap v3 dashboard
 * `aave`: Pooler implementation for the Aave v3 dashboard
 * `aave-lite`: Pooler implementation for the Aave v3 dashboard but without the calculation of complex aggregate data points from scratch.
 * `zkevm_quests`: Implementation for Quests on Polygon zkEVM
@@ -33,6 +34,7 @@ You can observe the corresponding branches within [snapshotter-configs](https://
 #### Snapshotter Configs
 * `eth_uniswapv2_5_pairs`: Pooler lite mode config with only 5 chosen Uniswap v2 pair contracts
 * `eth_uniswapv2`: Pooler config with only 180 Uniswap v2 pair contracts
+* `eth_uniswapv3`: Pooler config with 46 Uniswap v3 pool contracts
 * `aave`: Pooler config with all Aave v3 asset contracts
 * `aave-lite`: Pooler config to be used with the aave-lite compute branch
 * `zkevm_quests`: Config for Quests on Polygon zkEVM

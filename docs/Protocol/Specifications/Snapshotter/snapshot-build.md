@@ -102,7 +102,7 @@ https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d0
 
 ### Example of snapshot computation
 
-#### Base snapshot of trade events for the [Uniswap V2 dashboard data market](/docs/category/uniswap-dashboard):
+#### Base snapshot of trade events for the [Uniswap V2 and V3 dashboard data markets](/docs/category/uniswap-dashboard):
 ```python reference
 https://github.com/Powerloom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc860004d35786f4df/trade_volume.py#L14-L44
 ```
@@ -111,13 +111,13 @@ https://github.com/Powerloom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc8
 ## Aggregate Snapshots
 ---
 
-Aggregate and higher-order snapshots that build on base snapshots are configured in their specific repositories, such as the following in our [Uniswap V2 Dashboard use case](/docs/category/uniswap-dashboard). This is where you can observe the [dependency graph of snapshot composition](/docs/protocol/data-composition#dependency-graph) in action.
+Aggregate and higher-order snapshots that build on base snapshots are configured in their specific repositories, such as the following in our [Uniswap Dashboard use case](/docs/category/uniswap-dashboard). This is where you can observe the [dependency graph of snapshot composition](/docs/protocol/data-composition#dependency-graph) in action.
 
 :::info
 
 - [Single Project Composition](/docs/protocol/data-composition#single-project-composition)
 - [Multi-Project Composition](/docs/protocol/data-composition#multiple-projects-composition)
-- [Walkthrough of the Snapshotter Implementation for Uniswap V2 Dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/)
+- [Walkthrough of the Snapshotter Implementation for the Uniswap V2 and V3 Dashboards](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/)
 :::
 
 The order and dependencies of these compositions are specified according to the `aggregate_on` key.
@@ -149,7 +149,7 @@ https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8b
 * `projects_to_wait_for` specifies the exact project IDs on which this higher-order aggregation will be generated.
 * The aggregation snapshot build for this is triggered once a snapshot build has been achieved for an `epochId`.
 
-The configuration above generates a dataset that can be further used to render a dashboard containing trade information across a large number of Uniswap v2 pair contracts.
+The configuration above generates a dataset that can be further used to render a dashboard containing trade information across a large number of Uniswap V2 pair contracts.
 
 ### Project ID Generation
 

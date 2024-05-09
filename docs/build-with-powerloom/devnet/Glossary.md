@@ -74,7 +74,7 @@ We can compose snapshots on top of base snapshots for single or multiple contrac
 - Combining individual snapshots of trade volume and fees across multiple pair contracts.
 - Spanning a specific set of epochs that satisfy a time duration (e.g., 24 hours).
 
-To learn more about Snapshot Composition, start with this [guide](https://docs.powerloom.io/docs/Protocol/data-composition), then explore [Data Points](https://docs.powerloom.io/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/data-points) for a use case-driven approach, and finally read through [Closer Look at Snapshots](https://docs.powerloom.io/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-look-at-snapshots) for a detailed understanding. 
+To learn more about Snapshot Composition, start with this [guide](https://docs.powerloom.io/docs/Protocol/data-composition), then explore [Data Points](https://docs.powerloom.io/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/data-points) for a use case-driven approach, and finally read through [Closer Look at Snapshots](https://docs.powerloom.io/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/closer-look-at-snapshots) for a detailed understanding. 
 
 ### Relayers
 Entities or nodes within a decentralized network responsible for relaying or forwarding messages, transactions, or data between different participants. Relayers play a crucial role in facilitating communication and interoperability within distributed systems.
