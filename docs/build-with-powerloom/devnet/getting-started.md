@@ -181,7 +181,7 @@ zsh build.sh
 Do you want to assign a wallet to a slot? (yes/no):
 ```
 
-Enter yes and then enter your wallet address when prompted.
+Enter yes.
 
 Next, you will be prompted to enter a private key:
 
