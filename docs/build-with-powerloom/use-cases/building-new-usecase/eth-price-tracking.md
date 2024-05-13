@@ -43,6 +43,10 @@ Unless it is a customized need or instructed by us, the below need not be change
     - `SOURCE_RPC_URL` : The URL for the Ethereum RPC (Local node/Infura/Alchemy) service.Set the RPC URL to Ethereum mainnet to snapshot the data source contracts on it.
     - `SIGNER_ACCOUNT_ADDRESS` : The address of the signer account. This should be an unused "burner" address that does not need to have any token balance. You can create a new burner wallet from our [tool](https://devnet-mint.powerloom.dev/burner).
     - `SIGNER_ACCOUNT_PRIVATE_KEY` : The private key corresponding to the signer account address.
+    - `SNAPSHOT_CONFIG_REPO`=[https://github.com/powerloom/snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_price_monitor)
+    - `SNAPSHOT_CONFIG_REPO_BRANCH`=eth_price_monitor
+    - `SNAPSHOTTER_COMPUTE_REPO`=[https://github.com/powerloom/snapshotter-computes](https://github.com/powerloom/snapshotter-computes/tree/eth_price_monitor)
+    - `SNAPSHOTTER_COMPUTE_REPO_BRANCH`=eth_price_monitor
     - `SLOT_ID` : Enter your Devnet Slot ID. 
     - `PROST_RPC_URL` : The URL for the PROST RPC service.
     - `PROTOCOL_STATE_CONTRACT` : The contract address for the protocol state.
