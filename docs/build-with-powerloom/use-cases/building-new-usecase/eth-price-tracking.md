@@ -7,9 +7,12 @@ sidebar_position: 0
 This guide provides a detailed walkthrough on setting up an Eth price tracker. We'll capture Ethereum price snapshots directly from the Mainnet, building upon the setup we previously established for the Devnet. 
 
 :::tip
-Prerequisites: Before we dive into the implementation of Eth price tracker, you must follow all the steps in this blog. This is a prerequisite to this guide: Setting up your own Devnet node. Once you are done, you can follow the instructions below. 
-
+Prerequisites: Before we dive into the implementation of Eth price tracker, you must follow all the steps in this link. 
 [Set up your Devnet Node](/docs/build-with-powerloom/devnet/getting-started)
+
+Once you are done, you can follow the instructions below. 
+
+
 :::
 ### Scenario: ETH Price Tracking
 
