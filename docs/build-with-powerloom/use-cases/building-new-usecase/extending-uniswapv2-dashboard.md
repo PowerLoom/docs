@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
 # Extending Uniswap V2 dashboard usecase
 

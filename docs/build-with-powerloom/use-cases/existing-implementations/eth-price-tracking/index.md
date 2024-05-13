@@ -1,7 +1,7 @@
 ---
 sidebar_position: 0
 ---
-# Eth Price Tracker 
+# Introduction and Setup
 
 ## Introduction
 This guide provides a detailed walkthrough on setting up an Eth price tracker. We'll capture Ethereum price snapshots directly from the Mainnet, building upon the setup we previously established for the Devnet. 
