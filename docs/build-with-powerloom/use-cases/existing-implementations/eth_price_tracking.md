@@ -4,7 +4,7 @@ sidebar_position: 3
 # ETH Price Tracker
 
 ## Introduction
-This guide provides a detailed walkthrough on setting up a price tracker for the Ethereum token, from hereon referred to as ETH. We'll capture ETH price snapshots on the Ethereum Mainnet, building upon the setup we previously established for the Devnet. 
+This guide provides a detailed walkthrough on setting up a price tracker for the Ethereum token, from hereon referred to as ETH.
 
 :::tip
 Prerequisites: Before we dive into the implementation of ETH price tracker, you must follow all the steps to 
@@ -18,13 +18,11 @@ We aim to capture real-time changes in ETH's price conversion ratio. Watch the t
 
 ## Steps to Implement this Use Case
 
-### 1. Cloning the Deploy Repository
+### Cloning the Deploy Repository
 Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`.
 
-### 2. Forking the Computes and Config templates
-For an optimized development process, it's recommended to fork the templates [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/eth_price_monitor) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_price_monitor). 
 
-### 3. Configuring The Node - Copy env.example to .env
+### Configuring The Node - Copy env.example to .env
 
 #### Required variables
 
@@ -55,9 +53,9 @@ Unless it is a customized need or instructed by us, the below need not be change
 - `IPFS_API_KEY`: The API key for the IPFS service (if required).
 - `IPFS_API_SECRET`: The API secret for the IPFS service (if required).
 - `SLACK_REPORTING_URL`: The URL for reporting to Slack.
-- `WEB3_STORAGE_TOKEN`: The token for Web3 Storage. You can generate or retrieve this token from your [API token page]((https://web3.storage/)) after signing up for a free plan at web3.storage.
+- `WEB3_STORAGE_TOKEN`: The token for Web3 Storage. You can generate or retrieve this token from your [API token page](https://web3.storage/) after signing up for a free plan at web3.storage.
 
-### 4. Snapshot Building
+### Snapshot Building
 
 :::info
 It is recommended to look at the docs on [snapshot generation](/docs/protocol/specifications/snapshotter/snapshot-build).
@@ -65,33 +63,22 @@ It is recommended to look at the docs on [snapshot generation](/docs/protocol/sp
 
 Snapshotter node has a simple interface as part of `GenericProcessorSnapshot` class that business logic specific computes need to implement. The rest of the heavy lifting around reliable submissions and finalization is taken care of by the rest of the features of the node.
 
-In this case, `EthPriceProcessor` located in [`snapshotter/modules/computes`](https://github.com/PowerLoom/snapshotter-computes/blob/eth_price_monitor/eth_price_tracking.py) is the sole compute class for ETH price tracking. This class implements the [`GenericProcessorSnapshot`](https://github.com/Powerloom/pooler/blob/main/snapshotter/utils/callback_helpers.py) interface, most notably the `compute()` callback.
-
-
-```python reference
-https://github.com/PowerLoom/snapshotter-computes/blob/eth_price_monitor/eth_price_tracking.py#L22-L26
-```
-
-This callback is where we build the snapshots. It uses these inputs:
-
-- `epoch`: Epoch details for which the snapshot is being generated.
-- `redis`: Redis connection object.
-- `rpc_helper`: RPC Helper object. 
+In this case, `EthPriceProcessor` located in [`snapshotter/modules/computes`](https://github.com/PowerLoom/snapshotter-computes/blob/eth_price_monitor/eth_price_tracking.py) is the sole compute class for ETH price tracking. This class implements the [`GenericProcessorSnapshot`](https://github.com/Powerloom/pooler/blob/main/snapshotter/utils/callback_helpers.py) interface, most notably the `compute()` callback. This callback is where we build the snapshots.
 
 
 ```python reference
 https://github.com/PowerLoom/snapshotter-computes/blob/eth_price_monitor/eth_price_tracking.py#L1-L45
 ```
-`get_eth_price_usd` is located in [`snapshotter/modules/computes`](https://github.com/PowerLoom/snapshotter-computes/blob/eth_price_monitor/eth_price_tracking.py).
-The `get_eth_price_usd` is a utility function that calculates the price of ETH with respect to DAI, USDC, and USDT. Then, it takes the average of all the above values with respect to the total liquidity of ETH. This is called the weighted average. This gives us the most accurate price of ETH.  
+
+`get_eth_price_usd()` is located in [`snapshotter/modules/computes`](https://github.com/PowerLoom/snapshotter-computes/blob/eth_price_monitor/eth_price_tracking.py) and is a utility function that calculates the price of ETH as a weighted average of its price conversion ratios against DAI, USDC and USDT in the corresponding Uniswap V2 pair contracts. The weights assigned are relative to the total liquidity locked against the W(rapped)ETH token across the three pair contracts.
+
 ```python reference
 https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/snapshot_utils.py#L140-L154
 ```
 
-### 5. Set Up the Codebase
-To run our node, Run docker.
+### Set Up the Codebase
 
-Set up the codebase by running the `bootstrap.sh` command in the terminal. Developers may use different shells, such as bash or zsh. Adjust the command accordingly:
+Setup the codebase by running the `bootstrap.sh` command in the terminal. Developers may use different shells, such as `bash` or `zsh`. Adjust the command accordingly.
 
 For bash:
 
@@ -103,9 +90,8 @@ or
 zsh bootstrap.sh
 ```
 
-####  Run the Snapshotter Node
+### Run the Snapshotter Node
 
-Run the command
 
 ```bash
 bash build.sh
@@ -115,37 +101,49 @@ or
 zsh build.sh
 ```
 
-Once your node is running, the node API server will be running on [localhost:8002/docs](http://localhost:8002/docs)
-
-Here, all the endpoints can be used to read generated data or monitor snapshotter node status. You can use these APIs in any client-side project. 
+Once your node is running, the [core API server](/docs/build-with-powerloom/snapshotter-node/core-api/) can be found on [http://localhost:8002](http://localhost:8002). It comes with an easy to use SwaggerUI to test out the endpoints to retrieve snapshotted data, or monitor the node status among other things.
 
 ![endpoints](/images/endpoints.png)
 
-The snapshotted data of ETH is received from  `/data/{epoch_id}/{project_id}` endpoint. It needs two parameters
+The snapshotted data as generated by the compute module referred above is retrieved from  `/data/{epoch_id}/{project_id}` endpoint. It requires two parameters
 
-  - `epoch_id (int)`: The ID of the epoch. This refers to the [epoch](/docs/Protocol/Specifications/Epoch) for which it will fetch the snapshotted data.
-  `epoch` is `PowerloomSnapshotProcessMessage` object, which contains the following information:
+- `epoch_id (int)`: the [epoch ID](/docs/Protocol/Specifications/Epoch) against which it will fetch the snapshotted data.
+- `project_id (str)`: refer to [project id generation](docs/Protocol/Specifications/Snapshotter/snapshot-build) to know more. In this example, it is the concatenation of the the first element in the tuple [returned from the snapshot compute module's implementation of `compute()`](#snapshot-building) along with the project type prefix as found in the [corresponding config for this snapshotter node](#forking-the-computes-and-config-templates). 
+
 ```python reference
-https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/models/message_models.py#L46-L50
+https://github.com/PowerLoom/snapshotter-configs/blob/8ed08b19272005f5c45b1af1ff9fd0ab5195bbc6/projects.example.json#L4
 ```
-  - `project_id (str)`: The ID of the project. It is generated in three parts. Refer to [project id generation](docs/Protocol/Specifications/Snapshotter/snapshot-build) for more information.
 
-#### Understanding Snapshot Data
+:::info
+To learn more about the details of the first element in the tuple being returned from `compute()` being considered as the data source in project ID generation, refer to the docs on [Data Source Specification: Bulk Mode](/docs/Protocol/Specifications/Snapshotter/snapshot-build#data-source-specification-bulk-mode)
+:::
 
-In docker, the `epoch_id` and `project_id` are returned in the logs. Copy these values and paste them into their respective endpoints as parameters. 
+## Verifying snapshotted data
+
+As the node continues snapshotting data, the quickest way to check the snaposhotted data is to check against `epoch_id` and `project_id` returned in the logs. Copy these values and paste them in the endpoint to retrive project data in the [SwaggerUI exposed against the core API](#run-the-snapshotter-node).
+
 ![endpoints](/images/docker.png)
 
-In this case, 
-The `epoch_id` is `100792`. Hit execute. The corresponding snapshotted data to this specific `epoch_id` displays the price of ETH as `3067.935921`. 
-To further check the latest snapshotted data for ETH, enter the latest `epoch_id`. In the screenshot above, the latest value of `epoch_id` is `100793`. It immediately reflects the latest price captured of ETH as `3068.034792`
+For example, in the screenshot, the `epoch_id` is `100792`. Hit execute. The corresponsing snapshotted data to this specific `epoch_id` displays the price of ETH as `3067.935921`. 
+
+As the `epoch_id` moves ahead,to `100793`, we find the above endpoint reflects the latest price captured of ethereum as `3068.034792`
 
 ![endpoints](/images/eth-price-one-snapshot.png)
 ![endpoints](/images/eth-price-two-snapshot.png)
 
+### How to program this
 
+1. Define the correct project ID against which data has to be fetched
 
+```python
+project_type = "eth:price_tracking"  # from https://github.com/PowerLoom/snapshotter-configs/blob/eth_price_monitor/projects.example.json#L4
+project_namespace = "DEVNET"  # from https://github.com/PowerLoom/deploy/blob/95ceb83a97a16279816c406eef484245df483fb1/env.example#L25
+data_source = "example"  # from https://github.com/PowerLoom/snapshotter-computes/blob/15059013c6c17327d1c0d413d3885c23a6383305/eth_price_tracking.py#L45
+project_id = f'{project_type}:{data_source}:{project_namespace}'
+```
+2. Fetch the last finalized epoch from the API endpoint `http://localhost:8002/last_finalized_epoch/{project_id}`
+3. Fetch the data against this epoch ID from the API endpoint `http://localhost:8002/data/{epoch_id}/{project_id}`
 
+## Reach out to us
 
-
-
-If you have any questions while building/integrating, you can reach out on our [discord](https://powerloom.io/discord).
+For any sort of support or clarification, reach out to us on our [discord developer channel](https://discord.com/channels/777248105636560948/1180479966434054165).
