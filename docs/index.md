@@ -57,9 +57,11 @@ Watchmen are entities responsible for the accuracy of the data. They ensure that
 ---
 ## See Powerloom in Action :rocket:
 
-Discover the practical application of Powerloom through Pooler, a Uniswap V2 Dashboard Implementation. This latest release of Pooler is a powerhouse for Uniswap V2 analytics, offering comprehensive data aggregations and flexibility to extend to more use cases. 
+Discover the practical application of Powerloom through our various dashboard implementations. This latest release of Pooler is a powerhouse for Uniswap V2, Uniswap V3, and Aave V3 analytics, offering comprehensive data aggregations and flexibility to extend to more use cases. 
 
 [UniswapV2 Dashboard](https://uniswapv2.powerloom.io)
+[UniswapV3 Dashboard](https://uniswapv3.powerloom.io)
+[AaveV3 Dashboard](https://aave-v3.powerloom.io/)
 
 ---
 

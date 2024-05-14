@@ -18,13 +18,13 @@ In essence, Pooler is to Uniswap and other DeFi product what Forex platforms are
 
 
 ### How it works
-Let's explore the details of the Pooler implementation. The image provided illustrates the operational flow of the UniswapV2 Dashboard hosted at [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io).
+Let's explore the details of the Pooler implementation. The image provided illustrates the operational flow of the UniswapV2 Dashboard hosted at [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io), and the same workflow is used for the UniswapV3 Dashboard hosted at [uniswapv3.powerloom.io](https://uniswapv3.powerloom.io).
 
 ![Uniswap Dashboard Rendering](/images/dashboard-rendering.png)
 
 
 #### Workflow: 
-1. The user accesses the Uniswap v2 dashboard through [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io).
+1. The user accesses the Uniswap V2 dashboard through [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io).
 2. The dashboard makes calls to a foundation hosted node to get the latest aggregated data.
 3. These calls are handled by the [Snapshotter Core API](/docs/category/snapshotter-core-api) interface, running on the foundation hosted node.
 4. The foundation nodes then fetch the relevant data from blockchain/Redis cache to optimize the response times.
