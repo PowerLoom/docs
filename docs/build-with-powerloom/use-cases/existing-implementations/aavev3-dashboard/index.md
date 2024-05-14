@@ -6,7 +6,7 @@ sidebar_position: 0
 
 ## Pooler - AaveV3 Data Market
 
-Powerloom's AaveV3 dashboard is an [extension](/docs/build-with-powerloom/use-cases/building-new-usecase/extending-uniswapv2-dashboard) of the Pooler framework. Its design is similar to the [UniswapV2](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/) dashboard use case. The data network is powered by [Snapshotters](/docs/build-with-powerloom/snapshotter-node/introduction) who capture critical data points from Aave's on-chain Smart Contracts.  This data is then processed, aggregated, and displayed on the dashboard to provide users of the Aave protocol with actionable metrics. This implementation is a testament to the composable nature of Pooler and the Powerloom data network's flexibility in capturing a diverse range of data points.
+Powerloom's AaveV3 dashboard is an [extension](/docs/build-with-powerloom/use-cases/building-new-usecase/extending-uniswapv2-dashboard) of the Pooler framework. Its design is similar to the [Uniswap](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/) dashboard use case. The data network is powered by [Snapshotters](/docs/build-with-powerloom/snapshotter-node/introduction) who capture critical data points from Aave's on-chain Smart Contracts.  This data is then processed, aggregated, and displayed on the dashboard to provide users of the Aave protocol with actionable metrics. This implementation is a testament to the composable nature of Pooler and the Powerloom data network's flexibility in capturing a diverse range of data points.
 
 The Dashboard is hosted at [aave-v3.powerloom.io/](https://aave-v3.powerloom.io/)
 
