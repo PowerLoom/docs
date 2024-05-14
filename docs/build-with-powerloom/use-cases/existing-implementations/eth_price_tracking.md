@@ -4,7 +4,7 @@ sidebar_position: 3
 # ETH Price Tracker
 
 ## Introduction
-This guide provides a detailed walkthrough on setting up a price tracker for the Ethereum token, from hereon referred to as ETH. We'll capture ETH price snapshots on the Ethereunm Mainnet, building upon the setup we previously established for the Devnet. 
+This guide provides a detailed walkthrough on setting up a price tracker for the Ethereum token, from hereon referred to as ETH. We'll capture ETH price snapshots on the Ethereum Mainnet, building upon the setup we previously established for the Devnet. 
 
 :::tip
 Prerequisites: Before we dive into the implementation of ETH price tracker, you must follow all the steps to 
@@ -12,7 +12,7 @@ Prerequisites: Before we dive into the implementation of ETH price tracker, you 
 :::
 ### Scenario: ETH Price Tracking
 
-We aim to capture real-time changes in ETH's price conversion ratio. Watch the tutorial below for a detailed walk through.
+We aim to capture real-time changes in ETH's price conversion ratio. Watch the tutorial below for a detailed walkthrough.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wn4zK8ONLt4?start=40" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -29,7 +29,7 @@ For an optimized development process, it's recommended to fork the templates [sn
 #### Required variables
 
 
-- `SOURCE_RPC_URL` : The URL for the Ethereum RPC (Local node/Infura/Alchemy) service.Set the RPC URL to Ethereum mainnet to snapshot the data source contracts on it.
+- `SOURCE_RPC_URL` : The URL for the Ethereum RPC (Local node/Infura/Alchemy) service. Set the RPC URL to Ethereum mainnet to snapshot the data source contracts on it.
 - `SIGNER_ACCOUNT_ADDRESS` : The address of the signer account. This should be an unused "burner" address that does not need to have any token balance. You can create a new burner wallet from our [tool](https://devnet-mint.powerloom.dev/burner).
 - `SIGNER_ACCOUNT_PRIVATE_KEY` : The private key corresponding to the signer account address.
 - `SLOT_ID` : Enter your Devnet Slot ID. 
@@ -60,7 +60,7 @@ Unless it is a customized need or instructed by us, the below need not be change
 ### 4. Snapshot Building
 
 :::info
-It is recommended to have a look at the docs on [snapshot generation](/docs/protocol/specifications/snapshotter/snapshot-build).
+It is recommended to look at the docs on [snapshot generation](/docs/protocol/specifications/snapshotter/snapshot-build).
 :::
 
 Snapshotter node has a simple interface as part of `GenericProcessorSnapshot` class that business logic specific computes need to implement. The rest of the heavy lifting around reliable submissions and finalization is taken care of by the rest of the features of the node.
@@ -83,7 +83,7 @@ This callback is where we build the snapshots. It uses these inputs:
 https://github.com/PowerLoom/snapshotter-computes/blob/eth_price_monitor/eth_price_tracking.py#L1-L45
 ```
 `get_eth_price_usd` is located in [`snapshotter/modules/computes`](https://github.com/PowerLoom/snapshotter-computes/blob/eth_price_monitor/eth_price_tracking.py).
-The `get_eth_price_usd` is a utility function that calculates the price of ETH with respect to DAI, USDC and USDT. Then, it takes the average of all the above values with respect to the total liquidity of ETH. This is called the weighted average. This gives us the most accurate price of ETH.  
+The `get_eth_price_usd` is a utility function that calculates the price of ETH with respect to DAI, USDC, and USDT. Then, it takes the average of all the above values with respect to the total liquidity of ETH. This is called the weighted average. This gives us the most accurate price of ETH.  
 ```python reference
 https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/snapshot_utils.py#L140-L154
 ```
@@ -115,29 +115,29 @@ or
 zsh build.sh
 ```
 
-Once your node is running, node API server will be running on [localhost:8002/docs](http://localhost:8002/docs)
+Once your node is running, the node API server will be running on [localhost:8002/docs](http://localhost:8002/docs)
 
-Here, all the endpoints are available that can be used to read generated data, or monitor snapshotter node status. You can use these APIs in any client-side project. 
+Here, all the endpoints can be used to read generated data or monitor snapshotter node status. You can use these APIs in any client-side project. 
 
 ![endpoints](/images/endpoints.png)
 
 The snapshotted data of ETH is received from  `/data/{epoch_id}/{project_id}` endpoint. It needs two parameters
 
   - `epoch_id (int)`: The ID of the epoch. This refers to the [epoch](/docs/Protocol/Specifications/Epoch) for which it will fetch the snapshotted data.
-  `epoch` is `PowerloomSnapshotProcessMessage` object which contains the following information:
+  `epoch` is `PowerloomSnapshotProcessMessage` object, which contains the following information:
 ```python reference
 https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/models/message_models.py#L46-L50
 ```
-  - `project_id (str)`:The ID of the project. It is generated in three parts. To know refer [project id generation](docs/Protocol/Specifications/Snapshotter/snapshot-build) to know more.
+  - `project_id (str)`: The ID of the project. It is generated in three parts. Refer to [project id generation](docs/Protocol/Specifications/Snapshotter/snapshot-build) for more information.
 
-### Understanding Snapshot Data
+#### Understanding Snapshot Data
 
-In docker, the `epoch_id` and `project_id` is returned in the logs. Copy these values and paste them in their respective endpoints as parameters. 
+In docker, the `epoch_id` and `project_id` are returned in the logs. Copy these values and paste them into their respective endpoints as parameters. 
 ![endpoints](/images/docker.png)
 
 In this case, 
-The `epoch_id` is `100792`. Hit execute. The corresponsing snapshotted data to this specific `epoch_id` displays the price of ETH as `3067.935921`. 
-To further check the latest snapshotted data for ETH, enter the latest `epoch_id`. In the screenshot above, the latest value of `epoch_id` is `100793`. It immedietely reflects the latest price captured of ethereum as `3068.034792`
+The `epoch_id` is `100792`. Hit execute. The corresponding snapshotted data to this specific `epoch_id` displays the price of ETH as `3067.935921`. 
+To further check the latest snapshotted data for ETH, enter the latest `epoch_id`. In the screenshot above, the latest value of `epoch_id` is `100793`. It immediately reflects the latest price captured of ETH as `3068.034792`
 
 ![endpoints](/images/eth-price-one-snapshot.png)
 ![endpoints](/images/eth-price-two-snapshot.png)
@@ -148,4 +148,4 @@ To further check the latest snapshotted data for ETH, enter the latest `epoch_id
 
 
 
-If you have any questions while building / integrating, you can reach out on our [discord](https://powerloom.io/discord).
+If you have any questions while building/integrating, you can reach out on our [discord](https://powerloom.io/discord).
