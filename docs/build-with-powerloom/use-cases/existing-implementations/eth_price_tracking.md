@@ -104,7 +104,7 @@ or
 zsh build.sh
 ```
 
-Once your node is running, the [core API server](/docs/build-with-powerloom/snapshotter-node/core-api/) can be found on [http://localhost:8002](http://localhost:8002). It comes with an easy to use SwaggerUI to test out the endpoints to retrieve snapshotted data, or monitor the node status among other things.
+Once your node is running, the [core API server](/docs/build-with-powerloom/snapshotter-node/core-api/) can be found on [http://localhost:8002](http://localhost:8002). It comes with an easy to use SwaggerUI at [http://localhost:8002/docs](http://localhost:8002/docs) to test out the endpoints to retrieve snapshotted data, or monitor the node status among other things.
 
 ![endpoints](/images/endpoints.png)
 
