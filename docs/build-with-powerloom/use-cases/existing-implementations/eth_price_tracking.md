@@ -21,6 +21,9 @@ We aim to capture real-time changes in ETH's price conversion ratio. Watch the t
 ### Cloning the Deploy Repository
 Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`.
 
+```bash
+git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
+```
 
 ### Configuring The Node - Copy env.example to .env
 
