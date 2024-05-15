@@ -120,7 +120,7 @@ To learn more about the details of the first element in the tuple being returned
 
 ## Verifying snapshotted data
 
-As the node continues snapshotting data, the quickest way to check the snaposhotted data is to check against `epoch_id` and `project_id` returned in the logs. Copy these values and paste them in the endpoint to retrive project data in the [SwaggerUI exposed against the core API](#run-the-snapshotter-node).
+As the node continues snapshotting data, the quickest way to check the snaposhotted data is to check against `epoch_id` and `project_id` returned in the logs. Copy these values and paste them in the endpoint to retrieve project data in the [SwaggerUI exposed against the core API](#run-the-snapshotter-node).
 
 ![endpoints](/images/docker.png)
 
