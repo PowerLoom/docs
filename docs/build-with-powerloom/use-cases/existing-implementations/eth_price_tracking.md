@@ -126,7 +126,7 @@ As the node continues snapshotting data, the quickest way to check the snaposhot
 
 For example, in the screenshot, the `epoch_id` is `100792`. Hit execute. The corresponsing snapshotted data to this specific `epoch_id` displays the price of ETH as `3067.935921`. 
 
-As the `epoch_id` moves ahead,to `100793`, we find the above endpoint reflects the latest price captured of ethereum as `3068.034792`
+As the `epoch_id` moves ahead to `100793`, we find the above endpoint reflects the latest price captured of ethereum as `3068.034792`
 
 ![endpoints](/images/eth-price-one-snapshot.png)
 ![endpoints](/images/eth-price-two-snapshot.png)
