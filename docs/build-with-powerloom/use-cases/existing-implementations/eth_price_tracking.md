@@ -4,7 +4,7 @@ sidebar_position: 3
 # ETH Price Tracker
 
 ## Introduction
-This guide provides a detailed walkthrough on setting up a price tracker for the Ethereum token, from hereon referred to as ETH.
+This guide provides a detailed walkthrough for setting up a price tracker for the Ethereum token, from hereon referred to as ETH.
 
 :::tip
 Prerequisites: Before we dive into the implementation of ETH price tracker, you must follow all the steps to 
@@ -18,8 +18,13 @@ We aim to capture real-time changes in ETH's price conversion ratio. Watch the t
 
 ## Steps to Implement this Use Case
 
+### Forking the Computes and Config templates
+ - For an optimized development process, it's recommended to fork the templates for [snapshotter-computes](https://github.com/powerloom/snapshotter-computes/tree/eth_price_monitor) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_price_monitor). Our system utilizes the Git submodule architecture to manage these components efficiently. 
+
+   Once the above branches are forked, you should have the above two repositories in your profile. 
+
 ### Cloning the Deploy Repository
-Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`.
+Clone repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`.
 
 ```bash
 git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
@@ -123,11 +128,11 @@ To learn more about the details of the first element in the tuple being returned
 
 ## Verifying snapshotted data
 
-As the node continues snapshotting data, the quickest way to check the snaposhotted data is to check against `epoch_id` and `project_id` returned in the logs. Copy these values and paste them in the endpoint to retrieve project data in the [SwaggerUI exposed against the core API](#run-the-snapshotter-node).
+As the node continues snapshotting data, the quickest way to check the snapshotted data is to check against `epoch_id` and `project_id` returned in the logs. Copy these values and paste them in the endpoint to retrieve project data in the [SwaggerUI exposed against the core API](#run-the-snapshotter-node).
 
 ![endpoints](/images/docker.png)
 
-For example, in the screenshot, the `epoch_id` is `100792`. Hit execute. The corresponding snapshotted data to this specific `epoch_id` displays the price of ETH as `3067.935921`. 
+For example, in the screenshot above, the `epoch_id` is `100792`. Hit execute. The corresponding snapshotted data to this specific `epoch_id` displays the price of ETH as `3067.935921`. 
 
 As the `epoch_id` moves ahead to `100793`, we find the above endpoint reflects the latest price captured of ethereum as `3068.034792`
 
