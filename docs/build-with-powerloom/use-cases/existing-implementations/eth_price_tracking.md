@@ -18,14 +18,6 @@ We aim to capture real-time changes in ETH's price conversion ratio. Watch the t
 
 ## Steps to Implement this Use Case
 
-### Forking the Computes and Config templates
- - For an optimized development process, it's recommended to fork the templates for [snapshotter-computes](https://github.com/powerloom/snapshotter-computes/tree/eth_price_monitor) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_price_monitor). Our system utilizes the Git submodule architecture to manage these components efficiently.For a deeper understanding of how these elements integrate and function within our larger system, please refer to our [architecture documentation](/docs/build-with-powerloom/snapshotter-node/architecture.md). This approach ensures a streamlined and cohesive development workflow.
-
-   - [snapshotter-computes](https://github.com/powerloom/snapshotter-computes/tree/eth_price_monitor)
-   - [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_price_monitor)
-
-   Once the above branches are forked, you should have the above two repositories in your profile.  
-
 ### Cloning the Deploy Repository
 Clone repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`.
 
