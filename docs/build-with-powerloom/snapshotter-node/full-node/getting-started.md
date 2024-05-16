@@ -65,8 +65,8 @@ Extending existing use cases or building your own use cases requires a slightly 
 
 1. **Forking the Computes and Config templates** - For an optimized development process, it's recommended to fork the templates for [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/). Our system utilizes the Git submodule architecture to manage these components efficiently. For a deeper understanding of how these elements integrate and function within our larger system, please refer to our [architecture documentation](../architecture.md). This approach ensures a streamlined and cohesive development workflow.
 
-   - Snapshotter Configs: https://github.com/PowerLoom/snapshotter-computes
-   - Snapshotter Computes: https://github.com/PowerLoom/snapshotter-configs 
+   - Snapshotter Configs: https://github.com/PowerLoom/snapshotter-configs
+   - Snapshotter Computes: https://github.com/PowerLoom/snapshotter-computes
 
    Once the above branches are forked, you should have the above two repositories in your profile. 
 
