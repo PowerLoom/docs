@@ -121,7 +121,7 @@ If the `.env` is filled up correctly, all services will execute one by one. The 
     powerloom_depoy-pooler-1           | Snapshotter identity check failed on protocol smart contract
     powerloom_depoy-pooler-1 exited with code 1
     
-your Snapshotter address is not registered. Make you have registered for our [devnet program](https://airtable.com/appr3wKRsn4VoOvpi/pagxxT6QcL0OwGH0e/form) and your burner wallet has been added. 
+your Snapshotter address is not registered. Make sure you have registered for our [devnet program](https://airtable.com/appr3wKRsn4VoOvpi/pagxxT6QcL0OwGH0e/form) and your burner wallet has been added. 
 
 Refer to our [troubleshooting guide](./troubleshooting.md) if you encounter any other issues with your node.
 
