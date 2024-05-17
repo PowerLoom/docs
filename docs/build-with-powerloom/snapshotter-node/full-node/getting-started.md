@@ -6,19 +6,19 @@ sidebar_position: 2
 Snapshotter (Full Node) has a complex architecture with multiple moving parts. The easiest way to get started is by using the Docker-based setup, recommended for most users.
 
 :::info
-#### You can use powerloom to build extensive data applications. Our Devnet is live. Read more about Devnet [here](../../devnet/getting-started.md) 
+#### You can use Powerloom to build extensive data applications. Our Devnet is live. Read more about Devnet [here](../../devnet/getting-started.md) 
 :::
 
 ## System Requirements
 
 1. Latest version of `docker` (`>= 20.10.21`) and `docker-compose` (`>= v2.13.0`)
 
-2. At least 4 core CPU, 8GB RAM and 50GB SSD - make sure to choose the correct spec when deploying to Github Codespaces.
+2. At least 4 core CPU, 8GB RAM, and 50GB SSD - make sure to choose the correct spec when deploying to Github Codespaces.
 
 3. IPFS node
-    - While we have __included__ a node in our autobuild docker setup, IPFS daemon can hog __*a lot*__ of resources - it is not recommended to run this on a personal computer unless you have a strong internet connection and dedicated CPU+RAM.
+    - While we have __included__ a node in our autobuild Docker setup, IPFS daemon can hog __*a lot*__ of resources - it is not recommended to run this on a personal computer unless you have a strong internet connection and dedicated CPU+RAM.
   
-    - 3rd party IPFS services that provide default IFPS interface like Infura are now supported.
+    - 3rd party IPFS services that provide default IPFS interface like Infura are now supported.
 
 4. RPC URL for `Ethereum mainnet` or the chain you're working on. 
 
@@ -81,7 +81,7 @@ Extending existing use cases or building your own use cases requires a slightly 
 
     - Ensure the following required variables are filled:
 
-    - `SOURCE_RPC_URL`: The URL for Ethereum RPC (Local node/Infura/Alchemy) service.
+    - `SOURCE_RPC_URL`: The URL for the Ethereum RPC (Local node/Infura/Alchemy) service.
     - `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This is your whitelisted address on the protocol. **Using a burner account is highly recommended**
     - `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the signer account address.
     - Configure `SNAPSHOT_CONFIG_REPO` and `SNAPSHOT_CONFIG_REPO_BRANCH` to point to your forked snapshotter-configs repository.
@@ -108,7 +108,7 @@ Extending existing use cases or building your own use cases requires a slightly 
    ```
 
    :::note
-   This is a one time step and resets the codebase to the latest version of the branch. If you have made any changes to the codebase, make sure to commit them before running this command.You need to run this command only once after cloning the repository.
+   This is a one time step and resets the codebase to the latest version of the branch. If you have made any changes to the codebase, make sure to commit them before running this command. You need to run this command only once after cloning the repository.
    :::
 
 - **Running the Node** - Run  `./build.sh` (ideally in a `screen`) to start the Snapshotter Node
@@ -116,12 +116,12 @@ Extending existing use cases or building your own use cases requires a slightly 
 
 ## Troubleshooting Errors
 
-If the `.env` is filled up correctly, all services will execute one by one. The logs do fill up quick. So, remember to [safely detach](https://linuxize.com/post/how-to-use-linux-screen/) from screen when not using it. If you see the following error, 
+If the `.env` is filled up correctly, all services will execute one by one. The logs do fill up quickly. So, remember to [safely detach](https://linuxize.com/post/how-to-use-linux-screen/) from the screen when not using it. If you see the following error, 
     
     powerloom_depoy-pooler-1           | Snapshotter identity check failed on protocol smart contract
     powerloom_depoy-pooler-1 exited with code 1
     
-your snapshotter address is not registered. Make you have registered for our [devnet program](https://airtable.com/appr3wKRsn4VoOvpi/pagxxT6QcL0OwGH0e/form) and your burner wallet has been added. 
+your Snapshotter address is not registered. Make you have registered for our [devnet program](https://airtable.com/appr3wKRsn4VoOvpi/pagxxT6QcL0OwGH0e/form) and your burner wallet has been added. 
 
 Refer to our [troubleshooting guide](./troubleshooting.md) if you encounter any other issues with your node.
 
@@ -129,7 +129,7 @@ Refer to our [troubleshooting guide](./troubleshooting.md) if you encounter any 
 1. To shutdown services, just press `Ctrl+C` (and again to force).
 
 :::note
-If you don't keep services running for extended periods of time, this will affect consensus and we may be forced to de-activate your snapshotter account.
+If you don't keep services running for extended periods of time, this will affect consensus and we may be forced to deactivate your snapshotter account.
 :::
 
 2. If you see issues with data, you can do a clean *reset* by running the following command before restarting step 1:
