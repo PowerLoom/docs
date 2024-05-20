@@ -7,7 +7,7 @@ sidebar_position: 2
 ## Snapshot Computation Modules
 ---
 
-As briefly introduced in the section on snapshotter implementations that [leverage Git Submodules for specific computation logic](/docs/build-with-powerloom/snapshotter-node/architecture), the modules are specified in the configuration for project types under the key `processor`.
+As briefly introduced in the section on Snapshotter implementations that [leverage Git Submodules for specific computation logic](/docs/build-with-powerloom/snapshotter-node/architecture), the modules are specified in the configuration for project types under the key `processor`.
 
 ```json reference
 https://github.com/Powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json#L15-L28
@@ -18,7 +18,7 @@ Let's take the example of the snapshot builder configured for the project type  
 ```python reference
 https://github.com/Powerloom/snapshotter-computes/blob/29199feab449ad0361b5867efcaae9854992966f/owlto_bridge.py#L1-L31
 ```
-As observed, it implements the`compute()` interface expected from snapshotter implementations inheriting `GenericProcessorSnapshot`.
+As observed, it implements the `compute()` interface expected from Snapshotter implementations inheriting `GenericProcessorSnapshot`.
 
 ```python reference
 https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/utils/callback_helpers.py#L179-L196
@@ -36,7 +36,7 @@ The data sources are specified against the `projects` key in the configuration s
 
 1. If `bulk_mode` is set to `False` and an empty array is assigned to the `projects`:
 
-The snapshotter node attempts to retrieve data sources corresponding to the `projects` key from the protocol state.
+The Snapshotter node attempts to retrieve data sources corresponding to the `projects` key from the protocol state.
 
 ```python reference title="Processor Distributor synchronizing projects from protocol"
 https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L321-L332
