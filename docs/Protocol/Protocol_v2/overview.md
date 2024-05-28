@@ -37,7 +37,7 @@ A combination of the above couple of issues also affects the [composability prin
 
 The next iteration of the Powerloom Testnet and the upcoming Mainnet Alpha feature new components that are
 
-* more accessible geographically
+* more accessible geographicallye
 * scalable
 * contribute to faster finality of composed snapshots
 
