@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 ---
-# Offchain Sequencer
+# Sequencer
 
 ![Powerloom Protocol V2 offchain sequencer](/images/OffChainSequencer.png)
 
@@ -48,5 +48,7 @@ Batches contain submission details for multiple project IDs with the following i
 
 An important feature of each batch is that the dataset against it contains the root hash of a Merkle tree constructed out of the submission IDs sent out by the snapshotter peers. Utilizing this, snapshotter peers can verify whether their submissions were included in batches committed to the protocol state smart contract for an epoch.
 
-The project ID submission IDs are added to the leaves of the Merkle tree as determined by the order of their storage with the following rule: 
+The submission IDs contained in a batch are added to the leaves of the Merkle tree as determined by the lexicographical ordering of their corresponding project IDs. 
+
+Each batch's Merkle tree builds on the tree from the preceding batch within the same epoch.
 
