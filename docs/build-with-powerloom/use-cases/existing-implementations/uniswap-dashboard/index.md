@@ -18,7 +18,9 @@ In essence, Pooler is to Uniswap and other DeFi product what Forex platforms are
 
 
 ### How it works
-Let's explore the details of the Pooler implementation. The image provided illustrates the operational flow of the UniswapV2 Dashboard hosted at [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io), and the same workflow is used for the UniswapV3 Dashboard hosted at [uniswapv3.powerloom.io](https://uniswapv3.powerloom.io).
+Let's explore the details of the Pooler implementation. The image provided illustrates the operational flow of the UniswapV2 Dashboard hosted at [uniswapv2.powerloom.io](https://uniswapv2.powerloom.io).
+
+> Note: The below image depicts the workflow for the UniswapV2 specific implementation, however, the flow described in the rendering and the following outlined steps are the same for the UniswapV3 use case. The UniswapV3 Dashboard is hosted at: [uniswapv3.powerloom.io](https://uniswapv3.powerloom.io/).
 
 ![Uniswap Dashboard Rendering](/images/dashboard-rendering.png)
 
