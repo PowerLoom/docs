@@ -50,7 +50,7 @@ Prerequisite: Ensure that the minimum requirements are met by the system on whic
 ## Extending the Aave V3 Implementation
 
 :::tip
-This section will utilize core concepts explained in the [Closer Look at Snapshots](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/closer-look-at-snapshots) section. It is strongly recommended that you review this page before extending the Aave use case.
+This section will utilize core concepts explained in the [Closer Look at Snapshots](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/closer-look-at-snapshots) section. It is strongly recommended that you review this page before extending the Aave use case.
 :::
 
 ### Development Node Setup

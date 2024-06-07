@@ -11,9 +11,9 @@ The data sources defined by a market can be static or dynamic, depending on the 
 
 ## Static Data Sources
 
-Our implementation of a data market serves datasets to render live Uniswap V2 and Aave V3 dashboards. Further details about the data source configurations and snapshot schemas can be found in the following sections of our documentation:
+Our implementation of a data market serves datasets to render live Uniswap V2, Uniswap V3, and Aave V3 dashboards. Further details about the data source configurations and snapshot schemas can be found in the following sections of our documentation:
 
-* [Building with Powerloom -- Uniswap V2 Dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/)
+* [Building with Powerloom -- Uniswap V2 and V3 Dashboards](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/)
 * [Building with Powerloom -- Aave V3 Dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/)
 
 Continuing with the Uniswap V2 example, you can explore the data sources list defined as part of the Uniswap v2 specific configuration in the [`snapshotter-configs`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/projects.example.json#L1-L11) repository.
