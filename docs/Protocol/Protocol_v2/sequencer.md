@@ -3,9 +3,9 @@ sidebar_position: 3
 ---
 # Sequencer
 
-![Powerloom Protocol V2 offchain sequencer](/images/OffChainSequencer.png)
+![Powerloom Protocol V2 sequencer](/images/Sequencer.png)
 
-The offchain sequencer has the following primary functions:
+The sequencer has the following primary functions:
 
 1. **Snapshot Collection:** Receive snapshot submissions per epoch across project IDs from all participating snapshotters in a data market
 2. **Snapshot Finalization:** Finalize snapshot submission for each project ID according to consensus rules
