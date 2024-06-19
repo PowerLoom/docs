@@ -51,9 +51,7 @@ The snapshotter node replaces the [payload commit service](/docs/Protocol/Specif
 
 It is responsible for reliably submitting all the generated snapshots to the sequencers via circuit relay nodes.
 
-* [Read more: Snapshot collector](./collector.md)
-
-### Offchain Sequencer
+### Sequencer
 
 The sequencer is a vital component in the upgraded workflow of the protocol. It batches submissions from multiple snapshotters within the active time window of an epoch, uploads them to IPFS and anchors the proof for the same on the protocol state contract. 
 

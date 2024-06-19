@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Powerloom Protocol V1 that powered the Incentivized testnets and the Lite Node testnet were able to submit their snapshots to the protocol state in the following manner: 
 
-1. The nodes submit their snapshots over HTTP to the relayers as EIP-7 12 signed message objects
+1. The nodes submit their snapshots over HTTP to the relayers as EIP-712 signed message objects
 2. The relayers submit each node's submission against each project ID as [individual smart contract transactions to the method `submitSnapshot()`](/docs/Protocol/Specifications/protocol-state.md#function-submitsnapshotstring-memory-snapshotcid-uint256-epochid-string-memory-projectid-request-calldata-request-bytes-calldata-signature-public)
 
 ## What's new in V2
@@ -43,3 +43,10 @@ Rendezvous points are typically nodes that are well-connected and stable in a ne
 
 The setup for the nodes includes `env` details that encapsulate sequencer ID(s), and the rendezvous points which intermediate and facilitate the connection between snapshotters, relayers and sequencer(s).
 
+## Final destination: Sequencer
+
+The circuit relay nodes ultimately allow Snapshotters on the Powerloom network, located anywhere in the world, to submit their snapshots to the sequencer.
+
+![snapshotter to sequencer via relay network](/images/SequencerRelayNetwork.png)
+
+In future upgrades of the protocol, we will begin supporting a decentralized network of sequencers with its own incentive and reward structure.

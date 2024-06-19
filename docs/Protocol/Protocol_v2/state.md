@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Protocol State
 
 ## Overview
@@ -173,3 +177,61 @@ mapping(uint256 batchId => address[] validators) public batchIdDivergentValidato
 
 State of the initial attestation as reported by the sequencer as finalized CIDs against the project IDs and the state of them if they diverge from the consensus on attestations as reached by validators.
 
+## Events
+
+### Snapshot submissions
+
+* **SnapshotBatchSubmitted:** Emitted upon the sequencer submitting a batch of snapshot submissions along with their claimed finalizations for an `epochId`
+
+```solidity
+event SnapshotBatchSubmitted(
+  uint256 batchId, 
+  string batchCid, 
+  uint256 indexed epochId, 
+  uint256 timestamp
+);
+```
+
+* **DelayedBatchSubmitted:** Emitted when the sequencer submits a batch past the submission deadline for an epoch
+
+```solidity
+event DelayedBatchSubmitted(
+  uint256 batchId, 
+  string batchCid, 
+  uint256 indexed epochId, 
+  uint256 timestamp
+);
+```
+
+* **SnapshotBatchFinalized:** Emitted when a majority of the validators have submitted their attestations on a `batchId` submitted by the sequencer
+
+```solidity
+event SnapshotBatchFinalized(
+  uint256 indexed epochId, 
+  uint256 indexed batchId, 
+  uint256 timestamp
+);
+```
+
+### Validation
+
+* **SnapshotBatchAttestationSubmitted:** Emitted when a validator `validatorAddr` submits their attestation for a `batchId` batch
+```solidity
+event SnapshotBatchAttestationSubmitted(
+  uint256 batchId, 
+  uint256 indexed epochId, 
+  uint256 timestamp, 
+  address indexed validatorAddr
+);
+```
+
+* **DelayedAttestationSubmitted:** Emitted when a validator `validatorAddr` submits their attestation for a `batchId` batch past the submission deadline
+
+```solidity
+event DelayedAttestationSubmitted(
+  uint256 batchId, 
+  uint256 indexed epochId, 
+  uint256 timestamp, 
+  address indexed validatorAddr
+);
+```
