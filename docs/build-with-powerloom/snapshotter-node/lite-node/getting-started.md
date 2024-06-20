@@ -263,6 +263,23 @@ This will clone the repository into a directory named `powerloom-testnet`.
 cd powerloom-testnet
 ```
 
+** 1. Setting up Screen**
+
+The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a terminal window open. To initiate a new Screen session for managing the Snapshotter Lite Node, follow these steps:
+
+Enter the following command to create a new Screen session named "powerloom":
+
+```bash
+    screen -S powerloom
+```
+    
+- This command opens a new Screen session, where you can start the Snapshotter Lite Node.
+- Once inside the new Screen session, initiate the Snapshotter Lite Node as required.
+    
+This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
+
+** 2. Run the node**
+
 - Run `build.sh` in the terminal to start the snapshotter lite node:
 
 ```bash
@@ -587,8 +604,12 @@ It is imperative to create an isolated virtual environment that includes the nec
 
 #### Installing `Pyenv`
 
-Follow the steps below to install `pyenv`. 
-Open the terminal and execute the below command to install the required packages:
+Follow the steps below to install `pyenv` according to your OS. 
+Open the terminal and execute the below commands.
+
+<Tabs groupId="pyenv-installation" className="unique-tabs" queryString="pyenv-os">
+
+<TabItem value="Linux" label="pyenv installation(Linux)">
 
 ```bash
 sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
@@ -628,6 +649,44 @@ Next, proceed to install Python 3.11.5:
 ```bash
 pyenv install 3.11.5
 ```
+</TabItem>
+
+<TabItem value="macOS" label="pyenv installation(MacOS)">
+
+Install `pyenv` with the `brew` package manager. Ensure you run an update before the installation.
+
+```bash
+brew update
+brew install pyenv
+```
+
+Next would be to add the right initializations into your `~/.bashrc` or `~/.zshrc` file depending upon whether you use the `bash` or `zsh` shell. If you use any other shell, consult its documentation to know where the similar profile `~/*rc` files are located.
+
+The following example assumes a `~/.zshrc` file.
+
+```bash
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+```
+
+Reload your shell profile in the terminal by running the command:
+
+```bash
+source ~/.zshrc
+```
+
+Next, proceed to install Python 3.11.5:
+
+```bash
+pyenv install 3.11.5
+```
+
+</TabItem>
+
+</Tabs>
+
+---
 
 #### Installing `pyenv-virtualenv`
 
@@ -639,6 +698,7 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 pyenv virtualenv 3.11.5 ss_lite_multi_311
 pyenv local ss_lite_multi_311
 ```
+
 
 #### Executing the Setup
 
