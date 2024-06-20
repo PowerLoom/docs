@@ -21,6 +21,10 @@ Every [data market](/docs/protocol/data-sources) has a final state that includes
   - Occurrence count of their submissions
   - Mapping between allowed snapshotter identities and the CIDs they submitted
 
+:::note
+Powerloom Protocol V2 contains certain modifications on top of the V1 Protocol State as described in here. [Learn More](/docs/Protocol/Protocol_v2/state.md)
+:::
+
 ## Implementation of the Protocol State
 
 Presently, the protocol state is implemented as a smart contract on an EVM-compatible chain that is affectionately referred to internally as the Prost Chain.
@@ -28,6 +32,10 @@ Presently, the protocol state is implemented as a smart contract on an EVM-compa
 ### Chain and Contract Address
 
 Depending on the node type, the network RPC and the deployed contract address can be found in the `env.example` file in either the [`deploy`](https://github.com/Powerloom/deploy/) (for Full Nodes) and [`snapshotter`](https://github.com/Powerloom/snapshotter-lite) repositories (for Lite Nodes).
+
+* [Snapshotter Lite Node: Testnet](https://github.com/PowerLoom/snapshotter-lite/blob/97f25850d0319b601638e46440b9bce2372551c4/env.example#L8)
+* [Snapshotter Full Node: Incentivized testnet Phase 2](https://github.com/PowerLoom/deploy/blob/4af571508f832b120d18e93f48c54ddbfe6074a5/env.example#L6)
+
 
 ### ABI
 
