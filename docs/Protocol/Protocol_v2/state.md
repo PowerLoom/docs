@@ -36,7 +36,7 @@ Most of the [V1 protocol state](/docs/Protocol/Specifications/protocol-state.md)
 
 The contract address where the V2 protocol state can be found is contained within the `env.example` file for the type of node beind deployed:
 
-* [Snapshotter Lite Node V2]((https://github.com/PowerLoom/snapshotter-lite-v2/blob/15ce2872ac3cbdce47955b26f84b6c634fbbb6ab/env.example#L7))
+* [Snapshotter Lite Node V2](https://github.com/PowerLoom/snapshotter-lite-v2/blob/15ce2872ac3cbdce47955b26f84b6c634fbbb6ab/env.example#L7)
 
 ## ABI
 
