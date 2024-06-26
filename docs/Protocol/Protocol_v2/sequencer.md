@@ -15,9 +15,9 @@ The sequencer has the following primary functions:
 
 ## Snapshot collection and finalization
 
-The sequencer maintains an internal clock corresponding to the release and end of submission window for an epoch. The collector component (not to be confused with the local collector component within a Snapshotter node) receives snapshot submissions from snapshotter peers over a libp2p circuit relay node.
+The sequencer maintains an internal clock corresponding to the release and end of the submission window for an epoch. The collector component (not to be confused with the local collector component within a Snapshotter node) receives snapshot submissions from snapshotter peers over a libp2p circuit relay node.
 
-It also performs important verification checks
+It also performs important verification checks:
 
 * identity verification by referencing an EIP-712 signature field contained within the submission payloads against the snapshotter identities allowed for a data market on the protocol state smart contract
 * submission window verification check by referencing the protocol state head block number as attached in the header of the submission sent by a snapshotter peer
@@ -37,7 +37,7 @@ Read more on how validators submit attestations on intermediate finalized states
 :::
 
 
-Batches contain submission details for multiple project IDs with the following information per project
+Batches contain submission details for multiple project IDs with the following information per project:
 
 * Submission objects from snapshotter peers that contain their respectively signed EIP-712 objects
 * Finalized snapshot as reported by sequencer 
