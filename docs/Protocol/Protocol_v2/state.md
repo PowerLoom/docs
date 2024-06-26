@@ -8,7 +8,7 @@ sidebar_position: 4
 
 ### Additional features
 
-The protocol state in V2 of the protocol has the following changes introduced to support new features like batched submissions and validator attestations.
+The protocol state in V2 of the protocol has the following changes introduced to support new features like batched submissions and validator attestations:
 
 * Batched snapshot submissions from sequencer
 * Attestation on submission batches from validators
@@ -34,7 +34,7 @@ Most of the [V1 protocol state](/docs/Protocol/Specifications/protocol-state.md)
 
 ## Deployed contract
 
-The contract address where the V2 protocol state can be found is contained within the `env.example` file for the type of node beind deployed:
+The contract address where the V2 protocol state can be found is contained within the `env.example` file for the type of node being deployed:
 
 * [Snapshotter Lite Node V2](https://github.com/PowerLoom/snapshotter-lite-v2/blob/15ce2872ac3cbdce47955b26f84b6c634fbbb6ab/env.example#L7)
 
@@ -113,7 +113,7 @@ function finalizeSnapshotBatch(uint256 batchId, uint256 epochId) private
 ## State view
 
 ### `allSnapshotters(address)`
-Mapping to check for existence of snapshotter identity on protocol state
+Mapping to check for existence of snapshotter identity on protocol state.
 
 ### `slotSnapshotterMapping(uint256)`
 
@@ -132,7 +132,7 @@ Number of registered slots on the protocol state.
 ```solidity
 mapping(string projectId => mapping(uint256 slotId => mapping(uint256 epochId => bool))) public snapshotsReceivedSlot;
 ```
-Whether snapshot was received agains a slot ID within an epoch ID.
+Whether snapshot was received against a slot ID within an epoch ID.
 
 ### `maxSnapshotsCidMap`
 
@@ -140,7 +140,7 @@ Whether snapshot was received agains a slot ID within an epoch ID.
 mapping(string procjectId => mapping(uint256 epochId => string snapshotCid)) public maxSnapshotsCidMap;
 ```
 
-The snapshot CID reported to have reached consensus against a `projectId` for an `epochId`
+The snapshot CID reported to have reached consensus against a `projectId` for an `epochId`.
 
 ### `batchIdToProjects`
 

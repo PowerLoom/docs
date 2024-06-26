@@ -26,9 +26,9 @@ Learn more:
 
 ### Batch validation
 
-The finalized CID of every project ID committed by the sequencer in the `PENDING` state moves to a `FINALIZED` state when majority of the validators submit their attestations on that finalization.
+The finalized CID of every project ID committed by the sequencer in the `PENDING` state moves to a `FINALIZED` state when a majority of the validators submit their attestations on that finalization.
 
-In case the majority of validators do not agree to the finalization, a resubmission workflow is triggered. This time the validators work on re-creating the snapshots against the project IDs that did not reach consensus for finalization, and re-submit them to the protocol state to be resolved by the same consensus rules.
+In the case where a majority of validators do not agree to the finalization, a resubmission workflow is triggered. This time, the validators work on re-creating the snapshots against the project IDs that did not reach consensus for finalization, and re-submit them to the protocol state to be resolved by the same consensus rules.
 
 #### Trigger for batch validation
 

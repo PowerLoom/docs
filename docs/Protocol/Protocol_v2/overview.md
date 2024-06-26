@@ -26,18 +26,18 @@ Learn more:
 
 ### Relayer transaction and chain infrastructure failures
 
-The above approach required the snapshotter peers to send out their submissions to the contract as an EIP-712 signed message object. This mechanism allowed us to trustlessly operate an infrastructure of relayers that would receive these submissions as HTTP POST requests and ultimately commit to the chain as EVM transactions. But at a scale of operation that exceeded above 1 million snapshot submission transactions per day, this would often result in a significant percentage (>5%) of transactions being dropped along with other operational issues with maintaining the chain at a continuously running state.
+The above approach required the snapshotter peers to send out their submissions to the contract as an EIP-712 signed message object. This mechanism allowed us to trustlessly operate an infrastructure of relayers that would receive these submissions as HTTP POST requests and ultimately commit to the chain as EVM transactions. But at a scale of operation that exceeded 1 million snapshot submission transactions per day, this would often result in a significant percentage (>5%) of transactions being dropped along with other operational issues with maintaining the chain at a continuously running state.
 
 ### Composed snapshots finality
 
-A combination of the above couple of issues also affects the [composability principle](/docs/Protocol/data-composition.md) of building higher order snapshots. Dropped transactions and increased delays in confirmation times of snapshot submissions ultimately affects the aggregate data points that power complex use cases like the [Uniswap V2 dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/) and [Aave V3 dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/).
+A combination of the above couple of issues also affects the [composability principle](/docs/Protocol/data-composition.md) of building higher order snapshots. Dropped transactions and increased delays in confirmation times of snapshot submissions ultimately affect the aggregate data points that power complex use cases like the [Uniswap V2 dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/) and [Aave V3 dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/).
 
 
 ## Upgraded workflow
 
-The next iteration of the Powerloom Testnet and the upcoming Mainnet Alpha feature new components that are
+The next iteration of the Powerloom Testnet and the upcoming Mainnet Alpha feature new components that are:
 
-* more accessible geographicallye
+* more accessible geographically
 * scalable
 * contribute to faster finality of composed snapshots
 
