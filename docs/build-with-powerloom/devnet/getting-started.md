@@ -106,11 +106,10 @@ The above command itself navigates you to the Repository Directory `powerloom_de
 - `PROTOCOL_STATE_CONTRACT`: Choose the contract address for the protocol state with respect to the Epoch size.
 
 :::note
-Currently, there are two variations of Protocol State Contracts available. One where [Epoch](../../Protocol/Specifications/Epoch.md) size is set to 1 and the other where epoch size is set to 10 blocks. 
+The following protocol state contract addresses are currently operational with active epoch releases 
+* Data source contracts on ETH Mainnet -- [Epoch Size 1](/docs/Protocol/Specifications/Epoch.md) -- `0x573906E80C30dA608E3a24A0938BCB3f0C68Ed2f`
 
-You can find the latest Epoch Contracts in the [example.env](https://github.com/PowerLoom/deploy/blob/devnet/env.example) file. 
-
-This should allow developers to build and experiment with a variety of use cases. If you have any custom needs, reach out to the [team](https://discord.com/invite/powerloom)
+If you have any custom requirements to track data sources on other chains, reach out to the [team.](https://discord.com/invite/powerloom)
 :::
 
 **Pre-supplied:**
