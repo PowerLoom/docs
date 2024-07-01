@@ -12,7 +12,7 @@ As the snapshot submission batches are [anchored on the protocol state by the se
 
 ## State transitions
 
-![Snapshot submission, validation and finalization state transitions](/images/validator-resubmission-workflow.png)
+![Snapshot submission, validation and finalization state transitions](/images/submission-validation-timeline.png)
 
 ### Batch submission
 
@@ -32,7 +32,5 @@ In case the majority of validators do not agree to the finalization, a resubmiss
 
 #### Trigger for batch validation
 
-For the current iteration of the Protocol V2 release, upon an `EpochReleased` event for an epoch `e(i)` the attestation for finalizations committed by the sequencer for epoch `e(i-1)` begins.
-
-This will soon be replaced by a faster finality trigger that will not have to wait for the next epoch release. For practical purposes, on a high throughput chain with smaller epochs, this process is near instant.
+For the current iteration of the Protocol V2 release, once the sequencer for a data market has finished committing all batches of submissions, it triggers an event release `BatchSubmissionsCompleted` from the protocol state smart contract that signals the validators to begin submitting their attestations.
 
