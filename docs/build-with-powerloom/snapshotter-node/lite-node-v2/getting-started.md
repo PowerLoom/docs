@@ -64,7 +64,7 @@ For users running the node on Virtual Private Servers (VPS), the minimum specifi
 - **RAM:** At least 4 GB.
 - **CPU Core**:  Minimum of 2 Cores
 - **Disk Space:** A minimum of 40 GB.
-- **Python:** Ensure Python 3.11 is installed.
+
 
 <h3>Step 1: Creating Your VPS </h3>
 
@@ -83,7 +83,7 @@ For users running the node on Virtual Private Servers (VPS), the minimum specifi
 - **SSH into Your VPS**: Use the following command from your terminal/command prompt, replacing `your_vps_ip` with the IP address of your VPS.  
 
 ```bash
-    ssh root@your_vps_ip
+ssh root@your_vps_ip
 ```
 
 - If you set up SSH keys, you should be logged in without needing a password. Otherwise, you can also set your password for the VPS.
@@ -93,39 +93,39 @@ For users running the node on Virtual Private Servers (VPS), the minimum specifi
 1. **Update and Upgrade Your VPS**:
 
 ```bash
-    sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
 ```
 
 2. **Install Git**:  
 Git is necessary for cloning the Snapshotter Lite repository. Install it using:
 
 ```bash
-    sudo apt-get install git -y
+sudo apt-get install git -y
 ```
 
 3. **Install Docker and Docker Compose:**   
 Ensure Docker and Docker Compose are installed. You can install docker on Ubuntu using the following commands:
 
 ```bash
-    # Add Docker's official GPG key:
-    sudo apt-get update
-    sudo apt-get install ca-certificates curl 
-    sudo install -m 0755 -d /etc/apt/keyrings
-    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-    sudo chmod a+r /etc/apt/keyrings/docker.asc
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl 
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-    # Add the repository to Apt sources: 
-    echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt-get update
+# Add the repository to Apt sources: 
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+$(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
 ```
     
 Once the Docker repository is added successfully, let’s install Docker and necessary components by using the below command:
 
 ```bash
-    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 <h3>Step 4: Cloning the Repository and Setting Up the Node</h3>
@@ -134,14 +134,14 @@ Once the Docker repository is added successfully, let’s install Docker and nec
 Navigate to the directory where you want to install the node and clone the repository:
 
 ```bash
-    git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
+git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet-simulation
 ```
 
 2. **Navigate to the Directory**:  
 Change to the directory of the cloned repository:
 
 ```bash
-    cd powerloom-pre-mainnet
+cd powerloom-pre-mainnet-simulation
 ```
 
 <h3>Step 5: Running the Node </h3>
@@ -152,7 +152,7 @@ The Screen utility allows you to run processes in the background, enabling you t
 Enter the following command to create a new Screen session named "powerloom":
 
 ```bash
-    screen -S powerloom
+screen -S powerloom-pre-mainnet-simulation
 ```
     
 - This command opens a new Screen session, where you can start the Snapshotter Lite Node V2.
@@ -164,7 +164,7 @@ This approach ensures your node can continue running in the background, even if 
 Initiate the snapshotter lite node v2 setup by typing the command in the terminal:
 
 ```bash
-    ./build.sh
+./build.sh
 ```
     
 Follow the prompts to enter the required information.
@@ -237,7 +237,7 @@ For users running the node on personal hardware, the minimum specifications are:
 - **RAM:** At least 4 GB.
 - **CPU Core**:  Minimum of 2 Cores
 - **Disk Space:** A minimum of 40 GB.
-- **Python:** Ensure Python 3.11 is installed.
+
 
 
 <h3> Pre-requisitie tools </h3>
@@ -252,7 +252,7 @@ For users running the node on personal hardware, the minimum specifications are:
 - Clone the snapshotter lite repository using the following command in the terminal:
 
 ```bash 
-git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
+git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet-simulation
 ```
 
 This will clone the repository into a directory named `powerloom-pre-mainnet`.
@@ -260,7 +260,7 @@ This will clone the repository into a directory named `powerloom-pre-mainnet`.
 - Change your working directory to the powerloom directory:
 
 ```bash
-cd powerloom-pre-mainnet
+cd powerloom-pre-mainnet-simulation
 ```
 
 ** 1. Setting up Screen**
@@ -270,7 +270,7 @@ The Screen utility allows you to run processes in the background, enabling you t
 Enter the following command to create a new Screen session named "powerloom":
 
 ```bash
-    screen -S powerloom
+screen -S powerloom-pre-mainnet-simulation
 ```
     
 - This command opens a new Screen session, where you can start the Snapshotter Lite Node V2.
@@ -387,19 +387,19 @@ Once python3 is installed, we can go ahead and run the lite node:-
 
 1. Clone this repository using the following command in the terminal:
 ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
+git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet-simulation
 ```
 This will clone the repository into a directory named `powerloom-pre-mainnet`.
   
 2. Change your working directory to the `powerloom-pre-mainnet` directory, open the terminal, and type:
 
 ```bash
-   cd powerloom-pre-mainnet
+cd powerloom-pre-mainnet-simulation
 ```
 
 3. Run `init.sh` command in the terminal to start the snapshotter lite node v2:
 ```bash
-   ./init.sh
+./init.sh
 ```
 :::tip
  Please do not use your NFT minting wallet to run the snapshotter lite node v2. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
@@ -468,7 +468,6 @@ For users running the node on a personal Windows system, the minimum specificati
 - **RAM:** At least 4 GB.
 - **CPU Core**:  Minimum of 2 Cores
 - **Disk Space:** A minimum of 40 GB.
-- **Python:** Ensure Python 3.11 is installed.
 
 Setting up the snapshotter node on Windows requires a few additional steps. We suggest using Docker for its ease and speed of setup. To begin with Docker, you must have the Windows Subsystem for Linux (WSL) installed. Please follow the guide provided below for detailed instructions.
 
@@ -519,14 +518,14 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
    - Use the following command in WSL terminal to clone the Snapshotter Lite Node v2 repository:
 
    ```bash
-     git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
+   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet-simulation
    ```
 
 - **Navigate to the Repository Directory:**
     - Change to the cloned repository's directory:
 
       ```bash
-      cd powerloom-pre-mainnet
+      cd powerloom-pre-mainnet-simulation
       ```
 
 - **Run the Build Script:**
@@ -543,7 +542,7 @@ Once generated, make sure you assign your burner wallet on your [snapshotter das
 
  - Execute the build script with:
    ```bash
-      ./build.sh
+   ./build.sh
    ```
     - During the setup, you'll be prompted to enter the following values:
         - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
@@ -591,13 +590,8 @@ First, clone our multi-node script to get started:
 
 ```bash
 git clone https://github.com/PowerLoom/snapshotter-lite-multi-setup
+cd snapshotter-lite-multi-setup
 ```
-
-Navigate to the directory & type the below command on your terminal:
-
-    ```bash
-    cd snapshotter-lite-multi-setup
-    ```
 
 ### Setting Up the Environment
 

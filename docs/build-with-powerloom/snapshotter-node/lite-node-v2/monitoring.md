@@ -9,34 +9,38 @@ This section will guide you through the process of Monitoring and Troubleshootin
 
 ## Steps to Confirm and Monitor Node Snapshotting Process
 
-1. **Terminal Status Check:**
+1. **Simulation run logs**
+
+   While running this node for the first time, it performs a couple of dummy submissions to simulate its connections to the relayer and sequencer network. If you notice logs similar to the lines below in the node run logs, your node's simulation run was successful.
+
+   ![Snapshotter-First-Simulation](/images/snapshot-lite-v2-node-simulation-first-time.png)
+
+2. **Verifying success of simulation run**
+
+   - To verify the success of the same, make use of the utility script bundled within here by running the following on a MacOS/Linux command line terminal.
+
+   - This will work only after you have set up the node correctly with the right `.env` variables and run it successfully.
+   ```bash
+   ./check_simulation.sh
+   ```
+   ![Snapshotter-check-simulation](/images/snapshot-lite-v2-check-submission.png)
+
+If you observe `submissionCount` and `lastPing` in the above response to be greater than 0, your node's simulation run was successful.
+
+
+3. **Terminal Status Check:**
    - The primary method to verify node status is through the terminal, which displays log responses from the node.
 
    - Monitor these logs to assess the health and activity of your node. 
    
    - A healthy snapshotter node will produce logs similar to the provided example screenshot. These logs indicate normal operation and successful snapshotting.
+   
    ![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
 
-2. **Monitoring Node Activity with the Snapshotter Dashboard**
+4. **Monitoring Node Activity with the Snapshotter Dashboard**
 Our Snapshotter Dashboard enables you to verify if your node slot is actively submitting snapshots.
 
-## Simulation run logs
-
-While running this node for the first time, it performs a couple of dummy submissions to simulate its connections to the relayer and sequencer network. If you notice logs similar to the lines below in the node run logs, your node's simulation run was successful.
-![Snapshotter-First-Simulation](/images/snapshot-lite-v2-node-simulation-first-time.png)
-
-## Verifying success of simulation run
-
-To verify the success of the same, make use of the utility script bundled within here by running the following on a MacOS/Linux command line terminal.
-
-This will work only after you have set up the node correctly with the right `.env` variables and run it successfully.
-```bash
-./check_simulation.sh
-```
-![Snapshotter-check-simulation](/images/snapshot-lite-v2-check-submission.png)
-
-If you observe `submissionCount` and `lastPing` in the above response to be greater than 0, your node's simulation run was successful.
-
+   ![Snapshotter-node-dashboard](/images/snapshot-lite-v2-dashboard.png)
 
 ## Troubleshooting and Support
 
@@ -74,7 +78,7 @@ The `.env` file contains essential configuration details such as `SOURCE_RPC_URL
    Change to the directory where your Powerloom Snapshotter Lite Node V2 is located:
 
 ```bash
-   cd powerloom-pre-mainnet
+   cd powerloom-pre-mainnet-simulation
 ```
 
 3. **Editing the .env File:**
@@ -85,7 +89,7 @@ The `.env` file contains essential configuration details such as `SOURCE_RPC_URL
 ```
 
 Inside, you will find configurations similar to those shown in the provided screenshot.
-![EnvScreen](/images/env-screen.png)
+![EnvScreen](/images/snapshot-lite-v2-env.png)
 
 4. **Modifying Variables:**
    Update the variables as needed. To save and exit, press `CTRL+X`.
@@ -115,13 +119,13 @@ For your RPC provider, you have several reliable options, including:
 If you wish to perform a complete reset of your node or start afresh with the Snapshotter Lite Node V2, the following steps will guide you through the process:
 
 1. **Locate the Existing Directory:**
-   Begin by opening your terminal. Locate the `powerloom-pre-mainnet` directory by entering the following command:
+   Begin by opening your terminal. Locate the `powerloom-pre-mainnet-simulation` directory by entering the following command:
 
    ```bash
    ls
    ```
 
-   This command lists all files and directories, allowing you to confirm the presence of the `powerloom-pre-mainnet` directory.
+   This command lists all files and directories, allowing you to confirm the presence of the `powerloom-pre-mainnet-simulation` directory.
 
 
 :::warning Warning
@@ -129,10 +133,10 @@ If you wish to perform a complete reset of your node or start afresh with the Sn
 :::
 
 2. **Remove the Directory:**
-   To delete the `powerloom-pre-mainnet` directory and all its contents, use the command:
+   To delete the `powerloom-pre-mainnet-simulation` directory and all its contents, use the command:
 
    ```bash
-   rm -rf powerloom-pre-mainnet
+   rm -rf powerloom-pre-mainnet-simulation
    ```
 
    This action cannot be undone, so ensure that you wish to proceed with the reset.
@@ -149,7 +153,7 @@ If you're experiencing issues or simply wish to restart your node, the process i
    Open a terminal window and navigate to the directory of your Powerloom Snapshotter Node by executing:
 
 ```bash
-   cd powerloom-pre-mainnet
+   cd powerloom-pre-mainnet-simulation
 ```
 
 2. **Execute the Build Script:**
