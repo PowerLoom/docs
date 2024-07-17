@@ -199,15 +199,6 @@ If you want to exit your screen, type the command in the terminal:
 CTRL+A+D
 ```
 
-Ensure your node is running correctly, and check the logs for any errors or confirmations of successful operations. 
-
-
-Everytime you restart the node, you should have a log message similar to the one shown below.
-![Start node logs](/images/snapshot-lite-v2-restart-window.png)
-
-If your node is generating snapshots during the assigned timeslot, you should have similar logs in your terminal:
-![Sample node logs](/images/snapshot-lite-v2-running.png)
-
 <h3>Step 6: Maintaining Your Node </h3>
 
 - **Regular Updates**: Keep your system and Snapshotter Lite Node V2 updated by regularly pulling the latest changes from the repository and applying system updates.
@@ -320,31 +311,6 @@ Once generated, make sure you assign your burner wallet to your [snapshotter das
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
 
-Everytime you start or restart the node, it goes through two stages
-
-### Simulation mode submissions
-
-This does not count towards your snapshot quota. This ensures that your node can establish connections to the sequencer over libp2p relay circuits.
-
-:::note
-Learn more: 
-* [Sequencer component](/docs/Protocol/Protocol_v2/sequencer.md)
-* [libp2p circuit relay](/docs/Protocol/Protocol_v2/relay.md)
-:::
-
-:::info
-Read more about monitoring and verifying the simulation mode submissions on the [`Monitoring and Troubleshooting`](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md) page.
-:::
-### Regular snapshot submissions
-
-Once you can verify the simulation mode submissions, you will have log messagse similar to the one shown below that will ensure .
-
-![Sample node logs](/images/snapshot-lite-v2-running.png)
-
-:::info
-For further details on using the snapshotter dashboard to monitor the running status of your node, check the [`Monitoring Node Activity with the Snapshotter Dashboard`](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md#monitoring-node-activity-with-the-snapshotter-dashboard) section.
-:::
-
 - To stop the node, you can press `Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
 
 This will halt the running node and all associated processes. 
@@ -430,26 +396,18 @@ Once generated, make sure you assign your burner wallet to your [snapshotter das
 :::
 
 
-1. During the setup, you'll be prompted to enter the following values:
+During the setup, you'll be prompted to enter the following values:
 
-  - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+- `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-  - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+- `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
 
-  - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+- `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
-  - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+- `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
 
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
-
-1. The node setup will be completed in approximately 2-3 minutes, after which the snapshotting process begins automatically.
-
-Everytime you restart the node, you should have a log message similar to the one shown below.
-![Start node logs](/images/snapshot-lite-v2-restart-window.png)
-
-If your node is generating snapshots during the assigned timeslot, you should have similar logs in your terminal:
-![Sample node logs](/images/snapshot-lite-v2-running.png)
 
 <h3> Stopping the Snapshotter Lite Node V2 </h3>
 
@@ -577,12 +535,6 @@ This is a one-time configuration process that generates a .env file in the proje
 
 After entering the required information, the setup will begin to construct the Docker container, which should be ready within a few minutes. 
 
-Everytime you restart the node, you should have a log message similar to the one shown below.
-![Start node logs](/images/snapshot-lite-v2-restart-window.png)
-
-If your node is generating snapshots during the assigned timeslot, you should have similar logs in your terminal:
-![Sample node logs](/images/snapshot-lite-v2-running.png)
-
 By adhering to these instructions, you can successfully configure the Snapshotter Lite Node V2 on your Windows system.
 
 If you encounter any issues while operating the node, please refer to our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
@@ -596,6 +548,36 @@ If you encounter any issues while operating the node, please refer to our [troub
     </Tabs>
   </TabItem>
 </Tabs>
+
+Everytime you start or restart the node, it goes through two stages
+
+### Simulation mode submissions
+
+This does not count towards your snapshot quota. This ensures that your node can establish connections to the sequencer over libp2p relay circuits.
+
+:::note
+Learn more: 
+* [Sequencer component](/docs/Protocol/Protocol_v2/sequencer.md)
+* [libp2p circuit relay](/docs/Protocol/Protocol_v2/relay.md)
+:::
+
+:::info
+Read more about monitoring and verifying the simulation mode submissions on the [`Monitoring and Troubleshooting`](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md) page.
+:::
+### Regular snapshot submissions
+
+Once you can verify the simulation mode submissions, you will have log messagse similar to the one shown below that will ensure that your node is capturing epoch releases and submitting snapshots to the sequencer.
+
+:::note
+It usually takes 2 - 5 minutes between the simulation mode submissions and a subsequence epoch release to be caught to trigger the regular snapshot submissions.
+:::
+
+![Sample node logs](/images/snapshot-lite-v2-running.png)
+
+:::info
+For further details on using the snapshotter dashboard to monitor the running status of your node, check the [`Monitoring Node Activity with the Snapshotter Dashboard`](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md#monitoring-node-activity-with-the-snapshotter-dashboard) section.
+:::
+
 
 ---
 
