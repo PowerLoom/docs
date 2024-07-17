@@ -149,7 +149,7 @@ cd powerloom-pre-mainnet-simulation
 1. Setting up Screen:   
 The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a terminal window open. To initiate a new Screen session for managing the Snapshotter Lite Node V2, follow these steps:
 
-Enter the following command to create a new Screen session named "powerloom":
+Enter the following command to create a new Screen session named "powerloom-pre-mainnet-simulation":
 
 ```bash
 screen -S powerloom-pre-mainnet-simulation
@@ -248,7 +248,7 @@ git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mai
 
 This will clone the repository into a directory named `powerloom-pre-mainnet`.
 
-- Change your working directory to the powerloom directory:
+- Change your working directory to the powerloom-pre-mainnet-simulation directory:
 
 ```bash
 cd powerloom-pre-mainnet-simulation
@@ -258,7 +258,7 @@ cd powerloom-pre-mainnet-simulation
 
 The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a terminal window open. To initiate a new Screen session for managing the Snapshotter Lite Node V2, follow these steps:
 
-Enter the following command to create a new Screen session named "powerloom":
+Enter the following command to create a new Screen session named "powerloom-pre-mainnet-simulation":
 
 ```bash
 screen -S powerloom-pre-mainnet-simulation
@@ -374,9 +374,9 @@ Once python3 is installed, we can go ahead and run the lite node:-
 ```bash
 git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet-simulation
 ```
-This will clone the repository into a directory named `powerloom-pre-mainnet`.
+This will clone the repository into a directory named `powerloom-pre-mainnet-simulation`.
   
-2. Change your working directory to the `powerloom-pre-mainnet` directory, open the terminal, and type:
+2. Change your working directory to the `powerloom-pre-mainnet-simulation` directory, open the terminal, and type:
 
 ```bash
 cd powerloom-pre-mainnet-simulation
