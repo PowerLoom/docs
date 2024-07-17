@@ -578,10 +578,10 @@ This is a one-time configuration process that generates a .env file in the proje
 After entering the required information, the setup will begin to construct the Docker container, which should be ready within a few minutes. 
 
 Everytime you restart the node, you should have a log message similar to the one shown below.
-![Start node logs](/images/node-start-status.png)
+![Start node logs](/images/snapshot-lite-v2-restart-window.png)
 
 If your node is generating snapshots during the assigned timeslot, you should have similar logs in your terminal:
-![Sample node logs](/images/node-status-new.png)
+![Sample node logs](/images/snapshot-lite-v2-running.png)
 
 By adhering to these instructions, you can successfully configure the Snapshotter Lite Node V2 on your Windows system.
 

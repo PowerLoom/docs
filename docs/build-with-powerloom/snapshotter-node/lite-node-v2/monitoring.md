@@ -27,7 +27,7 @@ You will see a 'Claim Reward' button next to your slot if you have passed the el
 
 - A healthy snapshotter node will produce logs similar to the provided example screenshot. These logs indicate normal operation and successful snapshotting.
 
-![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
+![Snapshotter-node-running](/images/snapshot-lite-v2-running.png)
 
 
 ### Simulation run logs
