@@ -320,11 +320,30 @@ Once generated, make sure you assign your burner wallet to your [snapshotter das
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
 
-Everytime you restart the node, you should have a log message similar to the one shown below.
-![Start node logs](/images/snapshot-lite-v2-restart-window.png)
+Everytime you start or restart the node, it goes through two stages
 
-If your node is generating snapshots during the assigned timeslot, you should have similar logs in your terminal:
+### Simulation mode submissions
+
+This does not count towards your snapshot quota. This ensures that your node can establish connections to the sequencer over libp2p relay circuits.
+
+:::note
+Learn more: 
+* [Sequencer component](/docs/Protocol/Protocol_v2/sequencer.md)
+* [libp2p circuit relay](/docs/Protocol/Protocol_v2/relay.md)
+:::
+
+:::info
+Read more about monitoring and verifying the simulation mode submissions on the [`Monitoring and Troubleshooting`](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md) page.
+:::
+### Regular snapshot submissions
+
+Once you can verify the simulation mode submissions, you will have log messagse similar to the one shown below that will ensure .
+
 ![Sample node logs](/images/snapshot-lite-v2-running.png)
+
+:::info
+For further details on using the snapshotter dashboard to monitor the running status of your node, check the [`Monitoring Node Activity with the Snapshotter Dashboard`](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md#monitoring-node-activity-with-the-snapshotter-dashboard) section.
+:::
 
 - To stop the node, you can press `Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
 

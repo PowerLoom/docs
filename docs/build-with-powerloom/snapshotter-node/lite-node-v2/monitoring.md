@@ -9,13 +9,34 @@ This section will guide you through the process of Monitoring and Troubleshootin
 
 ## Steps to Confirm and Monitor Node Snapshotting Process
 
-1. **Simulation run logs**
+### Monitoring Node Activity with the Snapshotter Dashboard
+Our Snapshotter Dashboard enables you to verify if your node slot is actively submitting snapshots.
+
+![Snapshotter-node-dashboard](/images/snapshot-lite-v2-dashboard.png)
+
+#### Eligible for simulation bonus rewards
+
+You will see a 'Claim Reward' button next to your slot if you have passed the eligibility criteria of 300 submissions.
+
+![Bonus rewards claim button](/images/node_simulation_bonus_claim.png)
+
+### Terminal Status Check
+- The primary method to verify node status is through the terminal, which displays log responses from the node.
+
+- Monitor these logs to assess the health and activity of your node. 
+
+- A healthy snapshotter node will produce logs similar to the provided example screenshot. These logs indicate normal operation and successful snapshotting.
+
+![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
+
+
+### Simulation run logs
 
    While running this node for the first time, it performs a couple of dummy submissions to simulate its connections to the relayer and sequencer network. If you notice logs similar to the lines below in the node run logs, your node's simulation run was successful.
 
    ![Snapshotter-First-Simulation](/images/snapshot-lite-v2-node-simulation-first-time.png)
 
-2. **Verifying success of simulation run**
+#### Verifying success of simulation run
 
    - To verify the success of the same, make use of the utility script bundled within here by running the following on a MacOS/Linux command line terminal.
 
@@ -27,20 +48,6 @@ This section will guide you through the process of Monitoring and Troubleshootin
 
 If you observe `submissionCount` and `lastPing` in the above response to be greater than 0, your node's simulation run was successful.
 
-
-3. **Terminal Status Check:**
-   - The primary method to verify node status is through the terminal, which displays log responses from the node.
-
-   - Monitor these logs to assess the health and activity of your node. 
-   
-   - A healthy snapshotter node will produce logs similar to the provided example screenshot. These logs indicate normal operation and successful snapshotting.
-   
-   ![Snapshotter-node-running](/images/snapshotter-node-running-terminal.png)
-
-4. **Monitoring Node Activity with the Snapshotter Dashboard**
-Our Snapshotter Dashboard enables you to verify if your node slot is actively submitting snapshots.
-
-   ![Snapshotter-node-dashboard](/images/snapshot-lite-v2-dashboard.png)
 
 ## Troubleshooting and Support
 
