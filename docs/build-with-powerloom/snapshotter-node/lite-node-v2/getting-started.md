@@ -620,7 +620,6 @@ curl https://pyenv.run | bash
 Next, add `pyenv` to the bashrc file:
 
 ```bash
-cd
 nano ~/.bashrc
 ```
 
@@ -689,7 +688,6 @@ pyenv install 3.11.5
 Execute the commands below to install `pyenv-virtualenv`:
 
 ```bash
-git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 pyenv virtualenv 3.11.5 ss_lite_multi_311
 pyenv local ss_lite_multi_311
