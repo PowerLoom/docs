@@ -561,6 +561,10 @@ Learn more:
 * [libp2p circuit relay](/docs/Protocol/Protocol_v2/relay.md)
 :::
 
+:::info
+Read more about monitoring and verifying the simulation mode submissions on the [`Monitoring and Troubleshooting`](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md) page.
+:::
+
 ### Regular snapshot submissions
 
 Once you can verify the simulation mode submissions, you will have log messagse similar to the one shown below that will ensure that your node is capturing epoch releases and submitting snapshots to the sequencer.
