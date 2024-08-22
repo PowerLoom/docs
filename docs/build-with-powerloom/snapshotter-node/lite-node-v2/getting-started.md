@@ -134,14 +134,14 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 Navigate to the directory where you want to install the node and clone the repository:
 
 ```bash
-git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet-simulation
+git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
 ```
 
 2. **Navigate to the Directory**:  
 Change to the directory of the cloned repository:
 
 ```bash
-cd powerloom-pre-mainnet-simulation
+cd powerloom-pre-mainnet
 ```
 
 <h3>Step 5: Running the Node </h3>
@@ -149,10 +149,10 @@ cd powerloom-pre-mainnet-simulation
 1. Setting up Screen:   
 The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a terminal window open. To initiate a new Screen session for managing the Snapshotter Lite Node V2, follow these steps:
 
-Enter the following command to create a new Screen session named "powerloom-pre-mainnet-simulation":
+Enter the following command to create a new Screen session named "powerloom-pre-mainnet":
 
 ```bash
-screen -S powerloom-pre-mainnet-simulation
+screen -S powerloom-pre-mainnet
 ```
     
 - This command opens a new Screen session, where you can start the Snapshotter Lite Node V2.
@@ -243,25 +243,25 @@ For users running the node on personal hardware, the minimum specifications are:
 - Clone the snapshotter lite repository using the following command in the terminal:
 
 ```bash 
-git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet-simulation
+git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
 ```
 
 This will clone the repository into a directory named `powerloom-pre-mainnet`.
 
-- Change your working directory to the powerloom-pre-mainnet-simulation directory:
+- Change your working directory to the powerloom-pre-mainnet directory:
 
 ```bash
-cd powerloom-pre-mainnet-simulation
+cd powerloom-pre-mainnet
 ```
 
 ** 1. Setting up Screen**
 
 The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a terminal window open. To initiate a new Screen session for managing the Snapshotter Lite Node V2, follow these steps:
 
-Enter the following command to create a new Screen session named "powerloom-pre-mainnet-simulation":
+Enter the following command to create a new Screen session named "powerloom-pre-mainnet":
 
 ```bash
-screen -S powerloom-pre-mainnet-simulation
+screen -S powerloom-pre-mainnet
 ```
     
 - This command opens a new Screen session, where you can start the Snapshotter Lite Node V2.
@@ -372,14 +372,14 @@ Once python3 is installed, we can go ahead and run the lite node:-
 
 1. Clone this repository using the following command in the terminal:
 ```bash
-git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet-simulation
+git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
 ```
-This will clone the repository into a directory named `powerloom-pre-mainnet-simulation`.
+This will clone the repository into a directory named `powerloom-pre-mainnet`.
   
-2. Change your working directory to the `powerloom-pre-mainnet-simulation` directory, open the terminal, and type:
+2. Change your working directory to the `powerloom-pre-mainnet` directory, open the terminal, and type:
 
 ```bash
-cd powerloom-pre-mainnet-simulation
+cd powerloom-pre-mainnet
 ```
 
 3. Run `init.sh` command in the terminal to start the snapshotter lite node v2:
@@ -495,14 +495,14 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
    - Use the following command in WSL terminal to clone the Snapshotter Lite Node v2 repository:
 
    ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet-simulation
+   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
    ```
 
 - **Navigate to the Repository Directory:**
     - Change to the cloned repository's directory:
 
       ```bash
-      cd powerloom-pre-mainnet-simulation
+      cd powerloom-pre-mainnet
       ```
 
 - **Run the Build Script:**
