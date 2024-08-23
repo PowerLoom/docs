@@ -1,36 +1,34 @@
 ### Setting up your Telegram Bot | Node Health Monitoring 
 
 
-This guide provides instructions for setting up your Powerloom Telegram Bot to monitor the health of your node. The Snapshotter-lite nodes currently require manual monitoring to detect any issues.
+The Snapshotter-lite nodes currently require manual monitoring to detect any issues.
 
-Introducing the Powerloom Telegram Bot, ‘PowerloomReportingBot’. This bot service maintains an internal health state and reports any issues to operators, such as failed or missed snapshots. 
+Introducing the `PowerloomReportingBot`! This bot service maintains an internal health state and reports any issues to operators, such as failed or missed snapshots. This guide provides instructions for setting up your Powerloom Telegram Bot to monitor the health of your node. 
 
-### Follow the steps below to set up your Node Health Monitoring process using Telegram.
+### Telegram Bot Setup Instructions:
 
-- Step 1: Find the telegram bot by searching ‘PowerloomReportingBot’ on Telegram
-- Step 2: Type ‘/start’ to activate the bot. This will provide you with a Chat ID.
+- **Step 1**: Find the telegram bot by searching for `PowerloomReportingBot` on Telegram
+- **Step 2**: Start a conversation with the bot and type `/start` to activate the bot. This will provide you with a `Chat ID`.
 
-![chatID-start](/images/chatID-start.png)
+  :::note
+  The PowerloomSnapshotterReportingService will <ins>never</ins> ask you for any personal information or private keys. Ensure that you have started a conversation with the correct bot, and do not provide any information besides the `/start` command under any circumstances.
+  :::
 
-### If you are setting up the node for the first time, 
-Enter the ChatID when prompted on the terminal during the node setup. 
+  ![chatID-start](/images/chatID-start.png)
 
-### If you have an existing installation, 
-Here's what you can do:
+- **Step 3**: Provide the `Chat ID` to your Snapshotter Lite node:
 
-A. 
-  - Update your `.env` file with the generated ChatID & the Telegram Reporting URL, as seen in the image below.
-  - Run the build setup again
+  - If you are setting up the node for the first time, enter the `Chat ID` when prompted on the terminal during the node setup:
 
-![updated-env-screenshot](/images/updated-env-screenshot.png)
+    ![telegram-promp](/images/telegram-prompt.png)
 
-OR
+  - If you have a running node and would like to add the Telegram reporting feature, there are two options that you can use:
 
-B.
-  - Delete your existing `.env` file & Run the build setup again.
-  - Enter the ChatID when prompted on the terminal.
+    **Option 1**: Update your `.env` file with the generated `Chat ID` as seen in the image below. Once updated, run the `./build.sh` command again to restart the node.
 
-![terminal-prompt](/images/terminal-prompt.png)
+      ![updated-env-screenshot](/images/updated-env-screenshot.png)
+
+    **Option 2**: Delete your `.env` file, and then run the `./build.sh` command again to trigger a recreation of the `.env`. This will remove all values from the initial setup, so ensure that you have these available.
 
 ### To check if the Bot is successfully running, try these:
 
