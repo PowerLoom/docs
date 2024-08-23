@@ -10,9 +10,13 @@ This section will guide you through the process of Monitoring and Troubleshootin
 ## Steps to Confirm and Monitor Node Snapshotting Process
 
 ### Monitoring Node Activity with the Snapshotter Dashboard
-Our Snapshotter Dashboard enables you to verify if your node slot is actively submitting snapshots.
+   - #### Snapshotter Dashboard
+      Our Snapshotter Dashboard enables you to verify if your node slot is actively submitting snapshots.
 
-![Snapshotter-node-dashboard](/images/snapshot-lite-v2-daily-dashboard.png)
+      ![Snapshotter-node-dashboard](/images/snapshot-lite-v2-daily-dashboard.png)
+   
+   - #### Telegram Reporting Bot
+      Snapshotter Lite Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node/Telegram%20Bot%20Setup.md) page for instructions on how to enable this feature.
 
 ### Terminal Status Check
 - The primary method to verify node status is through the terminal, which displays log responses from the node.
