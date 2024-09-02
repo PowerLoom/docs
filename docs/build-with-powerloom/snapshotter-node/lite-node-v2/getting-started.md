@@ -190,6 +190,10 @@ After initiating the process, the terminal will prompt you to enter the followin
 
   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
 
+- Optionally, you can provide to following values:
+
+  - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+
 After entering these details, the node will start running the background processes.
 
 If you want to exit your screen, type the command in the terminal:
