@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Overview: Smart Contract Architecture
 
-The smart contracts that maintain the state of the protocol V2 interact are arranged as described in the diagram that follows.
+The smart contracts that maintain the state of the protocol V2 interact are arranged as depicted in the diagram that follows.
 
 This architecture is an upgrade from the protocol state of V1 in the following aspects:
 
@@ -40,6 +40,7 @@ The following features of the protocol state are now maintained in the data mark
 
 :::info
 Read more:
+* [State view: Data market contracts](#state-view-data-market-contracts)
 * [Sequencer](/docs/Protocol/Protocol_v2/sequencer.md)
 * [Validator](/docs/Protocol/Protocol_v2/validator.md)
 * [Data market](/docs/Protocol/data-sources.md)
@@ -50,7 +51,7 @@ Read more:
 
 #### Snapshotters
 
-Snapshotters are assigned slots on the protocol, and their identities are maintained on a separate `SnapshotterState` contract. The interface to this contract is maintained in the protocol state core contract as well as the data market contracts.
+Snapshotters are assigned slots on the protocol, and their identities are maintained on a separate `SnapshotterState` contract. The interface to interact with this contract is maintained in the protocol state core contract as well as the data market contracts.
 
 ```solidity
 /**
@@ -96,9 +97,10 @@ The upgraded architecture of the protocol state allows for support of feature ex
 
 * [Method to directly accept submissions from allowed snapshotters](/docs/Protocol/Specifications/state-v1.md#function-submitsnapshotstring-memory-snapshotcid-uint256-epochid-string-memory-projectid-request-calldata-request-bytes-calldata-signature-public)
 * Snapshot submissions as content identifiers(CIDs) per epoch
-  * Occurrence count of their submissions
-  * Mapping between allowed snapshotter identities and the CIDs they submitted
-
+* Occurrence count of their submissions
+* Mapping between allowed snapshotter identities and the CIDs they submitted
+* Time slot allotted to snapshotter identities: `timeSlotPreference(uint256)`
+* Indication of whether a snapshot was received against a slot ID within an epoch ID: `snapshotsReceivedSlot`
 
 #### Inherited, continued features
 
@@ -142,7 +144,18 @@ The `PENDING` state can be considered to be an intermediate, trusted state since
 
 ---
 
-## State modification
+## State modification: Data market contracts
+
+### Update 'day' size
+
+```solidity
+function updateDaySize(uint256 _daySize) public onlyOwnerOrigin {
+    DAY_SIZE = _daySize;
+    epochsInADay = DAY_SIZE / (SOURCE_CHAIN_BLOCK_TIME * EPOCH_SIZE);
+}
+```
+
+A 'day' for a data market is defined by the `DAY_SIZE` in seconds. The `epochsInADay` is the number of epochs that fit into a day.
 
 ### Snapshot submission in batches by [sequencer](/docs/Protocol/Protocol_v2/sequencer.md)
 
@@ -151,15 +164,21 @@ function submitSubmissionBatch(
         string memory batchCid,
         uint256 epochId,
         string[] memory projectIds,
-        string[] memory snapshotCids
+        string[] memory snapshotCids,
+        bytes32 finalizedCidsRootHash
     ) public onlySequencer
 ```
 
-An epoch as identified by `epochId` can contain multiple batches of snapshot submissions from the sequencer, as referenced by the `batchId`.
+An epoch as identified by `epochId` can contain multiple batches of snapshot submissions from the sequencer, as referenced by the `batchCid`.
 
 The entire contents of this batch are made available on IPFS on the CID `batchCid`.
 
 The elements of the arrays `projectIds` and `snapshotCids` are present as a 1:1 mapping that the sequencer reports as finalized CID against each of the project IDs.
+
+:::note
+* The `projectIds` and `snapshotCids` arrays are expected to be of the same length.
+* In the next upgrade, the `projectIds` and `snapshotCids` arrays will be removed. The `finalizedCidsRootHash`, that is the root hash of the merkle tree built from the CIDs of the projects, holds appropriate information to be used in the consensus rule for attestation as well as verification of the batch CID uploaded to IPFS and anchored to the protocol state by this function call.
+:::
 
 ### Attestation against submission batches by [validator](/docs/Protocol/Protocol_v2/validator.md)
 
@@ -177,21 +196,72 @@ The attestation is the `finalizedCidsRootHash` which is the hash of the merkle t
 
 ### Finalization against attestation consensus
 
-`shouldFinalizeBatchAttestation()` is used as the state check whether the consensus rule around attestations submitted by the network of validators is satisfied, followed by a call to `finalizeSnapshotBatch()` that finalizes the snapshot CIDs against the project IDs contained in a `batchId` for an `epochId`.
+`shouldFinalizeBatchAttestation()` is used as the state check whether the consensus rule around attestations submitted by the network of validators is satisfied, followed by a call to `finalizeSnapshotBatch()` that finalizes the snapshot CIDs against the project IDs contained in a `batchCid` for an `epochId`.
 
 ```solidity
 function shouldFinalizeBatchAttestation(
-  uint256 batchId, 
-  uint256 currentAttestationCount
-) private view returns (bool)
+    string memory batchCid,
+    uint256 currentAttestationCount
+) private view returns (bool) {
 ```
 
 ```solidity
-function finalizeSnapshotBatch(uint256 batchId, uint256 epochId) private
+function finalizeSnapshotBatch(string memory batchCid, uint256 epochId) private
 ```
 ---
 
-## State view
+## State view: Data market contracts
+
+### Status and CIDs of snapshots
+
+```solidity
+mapping(string projectId => mapping(uint256 epochId => ConsensusStatus)) public snapshotStatus;
+
+function maxSnapshotsCid(
+    string memory projectId,
+    uint256 epochId
+) public view returns (string memory) {
+```
+
+The snapshot CID reported to have reached consensus against a `projectId` for an `epochId`. The `ConsensusStatus` wraps the [`SnapshotStatus` enum](#snapshot-state).
+
+### `batchCidToProjects`
+
+```solidity
+mapping(string batchCid => string[] projectids) public batchCidToProjects;
+```
+
+Project IDs contained within a Batch CID.
+
+### `epochIdToBatchCids`
+
+```solidity
+mapping(uint256 epochId => string[] batchCids) public epochIdToBatchCids;
+```
+
+Batch CIDs of submissions sent out for an epoch by the sequencer.
+
+### Validator attestations
+
+```solidity
+mapping(string batchCid => mapping(address => bool)) public attestationsReceived;
+mapping(string batchCid => mapping(bytes32 finalizedCidsRootHash=> uint256 count)) public attestationsReceivedCount;
+mapping(string batchCid => uint256 count) public maxAttestationsCount;
+mapping(string batchCid => bytes32 finalizedCidsRootHash) public maxAttestationFinalizedRootHash;
+mapping(string batchCid => bool) public batchCidAttestationStatus;
+```
+
+Storing attestations received from validator identities and their counts of attestations against finalized root hashes of merkle trees built from CIDs.
+
+```solidity
+mapping(string batchCid => bytes32 finalizedCidsRootHash) public batchCidSequencerAttestation;
+mapping(string batchCid => address[] validators) public batchCidDivergentValidators;
+```
+
+State of the initial attestation as reported by the sequencer as finalized CIDs against the project IDs and the state of them if they diverge from the consensus on attestations as reached by validators.
+
+
+## State view: Snapshotter identity state contract
 
 ### `allSnapshotters(address)`
 Mapping to check for existence of snapshotter identity on protocol state.
@@ -200,63 +270,9 @@ Mapping to check for existence of snapshotter identity on protocol state.
 
 Mapping from slot ID to registered snapshotter node's signing wallet address.
 
-### `timeSlotPreference(uint256)`
-
-Mapping from slot ID to registered time slot in a day.
-
 ### `slotCounter()`
 
 Number of registered slots on the protocol state.
-
-### `snapshotsReceivedSlot`
-
-```solidity
-mapping(string projectId => mapping(uint256 slotId => mapping(uint256 epochId => bool))) public snapshotsReceivedSlot;
-```
-Whether snapshot was received against a slot ID within an epoch ID.
-
-### `maxSnapshotsCidMap`
-
-```solidity
-mapping(string procjectId => mapping(uint256 epochId => string snapshotCid)) public maxSnapshotsCidMap;
-```
-
-The snapshot CID reported to have reached consensus against a `projectId` for an `epochId`.
-
-### `batchIdToProjects`
-
-```solidity
-mapping(uint256 batchId => string[] projectids) public batchIdToProjects;
-```
-
-Project IDs contained within a Batch ID.
-
-### `epochIdToBatchIds`
-
-```solidity
-mapping(uint256 epochId => uint256[] batchIds) epochIdToBatchIds;
-```
-
-Batch IDs of submissions sent out for an epoch by the sequencer.
-
-### Validator attestations
-
-```solidity
-mapping(uint256 batchId => mapping(address => bool)) public attestationsReceived;
-mapping(uint256 batchId => mapping(bytes32 finalizedCidsRootHash=> uint256 count)) public attestationsReceivedCount;
-mapping(uint256 batchId => uint256 count) public maxAttestationsCount;
-mapping(uint256 batchId => bytes32 finalizedCidsRootHash) public maxAttestationFinalizedRootHash;
-mapping(uint256 batchId => bool) public batchIdAttestationStatus;
-```
-
-Storing attestations received from validator identities and their counts of attestations against finalized root hashes of merkle trees built from CIDs.
-
-```solidity
-mapping(uint256 batchId => bytes32 finalizedCidsRootHash) public batchIdSequencerAttestation;
-mapping(uint256 batchId => address[] validators) public batchIdDivergentValidators;
-```
-
-State of the initial attestation as reported by the sequencer as finalized CIDs against the project IDs and the state of them if they diverge from the consensus on attestations as reached by validators.
 
 ## Events
 
