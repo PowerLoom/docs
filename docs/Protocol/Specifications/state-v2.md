@@ -1,42 +1,125 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
-# Protocol State
+# Protocol State: V2
 
-## Overview
+## Overview: Smart Contract Architecture
 
-### Additional features
+The smart contracts that maintain the state of the protocol V2 interact are arranged as described in the diagram that follows.
 
-The protocol state in V2 of the protocol has the following changes introduced to support new features like batched submissions and validator attestations:
+This architecture is an upgrade from the protocol state of V1 in the following aspects:
+
+### Unified view and interface for all peers
+
+The implementation of the protocol state in V2 introduces a unified view and interface for all peers on the network, with the ability to extend functionality with new features as the protocol evolves.
+
+All the interactions with underlying data markets, their state changes and event emissions are accessible through the implementation of the protocol state core.
+
+
+### Protocol State Core
+* The core of the protocol state is now maintained in a separate contract, managed by an ERC1967Proxy upgradeable proxy
+* The upgradable proxy pattern allows for the core state contract to be upgraded without the need to redeploy the proxy and all the dependent contracts
+* The upgradable proxy pattern also allows for the core state contract to be upgraded in a controlled manner, with the ability to maintain previous versions of the contract in case a regression is introduced in the new version
+
+![Protocol V2 Smart Contract Architecture](/images/protocolV2-contract-state-dark.png) 
+
+### Data markets
+
+Data market contracts are now separated from the protocol state core. Their creation is initiated from the protocol state core contract and intermediated by a data market factory contract.
+
+The following features of the protocol state are now maintained in the data market contract since they are specific to their operations and functions:
+
+* Epochs
+  * Epoch release and epoch size
+  * Epochs in a "day"
+* Allowed sequencer identities
+* Finalized snapshot CIDs against project IDs
+* Submission counts against snapshotter slots
+* Submission batches and their attestation consensus by validators
+
+:::info
+Read more:
+* [Sequencer](/docs/Protocol/Protocol_v2/sequencer.md)
+* [Validator](/docs/Protocol/Protocol_v2/validator.md)
+* [Data market](/docs/Protocol/data-sources.md)
+* [Snapshot composition](/docs/Protocol/data-composition.md)
+:::
+
+### Identity management
+
+#### Snapshotters
+
+Snapshotters are assigned slots on the protocol, and their identities are maintained on a separate `SnapshotterState` contract. The interface to this contract is maintained in the protocol state core contract as well as the data market contracts.
+
+```solidity
+/**
+ * @title ISnapshotterState
+ * @dev Interface for the SnapshotterState contract
+ */
+interface ISnapshotterState {
+    /**
+     * @dev Returns the snapshotter address for a given slot
+     * @param slotId The ID of the slot
+     * @return address of the snapshotter
+     */
+    function slotSnapshotterMapping(uint256 slotId) external view returns (address);
+
+    /**
+     * @dev Returns the total number of slots
+     * @return uint256 representing the slot counter
+     */
+    function slotCounter() external view returns (uint256);
+
+    /**
+     * @dev Checks if an address is a registered snapshotter
+     * @param snapshotter Address to check
+     * @return bool indicating if the address is a snapshotter
+     */
+    function allSnapshotters(address snapshotter) external view returns (bool);
+}
+```
+
+### Comparisons with V1
+
+#### New features
+In an upgrade to V1, the protocol state in V2 introduces the following:
 
 * Batched snapshot submissions from sequencer
 * Attestation on submission batches from validators
 
-### Removed
+:::info
+The upgraded architecture of the protocol state allows for support of feature extensions in existing categories of peers like snapshotters and sequencers, along with introducing new categories of peers like validators, watchers among others.
+:::
 
-* [Method to directly accept submissions from allowed snapshotters](/docs/Protocol/Specifications/protocol-state.md#function-submitsnapshotstring-memory-snapshotcid-uint256-epochid-string-memory-projectid-request-calldata-request-bytes-calldata-signature-public)
+#### Removed features
+
+* [Method to directly accept submissions from allowed snapshotters](/docs/Protocol/Specifications/state-v1.md#function-submitsnapshotstring-memory-snapshotcid-uint256-epochid-string-memory-projectid-request-calldata-request-bytes-calldata-signature-public)
 * Snapshot submissions as content identifiers(CIDs) per epoch
   * Occurrence count of their submissions
   * Mapping between allowed snapshotter identities and the CIDs they submitted
 
 
-### Continued from Snapshotter Lite testnet
+#### Inherited, continued features
 
 :::note
-Most of the [V1 protocol state](/docs/Protocol/Specifications/protocol-state.md) implemented for the different phases of the incentivized testnets and the lite node testnet continues in V2.
+Most of the [V1 protocol state](/docs/Protocol/Specifications/state-v1.md) implemented for the different phases of the incentivized testnets and the lite node testnet continues in V2.
 :::
 
 * Slot based snapshotter identities (slot IDs)
 * Snapshot CIDs per epoch per project with the max occurrence frequency
 * Time slots allotted to slot IDs against snapshotter identities
 
+## Deployed contracts
 
-## Deployed contract
-
-The contract address where the V2 protocol state can be found is contained within the `env.example` file for the type of node being deployed:
+The contract address where the V2 protocol state can be found is contained within the `env.example` file for the type of node being deployed. For example:
 
 * [Snapshotter Lite Node V2](https://github.com/PowerLoom/snapshotter-lite-v2/blob/15ce2872ac3cbdce47955b26f84b6c634fbbb6ab/env.example#L7)
+
+### Pre-mainnet deployment
+
+* Powerloom anchor chain: [Prost 1M](https://explorer-devnet.powerloom.io/)
+* Protocol State Upgradeable Proxy: [`0xE88E5f64AEB483d7057645326AdDFA24A3B312DF`](https://explorer-prost1m.powerloom.io/address/0xE88E5f64AEB483d7057645326AdDFA24A3B312DF?tab=txs)
 
 ## ABI
 
@@ -67,7 +150,6 @@ The `PENDING` state can be considered to be an intermediate, trusted state since
 ```solidity
 function submitSubmissionBatch(
         string memory batchCid,
-        uint256 batchId,
         uint256 epochId,
         string[] memory projectIds,
         string[] memory snapshotCids
@@ -84,13 +166,13 @@ The elements of the arrays `projectIds` and `snapshotCids` are present as a 1:1 
 
 ```solidity
 function submitBatchAttestation(
-        uint256 batchId,
+        string memory batchCid,
         uint256 epochId,
         bytes32 finalizedCidsRootHash
     ) public onlyValidator
 ```
 
-Validators submit their attestations against batches of snapshot submissions in an `epochId` by refererring to their `batchId`.
+Validators submit their attestations against batches of snapshot submissions in an `epochId` by refererring to their `batchCid`.
 
 The attestation is the `finalizedCidsRootHash` which is the hash of the merkle tree root constructed from the finalized CIDs across the projects contained in a batch.
 
