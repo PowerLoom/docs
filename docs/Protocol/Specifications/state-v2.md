@@ -120,10 +120,9 @@ The contract address where the V2 protocol state can be found is contained withi
 
 * Powerloom anchor chain: [Prost 1M](https://explorer-devnet.powerloom.io/)
 * Protocol State Upgradeable Proxy: [`0xE88E5f64AEB483d7057645326AdDFA24A3B312DF`](https://explorer-prost1m.powerloom.io/address/0xE88E5f64AEB483d7057645326AdDFA24A3B312DF?tab=txs)
+* Protocol State Implementation: [`0xf43E07FC6A8421D2Cb7247E3a13a4EBe8Df3aa22`](https://explorer-prost1m.powerloom.io/address/0xf43E07FC6A8421D2Cb7247E3a13a4EBe8Df3aa22?tab=contract)
 
-## ABI
-
-The [Application Binary Interface (ABI) to interact with the smart contract](https://github.com/PowerLoom/snapshotter-lite-v2/blob/feat/new_proto_bidirectional/snapshotter/static/abis/ProtocolContract.json) can be found contained within the repositories of the corresponding node type.
+* Uniswap V2 Data market: [`0x0C2E22fe7526fAeF28E7A58c84f8723dEFcE200c`](https://explorer-prost1m.powerloom.io/address/0x0C2E22fe7526fAeF28E7A58c84f8723dEFcE200c?tab=contract)
 
 ---
 
@@ -261,13 +260,42 @@ State of the initial attestation as reported by the sequencer as finalized CIDs 
 
 ## Events
 
+### Namespaced event emissions
+
+Event emissions specific to data market operations are emitted from the data market contracts as well as the protocol state core contract, which has an additional topic that identifies the data market against which the operation is being performed.
+
+This allows for state and event observers on the protocol to filter events by the data market contract of interest.
+
+For example, the `SnapshotBatchSubmitted` event has the following signatures when emitted from:
+
+#### protocol state core contract
+
+```solidity
+event SnapshotBatchSubmitted(
+  address indexed dataMarketAddress, 
+  string batchCid, 
+  uint256 indexed epochId, 
+  uint256 timestamp
+);
+```
+
+#### data market contract
+
+```solidity
+event SnapshotBatchSubmitted(
+  string batchCid, 
+  uint256 indexed epochId, 
+  uint256 timestamp
+);
+```
+
 ### Snapshot submissions
 
 * **SnapshotBatchSubmitted:** Emitted upon the sequencer submitting a batch of snapshot submissions along with their claimed finalizations for an `epochId`
 
 ```solidity
 event SnapshotBatchSubmitted(
-  uint256 batchId, 
+  address indexed dataMarketAddress,
   string batchCid, 
   uint256 indexed epochId, 
   uint256 timestamp
@@ -278,7 +306,7 @@ event SnapshotBatchSubmitted(
 
 ```solidity
 event DelayedBatchSubmitted(
-  uint256 batchId, 
+  address indexed dataMarketAddress,
   string batchCid, 
   uint256 indexed epochId, 
   uint256 timestamp
@@ -289,6 +317,7 @@ event DelayedBatchSubmitted(
 
 ```solidity
 event SnapshotBatchFinalized(
+  address indexed dataMarketAddress,
   uint256 indexed epochId, 
   uint256 indexed batchId, 
   uint256 timestamp
@@ -300,7 +329,7 @@ event SnapshotBatchFinalized(
 * **SnapshotBatchAttestationSubmitted:** Emitted when a validator `validatorAddr` submits their attestation for a `batchId` batch
 ```solidity
 event SnapshotBatchAttestationSubmitted(
-  uint256 batchId, 
+  address indexed dataMarketAddress,
   uint256 indexed epochId, 
   uint256 timestamp, 
   address indexed validatorAddr
@@ -311,7 +340,7 @@ event SnapshotBatchAttestationSubmitted(
 
 ```solidity
 event DelayedAttestationSubmitted(
-  uint256 batchId, 
+  address indexed dataMarketAddress,
   uint256 indexed epochId, 
   uint256 timestamp, 
   address indexed validatorAddr
