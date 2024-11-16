@@ -157,6 +157,66 @@ function updateDaySize(uint256 _daySize) public onlyOwnerOrigin {
 
 A 'day' for a data market is defined by the `DAY_SIZE` in seconds. The `epochsInADay` is the number of epochs that fit into a day.
 
+### Rewards distribution
+
+#### Toggle rewards distribution
+
+```solidity
+function toggleRewards() public onlyOwnerOrigin {
+    rewardsEnabled = !rewardsEnabled;
+}
+```
+
+#### Daily snapshot quota
+
+This quota is the number of snapshots that have to be submitted by a snapshotter in a day to be eligible for rewards.
+
+```solidity
+function updateDailySnapshotQuota(
+    uint256 _dailySnapshotQuota
+) public onlyOwnerOrigin {
+    dailySnapshotQuota = _dailySnapshotQuota;
+}
+```
+
+#### Commit submission counts
+
+The sequencer commits the submission counts for a day against the slot IDs of the snapshotters. It is planned to be decentralized in the future by combining the election of sequencers and reports on submitted counts peers called 'watchers'.
+
+```solidity
+function updateRewards(
+    uint256[] memory slotIds,
+    uint256[] memory submissionsList,
+    uint256 day
+) public onlySequencer returns (bool) {
+```
+
+Refer: [day size for a data market](#update-day-size)
+
+### Epochs
+
+#### Epoch release
+
+```solidity
+function releaseEpoch(
+    uint256 begin,
+    uint256 end
+) public onlyEpochManager isActive returns (bool, bool) {
+```
+
+Refer: [Epoch manager](/docs/Protocol/Specifications/Epoch.md)
+
+#### Skip epochs
+
+```solidity
+function forceSkipEpoch(
+    uint256 begin,
+    uint256 end
+) public onlyOwnerOrigin isActive {
+```
+
+This is a fallback mechanism to skip epochs in case the epoch release service fails.
+
 ### Snapshot submission in batches by [sequencer](/docs/Protocol/Protocol_v2/sequencer.md)
 
 ```solidity
@@ -179,6 +239,12 @@ The elements of the arrays `projectIds` and `snapshotCids` are present as a 1:1 
 * The `projectIds` and `snapshotCids` arrays are expected to be of the same length.
 * In the next upgrade, the `projectIds` and `snapshotCids` arrays will be removed. The `finalizedCidsRootHash`, that is the root hash of the merkle tree built from the CIDs of the projects, holds appropriate information to be used in the consensus rule for attestation as well as verification of the batch CID uploaded to IPFS and anchored to the protocol state by this function call.
 :::
+
+### Indicating end of batch submissions for an epoch
+
+```solidity
+function endBatchSubmissions(uint256 epochId) external onlySequencer {
+```
 
 ### Attestation against submission batches by [validator](/docs/Protocol/Protocol_v2/validator.md)
 
@@ -208,14 +274,53 @@ function shouldFinalizeBatchAttestation(
 ```solidity
 function finalizeSnapshotBatch(string memory batchCid, uint256 epochId) private
 ```
+
+### Triggering attestation consensus externally
+
+```solidity
+function forceCompleteConsensusAttestations(
+  PowerloomDataMarket dataMarket, 
+  string memory batchCid, 
+  uint256 epochId
+) public {
+```
+
 ---
 
 ## State view: Data market contracts
 
-### Status and CIDs of snapshots
+### Epoch size
 
 ```solidity
-mapping(string projectId => mapping(uint256 epochId => ConsensusStatus)) public snapshotStatus;
+uint8 public EPOCH_SIZE; // Number of Blocks in each Epoch
+```
+
+Refer: [Epoch](/docs/Protocol/Specifications/Epoch.md)
+### Data source chain properties
+
+These properties are specific to the chain on which the actual data sources i.e. smart contracts and applications are running.
+
+```solidity
+uint256 public SOURCE_CHAIN_ID;
+uint256 public SOURCE_CHAIN_BLOCK_TIME; // Block time in seconds * 1e4 (to allow decimals)
+```
+
+### Consensus properties
+
+```solidity
+uint256 public batchSubmissionWindow // Number of blocks to wait before finalizing batch
+uint256 public attestationSubmissionWindow // Number of blocks to wait for attestation acceptance
+uint256 public minAttestationsForConsensus // Minimum number of attestations for consensus
+```
+
+### Status and CIDs of snapshots
+
+* The snapshot CID reported to have reached consensus against a `projectId` for an `epochId`. The `ConsensusStatus` wraps the [`SnapshotStatus` enum](#snapshot-state).
+
+```solidity
+mapping(string projectId => mapping(
+  uint256 epochId => ConsensusStatus
+)) public snapshotStatus;
 
 function maxSnapshotsCid(
     string memory projectId,
@@ -223,7 +328,23 @@ function maxSnapshotsCid(
 ) public view returns (string memory) {
 ```
 
-The snapshot CID reported to have reached consensus against a `projectId` for an `epochId`. The `ConsensusStatus` wraps the [`SnapshotStatus` enum](#snapshot-state).
+* Snapshot CID finalized for a project ID against an epoch ID, as reported by the sequencer.
+
+```solidity
+mapping(string projectId => uint256 epochId) public lastSequencerFinalizedSnapshot;
+```
+
+* Snapshot CID finalized against an epoch ID for each project ID, once validators attest to the finalization from sequencer as shown above.
+
+```solidity
+mapping(string projectId => uint256 epochId) public lastFinalizedSnapshot;
+```
+
+* The very first epoch ID against which a finalization was achieved for a project ID.
+
+```solidity
+mapping(string projectId => uint256 epochId) public projectFirstEpochId;
+```
 
 ### `batchCidToProjects`
 
@@ -274,6 +395,8 @@ Mapping from slot ID to registered snapshotter node's signing wallet address.
 
 Number of registered slots on the protocol state.
 
+---
+
 ## Events
 
 ### Namespaced event emissions
@@ -305,6 +428,47 @@ event SnapshotBatchSubmitted(
 );
 ```
 
+### Epoch related events
+
+* **`DailyTaskCompletedEvent`:** Emitted when a snapshotter reaches their daily quota of snapshot submission count.
+
+```solidity
+event DailyTaskCompletedEvent(
+  address indexed dataMarketAddress, 
+  address snapshotterAddress, 
+  uint256 slotId, 
+  uint256 dayId, 
+  uint256 timestamp
+);
+```
+Read more: [Daily snapshot quota](#daily-snapshot-quota)
+
+* **`DayStartedEvent`:** Emitted when a new day starts.
+
+```solidity
+event DayStartedEvent(
+  address indexed dataMarketAddress, 
+  uint256 dayId, 
+  uint256 timestamp
+);
+```
+
+Read more: [Day size for a data market](#update-day-size)
+
+* **`EpochReleased`**: Emitted when an epoch is released.
+
+```solidity
+event EpochReleased(
+  address indexed dataMarketAddress, 
+  uint256 indexed epochId, 
+  uint256 begin, 
+  uint256 end, 
+  uint256 timestamp
+);
+```
+
+Read more: [Epoch release](#epoch-release)
+
 ### Snapshot submissions
 
 * **SnapshotBatchSubmitted:** Emitted upon the sequencer submitting a batch of snapshot submissions along with their claimed finalizations for an `epochId`
@@ -329,36 +493,36 @@ event DelayedBatchSubmitted(
 );
 ```
 
-* **SnapshotBatchFinalized:** Emitted when a majority of the validators have submitted their attestations on a `batchId` submitted by the sequencer
+* **SnapshotBatchFinalized:** Emitted when a majority of the validators have submitted their attestations on a `batchCid` submitted by the sequencer.
 
 ```solidity
 event SnapshotBatchFinalized(
-  address indexed dataMarketAddress,
-  uint256 indexed epochId, 
-  uint256 indexed batchId, 
+  uint256 indexed epochId,
+  string batchCid,
   uint256 timestamp
 );
 ```
 
 ### Validation
 
-* **SnapshotBatchAttestationSubmitted:** Emitted when a validator `validatorAddr` submits their attestation for a `batchId` batch
+* **SnapshotBatchAttestationSubmitted:** Emitted when a validator `validatorAddr` submits their attestation for a `batchCid` batch.
+
 ```solidity
 event SnapshotBatchAttestationSubmitted(
-  address indexed dataMarketAddress,
-  uint256 indexed epochId, 
-  uint256 timestamp, 
+  string batchCid,
+  uint256 indexed epochId,
+  uint256 timestamp,
   address indexed validatorAddr
 );
 ```
 
-* **DelayedAttestationSubmitted:** Emitted when a validator `validatorAddr` submits their attestation for a `batchId` batch past the submission deadline
+* **DelayedAttestationSubmitted:** Emitted when a validator `validatorAddr` submits their attestation for a `batchCid` batch past the submission deadline
 
 ```solidity
 event DelayedAttestationSubmitted(
-  address indexed dataMarketAddress,
-  uint256 indexed epochId, 
-  uint256 timestamp, 
+  string batchCid,
+  uint256 indexed epochId,
+  uint256 timestamp,
   address indexed validatorAddr
 );
 ```
