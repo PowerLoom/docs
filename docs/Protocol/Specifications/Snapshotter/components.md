@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # System Design
 
-![Snapshotter Components](/images/MajorComponents.png)
+![Snapshotter Components](/images/snapshotter-node-system-design.png)
 
 ## System Event Detector
 
