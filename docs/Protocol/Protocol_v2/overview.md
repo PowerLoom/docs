@@ -18,7 +18,7 @@ This causes a state bloat of submissions for base snapshots for thousands of pro
 :::info
 Learn more:
 
-* [Protocol State](/docs/Protocol/Specifications/protocol-state.md)
+* [Protocol State: V2](/docs/Protocol/Specifications/state-v2.md)
 * [Snapshot Generation](/docs/Protocol/Specifications/Snapshotter/snapshot-build.md)
 * [Introduction to Snapshotting consensus](/docs/build-with-powerloom/snapshotter-node/introduction)
 * [Accessing datasets on which consensus has been reached](/docs/build-with-powerloom/snapshotter-node/data)

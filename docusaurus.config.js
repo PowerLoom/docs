@@ -217,7 +217,7 @@ const config = {
   themes: [
     'docusaurus-theme-github-codeblock',
     'docusaurus-theme-openapi-docs',
-    'docusaurus-theme-search-typesense',
+    'docusaurus-theme-search-typesense'
   ]
 };
 

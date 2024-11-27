@@ -21,7 +21,7 @@ When the sequencer submits a batch, it puts the snapshots contained within in a 
 :::info
 Learn more:
 * [Sequencer batch submission](/docs/Protocol/Protocol_v2/sequencer.md#batch-upload-and-anchor-proof)
-* [Protocol State: State transition of snapshots](/docs/Protocol/Protocol_v2/state.md#snapshot-state)
+* [Protocol State: State transition of snapshots](/docs/Protocol/Specifications/state-v2.md#snapshot-state)
 :::
 
 ### Batch validation
