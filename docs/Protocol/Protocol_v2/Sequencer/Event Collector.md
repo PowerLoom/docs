@@ -1,4 +1,7 @@
-# Event Collector
+---
+sidebar_position: 1
+---
+# Sequencer: Event Collector
 
 ## Overview
 

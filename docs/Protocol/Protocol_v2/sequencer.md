@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# Sequencer
+# Sequencer Overview
 
 ![Powerloom Protocol V2 sequencer](/images/Sequencer.png)
 

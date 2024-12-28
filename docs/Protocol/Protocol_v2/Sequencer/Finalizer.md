@@ -1,3 +1,8 @@
+---
+sidebar_position: 2
+---
+# Sequencer: Finalizer
+
 ## Overview
 
 ![Finalizer](/images/finalizer-architecture.png)
