@@ -2,7 +2,15 @@
 sidebar_position: 2
 ---
 
-# Relayers
+# Circuit Relayers
+
+:::warning
+Circuit relayers are currently not being supported for the pre-mainnet and mainnet networks on Protocol V2 after certain security considerations. We are working on a solution to support this in the future.
+
+The trusted list of sequeuncer interfaces can be found on our Github repository in this JSON file:
+
+https://github.com/PowerLoom/snapshotter-lite-local-collector/blob/feat/trusted-relayers/sequencers.json
+:::
 
 ## Recap
 

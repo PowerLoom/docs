@@ -1,9 +1,16 @@
 ---
 sidebar_position: 1
 ---
-# Sequencer Overview
 
-![Powerloom Protocol V2 sequencer](/images/Sequencer.png)
+:::warning
+The sequencer listening interfaces for specific data markets are listed in the following trusted sequencer JSON file hosted on the Powerloom Github repository:
+
+https://github.com/PowerLoom/snapshotter-lite-local-collector/blob/feat/trusted-relayers/sequencers.json
+
+DO NOT attempt to connect to any other sequencer interfaces supplied by anyone claiming to represent Powerloom if they are not listed in the above file.
+:::
+
+# Sequencer Overview
 
 The sequencer has the following primary functions:
 
@@ -12,17 +19,17 @@ The sequencer has the following primary functions:
 3. **Batch Upload Snapshot Submissions:** Create multiple batches of datasets of snapshot submissions and finalized CIDs across project IDs within an epoch.
 4. **Anchor Proof of Batch:** Upload these batches to IPFS or a decentralized storage layer. Commit the storage identifier to the protocol state smart contract for validators and other peers to reference for subsequent workflows according to their roles.
 
+![Powerloom Protocol V2 sequencer](/images/Sequencer.png)
 
 ## Snapshot collection and finalization
 
-The sequencer maintains an internal clock corresponding to the release and end of the submission window for an epoch. The collector component (not to be confused with the local collector component within a Snapshotter node) receives snapshot submissions from snapshotter peers over a libp2p circuit relay node.
+The sequencer maintains an internal clock corresponding to the release and end of the submission window for an epoch. It receives snapshot submissions from snapshotter peers over libp2p streams.
 
 It also performs important verification checks:
 
 * identity verification by referencing an EIP-712 signature field contained within the submission payloads against the snapshotter identities allowed for a data market on the protocol state smart contract
 * submission window verification check by referencing the protocol state head block number as attached in the header of the submission sent by a snapshotter peer
-
-![Collector libp2p circuit relay connection](/images/Collector-relay.png)
+* DDoS protection that checks the number and frequency of submissions received from a snapshotter peer per epoch
 
 As the submission window for an epoch closes, the finalized submission for each project ID is decided upon by the sequencer according to rules of consensus, out of all the submissions sent out by participating snapshotter peers.
 
