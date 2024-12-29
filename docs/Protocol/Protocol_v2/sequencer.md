@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 ---
+# Sequencer Overview
 
 # Sequencer
 
@@ -12,13 +13,15 @@ https://github.com/PowerLoom/snapshotter-lite-local-collector/blob/feat/trusted-
 DO NOT attempt to connect to any other sequencer interfaces supplied by anyone claiming to represent Powerloom if they are not listed in the above file.
 :::
 
-# Sequencer Overview
 
 The sequencer has the following primary functions:
 
-1. **Snapshot Collection:** Receive snapshot submissions per epoch across project IDs from all participating snapshotters in a data market
+1. **Snapshot Collection:** Receive snapshot submissions per epoch across project IDs from all participating snapshotters in a data market. Read more in the [following section](#snapshot-collection-and-finalization).
+   
 2. **Snapshot Finalization:** Finalize snapshot submission for each project ID according to consensus rules
+   
 3. **Batch Upload Snapshot Submissions:** Create multiple batches of datasets of snapshot submissions and finalized CIDs across project IDs within an epoch.
+   
 4. **Anchor Proof of Batch:** Upload these batches to IPFS or a decentralized storage layer. Commit the storage identifier to the protocol state smart contract for validators and other peers to reference for subsequent workflows according to their roles.
 
 ![Powerloom Protocol V2 sequencer](/images/Sequencer.png)
