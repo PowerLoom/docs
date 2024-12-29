@@ -45,9 +45,15 @@ Multiple such finalizations are decided upon all project IDs within a data marke
 The finalized snapshot submissions for all corresponding project IDs are placed in an 'intermediate' finalized state on the protocol state. They can be considered to be trusted, but are awaiting attestation from validators that participate in the protocol.
 
 :::info
-Read more on how validators submit attestations on intermediate finalized states
+[Read more](/docs/Protocol/Protocol_v2/validator.md#batch-validation-attestation-and-finalization) on how validators submit attestations on intermediate finalized states.
 :::
 
+
+:::note
+You can look at the contents of a batch [here](/files/QmdFHpLZT4dgdFKYyd1yGM62chhJjYpZCtX.json).
+
+The reference transaction that committed the batch can be found [here](https://explorer-prost1m.powerloom.io/tx/0xc21446377239167bdc4df4aced2e3addf3bdfd6cfd3d5f2e9418648e964c5b70).
+:::
 
 Batches contain submission details for multiple project IDs with the following information per project:
 
@@ -56,7 +62,25 @@ Batches contain submission details for multiple project IDs with the following i
 
 ![Batch submission section of protocol V2 workflow](/images/protov2-submission-batching.png)
 
-### Merkle tree of submission IDs
+
+### Batch upload integrity: Roothash of Merkle tree of finalized CIDs
+
+Taking a look at the [method `submitSubmissionBatch`](/docs/Protocol/Specifications/state-v2.md#snapshot-submission-in-batches-by-sequencer) in the protocol state contract, we see that it contains the root hash of a Merkle tree constructed out of the finalized CIDs of the project IDs in the order included in the batch.
+
+```solidity
+function submitSubmissionBatch(
+        string memory batchCid,
+        uint256 epochId,
+        string[] memory projectIds,
+        string[] memory snapshotCids,
+        bytes32 finalizedCidsRootHash
+    ) public onlySequencer
+```
+
+The root hash of the Merkle tree of finalized CIDs is used to verify the integrity of the batch upload by the validator peers.
+
+* See also: [Structure of a batch](/files/QmdFHpLZT4dgdFKYyd1yGM62chhJjYpZCtX.json)
+### Batch upload integrity:Roothash of Merkle tree of submission IDs
 
 An important feature of each batch is that the dataset against it contains the root hash of a Merkle tree constructed out of the submission IDs sent out by the snapshotter peers. Utilizing this, snapshotter peers can verify whether their submissions were included in batches committed to the protocol state smart contract for an epoch.
 
@@ -64,3 +88,54 @@ The submission IDs contained in a batch are added to the leaves of the Merkle tr
 
 Each batch's Merkle tree builds on the tree from the preceding batch within the same epoch.
 
+## Sequencer Deployment: Decoupled Architecture
+
+The sequencer is in practice comprised of several moving parts that are deployed in a Kubernetes orchestration environment.
+
+![Sequencer deployment architecture](/images/Sequencer_autoscaled_decoupled.png)
+
+### Loadbalanced libp2p listener
+
+The libp2p listening interface is loadbalanced on Layer 4 of the networking stack (TCP/IP load balancing) by a Kubernetes service. These have inbuilt DDoS protection and further push workloads downstream to dequeuer pods.
+
+:::info
+* [Github](https://github.com/PowerLoom/libp2p-submission-sequencer-listener)
+:::
+
+### Autoscaled dequeuers
+
+These dequeuers are autoscaled by an event driven architecture and intermediated by worker queues that can work on varied backends, for eg. Redis (for demonstration purposes) or Kafka.
+
+:::info
+* Read more: [Sequencer: Dequeuer](/docs/Protocol/Protocol_v2/Sequencer/Dequeuer.md)
+* [Github](https://github.com/PowerLoom/sequencer-dequeuer)
+:::
+
+### Event collector
+
+This works as the system clock of the sequencer setup as a whole. 
+
+* It keeps up with the head of the Powerloom chain, 
+* Tracks epoch releases
+* Maintains important state information regarding time windows for 
+  * snapshot submission
+  * snapshot collection into batches
+    * Distribution of batch finalization to finalizers
+  * attestation submission
+
+:::info
+* Read more: [Sequencer: Event Collector](/docs/Protocol/Protocol_v2/Sequencer/EventCollector.md)
+* [Github](https://github.com/PowerLoom/submission-sequencer-event-collector/)
+:::
+
+### Autsocaled Batch Finalizers
+
+These are another set of autoscaled pods that are responsible for 
+* finalizing the snapshot submissions for each project ID.
+* uploading the batches to IPFS or a decentralized storage layer.
+* committing the storage references to the protocol state smart contract.
+
+:::info
+* Read more: [Sequencer: Batch Finalizer](/docs/Protocol/Protocol_v2/Sequencer/Finalizer.md)
+* [Github](https://github.com/PowerLoom/submission-sequencer-batch-finalizer/)
+:::
