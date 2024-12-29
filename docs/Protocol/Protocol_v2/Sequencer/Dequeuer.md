@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 # Sequencer: Dequeuer
 
@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ![Dequeuer](/images/dequeuer-architecture.png)
 
-The **Dequeuer** plays a pivotal role within the **Submission Sequencer** system, serving as the first step in the batch processing pipeline. It is responsible for dequeueing incoming snapshot submissions as accepted by the libp2p listener peer, verifiying and storing the submission data.
+The **Dequeuer** plays a pivotal role within the **Submission Sequencer** system, serving as the second step in the batch processing pipeline. It is responsible for dequeueing incoming snapshot submissions as accepted by the libp2p listener peer, verifiying and storing the submission data.
 
 Key functionalities:
 

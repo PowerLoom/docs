@@ -99,6 +99,7 @@ The sequencer is in practice comprised of several moving parts that are deployed
 The libp2p listening interface is loadbalanced on Layer 4 of the networking stack (TCP/IP load balancing) by a Kubernetes service. These have inbuilt DDoS protection and further push workloads downstream to dequeuer pods.
 
 :::info
+* Read more: [Sequencer: Libp2p Listener](/docs/Protocol/Protocol_v2/Sequencer/Listener.md)
 * [Github](https://github.com/PowerLoom/libp2p-submission-sequencer-listener)
 :::
 
