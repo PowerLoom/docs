@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+# Sequencer
+
 :::warning
 The sequencer listening interfaces for specific data markets are listed in the following trusted sequencer JSON file hosted on the Powerloom Github repository:
 
