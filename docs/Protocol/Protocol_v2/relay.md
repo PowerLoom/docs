@@ -2,14 +2,22 @@
 sidebar_position: 2
 ---
 
-# Relayers
+# Circuit Relayers
+
+:::warning
+Circuit relayers are currently not being supported for the pre-mainnet and mainnet networks on Protocol V2 after certain security considerations. We are working on a solution to support this in the future.
+
+The trusted list of sequeuncer interfaces can be found on our Github repository in this JSON file:
+
+https://github.com/PowerLoom/snapshotter-lite-local-collector/blob/feat/trusted-relayers/sequencers.json
+:::
 
 ## Recap
 
 Powerloom Protocol V1 that powered the Incentivized testnets and the Lite Node testnet were able to submit their snapshots to the protocol state in the following manner: 
 
 1. The nodes submit their snapshots over HTTP to the relayers as EIP-712 signed message objects
-2. The relayers submit each node's submission against each project ID as [individual smart contract transactions to the method `submitSnapshot()`](/docs/Protocol/Specifications/protocol-state.md#function-submitsnapshotstring-memory-snapshotcid-uint256-epochid-string-memory-projectid-request-calldata-request-bytes-calldata-signature-public)
+2. The relayers submit each node's submission against each project ID as [individual smart contract transactions to the method `submitSnapshot()`](/docs/Protocol/Specifications/state-v1.md#function-submitsnapshotstring-memory-snapshotcid-uint256-epochid-string-memory-projectid-request-calldata-request-bytes-calldata-signature-public)
 
 ## What's new in V2
 

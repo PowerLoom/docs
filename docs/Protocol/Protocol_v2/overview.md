@@ -18,7 +18,7 @@ This causes a state bloat of submissions for base snapshots for thousands of pro
 :::info
 Learn more:
 
-* [Protocol State](/docs/Protocol/Specifications/protocol-state.md)
+* [Protocol State: V2](/docs/Protocol/Specifications/state-v2.md)
 * [Snapshot Generation](/docs/Protocol/Specifications/Snapshotter/snapshot-build.md)
 * [Introduction to Snapshotting consensus](/docs/build-with-powerloom/snapshotter-node/introduction)
 * [Accessing datasets on which consensus has been reached](/docs/build-with-powerloom/snapshotter-node/data)
@@ -30,7 +30,7 @@ The above approach required the snapshotter peers to send out their submissions 
 
 ### Composed snapshots finality
 
-A combination of the above couple of issues also affects the [composability principle](/docs/Protocol/data-composition.md) of building higher order snapshots. Dropped transactions and increased delays in confirmation times of snapshot submissions ultimately affect the aggregate data points that power complex use cases like the [Uniswap V2 dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/uniswapv2-dashboard/) and [Aave V3 dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/).
+A combination of the above couple of issues also affects the [composability principle](/docs/Protocol/data-composition.md) of building higher order snapshots. Dropped transactions and increased delays in confirmation times of snapshot submissions ultimately affect the aggregate data points that power complex use cases like the [Uniswap V2 dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/) and [Aave V3 dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/).
 
 
 ## Upgraded workflow

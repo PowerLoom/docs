@@ -21,16 +21,39 @@ When the sequencer submits a batch, it puts the snapshots contained within in a 
 :::info
 Learn more:
 * [Sequencer batch submission](/docs/Protocol/Protocol_v2/sequencer.md#batch-upload-and-anchor-proof)
-* [Protocol State: State transition of snapshots](/docs/Protocol/Protocol_v2/state.md#snapshot-state)
+* [Protocol State: State transition of snapshots](/docs/Protocol/Specifications/state-v2.md#snapshot-state)
 :::
 
-### Batch validation
+### Batch validation: Attestation and finalization
 
 The finalized CID of every project ID committed by the sequencer in the `PENDING` state moves to a `FINALIZED` state when a majority of the validators submit their attestations on that finalization.
 
 In the case where a majority of validators do not agree to the finalization, a resubmission workflow is triggered. This time, the validators work on re-creating the snapshots against the project IDs that did not reach consensus for finalization, and re-submit them to the protocol state to be resolved by the same consensus rules.
 
-#### Trigger for batch validation
+#### Trigger for batch attestation
 
-For the current iteration of the Protocol V2 release, once the sequencer for a data market has finished committing all batches of submissions, it triggers an event release `BatchSubmissionsCompleted` from the protocol state smart contract that signals the validators to begin submitting their attestations.
+For the current iteration of the Protocol V2 release, once the sequencer for a data market has finished committing all batches of submissions, it triggers an event release `BatchSubmissionsCompleted` on the protocol state smart contract that signals the validators to begin submitting their attestations.
 
+#### What is the attestation?
+
+As mentioned in the [protocol state](/docs/Protocol/Specifications/state-v2.md#snapshot-submission-in-batches-by-sequencer) specification, the attestation is against the roothash of the Merkle tree that the sequencer has submitted for a batch. 
+
+The tree is constructed out of the finalized CIDs of the project IDs in the order included in the batch.
+
+The validator peers call the method [`submitBatchAttestation`](/docs/Protocol/Specifications/state-v2.md#attestation-against-submission-batches-by-validator) to submit their attestation against the `batchCid` along with the root hash of the Merkle tree of the finalized CIDs.
+
+```solidity
+function submitSubmissionBatch(
+        string memory batchCid,
+        uint256 epochId,
+        string[] memory projectIds,
+        string[] memory snapshotCids,
+        bytes32 finalizedCidsRootHash
+    ) public onlySequencer
+```
+
+:::info
+* See also: 
+  * [Structure of a batch](/files/QmdFHpLZT4dgdFKYyd1yGM62chhJjYpZCtX.json)
+  * [Batch upload integrity: Roothash of Merkle tree of finalized CIDs](/docs/Protocol/Protocol_v2/sequencer.md#batch-upload-integrity-roothash-of-merkle-tree-of-finalized-cids)
+:::

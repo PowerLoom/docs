@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Payload Commit Service
+# Payload Commit Service (deprecated)
 
 Once the snapshots are generated and uploaded to a decentralized storage medium like IPFS, the payload commit service ensures that the record of the same is registered on the protocol. It also performs some housekeeping functions, such as caching finalized snapshots against an epoch. The following sequence diagram provides a complete picture of its functions.
 

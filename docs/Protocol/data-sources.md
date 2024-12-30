@@ -5,7 +5,7 @@ title: Data Markets and Sources
 
 # Data Markets
 
-Snapshotters generate snapshots, both base and higher order, as per the data sources _defined by the data markets they participate in_. Each data market maintains its [specific protocol state](/docs/protocol/specifications/protocol-state) concerning the submission, calculation, and finalization of such snapshots.
+Snapshotters generate snapshots, both base and higher order, as per the data sources _defined by the data markets they participate in_. Each data market maintains its [specific protocol state](/docs/Protocol/Specifications/state-v2.md) concerning the submission, calculation, and finalization of such snapshots.
 
 The data sources defined by a market can be static or dynamic, depending on the use case at hand.
 

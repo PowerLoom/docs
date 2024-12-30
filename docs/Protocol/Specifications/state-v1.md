@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-# Protocol State
+# Protocol State: V1
 
 ## State Overview
 
@@ -22,7 +22,7 @@ Every [data market](/docs/protocol/data-sources) has a final state that includes
   - Mapping between allowed snapshotter identities and the CIDs they submitted
 
 :::note
-Powerloom Protocol V2 contains certain modifications on top of the V1 Protocol State as described in here. [Learn More](/docs/Protocol/Protocol_v2/state.md)
+Powerloom Protocol V2 contains certain modifications on top of the V1 Protocol State as described in here. [Learn More](/docs/Protocol/Specifications/state-v2.md)
 :::
 
 ## Implementation of the Protocol State

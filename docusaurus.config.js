@@ -186,7 +186,8 @@ const config = {
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme
+        darkTheme: darkCodeTheme,
+        additionalLanguages: ['solidity']
       },
 
     }),
@@ -216,7 +217,7 @@ const config = {
   themes: [
     'docusaurus-theme-github-codeblock',
     'docusaurus-theme-openapi-docs',
-    'docusaurus-theme-search-typesense',
+    'docusaurus-theme-search-typesense'
   ]
 };
 
