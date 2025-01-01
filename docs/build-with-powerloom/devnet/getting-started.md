@@ -24,7 +24,7 @@ Follow these steps:
 
 1. Visit https://devnet-mint.powerloom.dev to begin the minting process. You will be prompted to connect your wallet that contains Sepolia ETH.
 
-2. Click mint to being the minting process after connecting your wallet.
+2. Click mint to begin the minting process after connecting your wallet.
 
 ![Mint Dashboard](/images/devnet_mint_dashboard.png)
 
