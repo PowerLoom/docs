@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Setting Up and Running the Snapshotter Lite Node V2
 
-This guide provides instructions for installing and running the Snapshotter Lite Node V2, covering prerequisites and operational procedures.
+This guide provides instructions for installing and running the Snapshotter Lite Node V2 for the Powerloom Mainnet, covering prerequisites and operational procedures.
 
 The Snapshotter Lite Node V2 can be set up using either the Docker image or by running natively on the local machine. However, using the Docker image is the recommended approach, as it provides the simplest and most reliable method for deployment.
 
@@ -133,27 +133,41 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 1. **Clone the Snapshotter Lite Repository**:  
 Navigate to the directory where you want to install the node and clone the repository:
 
-```bash
-git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
-```
+   ```bash
+   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-mainnet
+   ```
 
 2. **Navigate to the Directory**:  
 Change to the directory of the cloned repository:
 
-```bash
-cd powerloom-pre-mainnet
-```
+   ```bash
+   cd powerloom-mainnet
+   ```
+
+4. **Cleanup the Environment**:
+Run the diagnose and cleanup script to check for any previous instances of the lite node, local collector, stale images and networks.
+
+   ```bash
+   ./diagnose.sh
+   ```
+
+   ![Diagnose and Cleanup](/images/snapshotter-lite-v2-mainnet-diagnose.png)
+
+:::tip
+It is recommended to run the node in a standalone environment without any other major processes running on the same machine. Running other processes on the same machine may lead to conflicts and errors that can interfere with the node's operation. The diagnose and cleanup script will stop and remove only Powerloom related processes running on the machine, if any.
+:::
+
 
 <h3>Step 5: Running the Node </h3>
 
-1. Setting up Screen:   
+1. **Setting up Screen**:   
 The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a terminal window open. To initiate a new Screen session for managing the Snapshotter Lite Node V2, follow these steps:
 
-Enter the following command to create a new Screen session named "powerloom-pre-mainnet":
+Enter the following command to create a new Screen session named "snapshotter-lite-node-mainnet":
 
-```bash
-screen -S powerloom-pre-mainnet
-```
+   ```bash
+   screen -S snapshotter-lite-node-mainnet
+   ```
     
 - This command opens a new Screen session, where you can start the Snapshotter Lite Node V2.
 - Once inside the new Screen session, initiate the Snapshotter Lite Node V2 as required.
@@ -163,45 +177,59 @@ This approach ensures your node can continue running in the background, even if 
 2. **Initialize the Node**:  
 Initiate the snapshotter lite node v2 setup by typing the command in the terminal:
 
-```bash
-./build.sh
-```
+   ```bash
+   ./build.sh
+   ```
     
 Follow the prompts to enter the required information.
 
 :::tip
- Please do not use your NFT minting wallet to run the snapshotter lite node v2. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+Please do not use your NFT minting wallet to run the snapshotter lite node v2. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+- [Vanity-ETH](https://vanity-eth.tk/)
+- [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-  - [Vanity-ETH](https://vanity-eth.tk/)
-  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
-
-Once generated, make sure you assign your burner wallet on your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
+Once generated, make sure you assign your burner wallet to your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
 :::
     
-**Environment Setup**:  
-After initiating the process, the terminal will prompt you to enter the following information:
+<h3>Step 6: Configuring the Node </h3>
 
-- During the setup, you'll be prompted to enter the following values:
-  - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+After initiating the process, the setup steps will differ depending on whether this is the first time the node has been setup or not:
 
-  - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+**First Time Setup:**
 
-  - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+1. Select the Data Market that you would like to participate in:
+   - The lite node now allows you to choose between two data markets: Uniswap V2 and Aave V3 with Uniswap V2 being the default. This will be further expanded to include more data markets in the future and to allow node operators to choose the data market that they want to operate on.
 
-  - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+2. Next, you'll be prompted to enter the following values:
+   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-- Optionally, you can provide to following values:
+   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
 
-  - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+   - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+
+3. Optionally, you can provide to following values:
+
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
 
 After entering these details, the node will start running the background processes.
 
 If you want to exit your screen, type the command in the terminal:
+   ```bash  
+   CTRL + A + D
+   ```
 
+**Subsequent Setup:**
 
-```bash  
-CTRL+A+D
-```
+1. Select the Data Market that you would like to participate in.
+
+2. You will be prompted to choose whether you wish to change the previously configured values for the above: `SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY` and `SLOT_ID`. Choose `y` or `n` depending on whether you wish to change them.
+
+   ![Subsequent Setup](/images/snapshoter-lite-v2-node-setup-existing.png)
+
+3. If you choose `y` to change the previously configured values, you will be prompted to enter the new values individually for each of the above values.
+
 
 <h3>Step 6: Maintaining Your Node </h3>
 
@@ -233,87 +261,114 @@ For users running the node on personal hardware, the minimum specifications are:
 - **CPU Core**:  Minimum of 2 Cores
 - **Disk Space:** A minimum of 40 GB.
 
-
-
 <h3> Pre-requisitie tools </h3>
 
 - Install Docker on your machine. You can find the installation instructions for your operating system on the [official Docker website.](https://docs.docker.com/get-docker/)
 
 - Install git if your system doesn't have git installed. To install git on MacOS, please follow this guide: https://www.atlassian.com/git/tutorials/install-git 
 
+<h3> Cloning the Repository and Setting Up the Node </h3>
 
-<h3> Installation </h3>
+1. **Clone the Snapshotter Lite Repository**:  
+Navigate to the directory where you want to install the node and clone the repository:
 
-- Clone the snapshotter lite repository using the following command in the terminal:
+   ```bash
+   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-mainnet
+   ```
 
-```bash 
-git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
-```
+2. **Navigate to the Directory**:  
+Change to the directory of the cloned repository:
 
-This will clone the repository into a directory named `powerloom-pre-mainnet`.
+   ```bash
+   cd powerloom-mainnet
+   ```
 
-- Change your working directory to the powerloom-pre-mainnet directory:
+4. **Cleanup the Environment**:
+Run the diagnose and cleanup script to check for any previous instances of the lite node, local collector, stale images and networks.
 
-```bash
-cd powerloom-pre-mainnet
-```
+   ```bash
+   ./diagnose.sh
+   ```
 
-** 1. Setting up Screen**
+   ![Diagnose and Cleanup](/images/snapshotter-lite-v2-mainnet-diagnose.png)
 
+:::tip
+It is recommended to run the node in a standalone environment without any other major processes running on the same machine. Running other processes on the same machine may lead to conflicts and errors that can interfere with the node's operation. The diagnose and cleanup script will stop and remove only Powerloom related processes running on the machine, if any.
+:::
+
+<h3> Running the Node </h3>
+
+1. **Setting up Screen**:   
 The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a terminal window open. To initiate a new Screen session for managing the Snapshotter Lite Node V2, follow these steps:
 
-Enter the following command to create a new Screen session named "powerloom-pre-mainnet":
+Enter the following command to create a new Screen session named "snapshotter-lite-node-mainnet":
 
-```bash
-screen -S powerloom-pre-mainnet
-```
+   ```bash
+   screen -S snapshotter-lite-node-mainnet
+   ```
     
 - This command opens a new Screen session, where you can start the Snapshotter Lite Node V2.
 - Once inside the new Screen session, initiate the Snapshotter Lite Node V2 as required.
     
 This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
 
-** 2. Run the node**
+2. **Initialize the Node**:  
+Initiate the snapshotter lite node v2 setup by typing the command in the terminal:
 
-- Run `build.sh` in the terminal to start the snapshotter lite node v2:
-
-```bash
-./build.sh
-```
-
-<details><summary>Optional: Only for Developers</summary>
-<p>
-
-If you're a developer and want to play around with the code, instead of running build.sh, you can run the following command to start the snapshotter lite node v2:
-
-```bash
-./bootstrap.sh
-./build-dev.sh
-```
-
-</p>
-</details>
+   ```bash
+   ./build.sh
+   ```
+    
+Follow the prompts to enter the required information.
 
 :::tip
- Please do not use your NFT minting wallet to run the snapshotter lite node v2. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
-
-  - [Vanity-ETH](https://vanity-eth.tk/)
-  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
+Please do not use your NFT minting wallet to run the snapshotter lite node v2. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+- [Vanity-ETH](https://vanity-eth.tk/)
+- [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
 Once generated, make sure you assign your burner wallet to your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
 :::
+    
+<h3> Configuring the Node </h3>
 
-- During the setup, you'll be prompted to enter the following values:
-  - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+After initiating the process, the setup steps will differ depending on whether this is the first time the node has been setup or not:
 
-  - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+**First Time Setup:**
 
-  - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+1. Select the Data Market that you would like to participate in:
+   - The lite node now allows you to choose between two data markets: Uniswap V2 and Aave V3 with Uniswap V2 being the default. This will be further expanded to include more data markets in the future and to allow node operators to choose the data market that they want to operate on.
 
-  - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+2. Next, you'll be prompted to enter the following values:
+   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
+   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
 
-This is a one-time configuration process that generates a .env file in the project's root directory.
+   - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+
+3. Optionally, you can provide to following values:
+
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+
+After entering these details, the node will start running the background processes.
+
+If you want to exit your screen, type the command in the terminal:
+   ```bash  
+   CTRL + A + D
+   ```
+
+**Subsequent Setup:**
+
+1. Select the Data Market that you would like to participate in.
+
+2. You will be prompted to choose whether you wish to change the previously configured values for the above: `SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY` and `SLOT_ID`. Choose `y` or `n` depending on whether you wish to change them.
+
+   ![Subsequent Setup](/images/snapshoter-lite-v2-node-setup-existing.png)
+
+3. If you choose `y` to change the previously configured values, you will be prompted to enter the new values individually for each of the above values.
+
+<h3> Stopping the Node </h3>
 
 - To stop the node, you can press `Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
 
@@ -375,26 +430,26 @@ For simplicity, we recommend using miniconda and setting up an environment with 
 Once python3 is installed, we can go ahead and run the lite node:-
 
 1. Clone this repository using the following command in the terminal:
-```bash
-git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
-```
-This will clone the repository into a directory named `powerloom-pre-mainnet`.
+   ```bash
+   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-mainnet
+   ```
+This will clone the repository into a directory named `powerloom-mainnet`.
   
-2. Change your working directory to the `powerloom-pre-mainnet` directory, open the terminal, and type:
+2. Change your working directory to the `powerloom-mainnet` directory, open the terminal, and type:
 
-```bash
-cd powerloom-pre-mainnet
-```
+   ```bash
+   cd powerloom-mainnet
+   ```
 
 3. Run `init.sh` command in the terminal to start the snapshotter lite node v2:
-```bash
-./init.sh
-```
-:::tip
- Please do not use your NFT minting wallet to run the snapshotter lite node v2. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+   ```bash
+   ./init.sh
+   ```
 
-  - [Vanity-ETH](https://vanity-eth.tk/)
-  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
+:::tip
+Please do not use your NFT minting wallet to run the snapshotter lite node v2. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+- [Vanity-ETH](https://vanity-eth.tk/)
+- [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
 Once generated, make sure you assign your burner wallet to your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
 :::
@@ -481,6 +536,7 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
 
 - **Modify Docker Group Permissions:**
    - To grant Docker the necessary permissions, add your user to the Docker group with this command:
+
      ```bash
      sudo usermod -aG docker $USER
      ```
@@ -488,60 +544,122 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
 
 - **Verify Docker Installation:**
    - To confirm Docker is set up correctly, run:
+
      ```bash
      docker run hello-world
      ```
    - This command should display a message confirming Docker is functioning.
 
-<h4> Cloning the Repository and Running the Build Script </h4>
+<h4> Cloning the Repository and Setting Up the Node </h4>
 
-- **Clone the Repository:**
+1. **Clone the Repository:**
    - Use the following command in WSL terminal to clone the Snapshotter Lite Node v2 repository:
 
-   ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-pre-mainnet
-   ```
+      ```bash
+      git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-mainnet
+      ```
 
-- **Navigate to the Repository Directory:**
+2. **Navigate to the Repository Directory:**
     - Change to the cloned repository's directory:
 
       ```bash
-      cd powerloom-pre-mainnet
+      cd powerloom-mainnet
       ```
 
-- **Run the Build Script:**
+3. **Cleanup the Environment**:
+   - Run the diagnose and cleanup script to check for any previous instances of the lite node, local collector, stale images and networks.
+
+      ```bash
+      ./diagnose.sh
+      ```
+
+      ![Diagnose and Cleanup](/images/snapshotter-lite-v2-mainnet-diagnose.png)
 
 :::tip
- Please do not use your NFT minting wallet to run the snapshotter lite node v2. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
-
-  - [Vanity-ETH](https://vanity-eth.tk/)
-  - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
-
-Once generated, make sure you assign your burner wallet on your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
-
+It is recommended to run the node in a standalone environment without any other major processes running on the same machine. Running other processes on the same machine may lead to conflicts and errors that can interfere with the node's operation. The diagnose and cleanup script will stop and remove only Powerloom related processes running on the machine, if any.
 :::
 
- - Execute the build script with:
+<h3> Running the Node </h3>
+
+1. **Setting up Screen**:   
+The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a WSL terminal window open. To initiate a new Screen session for managing the Snapshotter Lite Node V2, follow these steps:
+
+Enter the following command to create a new Screen session named "snapshotter-lite-node-mainnet":
+
+   ```bash
+   screen -S snapshotter-lite-node-mainnet
+   ```
+    
+- This command opens a new Screen session, where you can start the Snapshotter Lite Node V2.
+- Once inside the new Screen session, initiate the Snapshotter Lite Node V2 as required.
+    
+This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
+
+2. **Initialize the Node**:  
+Initiate the snapshotter lite node v2 setup by typing the command in the terminal:
+
    ```bash
    ./build.sh
    ```
-    - During the setup, you'll be prompted to enter the following values:
-        - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+    
+Follow the prompts to enter the required information.
 
-        - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+:::tip
+Please do not use your NFT minting wallet to run the snapshotter lite node v2. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+- [Vanity-ETH](https://vanity-eth.tk/)
+- [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-        - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+Once generated, make sure you assign your burner wallet to your [snapshotter dashboard](https://snapshotter-dashboard.powerloom.network/).
+:::
+    
+<h3> Configuring the Node </h3>
 
-        - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+After initiating the process, the setup steps will differ depending on whether this is the first time the node has been setup or not:
 
+**First Time Setup:**
 
-This is a one-time configuration process that generates a .env file in the project's root directory.
+1. Select the Data Market that you would like to participate in:
+   - The lite node now allows you to choose between two data markets: Uniswap V2 and Aave V3 with Uniswap V2 being the default. This will be further expanded to include more data markets in the future and to allow node operators to choose the data market that they want to operate on.
 
-After entering the required information, the setup will begin to construct the Docker container, which should be ready within a few minutes. 
+2. Next, you'll be prompted to enter the following values:
+   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-By adhering to these instructions, you can successfully configure the Snapshotter Lite Node V2 on your Windows system.
+   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
 
-If you encounter any issues while operating the node, please refer to our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
+   - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+
+3. Optionally, you can provide to following values:
+
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+
+After entering these details, the node will start running the background processes.
+
+If you want to exit your screen, type the command in the terminal:
+   ```bash  
+   CTRL + A + D
+   ```
+
+**Subsequent Setup:**
+
+1. Select the Data Market that you would like to participate in.
+
+2. You will be prompted to choose whether you wish to change the previously configured values for the above: `SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY` and `SLOT_ID`. Choose `y` or `n` depending on whether you wish to change them.
+
+   ![Subsequent Setup](/images/snapshoter-lite-v2-node-setup-existing.png)
+
+3. If you choose `y` to change the previously configured values, you will be prompted to enter the new values individually for each of the above values.
+
+<h3> Stopping the Node </h3>
+
+- To stop the node, you can press `Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
+
+This will halt the running node and all associated processes. 
+
+By following these steps, you can successfully configure the Snapshotter Lite Node V2 on your Mac system.
+
+If you encounter any issues while operating the node, please refer our [troubleshooting section](./monitoring.md) for guidance on common debugging techniques.
 
 ---
 
@@ -577,7 +695,7 @@ Once you can verify the simulation mode submissions, you will have log messagse 
 It usually takes 2 - 5 minutes between the simulation mode submissions and a subsequence epoch release to be caught to trigger the regular snapshot submissions.
 :::
 
-![Sample node logs](/images/snapshot-lite-v2-running.png)
+![Sample node logs](/images/snapshotter-lite-v2-simulation-submissions.png)
 
 :::info
 For further details on using the snapshotter dashboard to monitor the running status of your node, check the [`Monitoring Node Activity with the Snapshotter Dashboard`](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md#monitoring-node-activity-with-the-snapshotter-dashboard) section.
