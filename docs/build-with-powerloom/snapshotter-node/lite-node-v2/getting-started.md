@@ -13,7 +13,7 @@ This guide provides instructions for installing and running the Snapshotter Lite
 The Snapshotter Lite Node V2 can be set up using either the Docker image or by running natively on the local machine. However, using the Docker image is the recommended approach, as it provides the simplest and most reliable method for deployment.
 
 :::tip Node Mint
-Node Mint is now live at: https://mint.powerloom.network/. For detailed information on our rewards structure, frequently asked questions, and other aspects related to node minting, please visit: https://powerloom.network/mint-docs/.
+Node Mint is now live at: https://mint.powerloom.network/. For detailed information on the node mint for Mainnet, please refer to https://blog.powerloom.io/snapshotter-update-power-claims-daily-rewards-new-operator-onboarding/
 
 :::
 
