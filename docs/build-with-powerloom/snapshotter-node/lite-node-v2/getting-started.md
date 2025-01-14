@@ -211,7 +211,7 @@ After initiating the process, the setup steps will differ depending on whether t
 
 3. Optionally, you can provide to following values:
 
-   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
 
 After entering these details, the node will start running the background processes.
 
@@ -349,7 +349,7 @@ After initiating the process, the setup steps will differ depending on whether t
 
 3. Optionally, you can provide to following values:
 
-   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
 
 After entering these details, the node will start running the background processes.
 
@@ -632,7 +632,7 @@ After initiating the process, the setup steps will differ depending on whether t
 
 3. Optionally, you can provide to following values:
 
-   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
 
 After entering these details, the node will start running the background processes.
 
