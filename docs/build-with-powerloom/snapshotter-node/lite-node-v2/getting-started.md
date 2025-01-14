@@ -675,12 +675,15 @@ Everytime you start or restart the node, it goes through two stages
 
 ### Simulation mode submissions
 
-This does not count towards your snapshot quota. This ensures that your node can establish connections to the sequencer over libp2p relay circuits.
+This does not count towards your snapshot quota. This is to test whether your node can establish connections to the sequencer over libp2p protocol streams that ultimately enforce the Powerloom Protocol for data markets.
+
+You will see log messages similar to the one shown below that will ensure that your node has the capability of submitting snapshots to the sequencer.
+
+![Simulation mode submissions](/images/SimulationSubmission.png)
 
 :::note
 Learn more: 
 * [Sequencer component](/docs/Protocol/Protocol_v2/sequencer.md)
-* [libp2p circuit relay](/docs/Protocol/Protocol_v2/relay.md)
 :::
 
 :::info
@@ -704,166 +707,16 @@ For further details on using the snapshotter dashboard to monitor the running st
 
 ---
 
-## Setting Up Multiple Nodes on a VPS
+## Setting Up Multiple Nodes on a Linux VPS
 
-If you're looking to run multiple nodes, you can use our Multi-node setup python script. This section will guide you through setting up and managing multiple nodes.
+We have a detailed, extensive documentation and setup guide on our mutli node setup on a Linux VPS.
 
-### Clone the Multi-node setup script
+Head over here and follow the detailed instructions in the README: https://github.com/PowerLoom/snapshotter-lite-multi-setup
 
-First, clone our multi-node script to get started:
+:::tip
+We recommend using this for even our single node operators, as long as you can follow the detailed instructions.
+:::
 
-```bash
-git clone https://github.com/PowerLoom/snapshotter-lite-multi-setup
-cd snapshotter-lite-multi-setup
-```
-
-### Setting Up the Environment
-
-It is imperative to create an isolated virtual environment that includes the necessary Python version and modules. This approach ensures that the global Python installations on the VPS or your local machine are not altered.
-
-#### Installing `Pyenv`
-
-Follow the steps below to install `pyenv` according to your OS. 
-Open the terminal and execute the below commands.
-
-<Tabs groupId="pyenv-installation" className="unique-tabs" queryString="pyenv-os">
-
-<TabItem value="Linux" label="pyenv installation(Linux)">
-
-```bash
-sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-```
-
-After installing the packages, run the following command to execute the script for `pyenv` installation:
-
-```bash
-curl https://pyenv.run | bash
-```
-
-Next, add `pyenv` to the bashrc file:
-
-```bash
-nano ~/.bashrc
-```
-
-Inside the `nano` editor, add the following lines at the end of the file:
-
-```bash
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-```
-
-To save changes in the `.bashrc` file, press `ctrl + o`. 
-
-Refresh the terminal by typing:
-
-```bash
-source ~/.bashrc
-```
-
-Next, proceed to install Python 3.11.5:
-
-```bash
-pyenv install 3.11.5
-```
-</TabItem>
-
-<TabItem value="macOS" label="pyenv installation(MacOS)">
-
-Install `pyenv` with the `brew` package manager. Ensure you run an update before the installation.
-
-```bash
-brew update
-brew install pyenv
-```
-
-Next would be to add the right initializations into your `~/.bashrc` or `~/.zshrc` file depending upon whether you use the `bash` or `zsh` shell. If you use any other shell, consult its documentation to know where the similar profile `~/*rc` files are located.
-
-The following example assumes a `~/.zshrc` file.
-
-```bash
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-```
-
-Reload your shell profile in the terminal by running the command:
-
-```bash
-source ~/.zshrc
-```
-
-Next, proceed to install Python 3.11.5:
-
-```bash
-pyenv install 3.11.5
-```
-
-</TabItem>
-
-</Tabs>
-
----
-
-#### Installing `pyenv-virtualenv`
-
-Execute the commands below to install `pyenv-virtualenv`:
-
-```bash
-echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-pyenv virtualenv 3.11.5 ss_lite_multi_311
-pyenv local ss_lite_multi_311
-```
-
-
-#### Executing the Setup
-
-To establish a multi-node setup, follow these steps:
-
-```bash
-# Prepare the .env file
-./init.sh
-# Install all Python requirements
-pip install -r requirements.txt
-# Execute the setup
-python multi_clone.py
-```
-When you execute `python multi_clone.py`, you will see the following prompts that guide you through setting up your node(s).
-
-1. **Terminate Existing containers:** "Do you want to kill all running containers and screen sessions of testnet nodes? (y/n) n"
-
-- Type `y`. Use this option and stop all active containers or node instances. This will clean up all the older containers. Remember to cross-check your running containers before executing this command. 
-
-2. **Custom Slot ID Deployment:** "Do you want to deploy a custom index of slot IDs (indices begin at 0, enter in the format [begin, end])? (indices/n)"
-
-- For instance, to deploy the first four slot IDs as nodes, input `[0, 3]`, where 0 is the start index, and 3 represents the fourth element in the slot ID array associated with the wallet holder. If you want to deploy the entire array of slot IDs, type `n`.
-
-3. **Deployment Batch Size:** " Enter the batch size into which you wish to split the deployment"
-
-- A batch size of 1 means nodes will be deployed one by one, in batch size of 1. A batch size of 2 takes two nodes at a time and proceeds with deployment, and so on.
-
-Following the setup prompts, the script will configure your node slots to run in separate screen sessions. To view the logs for a specific node slot, you can use the following commands:
-
-To list all active screen sessions:
-```bash
-screen -ls
-```
-This command displays all currently running screen sessions.
-
-![screen-command](/images/screen-command.png)
-
-To attach to a specific node slot's screen session and check its status, use:
-```bash
-screen -r <screenId>
-```
-Note: Replace `<screenId>` with the actual ID of the screen session you wish to access.
-
-To detach from the screen session and leave it running in the background, press `Ctrl + A` followed by `D`.
-
-For more instructions and further assistance, please visit our [multi-node setup](https://github.com/PowerLoom/snapshotter-lite-multi-setup/?tab=readme-ov-file) repository.
-
----
 
 ## Troubleshooting
 
