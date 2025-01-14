@@ -698,7 +698,7 @@ Once you can verify the simulation mode submissions, you will have log messagse 
 It usually takes 2 - 5 minutes between the simulation mode submissions and a subsequence epoch release to be caught to trigger the regular snapshot submissions.
 :::
 
-![Sample node logs](/images/snapshotter-lite-v2-simulation-submissions.png)
+![Sample node logs](/images/RegularSubmission.png)
 
 :::info
 For further details on using the snapshotter dashboard to monitor the running status of your node, check the [`Monitoring Node Activity with the Snapshotter Dashboard`](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md#monitoring-node-activity-with-the-snapshotter-dashboard) section.
