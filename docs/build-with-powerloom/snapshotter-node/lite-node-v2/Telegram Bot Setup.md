@@ -24,11 +24,11 @@ Introducing the `PowerloomReportingBot`! This bot service maintains an internal 
 
   - If you have a running node and would like to add the Telegram reporting feature, there are two options that you can use:
 
-    **Option 1**: Update your `.env` file with the generated `Chat ID` as seen in the image below. Once updated, run the `./build.sh` command again to restart the node.
+    **Option 1**: Update your `.env-mainnet-UNISWAPV2-ETH` or `.env-mainnet-AAVEV3-ETH` file with the generated `Chat ID` as seen in the image below. Once updated, run the `./build.sh` command again to restart the node.
 
-      ![updated-env-screenshot](/images/updated-env-screenshot.png)
+      ![updated-env-screenshot](/images/TelegramBotSetup.png)
 
-    **Option 2**: Delete your `.env` file, and then run the `./build.sh` command again to trigger a recreation of the `.env`. This will remove all values from the initial setup, so ensure that you have these available.
+    **Option 2**: Delete your `.env-mainnet-UNISWAPV2-ETH` or `.env-mainnet-AAVEV3-ETH` file, and then run the `./build.sh` command again to trigger a recreation of the data market specific `.env` file. This will remove all values from the initial setup, so ensure that you have these available.
 
 ### To check if the Bot is successfully running, try these:
 
