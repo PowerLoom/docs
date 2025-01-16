@@ -7,9 +7,10 @@ title: Monitoring and Troubleshooting
 
 This section will guide you through the process of Monitoring and Troubleshooting the status of your node's snapshotting process.
 
-## Steps to Confirm and Monitor Node Snapshotting Process
+## 1. Confirming and Monitoring Node Snapshotting Process
+---
 
-### Monitoring Node Activity with the Snapshotter Dashboard
+### 1.1 Monitoring Node Activity with the Snapshotter Dashboard
    - #### Snapshotter Dashboard
       Our Snapshotter Dashboard enables you to verify if your node slot is actively submitting snapshots.
 
@@ -18,66 +19,152 @@ This section will guide you through the process of Monitoring and Troubleshootin
    - #### Telegram Reporting Bot
       Snapshotter Lite Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to enable this feature.
 
-### Terminal Status Check
+### 1.2 Simulation run logs
+
+   While running this node for the first time, it performs a couple of simulation submissions to test its connections to the sequencer network. If you notice logs similar to the lines below in the node run logs, your node's simulation run was successful.
+
+   ![Snapshotter-First-Simulation](/images/SimulationSubmission.png)
+
+### 1.3 Terminal Status Check
 - The primary method to verify node status is through the terminal, which displays log responses from the node.
 
 - Monitor these logs to assess the health and activity of your node. 
 
 - A healthy snapshotter node will produce logs similar to the provided example screenshot. These logs indicate normal operation and successful snapshotting.
 
-![Snapshotter-node-running](/images/snapshot-lite-v2-running.png)
+![Snapshotter-node-running](/images/RegularSubmission.png)
 
 
-### Simulation run logs
 
-   While running this node for the first time, it performs a couple of dummy submissions to simulate its connections to the relayer and sequencer network. If you notice logs similar to the lines below in the node run logs, your node's simulation run was successful.
-
-   ![Snapshotter-First-Simulation](/images/snapshot-lite-v2-node-simulation-first-time.png)
-
-## Troubleshooting and Support
+## 2. Troubleshooting and Support
+---
 
 This section provides guidance on troubleshooting your node in case of encountered issues. The steps outlined below are designed to help identify and resolve common problems efficiently.
 
-### Confirm setup Prerequisites
+### 2.1. Diagnostic and cleanup script
 
-Before proceeding, please double-check your system's configurations and the setup process. If you're using a Docker setup, ensure that Docker is actively running. For a non-Docker setup, verify that [prerequisite tools](./getting-started/#2-non-docker-setup) such as Python and Git are installed.
+The diagnostic and cleanup script will check for any previous instances of the lite node, local collector, stale images and networks.
 
----
+```bash
+./diagnose.sh
+```
 
-### Review setup Instructions
-   - Revisit the [setup instructions](./getting-started) to confirm that all steps were followed correctly. Often, issues arise from missing or incorrectly executed setup procedures.
+For detailed usage instructions, refer to [Diagnostics](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/diagnostics)
 
-   - Verify your .env variables: 
-     - `SOURCE_RPC_URL`: Confirm that the RPC URL you've provided is valid.. 
-     - `SIGNER_WALLET_ADDRESS`: Review your burner wallet address to ensure its correctness 
-     - `SIGNER_PRIVATE_KEY`: Cross-verify your burner private key to identify any potential issues.
-     - `SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID or NFT ID. You can locate your NFT ID within your transaction details on PolygonScan.
+### 2.2 Check status of running Docker containers
 
----
+If you have launched your node using the `./build.sh` script, you can check the status of your running Docker containers using the following command.
 
-### Updating the .env File
+```bash
+docker ps
+```
+
+Most of the time, you will see the following sort of output:
+
+![Docker-ps](/images/docker-ps-running-containers.png)
+
+Containers with the name patterns 
+* `snapshotter-lite-v2-<slot-id>-<network>-<data-market>-<data-source-chain>` 
+* `snapshotter-collector-v2-<slot-id>-<network>-<data-market>-<data-source-chain>`
+
+:::tip
+If you are not seeing these containers, please refer to the [Diagnostics](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/diagnostics) section to check for any previous instances of the lite node, local collector, stale images and networks.
+:::
+
+For example, if you are participating with 
+* slot ID 1234
+* on Powerloom Mainnet 
+* in the UniswapV2 data market that lives on Ethereum mainnet, 
+
+you should see the following containers:
+
+* `snapshotter-lite-v2-1234-mainnet-UNISWAPV2-ETH` -- this corresponds to the snapshotter lite node that computes and generates the snapshot
+* `snapshotter-collector-v2-1234-mainnet-UNISWAPV2-ETH` -- this corresponds to the [local collector](/docs/Protocol/Specifications/Snapshotter/local-collector.md) that collects the snapshot and submits it to the [sequencer](/docs/Protocol/Protocol_v2/sequencer.md)
+
+Unless something has gone severely wrong, you should see the status of `healthy` for both such containers.
+
+:::note
+If you are running a multi node setup, you will see multiple containers for the lite node running, but sharing a single collector container. This is expected and is a normal behavior.
+:::
+
+#### 2.2.1 Check the logs of the running containers
+
+You can check the logs of the running containers using the following command:
+
+```bash
+docker logs <container-name>
+```
+
+Continuing the example from the previous section, you can check the logs of the `snapshotter-lite-v2-1234-mainnet-UNISWAPV2-ETH` container using the following command:
+
+```bash
+docker logs snapshotter-lite-v2-1234-mainnet-UNISWAPV2-ETH -n 500
+```
+
+This will show you the last 500 lines of the snapshotter lite node container's logs.
+
+### 2.3 Check the status of the `screen` session
+
+If you have followed the instructions to run the node from the ['Getting Started'](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started.mdsection, you will have a `screen` session running with the name `powerloom-mainnet`.
+
+Verify that the `screen` session is running using the following command:
+
+```bash
+screen -ls
+```
+
+![screen sessions list](/images/screen-sessions-ls.png)
+
+If you see the `powerloom-mainnet` session running, you can attach to it using the following command:
+
+```bash
+screen -r powerloom-mainnet
+```
+
+If everything is working correctly, you should see at least one submission log in the terminal within 3 - 5 minutes, at the most. 
+
+![Regular submissions](/images/RegularSubmission.png)
+
+:::tip
+`screen -R powerloom-mainnet` will also attach you to the `powerloom-mainnet` session, or create a new one if it doesn't exist.
+
+This is the first step in the getting started section.
+:::
+
+### 2.4 Editing the environment file
+
+The environment file required to participate in a datamarket is located in the `powerloom-mainnet` directory. It will contain the namespace `mainnet` along with
+
+* the data market name, for eg `UNISWAPV2` or `AAVEV3`
+* the data market's data source chain, for eg `ETH` to determine whether the UniswapV2 data being captured is on Ethereum mainnet.
+
+For the section below, we will assume the `.env-mainnet-UNISWAPV2-ETH ` file. You can see the same file name showing up during the first few steps of running `./build.sh` if you have already completed the configuration.
+
+
+:::note
+Please be advised that the env file is named as `.env-mainnet-<data-market-name>-<data-source-chain>` for lite nodes participating in the mainnet. 
+
+If this was the Aave V3 data market, for example, the env file would be named `.env-mainnet-AAVEV3-ETH`.
+:::
+
+![build.sh screenshot asking for confirmation of updating existing env file](/images/snapshoter-lite-v2-node-setup-existing.png)
+
 
 The `.env` file contains essential configuration details such as `SOURCE_RPC_URL`, `SIGNER_WALLET_ADDRESS`, `SIGNER_PRIVATE_KEY`, and `SLOT_ID`. Should you need to modify any of these variables, follow the steps below:
 
-1. **Accessing the Server:**
-   Use the following command to log into your server:
 
-```bash
-   ssh root@vps_url
-```
-
-2. **Navigating to the Node Directory:**
+1. **Navigating to the Node Directory:**
    Change to the directory where your Powerloom Snapshotter Lite Node V2 is located:
 
 ```bash
-   cd powerloom-pre-mainnet
+   cd powerloom-mainnet
 ```
 
-3. **Editing the .env File:**
-   Open the `.env` file for editing:
+3. **Editing the `.env-mainnet-UNISWAPV2-ETH` File:**
+   Open the `.env-mainnet-UNISWAPV2-ETH` file for editing:
 
 ```bash
-   nano .env
+   nano .env-mainnet-UNISWAPV2-ETH
 ```
 
 Inside, you will find configurations similar to those shown in the provided screenshot.
@@ -97,67 +184,31 @@ This process allows you to easily update your node's configuration settings dire
 
 ---
 
-### RPC URLs 
-Sometimes, you may encounter errors related to RPC. Should this occur, it's important to verify that your RPC URL is accurate. For instructions on changing the RPC URL, please refer to the previously mentioned section.
+### 2.5 Using the `build.sh` script to reconfigure the node
 
-For your RPC provider, you have several reliable options, including:
+The `build.sh` script is a powerful tool that allows you to reconfigure the node with a single command. It will re-run the setup process, including the environment file update, and rebuild the node.
+
+```bash
+./build.sh
+```
+
+When it asks you whether you want to update the existing env file, select `y` to proceed.
+
+![build.sh screenshot asking for confirmation of updating existing env file](/images/snapshoter-lite-v2-node-setup-existing.png)
+
+
+
+### 2.6 Data source RPC URLs 
+Sometimes, you may encounter errors related to the RPC URL you have configured to snapshot the data source, for eg UniswapV2 or Aave V3 data on Ethereum mainnet. Should this occur, it's important to verify that your RPC URL is accurate. For instructions on changing the RPC URL, please refer to the previously mentioned section.
+
+While we can not recommend any specific RPC provider and would let the community decide on the best provider, there are several reliable and proven options, including:
+
 - **Ankr**: `https://rpc.ankr.com/eth` - This is a public RPC service that does not require signup.
 - **Infura**: Requires signup to obtain a key, which is ideal if you wish to monitor your RPC usage.
 - **Alchemy**: Similar to Infura, signup is necessary to receive a key, offering the advantage of tracking your RPC usage.
 
 ---
 
-### Resetting Your Node
-If you wish to perform a complete reset of your node or start afresh with the Snapshotter Lite Node V2, the following steps will guide you through the process:
-
-1. **Locate the Existing Directory:**
-   Begin by opening your terminal. Locate the `powerloom-pre-mainnet` directory by entering the following command:
-
-   ```bash
-   ls
-   ```
-
-   This command lists all files and directories, allowing you to confirm the presence of the `powerloom-pre-mainnet` directory.
-
-
-:::warning Warning
-   Before proceeding with the directory deletion, it is crucial to ensure that you have securely backed up the private key of your burner wallet.
-:::
-
-2. **Remove the Directory:**
-   To delete the `powerloom-pre-mainnet` directory and all its contents, use the command:
-
-   ```bash
-   rm -rf powerloom-pre-mainnet
-   ```
-
-   This action cannot be undone, so ensure that you wish to proceed with the reset.
-
-3. **Reinstalling the Snapshotter Lite Node V2:**
-   After successfully removing the directory, you're ready to reinstall the Snapshotter Lite Node V2. Follow the steps on our [Getting Started section](./getting-started.md).
-
----
-
-### Reconfiguring your Node
-If you're experiencing issues or simply wish to restart your node, the process is straightforward:
-
-1. **Access the Node Directory:**
-   Open a terminal window and navigate to the directory of your Powerloom Snapshotter Node by executing:
-
-```bash
-   cd powerloom-pre-mainnet
-```
-
-2. **Execute the Build Script:**
-   Restart your node by re-running the `build.sh` script with the following command:
-
-```bash
-   ./build.sh
-```
-
-Congratulations, you have successfully restarted your node.
-
----
 
 ## Additional Support
 
