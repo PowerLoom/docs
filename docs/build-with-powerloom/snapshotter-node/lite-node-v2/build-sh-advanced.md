@@ -34,7 +34,7 @@ This is to be attempted only if you are sure that the collector is already runni
 :::
 
 
-### **`----data-market-contract-number`**
+### **`--data-market-contract-number`**
 ---
 
 This flag corresponds to the data market choice you provide when you first ran the `build.sh` script.
