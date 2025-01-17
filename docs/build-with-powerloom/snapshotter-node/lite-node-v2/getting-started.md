@@ -166,15 +166,20 @@ The Screen utility allows you to run processes in the background, enabling you t
 Enter the following command to create a new Screen session named "snapshotter-lite-node-mainnet":
 
    ```bash
-   screen -S snapshotter-lite-node-mainnet
+   screen -R snapshotter-lite-node-mainnet
    ```
     
 - This command opens a new Screen session, where you can start the Snapshotter Lite Node V2.
 - Once inside the new Screen session, initiate the Snapshotter Lite Node V2 as required.
+
+:::note
+If you have an existing screen session named `snapshotter-lite-node-mainnet`, the above command will attach to the existing session.
+Otherwise, it will create a new session with that name.
+:::
     
 This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
 
-2. **Initialize the Node**:  
+1. **Initialize the Node**:  
 Initiate the snapshotter lite node v2 setup by typing the command in the terminal:
 
    ```bash
@@ -304,13 +309,18 @@ The Screen utility allows you to run processes in the background, enabling you t
 Enter the following command to create a new Screen session named "snapshotter-lite-node-mainnet":
 
    ```bash
-   screen -S snapshotter-lite-node-mainnet
+   screen -R snapshotter-lite-node-mainnet
    ```
     
 - This command opens a new Screen session, where you can start the Snapshotter Lite Node V2.
 - Once inside the new Screen session, initiate the Snapshotter Lite Node V2 as required.
     
 This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
+
+:::note
+If you have an existing screen session named `snapshotter-lite-node-mainnet`, the above command will attach to the existing session.
+Otherwise, it will create a new session with that name.
+:::
 
 2. **Initialize the Node**:  
 Initiate the snapshotter lite node v2 setup by typing the command in the terminal:
@@ -587,13 +597,18 @@ The Screen utility allows you to run processes in the background, enabling you t
 Enter the following command to create a new Screen session named "snapshotter-lite-node-mainnet":
 
    ```bash
-   screen -S snapshotter-lite-node-mainnet
+   screen -R snapshotter-lite-node-mainnet
    ```
     
 - This command opens a new Screen session, where you can start the Snapshotter Lite Node V2.
 - Once inside the new Screen session, initiate the Snapshotter Lite Node V2 as required.
     
 This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
+
+:::note
+If you have an existing screen session named `snapshotter-lite-node-mainnet`, the above command will attach to the existing session.
+Otherwise, it will create a new session with that name.
+:::
 
 2. **Initialize the Node**:  
 Initiate the snapshotter lite node v2 setup by typing the command in the terminal:
