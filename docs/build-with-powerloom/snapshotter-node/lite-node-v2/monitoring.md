@@ -131,6 +131,37 @@ If everything is working correctly, you should see at least one submission log i
 This is the first step in the getting started section.
 :::
 
+### 2.4 Stop, kill and cleanup specific slots' runtimes
+
+
+#### 2.4.1 Docker stop and remove containers
+You can stop either the snapshotter lite node or the local collector container for specific slots using the following commands. Substitute your slot ID, the following examples are for slot ID `1234`.
+
+```bash
+docker ps --format '{{.Names}}' | grep '1234-mainnet-UNISWAPV2-ETH' | xargs docker kill
+docker ps --format '{{.Names}}' | grep '1234-mainnet-UNISWAPV2-ETH' | xargs docker rm
+```
+
+To kill all containers running on Powerloom Mainnet for a specific data market like UniswapV2 on Ethereum mainnet, you can use the following command:
+
+```bash
+docker ps --format '{{.Names}}' | grep 'mainnet-UNISWAPV2-ETH' | xargs docker kill
+docker ps --format '{{.Names}}' | grep 'mainnet-UNISWAPV2-ETH' | xargs docker rm
+```
+
+#### 2.4.2 Remove screens
+
+If you are using a single node setup, you can kill the screen session using the following command:
+
+```bash
+screen -X -S powerloom-mainnet quit
+```
+
+If you are using a multi node setup, you can kill all screens running for a specific slot ID using the following command:
+```bash
+screen -ls | grep 'powerloom-mainnet-v2-1234-UNISWAPV2' | cut -d. -f1 | awk '{print $1}' | xargs -I % screen -X -S % quit
+```
+
 ### 2.4 Editing the environment file
 
 The environment file required to participate in a datamarket is located in the `powerloom-mainnet` directory. It will contain the namespace `mainnet` along with
@@ -168,12 +199,12 @@ The `.env` file contains essential configuration details such as `SOURCE_RPC_URL
 ```
 
 Inside, you will find configurations similar to those shown in the provided screenshot.
-![EnvScreen](/images/snapshot-lite-v2-daily-env.png)
+![EnvScreen](/images/env-mainnet-example.png)
 
-4. **Modifying Variables:**
+1. **Modifying Variables:**
    Update the variables as needed. To save and exit, press `CTRL+X`.
 
-5. **Rebuilding the Node:**
+2. **Rebuilding the Node:**
    In the same directory, rerun the `build.sh` script to apply the changes. Execute the following command in the terminal:
 
 ```bash
