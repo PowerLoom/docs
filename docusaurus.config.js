@@ -46,10 +46,6 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem",
-          //docLayoutComponent: "@theme/DocPage",
-          // docItemComponent: "@theme/ApiItem",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/powerloom/docs/tree/main/',

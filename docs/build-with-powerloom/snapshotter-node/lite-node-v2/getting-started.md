@@ -408,7 +408,8 @@ For users running the node on personal hardware, the minimum specifications are:
 If you want to run the Snapshotter Lite Node V2 without Docker, you need to make sure that you have Git, and Python version 3.10 or higher installed on your machine and we recommend to use **python version 3.11.7**. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
 
 
-<details><summary> Optional: Installing Virtual Environment </summary>
+<details>
+<summary> Optional: Installing Virtual Environment </summary>
 For simplicity, we recommend using miniconda and setting up an environment with the needed Python version as shown below
 <p>
 
