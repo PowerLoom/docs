@@ -5,9 +5,9 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 // @ts-ignore
-const lightCodeTheme = require("prism-react-renderer/themes/github");
+const lightCodeTheme = require("prism-react-renderer").themes.github;
 // @ts-ignore
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 //const lightCodeTheme = require('prism-react-renderer/themes/github');
 //const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -46,8 +46,8 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem",
+          // docLayoutComponent: "@theme/DocPage",
+          // docItemComponent: "@theme/ApiItem",
           //docLayoutComponent: "@theme/DocPage",
           // docItemComponent: "@theme/ApiItem",
           // Please change this to your repo.
@@ -193,30 +193,10 @@ const config = {
     }),
 
   plugins: [
-    [
-      "docusaurus-plugin-openapi-docs",
-      {
-        id: "openapi",
-        docsPluginId: "classic",
-        config: {
-          poolerdocs: {
-            specPath: "examples/core_api.yaml",
-            outputDir: "docs/build-with-powerloom/snapshotter-node/core-api",
-            downloadUrl:
-              "https://raw.githubusercontent.com/PowerLoom/docs/main/examples/core_api.yaml",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag",
-            },
-          },
-        },
-      },
-    ],
   ],
 
   themes: [
     'docusaurus-theme-github-codeblock',
-    'docusaurus-theme-openapi-docs',
     'docusaurus-theme-search-typesense'
   ]
 };

@@ -18,7 +18,7 @@ Every file and every block of data on the network has a unique hash associated w
 
 ![API Calls for a certain CID](/images/uniswap-inspect.png)
 
-For instance, the Powerloom Uniswap V2 dashboard (https://uniswapv2.powerloom.io/) connects to a snapshotter node hosted by the Powerloom Foundation. The frontend interacts with the [Snapshotter Core API](/docs/category/snapshotter-core-api) to access the data. Internally, the Core API interacts with the Protocol State Contract deployed on Powerloom Prost chain to fetch the data.
+For instance, the Powerloom Uniswap V2 dashboard (https://uniswapv2.powerloom.io/) connects to a snapshotter node hosted by the Powerloom Foundation. The frontend interacts with the Snapshotter Core API to access the data. Internally, the Core API interacts with the Protocol State Contract deployed on Powerloom Prost chain to fetch the data.
 
 ### Verifying Data
 
