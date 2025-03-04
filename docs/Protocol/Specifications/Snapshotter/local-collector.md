@@ -11,7 +11,7 @@ The local collector service is a critical component responsible for reliably sub
 The local collector represents a significant evolution from the legacy payload commit service. While the previous system relied on HTTP submissions to relayers, the new architecture leverages libp2p for peer-to-peer communication with the sequencer.
 
 :::info
-The [legacy payload commit service](/docs/Protocol/Specifications/Snapshotter/payload-commit-service.md) has been deprecated in favor of this more efficient and scalable solution.
+The [legacy payload commit service](/Protocol/Specifications/Snapshotter/payload-commit-service.md) has been deprecated in favor of this more efficient and scalable solution.
 :::
 
 ## Key Features

@@ -10,7 +10,7 @@ This documentation provides a step-by-step guide for developers looking to exten
 :::tip
 Prerequisites: Before we dive into the implementation of new data points, you may want to look at the concept of how the pooler functions and how it retrieves and processes the data. 
 
-[Closer look into the Snapshot Datasets](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/closer-look-at-snapshots)
+[Closer look into the Snapshot Datasets](/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/closer-look-at-snapshots)
 :::
 
 ### Scenario: 2-Hour Aggregate of Swap Events
@@ -20,7 +20,7 @@ We'll use the example of creating a new data point that aggregates only Swap eve
 ### Steps to Implement this New Data Point
 
 1. **Getting Started**:
-   You can follow [this guide](/docs/build-with-powerloom/snapshotter-node/full-node/getting-started#for-code-contributors) to get started with the node setup for custom implementations.
+   You can follow [this guide](/build-with-powerloom/snapshotter-node/full-node/getting-started#for-code-contributors) to get started with the node setup for custom implementations.
 
 2. **Configure Aggregation Worker**:
    In the `config/aggregator.json` file of your forked repository, add a new entry for your aggregation worker class. This class will be responsible for handling the new data aggregation task.

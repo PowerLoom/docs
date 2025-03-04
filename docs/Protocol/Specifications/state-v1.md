@@ -6,7 +6,7 @@ sidebar_position: 0
 
 ## State Overview
 
-Every [data market](/docs/protocol/data-sources) has a final state that includes, but is not limited to the following:
+Every [data market](/Protocol/data-sources) has a final state that includes, but is not limited to the following:
 
 - Epoch size 
 - Epochs released in the past
@@ -22,7 +22,7 @@ Every [data market](/docs/protocol/data-sources) has a final state that includes
   - Mapping between allowed snapshotter identities and the CIDs they submitted
 
 :::note
-Powerloom Protocol V2 contains certain modifications on top of the V1 Protocol State as described in here. [Learn More](/docs/Protocol/Specifications/state-v2.md)
+Powerloom Protocol V2 contains certain modifications on top of the V1 Protocol State as described in here. [Learn More](/Protocol/Specifications/state-v2.md)
 :::
 
 ## Implementation of the Protocol State
@@ -45,7 +45,7 @@ The [Application Binary Interface (ABI) to interact with the smart contract](htt
 
 #### `function updateProjects(string[] calldata _projects, bool[] calldata _status) external onlyOwnerOrValidator`
 
-Used by signalers and other actors in the [dynamic data market ecosystem](/docs/protocol/data-sources#dynamic-data-sources).
+Used by signalers and other actors in the [dynamic data market ecosystem](/Protocol/data-sources#dynamic-data-sources).
 
 #### `function updateSnapshotters(address[] calldata _snapshotters, bool[] calldata _status) external onlyOwner`
 
@@ -57,15 +57,15 @@ Self-explanatory.
 
 #### `function forceSkipEpoch(uint256 begin, uint256 end) public onlyOwner`
 
-Optional usage for an [additional trusted service](/docs/protocol/specifications/epoch#force-consensus-service) to ensure consensus is reached in case of unstable peers or actors in a data market.
+Optional usage for an [additional trusted service](/Protocol/Specifications/Epoch#force-consensus-service) to ensure consensus is reached in case of unstable peers or actors in a data market.
 
 #### `function releaseEpoch(uint256 begin, uint256 end) public onlyOwnerOrValidator`
 
-Used by the [epoch generator service](/docs/protocol/specifications/epoch#epoch-generator).
+Used by the [epoch generator service](/Protocol/Specifications/Epoch#epoch-generator).
 
 #### `function submitSnapshot(string memory snapshotCid, uint256 epochId, string memory projectId, Request calldata request, bytes calldata signature) public`
 
-Used to submit snapshots by the allowed [snapshotter](/docs/category/snapshotter) identities.
+Used to submit snapshots by the allowed [snapshotter](/category/snapshotter) identities.
 
 ### State View Functions
 ---
@@ -130,4 +130,4 @@ event SnapshotFinalized(uint256 indexed epochId, uint256 epochEnd, string projec
 ## See Also
 ---
 
-* [Build with Powerloom – All about data](/docs/build-with-powerloom/snapshotter-node/data.md#verifying-data)
+* [Build with Powerloom – All about data](/build-with-powerloom/snapshotter-node/data.md#verifying-data)

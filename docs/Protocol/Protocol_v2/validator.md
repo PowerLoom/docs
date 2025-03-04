@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ![Protocol V2 validator worklow](/images/validator-workflow.png)
 
-As the snapshot submission batches are [anchored on the protocol state by the sequencer](/docs/Protocol/Protocol_v2/sequencer.md#batch-upload-and-anchor-proof), the validators become responsible for submitting their attestations on these batches.
+As the snapshot submission batches are [anchored on the protocol state by the sequencer](/Protocol/Protocol_v2/sequencer.md#batch-upload-and-anchor-proof), the validators become responsible for submitting their attestations on these batches.
 
 ## State transitions
 
@@ -20,8 +20,8 @@ When the sequencer submits a batch, it puts the snapshots contained within in a 
 
 :::info
 Learn more:
-* [Sequencer batch submission](/docs/Protocol/Protocol_v2/sequencer.md#batch-upload-and-anchor-proof)
-* [Protocol State: State transition of snapshots](/docs/Protocol/Specifications/state-v2.md#snapshot-state)
+* [Sequencer batch submission](/Protocol/Protocol_v2/sequencer.md#batch-upload-and-anchor-proof)
+* [Protocol State: State transition of snapshots](/Protocol/Specifications/state-v2.md#snapshot-state)
 :::
 
 ### Batch validation: Attestation and finalization
@@ -36,11 +36,11 @@ For the current iteration of the Protocol V2 release, once the sequencer for a d
 
 #### What is the attestation?
 
-As mentioned in the [protocol state](/docs/Protocol/Specifications/state-v2.md#snapshot-submission-in-batches-by-sequencer) specification, the attestation is against the roothash of the Merkle tree that the sequencer has submitted for a batch. 
+As mentioned in the [protocol state](/Protocol/Specifications/state-v2.md#snapshot-submission-in-batches-by-sequencer) specification, the attestation is against the roothash of the Merkle tree that the sequencer has submitted for a batch. 
 
 The tree is constructed out of the finalized CIDs of the project IDs in the order included in the batch.
 
-The validator peers call the method [`submitBatchAttestation`](/docs/Protocol/Specifications/state-v2.md#attestation-against-submission-batches-by-validator) to submit their attestation against the `batchCid` along with the root hash of the Merkle tree of the finalized CIDs.
+The validator peers call the method [`submitBatchAttestation`](/Protocol/Specifications/state-v2.md#attestation-against-submission-batches-by-validator) to submit their attestation against the `batchCid` along with the root hash of the Merkle tree of the finalized CIDs.
 
 ```solidity
 function submitSubmissionBatch(
@@ -55,5 +55,5 @@ function submitSubmissionBatch(
 :::info
 * See also: 
   * [Structure of a batch](/files/QmdFHpLZT4dgdFKYyd1yGM62chhJjYpZCtX.json)
-  * [Batch upload integrity: Roothash of Merkle tree of finalized CIDs](/docs/Protocol/Protocol_v2/sequencer.md#batch-upload-integrity-roothash-of-merkle-tree-of-finalized-cids)
+  * [Batch upload integrity: Roothash of Merkle tree of finalized CIDs](/Protocol/Protocol_v2/sequencer.md#batch-upload-integrity-roothash-of-merkle-tree-of-finalized-cids)
 :::

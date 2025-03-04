@@ -41,10 +41,10 @@ The following features of the protocol state are now maintained in the data mark
 :::info
 Read more:
 * [State view: Data market contracts](#state-view-data-market-contracts)
-* [Sequencer](/docs/Protocol/Protocol_v2/sequencer.md)
-* [Validator](/docs/Protocol/Protocol_v2/validator.md)
-* [Data market](/docs/Protocol/data-sources.md)
-* [Snapshot composition](/docs/Protocol/data-composition.md)
+* [Sequencer](/Protocol/Protocol_v2/sequencer.md)
+* [Validator](/Protocol/Protocol_v2/validator.md)
+* [Data market](/Protocol/data-sources.md)
+* [Snapshot composition](/Protocol/data-composition.md)
 :::
 
 ### Identity management
@@ -95,7 +95,7 @@ The upgraded architecture of the protocol state allows for support of feature ex
 
 #### Removed features
 
-* [Method to directly accept submissions from allowed snapshotters](/docs/Protocol/Specifications/state-v1.md#function-submitsnapshotstring-memory-snapshotcid-uint256-epochid-string-memory-projectid-request-calldata-request-bytes-calldata-signature-public)
+* [Method to directly accept submissions from allowed snapshotters](/Protocol/Specifications/state-v1.md#function-submitsnapshotstring-memory-snapshotcid-uint256-epochid-string-memory-projectid-request-calldata-request-bytes-calldata-signature-public)
 * Snapshot submissions as content identifiers(CIDs) per epoch
 * Occurrence count of their submissions
 * Mapping between allowed snapshotter identities and the CIDs they submitted
@@ -105,7 +105,7 @@ The upgraded architecture of the protocol state allows for support of feature ex
 #### Inherited, continued features
 
 :::note
-Most of the [V1 protocol state](/docs/Protocol/Specifications/state-v1.md) implemented for the different phases of the incentivized testnets and the lite node testnet continues in V2.
+Most of the [V1 protocol state](/Protocol/Specifications/state-v1.md) implemented for the different phases of the incentivized testnets and the lite node testnet continues in V2.
 :::
 
 * Slot based snapshotter identities (slot IDs)
@@ -204,7 +204,7 @@ function releaseEpoch(
 ) public onlyEpochManager isActive returns (bool, bool) {
 ```
 
-Refer: [Epoch manager](/docs/Protocol/Specifications/Epoch.md)
+Refer: [Epoch manager](/Protocol/Specifications/Epoch.md)
 
 #### Skip epochs
 
@@ -217,7 +217,7 @@ function forceSkipEpoch(
 
 This is a fallback mechanism to skip epochs in case the epoch release service fails.
 
-### Snapshot submission in batches by [sequencer](/docs/Protocol/Protocol_v2/sequencer.md)
+### Snapshot submission in batches by [sequencer](/Protocol/Protocol_v2/sequencer.md)
 
 ```solidity
 function submitSubmissionBatch(
@@ -246,7 +246,7 @@ The elements of the arrays `projectIds` and `snapshotCids` are present as a 1:1 
 function endBatchSubmissions(uint256 epochId) external onlySequencer {
 ```
 
-### Attestation against submission batches by [validator](/docs/Protocol/Protocol_v2/validator.md)
+### Attestation against submission batches by [validator](/Protocol/Protocol_v2/validator.md)
 
 ```solidity
 function submitBatchAttestation(
@@ -295,7 +295,7 @@ function forceCompleteConsensusAttestations(
 uint8 public EPOCH_SIZE; // Number of Blocks in each Epoch
 ```
 
-Refer: [Epoch](/docs/Protocol/Specifications/Epoch.md)
+Refer: [Epoch](/Protocol/Specifications/Epoch.md)
 ### Data source chain properties
 
 These properties are specific to the chain on which the actual data sources i.e. smart contracts and applications are running.

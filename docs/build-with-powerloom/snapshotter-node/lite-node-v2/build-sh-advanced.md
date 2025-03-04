@@ -14,7 +14,7 @@ The `build.sh` CLI supports a number of advanced features to fine tune its behav
 
 This flag is used to skip the prompt that asks you whether you want to update the existing env file.
 
-Refer: [2.5 Using the `build.sh` script to reconfigure the node](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring#25-using-the-buildsh-script-to-reconfigure-the-node)
+Refer: [2.5 Using the `build.sh` script to reconfigure the node](/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring#25-using-the-buildsh-script-to-reconfigure-the-node)
 
 
 ### **`--no-collector`**
@@ -39,7 +39,7 @@ This is to be attempted only if you are sure that the collector is already runni
 
 This flag corresponds to the data market choice you provide when you first ran the `build.sh` script.
 
-Refer: [2.1 Setting up the snapshotter node](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring#21-setting-up-the-snapshotter-node)
+Refer: [2.1 Setting up the snapshotter node](/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring#21-setting-up-the-snapshotter-node)
 
 At the moment of writing this during the mainnet launch, the two data markets supported are 
 

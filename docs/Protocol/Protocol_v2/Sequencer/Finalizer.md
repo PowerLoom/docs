@@ -25,10 +25,10 @@ Functionalities:
   - Return the finalized IPFS batch submission data.
 - **Finalized Batch Transmission:** Transmit the finalized IPFS batch submission data to the transaction relayer service.
 
-These finalized snapshot submissions for all corresponding project IDs are placed in an `intermediate` finalized state on the protocol state. They can be considered to be trusted, but are awaiting attestation from [**validators**](/docs/Protocol/Protocol_v2/validator.md) that participate in the protocol.
+These finalized snapshot submissions for all corresponding project IDs are placed in an `intermediate` finalized state on the protocol state. They can be considered to be trusted, but are awaiting attestation from [**validators**](/Protocol/Protocol_v2/validator.md) that participate in the protocol.
 
 ## On-Chain updates via Relayer
-The Finalizer component leverages the [**Relayer**](/docs/Protocol/Protocol_v2/relay.md) service to transmit essential updates to the Protocol State Contract, ensuring seamless synchronization across system components:
+The Finalizer component leverages the [**Relayer**](/Protocol/Protocol_v2/relay.md) service to transmit essential updates to the Protocol State Contract, ensuring seamless synchronization across system components:
 
 ### Batch Processing Updates
 - **Batch Submission:** Sends finalized IPFS batch submission data for each batch, corresponding to a specific data market and epoch combination, to the relayer for on-chain publishing.

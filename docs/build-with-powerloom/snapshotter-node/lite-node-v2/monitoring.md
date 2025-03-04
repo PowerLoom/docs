@@ -17,7 +17,7 @@ This section will guide you through the process of Monitoring and Troubleshootin
       ![Snapshotter-node-dashboard](/images/snapshot-lite-v2-daily-dashboard.png)
    
    - #### Telegram Reporting Bot
-      Snapshotter Lite Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to enable this feature.
+      Snapshotter Lite Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to enable this feature.
 
 ### 1.2 Simulation run logs
 
@@ -49,7 +49,7 @@ The diagnostic and cleanup script will check for any previous instances of the l
 ./diagnose.sh
 ```
 
-For detailed usage instructions, refer to [Diagnostics](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/diagnostics)
+For detailed usage instructions, refer to [Diagnostics](/build-with-powerloom/snapshotter-node/lite-node-v2/diagnostics)
 
 ### 2.2 Check status of running Docker containers
 
@@ -68,7 +68,7 @@ Containers with the name patterns
 * `snapshotter-collector-v2-<slot-id>-<network>-<data-market>-<data-source-chain>`
 
 :::tip
-If you are not seeing these containers, please refer to the [Diagnostics](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/diagnostics) section to check for any previous instances of the lite node, local collector, stale images and networks.
+If you are not seeing these containers, please refer to the [Diagnostics](/build-with-powerloom/snapshotter-node/lite-node-v2/diagnostics) section to check for any previous instances of the lite node, local collector, stale images and networks.
 :::
 
 For example, if you are participating with 
@@ -79,7 +79,7 @@ For example, if you are participating with
 you should see the following containers:
 
 * `snapshotter-lite-v2-1234-mainnet-UNISWAPV2-ETH` -- this corresponds to the snapshotter lite node that computes and generates the snapshot
-* `snapshotter-collector-v2-1234-mainnet-UNISWAPV2-ETH` -- this corresponds to the [local collector](/docs/Protocol/Specifications/Snapshotter/local-collector.md) that collects the snapshot and submits it to the [sequencer](/docs/Protocol/Protocol_v2/sequencer.md)
+* `snapshotter-collector-v2-1234-mainnet-UNISWAPV2-ETH` -- this corresponds to the [local collector](/Protocol/Specifications/Snapshotter/local-collector.md) that collects the snapshot and submits it to the [sequencer](/Protocol/Protocol_v2/sequencer.md)
 
 Unless something has gone severely wrong, you should see the status of `healthy` for both such containers.
 
@@ -105,7 +105,7 @@ This will show you the last 500 lines of the snapshotter lite node container's l
 
 ### 2.3 Check the status of the `screen` session
 
-If you have followed the instructions to run the node from the ['Getting Started'](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started.mdsection, you will have a `screen` session running with the name `powerloom-mainnet`.
+If you have followed the instructions to run the node from the ['Getting Started'](/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started.mdsection, you will have a `screen` session running with the name `powerloom-mainnet`.
 
 Verify that the `screen` session is running using the following command:
 

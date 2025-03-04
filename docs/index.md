@@ -68,7 +68,7 @@ Discover the practical application of Powerloom through our various dashboard im
 ## Building with Powerloom
 
 To begin using the Powerloom Protocol, you need to understand the workflow and architecture of the system. This involves familiarizing yourself with the different components and how they interact within the protocol.
-The best way to start is by exploring the [existing-implementations](/docs/category/existing-implementations), understanding how they work, and how you can leverage them to [build your own use cases](/docs/category/building-a-new-use-case).
+The best way to start is by exploring the [existing-implementations](/category/existing-implementations), understanding how they work, and how you can leverage them to [build your own use cases](/category/building-a-new-use-case).
 
 ### Utilizing Existing Implementations to Build Your Data Application
 
