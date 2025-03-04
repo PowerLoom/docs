@@ -18,7 +18,7 @@ Snapshots are compressed archives of blockchain node states at specific block he
 
 An Epoch in the context of blockchain typically refers to a range of block heights on the data source blockchain where smart contract applications run, or, simply put, it is a specific period in the blockchain's life.
 
-Each Snapshotter makes observations specific to the state transitions spanning two block heights termed Epochs. Check out our developer docs [here](https://docs.powerloom.io/docs/Protocol/Specifications/Epoch/) to learn more about Epochs.
+Each Snapshotter makes observations specific to the state transitions spanning two block heights termed Epochs. Check out our developer docs [here](/docs/Protocol/Specifications/Epoch/) to learn more about Epochs.
 
 ### RPCs
 
@@ -48,7 +48,7 @@ Devnet is a network environment for developers to test and develop blockchain ap
 
 Data markets are defined by a schema specifying state variables, event log topics, and specific transactions across any smart contract instances that make the decentralized application. eg. A defi protocol like uniswap. In a data market, datasets are snapshotted data collections, while data sources are the contracts that are being snapshotted.
 
-Click [here](https://docs.powerloom.io/docs/Protocol/data-sources) to learn more about Data Markets.
+Click [here](/docs/Protocol/data-sources) to learn more about Data Markets.
 
 ### Environment Variables
 
@@ -64,7 +64,7 @@ A lightweight and disposable cryptocurrency wallet designed for temporary or sin
 ### Project IDs 
 
 All data sources are tracked with a project ID on the protocol. Think of it as a stream of datasets, finalized by consensus against each epoch released on the protocol. The snapshotter node attempts to retrieve data sources corresponding to the projects key from the protocol state.
-Find more details in the specifications of [snapshot generation](https://docs.powerloom.io/docs/protocol/specifications/snapshotter/snapshot-build#project-id-generation).
+Find more details in the specifications of [snapshot generation](/docs/protocol/specifications/snapshotter/snapshot-build#project-id-generation).
 
 ### Snapshot Composition
 
@@ -74,7 +74,7 @@ We can compose snapshots on top of base snapshots for single or multiple contrac
 - Combining individual snapshots of trade volume and fees across multiple pair contracts.
 - Spanning a specific set of epochs that satisfy a time duration (e.g., 24 hours).
 
-To learn more about Snapshot Composition, start with this [guide](https://docs.powerloom.io/docs/Protocol/data-composition), then explore [Data Points](https://docs.powerloom.io/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/data-points) for a use case-driven approach, and finally read through [Closer Look at Snapshots](https://docs.powerloom.io/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/closer-look-at-snapshots) for a detailed understanding. 
+To learn more about Snapshot Composition, start with this [guide](/docs/Protocol/data-composition), then explore [Data Points](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/data-points) for a use case-driven approach, and finally read through [Closer Look at Snapshots](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/closer-look-at-snapshots) for a detailed understanding. 
 
 ### Relayers
 Entities or nodes within a decentralized network responsible for relaying or forwarding messages, transactions, or data between different participants. Relayers play a crucial role in facilitating communication and interoperability within distributed systems.

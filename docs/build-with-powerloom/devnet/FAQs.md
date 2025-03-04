@@ -29,7 +29,7 @@ To configure the environment variables, follow these steps:
   2. Fill in the required variables in .env `SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY`, `SLOT_ID`, `PROTOCOL_STATE_CONTRACT`.
 
 ### Where can I find documentation on Snapshotter Configs and Computes?
-You can find the documentation for Snapshotter Configs and Computes in the [docs](https://docs.powerloom.io/docs/build-with-powerloom/snapshotter-node/architecture/#configuration-files). The pooler computes and config files for the Uniswap V2 use case are found in [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2).
+You can find the documentation for Snapshotter Configs and Computes in the [docs](/docs/build-with-powerloom/snapshotter-node/architecture/#configuration-files). The pooler computes and config files for the Uniswap V2 use case are found in [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2).
     
 ### What is RPC? 
 In blockchain, RPC (Remote Procedure Calls) nodes allow users and apps to interact with the blockchain without network details. The `RPCHelper` in `utils/rpc.py` simplifies snapshot generation & data extraction from the blockchain state.
@@ -38,7 +38,7 @@ In blockchain, RPC (Remote Procedure Calls) nodes allow users and apps to intera
 You can use any Ethereum Mainnet RPC provider, such as Infura, Alchemy, or Quicknode. Remember that your choice may depend on your specific use case and RPC usage requirements.
     
 ### What types of OS can I use to run the Snapshotter node?
-You can use the macOS, Linux, or Windows to run the Snapshotter node. For more details on setting up and running the node, visit [here](https://docs.powerloom.io/docs/build-with-powerloom/devnet/getting-started).
+You can use the macOS, Linux, or Windows to run the Snapshotter node. For more details on setting up and running the node, visit [here](/docs/build-with-powerloom/devnet/getting-started).
     
 ### What is a burner wallet and how do you generate one? 
 A burner/disposable wallet is a type of cryptocurrency wallet that is designed for temporary use. Burner wallets are often used for small transactions or events where security and long-term storage are not priorities.

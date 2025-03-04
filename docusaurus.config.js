@@ -14,7 +14,7 @@ const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Welcome to Powerloom Docs!',
-  tagline: 'Powerloom Protocol is the Composable Data Network that empowers builders to unlock rich data applications within Web3. It makes building advanced innovative contract-based applications in DeFi and web3 gaming more straightforward.',
+  // tagline: 'Powerloom Protocol is the Composable Data Network that empowers builders to unlock rich data applications within Web3. It makes building advanced innovative contract-based applications in DeFi and web3 gaming more straightforward.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -45,6 +45,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve("./sidebars.js"),
           // docLayoutComponent: "@theme/DocPage",
           // docItemComponent: "@theme/ApiItem",
@@ -54,6 +55,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/powerloom/docs/tree/main/',
         },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
