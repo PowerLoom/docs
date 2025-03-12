@@ -67,4 +67,4 @@ Extending the UniswapV2 Dashboard is an excellent opportunity for developers to:
 
 Extending the UniswapV2 Dashboard with new data points like a 2-hour aggregate of Swap events is an exciting thing to work on. It requires a good understanding of blockchain data, smart contract events, and data modeling. By following the steps outlined in this guide, developers can successfully enhance the dashboard, making it a more powerful tool for blockchain analytics and research.
 
-If you have any questions while building / integrating, you can reach us out on our [discord](https://powerloom.io/discord).
+If you have any questions while building / integrating, you can reach us out on our [discord](https://discord.com/invite/powerloom).

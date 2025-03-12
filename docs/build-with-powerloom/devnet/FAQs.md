@@ -96,7 +96,7 @@ Refer to the troubleshooting section of the documentation for common solutions o
 Yes, we have a Discord channel for Powerloom developers. Here’s the link, [Powerloom Discord](https://discord.com/invite/powerloom). 
   
 ### How can I stay updated on new features?
-You can follow us on [X(Twitter)](https://twitter.com/PowerloomHQ) and also join the community on [Discord](https://discord.com/invite/powerloom) to stay updated on new feature releases. 
+You can follow us on [X(Twitter)](https://x.com/Powerloom) and also join the community on [Discord](https://discord.com/invite/powerloom) to stay updated on new feature releases. 
         
 ### Are there any additional steps for setting up the node on Windows?
 Yes, setting up the node on Windows requires Docker and the Windows Subsystem for Linux (WSL). Follow the provided guide for detailed instructions on setting up WSL and Docker on your Windows system.
