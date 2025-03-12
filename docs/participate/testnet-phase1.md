@@ -32,7 +32,7 @@ Additionally, Phase 1 included a consensus dashboard, enabling users to verify t
 The inaugural phase of our testnet concluded in October 2023. It was met with an overwhelming response from the community, attracting over 5000 applications.
 
 :::info
-To learn more and gain further insights, you can check out our announcement on Twitter regarding Powerloom Phase 1. https://twitter.com/PowerloomHQ/status/1693655148931993647
+To learn more and gain further insights, you can check out our announcement on Twitter regarding Powerloom Phase 1. https://x.com/Powerloom/status/1693655148931993647
 :::
 
 > The source code for this phase is publicly accessible on GitHub: [Powerloom Testnet Phase 1 Source Code](https://github.com/PowerLoom/pooler/blob/testnet_5_pairs/).

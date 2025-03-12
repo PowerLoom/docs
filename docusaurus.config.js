@@ -153,15 +153,11 @@ const config = {
         links: [
           {
             label: 'Discord',
-            href: 'https://powerloom.io/discord',
+            href: 'https://discord.com/invite/powerloom',
           },
           {
-            label: 'Twitter',
-            href: 'https://twitter.com/PowerloomHQ',
-          },
-          {
-            label: 'Medium',
-            href: 'https://medium.com/powerloom',
+            label: 'X(Twitter)',
+            href: 'https://x.com/Powerloom',
           },
           {
             label: 'Telegram',
@@ -177,7 +173,7 @@ const config = {
           },
           {
             label: 'Website',
-            href: 'https://www.powerloom.io/',
+            href: 'https://powerloom.io/',
           },
           {
             label: 'Careers',
