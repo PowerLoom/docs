@@ -45,7 +45,7 @@ Multiple such finalizations are decided upon all project IDs within a data marke
 The finalized snapshot submissions for all corresponding project IDs are placed in an 'intermediate' finalized state on the protocol state. They can be considered to be trusted, but are awaiting attestation from validators that participate in the protocol.
 
 :::info
-[Read more](/docs/Protocol/Protocol_v2/validator.md#batch-validation-attestation-and-finalization) on how validators submit attestations on intermediate finalized states.
+[Read more](/Protocol/Protocol_v2/validator.md#batch-validation-attestation-and-finalization) on how validators submit attestations on intermediate finalized states.
 :::
 
 
@@ -65,7 +65,7 @@ Batches contain submission details for multiple project IDs with the following i
 
 ### Batch upload integrity: Roothash of Merkle tree of finalized CIDs
 
-Taking a look at the [method `submitSubmissionBatch`](/docs/Protocol/Specifications/state-v2.md#snapshot-submission-in-batches-by-sequencer) in the protocol state contract, we see that it contains the root hash of a Merkle tree constructed out of the finalized CIDs of the project IDs in the order included in the batch.
+Taking a look at the [method `submitSubmissionBatch`](/Protocol/Specifications/state-v2.md#snapshot-submission-in-batches-by-sequencer) in the protocol state contract, we see that it contains the root hash of a Merkle tree constructed out of the finalized CIDs of the project IDs in the order included in the batch.
 
 ```solidity
 function submitSubmissionBatch(
@@ -99,7 +99,7 @@ The sequencer is in practice comprised of several moving parts that are deployed
 The libp2p listening interface is loadbalanced on Layer 4 of the networking stack (TCP/IP load balancing) by a Kubernetes service. These have inbuilt DDoS protection and further push workloads downstream to dequeuer pods.
 
 :::info
-* Read more: [Sequencer: Libp2p Listener](/docs/Protocol/Protocol_v2/Sequencer/Listener.md)
+* Read more: [Sequencer: Libp2p Listener](/Protocol/Protocol_v2/Sequencer/Listener.md)
 * [Github](https://github.com/PowerLoom/libp2p-submission-sequencer-listener)
 :::
 
@@ -108,7 +108,7 @@ The libp2p listening interface is loadbalanced on Layer 4 of the networking stac
 These dequeuers are autoscaled by an event driven architecture and intermediated by worker queues that can work on varied backends, for eg. Redis (for demonstration purposes) or Kafka.
 
 :::info
-* Read more: [Sequencer: Dequeuer](/docs/Protocol/Protocol_v2/Sequencer/Dequeuer.md)
+* Read more: [Sequencer: Dequeuer](/Protocol/Protocol_v2/Sequencer/Dequeuer.md)
 * [Github](https://github.com/PowerLoom/sequencer-dequeuer)
 :::
 
@@ -125,7 +125,7 @@ This works as the system clock of the sequencer setup as a whole.
   * attestation submission
 
 :::info
-* Read more: [Sequencer: Event Collector](/docs/Protocol/Protocol_v2/Sequencer/EventCollector.md)
+* Read more: [Sequencer: Event Collector](/Protocol/Protocol_v2/Sequencer/EventCollector.md)
 * [Github](https://github.com/PowerLoom/submission-sequencer-event-collector/)
 :::
 
@@ -137,6 +137,6 @@ These are another set of autoscaled pods that are responsible for
 * committing the storage references to the protocol state smart contract.
 
 :::info
-* Read more: [Sequencer: Batch Finalizer](/docs/Protocol/Protocol_v2/Sequencer/Finalizer.md)
+* Read more: [Sequencer: Batch Finalizer](/Protocol/Protocol_v2/Sequencer/Finalizer.md)
 * [Github](https://github.com/PowerLoom/submission-sequencer-batch-finalizer/)
 :::

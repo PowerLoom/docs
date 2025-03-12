@@ -4,14 +4,14 @@ sidebar_position: 1
 
 # Tracking Wallet Interactions
 
-Let's say you want to do something as simple as tracking all the smart contract addresses a particular wallet interacts with from now on. You can do this by running a snapshotter node and writing a simple compute processor very similar to what we saw in the [activity tracking](/docs/category/on-chain-activity-tracking) section.
+Let's say you want to do something as simple as tracking all the smart contract addresses a particular wallet interacts with from now on. You can do this by running a snapshotter node and writing a simple compute processor very similar to what we saw in the [activity tracking](/category/on-chain-activity-tracking) section.
 
 ## Pre-requisites
 
 :::tip
 Prerequisites: Before we dive into the implementation of new data points, you may want to look at the concept of how the pooler functions and how it retrieves and processes the data. 
 
-[On-Chain Activity Tracking](/docs/build-with-powerloom/use-cases/existing-implementations/activity-tracking/)
+[On-Chain Activity Tracking](/build-with-powerloom/use-cases/existing-implementations/activity-tracking/)
 :::
 
 ## Scenario: Tracking Wallet Transactions
@@ -21,7 +21,7 @@ Let's use the example of tracking transactions of a wallet for Eth Chain. This i
 ## Steps to Implement this New Data Point
 
 1. **Getting Started**:
-   You can follow [this guide](/docs/build-with-powerloom/snapshotter-node/full-node/getting-started#for-code-contributors) to get started with the node setup for custom implementations.
+   You can follow [this guide](/build-with-powerloom/snapshotter-node/full-node/getting-started#for-code-contributors) to get started with the node setup for custom implementations.
 
 2. **Configure Snapshot Workers**:
    In the `config/projects.json` file of your forked repository, add a new entry for your snapshot worker class. This class will be responsible for handling the new data snapshotting task.
@@ -136,4 +136,4 @@ class TrackingWalletInteractionProcessor(GenericProcessorSnapshot):
 
 If you have any questions while building / integrating, you can reach us out on our [discord](https://powerloom.io/discord).
 
-If you're interested in understanding the working of core components of the protocol, you can check out the [protocol overview](/docs/category/protocol-overview) section.
+If you're interested in understanding the working of core components of the protocol, you can check out the [protocol overview](/category/protocol-overview) section.

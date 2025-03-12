@@ -9,7 +9,7 @@ This section will help you set up a full node to participate in the Powerloom Aa
 ## Full Node Setup
 
 :::tip
-Prerequisite: Ensure that the minimum requirements are met by the system on which it is to be deployed, which is located under the **System Requirements** section of the [Full Node - Getting Started](/docs/build-with-powerloom/snapshotter-node/full-node/getting-started.md) page.
+Prerequisite: Ensure that the minimum requirements are met by the system on which it is to be deployed, which is located under the **System Requirements** section of the [Full Node - Getting Started](/build-with-powerloom/snapshotter-node/full-node/getting-started.md) page.
 :::
 
 1. **Cloning the Deploy Repo** - Clone the repository against the `aave` branch. Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`. 
@@ -50,12 +50,12 @@ Prerequisite: Ensure that the minimum requirements are met by the system on whic
 ## Extending the Aave V3 Implementation
 
 :::tip
-This section will utilize core concepts explained in the [Closer Look at Snapshots](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/closer-look-at-snapshots) section. It is strongly recommended that you review this page before extending the Aave use case.
+This section will utilize core concepts explained in the [Closer Look at Snapshots](/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/closer-look-at-snapshots) section. It is strongly recommended that you review this page before extending the Aave use case.
 :::
 
 ### Development Node Setup
 
-1. **Forking the Computes and Config templates** - For an optimized development process, it's recommended to fork the templates [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/aave) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/aave). Our system utilizes the Git submodule architecture to manage these components efficiently. For a deeper understanding of how these elements integrate and function within our larger system, please refer to our [architecture documentation](/docs/build-with-powerloom/snapshotter-node/architecture.md). This approach ensures a streamlined and cohesive development workflow.
+1. **Forking the Computes and Config templates** - For an optimized development process, it's recommended to fork the templates [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/aave) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/aave). Our system utilizes the Git submodule architecture to manage these components efficiently. For a deeper understanding of how these elements integrate and function within our larger system, please refer to our [architecture documentation](/build-with-powerloom/snapshotter-node/architecture.md). This approach ensures a streamlined and cohesive development workflow.
 
    - Aave V3 Snapshotter Configs: https://github.com/PowerLoom/snapshotter-computes/tree/aave
    - Aave V3 Snapshotter Computes: https://github.com/PowerLoom/snapshotter-configs/tree/aave
@@ -73,7 +73,7 @@ This section will utilize core concepts explained in the [Closer Look at Snapsho
     
 ### Preloaders
 
-Most on-chain data used by the current Aave V3 use case is retrieved using [Preloaders](docs/Protocol/Specifications/Snapshotter/preloading.md). These processors run before the base snapshots and are computed to reduce redundant queries on the Aave Smart Contracts. The Aave protocol stores data for *all* assets in their Smart Contracts, so preloaders are particularly useful when gathering data for this use case. Any base snapshot extension of the current implementation may find that the required on-chain data has already been gathered by a preloader. See the [Snapshot Generation](docs/Protocol/Specifications/Snapshotter/snapshot-build.md) page for more information on "how base snapshots are built".
+Most on-chain data used by the current Aave V3 use case is retrieved using [Preloaders](docs/Protocol/Specifications/Snapshotter/preloading.md). These processors run before the base snapshots and are computed to reduce redundant queries on the Aave Smart Contracts. The Aave protocol stores data for *all* assets in their Smart Contracts, so preloaders are particularly useful when gathering data for this use case. Any base snapshot extension of the current implementation may find that the required on-chain data has already been gathered by a preloader. See the [Snapshot Generation](/Protocol/Specifications/Snapshotter/snapshot-build.md) page for more information on "how base snapshots are built".
 
 There are two important preloaders to be aware of:
 
@@ -89,7 +89,7 @@ https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/preloaders/vol
 
 Both of these preloaders retrieve on-chain data and then store it locally in Redis for [later use](https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/core.py#L93-L121) by the base snapshot processors' `compute` functions. The data models describing the data gathered by the `BulkAssetDataPreloader` can be found [here](https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/data_models.py#L9-L45). The list of event emissions gathered by the `BulkVolumeEventsPreloader` can be found [here](https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/data_models.py#L9-L45).
 
-Visit the [Data Points](/docs/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/data-points.md) section for a complete list of currently available base snapshots. 
+Visit the [Data Points](/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/data-points.md) section for a complete list of currently available base snapshots. 
 
 ### Adding an Aggregate Snapshot
 
@@ -100,7 +100,7 @@ For this example, we will add a 6-hour volume-by-action aggregate using the 24-h
     In the `aggregate/` directory of your forked `snapshotter-computes` repository, create a Python file containing your new processor.
     - Name the file something like `single_aave_volume_6h.py`
     - For now, this will be used as a placeholder and filled in with the processor's logic in later steps.
-    - Visit the Aggregate Snapshots section of the [Snapshot Generation](docs/Protocol/Specifications/Snapshotter/snapshot-build.md) page for more information on Aggregate Processors
+    - Visit the Aggregate Snapshots section of the [Snapshot Generation](/Protocol/Specifications/Snapshotter/snapshot-build.md) page for more information on Aggregate Processors
 
 2. **Configure Aggregation Worker**:
 

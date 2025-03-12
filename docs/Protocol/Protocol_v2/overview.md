@@ -18,10 +18,10 @@ This causes a state bloat of submissions for base snapshots for thousands of pro
 :::info
 Learn more:
 
-* [Protocol State: V2](/docs/Protocol/Specifications/state-v2.md)
-* [Snapshot Generation](/docs/Protocol/Specifications/Snapshotter/snapshot-build.md)
-* [Introduction to Snapshotting consensus](/docs/build-with-powerloom/snapshotter-node/introduction)
-* [Accessing datasets on which consensus has been reached](/docs/build-with-powerloom/snapshotter-node/data)
+* [Protocol State: V2](/Protocol/Specifications/state-v2.md)
+* [Snapshot Generation](/Protocol/Specifications/Snapshotter/snapshot-build.md)
+* [Introduction to Snapshotting consensus](/build-with-powerloom/snapshotter-node/introduction)
+* [Accessing datasets on which consensus has been reached](/build-with-powerloom/snapshotter-node/data)
 :::
 
 ### Relayer transaction and chain infrastructure failures
@@ -30,7 +30,7 @@ The above approach required the snapshotter peers to send out their submissions 
 
 ### Composed snapshots finality
 
-A combination of the above couple of issues also affects the [composability principle](/docs/Protocol/data-composition.md) of building higher order snapshots. Dropped transactions and increased delays in confirmation times of snapshot submissions ultimately affect the aggregate data points that power complex use cases like the [Uniswap V2 dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/) and [Aave V3 dashboard](/docs/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/).
+A combination of the above couple of issues also affects the [composability principle](/Protocol/data-composition.md) of building higher order snapshots. Dropped transactions and increased delays in confirmation times of snapshot submissions ultimately affect the aggregate data points that power complex use cases like the [Uniswap V2 dashboard](/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/) and [Aave V3 dashboard](/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/).
 
 
 ## Upgraded workflow
@@ -47,7 +47,7 @@ It notably features the following components that make this possible.
 
 ### Local collector: Snapshotter node
 
-The snapshotter node replaces the [payload commit service](/docs/Protocol/Specifications/Snapshotter/payload-commit-service.md) component with a faster grpc based service referred to as local collector. As the name suggests, it acts as a collection point for a stream of large number of [snapshots being built out](/docs/Protocol/Specifications/Snapshotter/snapshot-build.md) by the compute modules as specified in its configuration.
+The snapshotter node replaces the [payload commit service](/Protocol/Specifications/Snapshotter/payload-commit-service.md) component with a faster grpc based service referred to as local collector. As the name suggests, it acts as a collection point for a stream of large number of [snapshots being built out](/Protocol/Specifications/Snapshotter/snapshot-build.md) by the compute modules as specified in its configuration.
 
 It is responsible for reliably submitting all the generated snapshots to the sequencers via circuit relay nodes.
 

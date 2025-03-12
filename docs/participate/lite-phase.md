@@ -15,6 +15,6 @@ We are excited to announce the launch of the public Mint for our Snapshotter Lit
 
 ## Setting up your Snapshotter LiteNode
 :::note
-Since the lite node testnet ended a while ago, and we have V2 of the lite node protocol running on mainnet, we recommend you to follow the [Getting Started](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started.md) guide for setting up your snapshotter lite node.
+Since the lite node testnet ended a while ago, and we have V2 of the lite node protocol running on mainnet, we recommend you to follow the [Getting Started](/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started.md) guide for setting up your snapshotter lite node.
 :::
 

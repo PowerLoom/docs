@@ -107,7 +107,7 @@ The above command itself navigates you to the Repository Directory `powerloom_de
 
 :::note
 The following protocol state contract addresses are currently operational with active epoch releases 
-* Data source contracts on ETH Mainnet -- [Epoch Size 1](/docs/Protocol/Specifications/Epoch.md) -- `0x573906E80C30dA608E3a24A0938BCB3f0C68Ed2f`
+* Data source contracts on ETH Mainnet -- [Epoch Size 1](/Protocol/Specifications/Epoch.md) -- `0x573906E80C30dA608E3a24A0938BCB3f0C68Ed2f`
 
 If you have any custom requirements to track data sources on other chains, reach out to the [team.](https://discord.com/invite/powerloom)
 :::

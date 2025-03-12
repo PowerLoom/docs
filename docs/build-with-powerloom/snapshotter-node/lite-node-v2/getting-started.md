@@ -216,7 +216,7 @@ After initiating the process, the setup steps will differ depending on whether t
 
 3. Optionally, you can provide to following values:
 
-   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
 
 After entering these details, the node will start running the background processes.
 
@@ -359,7 +359,7 @@ After initiating the process, the setup steps will differ depending on whether t
 
 3. Optionally, you can provide to following values:
 
-   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
 
 After entering these details, the node will start running the background processes.
 
@@ -408,8 +408,11 @@ For users running the node on personal hardware, the minimum specifications are:
 If you want to run the Snapshotter Lite Node V2 without Docker, you need to make sure that you have Git, and Python version 3.10 or higher installed on your machine and we recommend to use **python version 3.11.7**. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
 
 
-<details><summary> Optional: Installing Virtual Environment </summary>
+<details>
+<summary> Optional: Installing Virtual Environment </summary>
+</details>
 For simplicity, we recommend using miniconda and setting up an environment with the needed Python version as shown below
+
 <p>
 
 #### Install miniconda for your system:
@@ -435,7 +438,6 @@ For simplicity, we recommend using miniconda and setting up an environment with 
    conda activate myenv
    ```
 </p>
-</details>
 
 Once python3 is installed, we can go ahead and run the lite node:-
 
@@ -647,7 +649,7 @@ After initiating the process, the setup steps will differ depending on whether t
 
 3. Optionally, you can provide to following values:
 
-   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
 
 After entering these details, the node will start running the background processes.
 
@@ -698,11 +700,11 @@ You will see log messages similar to the one shown below that will ensure that y
 
 :::note
 Learn more: 
-* [Sequencer component](/docs/Protocol/Protocol_v2/sequencer.md)
+* [Sequencer component](/Protocol/Protocol_v2/sequencer.md)
 :::
 
 :::info
-Read more about monitoring and verifying the simulation mode submissions on the [`Monitoring and Troubleshooting`](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md) page.
+Read more about monitoring and verifying the simulation mode submissions on the [`Monitoring and Troubleshooting`](/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md) page.
 :::
 
 ### Regular snapshot submissions
@@ -716,7 +718,7 @@ It usually takes 2 - 5 minutes between the simulation mode submissions and a sub
 ![Sample node logs](/images/RegularSubmission.png)
 
 :::info
-For further details on using the snapshotter dashboard to monitor the running status of your node, check the [`Monitoring Node Activity with the Snapshotter Dashboard`](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md#monitoring-node-activity-with-the-snapshotter-dashboard) section.
+For further details on using the snapshotter dashboard to monitor the running status of your node, check the [`Monitoring Node Activity with the Snapshotter Dashboard`](/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring.md#monitoring-node-activity-with-the-snapshotter-dashboard) section.
 :::
 
 

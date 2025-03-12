@@ -7,7 +7,7 @@ sidebar_position: 3
 
 ![Event Collector](/images/event-collector-architecture.png)
 
-The Event Collector is a key component of the **Sequencer** system, responsible for interacting with the blockchain, processing events from detected blocks, and preparing data for downstream processing. Its primary role is to detect and parse critical events, aggregate event data into batches, and send these batches to the [**Finalizer**](/docs/Protocol/Protocol_v2/Sequencer/Finalizer.md) component for further actions.
+The Event Collector is a key component of the **Sequencer** system, responsible for interacting with the blockchain, processing events from detected blocks, and preparing data for downstream processing. Its primary role is to detect and parse critical events, aggregate event data into batches, and send these batches to the [**Finalizer**](/Protocol/Protocol_v2/Sequencer/Finalizer.md) component for further actions.
 
 By operating seamlessly within the broader system, the **Event Collector** ensures timely and reliable processing of blockchain data, which is critical for maintaining the integrity and accuracy of the Submission Sequencer.
 
@@ -49,7 +49,7 @@ The [**Finalizer**](https://github.com/PowerLoom/submission-sequencer-finalizer)
 
 ## On-Chain Updates via Relayer
 
-The Event Collector facilitates updates to the Protocol State Contract by sending critical data through the [**Relayer**](/docs/Protocol/Protocol_v2/relay.md). These updates ensure that the protocol's on-chain state remains consistent and synchronized:
+The Event Collector facilitates updates to the Protocol State Contract by sending critical data through the [**Relayer**](/Protocol/Protocol_v2/relay.md). These updates ensure that the protocol's on-chain state remains consistent and synchronized:
 
 ### Reward Management
 - **Intraday Updates:** Periodic updates containing slotIDs and eligible submission counts are transmitted to the Protocol State Contract via the relayer throughout the day.
