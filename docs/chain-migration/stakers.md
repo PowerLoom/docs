@@ -13,7 +13,9 @@ Node stakers are ***NOT*** required to do any action.
 ### 🚀 Migration date and time 
 
 :::note
-The Powerloom network is migrating to a new chain between **`Thu Mar 27 2025 06:00:00 - 09:00:00 GMT+0000`**
+The Powerloom network is migrating to a new chain between 
+
+**`Thu Mar 27 2025 06:00:00 - 09:00:00 GMT+0000`**
 :::
 
 
