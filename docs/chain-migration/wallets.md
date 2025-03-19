@@ -1,37 +1,46 @@
----
-sidebar_position: 3
----
+---  
+sidebar_position: 3  
+---  
 
-# POWER balance
+# POWER Balance  
 
-## 🚨 CRITICAL: Balance needs to be migrated to new chain
+## 🚨 **CRITICAL: Migrate your $POWER balance**  
 
-### The Powerloom network is migrating to a new chain between `Thu Mar 27 2025 06:00:00 - 09:00:00 GMT+0000`
+:::info
+If you hold $POWER on the old chain, you'll need to bridge it to the new chain.  
+👉 If **all your $POWER is staked**, you **don't need to do anything** — it'll migrate automatically.  
+:::
 
-Users with $POWER balance on the older chain will need to use the following bridge to move the funds to the new chain. If you are [staking](https://mint.powerloom.network/staking) all of your balance, you *do not* need to anything. Steps to bridge to the new chain 👇
+### 🚀 Migration date and time 
 
-1. Go to: [migrate.powerloom.network](https://migrate.powerloom.network)
+:::note
+The Powerloom network is migrating to a new chain between 
 
-![Bridge Page](/images/migration/bridge-page.png)
+**`Thu Mar 27 2025 06:00:00 - 09:00:00 GMT+0000`**
+:::
 
-2. Connect wallet
+### 🏗️ **How to Bridge**  
 
-![Bridge Connect](/images/migration/bridge-connect-metamask.png)
+1. **Go to:** [migrate.powerloom.network](https://migrate.powerloom.network)  
+   <img src="/images/migration/bridge-page.png" width="70%" />  
 
-3. Verify balances and start bridging
+2. **Connect wallet**  
+   <img src="/images/migration/bridge-connect-metamask.png" width="70%" />  
 
-![Bridge Connected](/images/migration/bridge-connected-initiate.png)
+3. **Verify balances and start bridging**  
+   <img src="/images/migration/bridge-connected-initiate.png" width="70%" />  
 
-4. Your wallet will request you send POWER. Make sure to leave a tiny amount for gas!
+4. **Confirm transaction** — Your wallet will request you to send $POWER.  
+   - Leave a small amount for gas!  
+   <img src="/images/migration/bridge-tx-request.png" width="70%" />  
 
-![Bridge Transaction Request](/images/migration/bridge-tx-request.png)
+5. **Wait for bridging** — usually takes less than a minute.  
+   <img src="/images/migration/bridge-progress.png" width="70%" />  
 
-5. Wait for bridging - usually takes less than a minute.
+6. **Done!** — Your balance will appear on the [new chain](https://explorer-v2.powerloom.network/).  
+   <img src="/images/migration/bridge-done.png" width="70%" />  
 
-![Bridge Progress](/images/migration/bridge-progress.png)
-
-6. Once bridging is complete, you will see your balance on the [new chain](https://explorer-v2.powerloom.network/)!
-
-![Bridge Complete](/images/migration/bridge-done.png)
-
-> Please remember that minting/staking will resume on new chain after March 27th, 2025. So, it's best to [stake](https://mint.powerloom.network/staking) on the older before that and earn rewards!
+:::tip
+✅ Minting and staking will resume on the new chain after **March 27, 2025**.  
+**Pro tip:** Stake on the old chain before then to maximize rewards!  
+:::
