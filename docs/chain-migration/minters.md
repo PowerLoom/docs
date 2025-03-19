@@ -5,15 +5,14 @@ sidebar_position: 1
 # Snapshotter NFT Holders
 
 ## ⚡️ TL;DR: No user action necessary! 
+:::info
+Snapshotter NFT holders **don't need to do anything** — the migration will be seamless.  
+:::
 
 ### 🚀 Migration date and time 
 
 :::note
 The Powerloom network is migrating to a new chain between **`Thu Mar 27 2025 06:00:00 - 09:00:00 GMT+0000`**
-:::
-
-:::info
-Snapshotter NFT holders **don't need to do anything** — the migration will be seamless.  
 :::
 
 
