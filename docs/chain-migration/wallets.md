@@ -2,13 +2,13 @@
 sidebar_position: 3  
 ---  
 
-# POWER Balance  
+# $POWER Balance  
 
 ## 🚨 **CRITICAL: Migrate your $POWER balance**  
 
 :::info
 If you hold $POWER on the old chain, you'll need to bridge it to the new chain.  
-👉 If **all your $POWER is staked**, you **don't need to do anything** — it'll migrate automatically.  
+👉 If **all your $POWER is staked**, you **don't need to do anything** — it'll migrate automatically. See the [Node Stakers](/docs/chain-migration/stakers.md) page for more details.
 :::
 
 ### 🚀 Migration date and time 
@@ -42,5 +42,6 @@ The Powerloom network is migrating to a new chain between
 
 :::tip
 ✅ Minting and staking will resume on the new chain after **March 27, 2025**.  
-**Pro tip:** Stake on the old chain before then to maximize rewards!  
+
+Stake on the old chain before then to maximize rewards!  
 :::
