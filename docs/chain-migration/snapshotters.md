@@ -106,8 +106,3 @@ Using new RPC for protocol state contract
 
 ## 🆘 Need Support?
 - Join our [#🗣-snapshotter-discussion](https://discord.com/channels/777248105636560948/1063022869040353300) support channel on [Discord](https://discord.com/invite/powerloom)
-
-Keep your nodes healthy and happy snapshotting! 🚀
-
----
-The Powerloom Team
