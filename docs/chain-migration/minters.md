@@ -1,12 +1,23 @@
----
-sidebar_position: 1
----
+---  
+sidebar_position: 1  
+---  
 
-# Snapshotter NFT minters
+# Snapshotter NFT Holders
 
-> ⚡️ TL;DR: No user action necessary! 
+> ⚡️ **TL;DR:** No user action necessary!
 
-### The Powerloom network is migrating to a new chain between `Thu Mar 27 2025 06:00:00 - 09:00:00 GMT+0000`
+### 🚀 Powerloom is migrating to a new chain on **Thu, Mar 27, 2025, 06:00:00 - 09:00:00 GMT**  
 
+Snapshotter NFT holders **don't need to do anything** — the migration will be seamless.  
 
-Owners with Snapshotter NFT are *not* required to do any action. All data will be migrated to the new chain seamless. However, 24 hours before before migration, contracts will be paused. This means, any onchain actions such as new mints, claims, etc will be unavailable. Once the migration is complete, the contract will be resumed on the new chain with the same state as previous chain. The frontend will be automatically updated.
+### ✅ What's migrating:  
+- Snapshotter NFTs  
+- Unclaimed reward tokens  
+- Burnt NFTs  
+- Burner addresses for Snapshotter Nodes
+- Vested tokens and everything else
+
+### 🔒 Contract Pause Notice  
+Contracts will be paused **24 hours before migration** (on **Wed, Mar 26, 2025, 06:00:00 - 09:00:00 GMT**).  
+- No mints, claims, burns, or other onchain actions during this time.  
+- Everything will resume smoothly on the new chain once the migration is complete — frontend and all.  
