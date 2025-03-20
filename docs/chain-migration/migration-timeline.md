@@ -1,42 +1,45 @@
----
-sidebar_position: 1
----
+---  
+sidebar_position: 1  
+---  
 
-# Migration Timeline
+# Migration Timeline  
 
-## Overview
-The Powerloom network is migrating to a new chain powered by Arbitrum Nitro and Conduit. This document details the state transition process that will occur at epoch 55000.
+## 🚀 **Overview**  
+Powerloom is migrating to a new chain powered by **Arbitrum Nitro** at **epoch 55,000**. This document outlines the migration process.  
 
-## State Transition Timeline
+## ⏳ **State Transition Timeline**  
 
-### 1. Network State Freeze (Epoch 55000)
-* All submissions on the old chain will stop
-* Node operators should see freeze confirmation in logs
-* Existing protocol state is captured for migration
-* No new transactions will be processed on old chain
-* $POWER holders can continue to bridge until the old chain is decommissioned and archived.
+### 1. 🔒 **Major Operational Freeze** (~24 hours before Epoch 55,000)  
+- Node minting, burning, and vested token claims paused  
+- Reward claims paused  
+- Staking and unstaking paused (existing stakers continue earning rewards)  
 
-:::warning
-We can not guarantee the possibility of the old chain continuing to function after the Ethereum Pectra upgrade. Hence it is advised for you to follow the migration guide depending on your role of participation in the network:
-:::
+### 2. 🛑 **Network State Freeze** (Epoch 55,000)  
+- All submissions on the old chain stop  
+- Node operators should see freeze confirmation in logs (see [verification logs](/docs/chain-migration/snapshotters.md#-verification-logs) for more details)
+- Existing protocol state is captured for migration  
+- No new transactions on the old chain  
+- $POWER holders can still bridge until the old chain is decommissioned  
 
-### 2. State Transition Window (~6 Hours)
-* Complete protocol state migration to new chain
-* All balances, stakes, and rewards are transferred
-* Node operators can monitor progress through logs
-* No submissions will be processed during this period
-* Progress can be monitored via status page
+:::warning  
+⚠️ The old chain may stop working after the **Ethereum Pectra upgrade**.  
+Follow the migration guide based on your role in the network to avoid issues.  
+:::  
 
-### 3. V2 Chain Genesis
-* New chain begins with verified state
-* Snapshotter nodes auto-switch to new chain
-* First V2 epoch released with migrated state
-* Normal operations resume on upgraded infrastructure
-* Enhanced performance with Arbitrum Nitro
+### 3. 🔄 **State Transition Window** (~6 hours)  
+- Complete protocol state migration to the new chain  
+- Balances, stakes, and rewards transferred  
+- No submissions processed during this period  
+- Track progress on the status page  
 
-### 4. Protocol State Preservation
-* All historical data maintained
-* Existing stakes and rewards intact
-* Uninterrupted continuation of protocol operations
-* No action required from stakers during transition
-* Complete backward compatibility maintained
+### 4. 🚀 **V2 Chain Switchover**  
+- New chain launches with verified state  
+- Snapshotter nodes auto-switch to the new chain  
+- First V2 epoch starts with migrated state (Epoch 55001)
+- Normal operations resume with Arbitrum Nitro's enhanced performance  
+
+### 5. ✅ **Protocol State Preservation**  
+- All historical data retained  
+- Existing stakes and rewards intact  
+- Uninterrupted protocol operations  
+- No action required from stakers during the transition
