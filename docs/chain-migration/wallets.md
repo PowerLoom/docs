@@ -2,21 +2,17 @@
 sidebar_position: 4
 ---  
 
-# $POWER Balance  
+# $POWER Holders
 
 ## 🚨 **CRITICAL: Migrate your $POWER balance**  
 
 :::info
+⚡️ TL;DR: The Powerloom network is migrating to a new chain. Migration begins around `Thu Mar 27 2025 06:00:00 GMT+0000`!
+
 If you hold $POWER on the old chain, you'll need to bridge it to the new chain.  
 👉 If **all your $POWER is staked**, you **don't need to do anything** — it'll migrate automatically. See the [Node Stakers](/docs/chain-migration/stakers.md) page for more details.
-:::
 
-### 🚀 Migration date and time 
-
-:::note
-The Powerloom network is migrating to a new chain between 
-
-**`Thu Mar 27 2025 06:00:00 - 09:00:00 GMT+0000`**
+Check the [Migration Timeline](/docs/chain-migration/migration-timeline) for further details.
 :::
 
 ### 🏗️ **How to Bridge**  
@@ -45,3 +41,4 @@ The Powerloom network is migrating to a new chain between
 
 Stake on the old chain before then to maximize rewards!  
 :::
+

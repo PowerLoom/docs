@@ -9,15 +9,11 @@ sidebar_position: 3
 :::info
 Node stakers are ***NOT*** required to do any action. 
 :::
+## Important Information
 
-### 🚀 Migration date and time 
-
-:::note
-The Powerloom network is migrating to a new chain between 
-
-**`Thu Mar 27 2025 06:00:00 - 09:00:00 GMT+0000`**
+:::info Migration Timeline
+Your staked tokens and rewards will be automatically migrated during the network upgrade. For the exact timeline of when staking operations will pause and resume, see the [Migration Timeline](/docs/chain-migration/migration-timeline.md).
 :::
-
 
 ### 🤨 What happens to my staked $POWER?
 

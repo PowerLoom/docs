@@ -1,12 +1,15 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Snapshotters 
-
+# Snapshotters
 ## 🚨 CRITICAL: New release is Live! Action Required
 
-> ⚡️ TL;DR: The Powerloom network is migrating to a new chain between `Thu Mar 27 2025 06:00:00 - 09:00:00 GMT+0000`! 
+:::note
+⚡️ TL;DR: The Powerloom network is migrating to a new chain. The migration process begins approximately around `Thu Mar 27 2025 06:00:00 GMT+0000`!
+
+For detailed information about the migration process and state transition timeline, please refer to the [Migration Timeline](/chain-migration/migration-timeline) documentation.
+:::
 
 All snapshotter operators must update their nodes within the next 10 days.
 
@@ -14,6 +17,7 @@ All snapshotter operators must update their nodes within the next 10 days.
 - Migration is **LIVE**. Use latest release as instructed below. 
 - As long as the latest release is run, you DO NOT have to do any other steps.
 - Submissions from older releases of the snapshotter node will cease to be valid after the **switchover epoch ID -- 55000**. This is non-negotiable.
+
 
 ## 🛠️ Migration Instructions
 
