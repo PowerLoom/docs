@@ -38,7 +38,7 @@ Follow the migration guide based on your role in the network to avoid issues.
 - First V2 epoch starts with migrated state (Epoch 55001)
 - Normal operations resume with Arbitrum Nitro's enhanced performance  
 
-### 5. ✅ **Protocol State Preservation**  
+### 5. 🔒 **Protocol State Preservation**  
 - All historical data retained  
 - Existing stakes and rewards intact  
 - Uninterrupted protocol operations  
