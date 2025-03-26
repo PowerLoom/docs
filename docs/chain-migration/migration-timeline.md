@@ -9,7 +9,7 @@ Powerloom is migrating to a new chain powered by **Arbitrum Nitro** at **epoch 5
 
 ## ⏳ **State Transition Timeline**  
 
-### 1. 🔒 **Major Operational Freeze** (~24 hours before Epoch 55,000)  
+### 1. 🔒 **Major Operational Freeze** (~24 hours before Epoch 55,000) - Done ✅
 - Node minting, burning, and vested token claims paused  
 - Reward claims paused  
 - Staking and unstaking paused (existing stakers continue earning rewards)  
