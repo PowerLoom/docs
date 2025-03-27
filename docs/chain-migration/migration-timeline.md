@@ -26,13 +26,13 @@ Powerloom is migrating to a new chain powered by **Arbitrum Nitro** at **epoch 5
 Follow the migration guide based on your role in the network to avoid issues.  
 :::  
 
-### 3. 🔄 **State Transition Window** (~6 hours) - In progress ⏳  
+### 3. 🔄 **State Transition Window** (~6 hours) - Done ✅
 - Complete protocol state migration to the new chain  
 - Balances, stakes, and rewards transferred  
 - No submissions processed during this period  
 - Track progress on the status page  
 
-### 4. 🚀 **V2 Chain Switchover**  
+### 4. 🚀 **V2 Chain Switchover** - In progress ⏳
 - New chain launches with verified state  
 - Snapshotter nodes auto-switch to the new chain  
 - First V2 epoch starts with migrated state (Epoch 55001)
