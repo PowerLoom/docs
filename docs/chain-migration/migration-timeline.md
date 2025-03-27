@@ -14,7 +14,7 @@ Powerloom is migrating to a new chain powered by **Arbitrum Nitro** at **epoch 5
 - Reward claims paused  
 - Staking and unstaking paused (existing stakers continue earning rewards)  
 
-### 2. 🛑 **Network State Freeze** (Epoch 55,000)  
+### 2. 🛑 **Network State Freeze** (Epoch 55,000) - Done ✅
 - All submissions on the old chain stop  
 - Node operators should see freeze confirmation in logs (see [verification logs](/docs/chain-migration/snapshotters.md#-verification-logs) for more details)
 - Existing protocol state is captured for migration  
@@ -26,7 +26,7 @@ Powerloom is migrating to a new chain powered by **Arbitrum Nitro** at **epoch 5
 Follow the migration guide based on your role in the network to avoid issues.  
 :::  
 
-### 3. 🔄 **State Transition Window** (~6 hours)  
+### 3. 🔄 **State Transition Window** (~6 hours) - In progress ⏳  
 - Complete protocol state migration to the new chain  
 - Balances, stakes, and rewards transferred  
 - No submissions processed during this period  
