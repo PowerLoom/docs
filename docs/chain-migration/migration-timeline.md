@@ -32,13 +32,13 @@ Follow the migration guide based on your role in the network to avoid issues.
 - No submissions processed during this period  
 - Track progress on the status page  
 
-### 4. 🚀 **V2 Chain Switchover** - In progress ⏳
+### 4. 🚀 **V2 Chain Switchover** - Done ✅
 - New chain launches with verified state  
 - Snapshotter nodes auto-switch to the new chain  
 - First V2 epoch starts with migrated state (Epoch 55001)
 - Normal operations resume with Arbitrum Nitro's enhanced performance  
 
-### 5. 🔒 **Protocol State Preservation**  
+### 5. 🔒 **Protocol State Preservation** - In progress ⏳
 - All historical data retained  
 - Existing stakes and rewards intact  
 - Uninterrupted protocol operations  
