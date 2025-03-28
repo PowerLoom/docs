@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## ⚡️ TL;DR: No user action necessary! 
 :::info
-Snapshotter NFT holders **don't need to do anything** — the migration will be seamless. Refer to the [migration timeline](/docs/chain-migration/migration-timeline.md) for more details.
+Snapshotter NFT holders **don't need to do anything** — the migration will be seamless. Refer to the [migration timeline](/chain-migration/migration-timeline.md) for more details.
 :::
 
 ### ✅ What's migrating:  
@@ -24,5 +24,5 @@ Contracts will be paused **24 hours before migration** (on **Wed, Mar 26, 2025, 
 ## Migration Guidelines
 
 :::info Migration Timeline
-Minting operations will be temporarily paused during the network upgrade. Check the [Migration Timeline](/docs/chain-migration/migration-timeline) to understand when to pause your operations and when you can resume on V2.
+Minting operations will be temporarily paused during the network upgrade. Check the [Migration Timeline](/chain-migration/migration-timeline) to understand when to pause your operations and when you can resume on V2.
 :::  

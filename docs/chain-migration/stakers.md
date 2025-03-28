@@ -12,7 +12,7 @@ Node stakers are ***NOT*** required to do any action.
 ## Important Information
 
 :::info Migration Timeline
-Your staked tokens and rewards will be automatically migrated during the network upgrade. For the exact timeline of when staking operations will pause and resume, see the [Migration Timeline](/docs/chain-migration/migration-timeline.md).
+Your staked tokens and rewards will be automatically migrated during the network upgrade. For the exact timeline of when staking operations will pause and resume, see the [Migration Timeline](/chain-migration/migration-timeline.md).
 :::
 
 ### 🤨 What happens to my staked $POWER?

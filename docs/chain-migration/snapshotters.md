@@ -40,7 +40,7 @@ git pull
 ```
 
 :::info
-Learn more: [Complete setup steps](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started.md) for Snapshotter Lite V2 Node.
+Learn more: [Complete setup steps](/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started.md) for Snapshotter Lite V2 Node.
 :::
 
 ### Multi Node Operators

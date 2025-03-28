@@ -16,7 +16,7 @@ Powerloom is migrating to a new chain powered by **Arbitrum Nitro** at **epoch 5
 
 ### 2. 🛑 **Network State Freeze** (Epoch 55,000) - Done ✅
 - All submissions on the old chain stop  
-- Node operators should see freeze confirmation in logs (see [verification logs](/docs/chain-migration/snapshotters.md#-verification-logs) for more details)
+- Node operators should see freeze confirmation in logs (see [verification logs](/chain-migration/snapshotters.md#-verification-logs) for more details)
 - Existing protocol state is captured for migration  
 - No new transactions on the old chain  
 - $POWER holders can still bridge until the old chain is decommissioned  
