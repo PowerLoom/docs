@@ -15,6 +15,10 @@ If you hold $POWER on the old chain, you'll need to bridge it to the new chain.
 Check the [Migration Timeline](/chain-migration/migration-timeline) for further details.
 :::
 
+:::warning
+⚠️ The old chain has stopped and the following bridge has been shut!
+:::
+
 ### 🏗️ **How to Bridge**  
 
 1. **Go to:** [migrate.powerloom.network](https://migrate.powerloom.network)  

@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # Migration Timeline  
 
+:::info
+⚡️ TL;DR: The Powerloom network migration was successful and the old chain has been shut!
+:::
+
 ## 🚀 **Overview**  
 Powerloom is migrating to a new chain powered by **Arbitrum Nitro** at **epoch 55,000**. This document outlines the migration process.  
 
@@ -21,11 +25,6 @@ Powerloom is migrating to a new chain powered by **Arbitrum Nitro** at **epoch 5
 - No new transactions on the old chain  
 - $POWER holders can still bridge until the old chain is decommissioned  
 
-:::warning  
-⚠️ The old chain may stop working after the **Ethereum Pectra upgrade**.  
-Follow the migration guide based on your role in the network to avoid issues.  
-:::  
-
 ### 3. 🔄 **State Transition Window** (~6 hours) - Done ✅
 - Complete protocol state migration to the new chain  
 - Balances, stakes, and rewards transferred  
@@ -38,7 +37,7 @@ Follow the migration guide based on your role in the network to avoid issues.
 - First V2 epoch starts with migrated state (Epoch 55001)
 - Normal operations resume with Arbitrum Nitro's enhanced performance  
 
-### 5. 🔒 **Protocol State Preservation** - In progress ⏳
+### 5. 🔒 **Protocol State Preservation** - Done ✅
 - All historical data retained  
 - Existing stakes and rewards intact  
 - Uninterrupted protocol operations  
