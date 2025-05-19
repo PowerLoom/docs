@@ -6,10 +6,8 @@ sidebar_position: 0
 
 
 :::success info
-#### Our Devnet is live!
-🚀 Get access to the Devnet and build exciting data applications, you can mint a no-cost NFT slot on the Sepolia network 🌟. Devnet mint page: https://devnet-mint.powerloom.dev
-
-💡 To mint the NFT slot, ETH on the Sepolia network is required. If your balance is insufficient, you can obtain Sepolia ETH through the following link: https://faucet.quicknode.com/drip
+#### Our Devnet is undergoing an upgrade!
+⌛️ We will announce on socials and update this page once it's ready
 :::
 
 Devnet provides developers with a sandbox environment to build and test data-driven applications. Developers can create powerful tools such as dashboards, arbitrage bots, and wallet trackers. The Devnet allows for experimentation and iteration without the risks associated with using real assets on a live network.
