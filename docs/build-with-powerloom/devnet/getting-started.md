@@ -1,406 +1,733 @@
 ---
 sidebar_position: 1
+title: Setting Up
 ---
 
-import Admonition from '@theme-original/Admonition';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Getting Started
-This section will guide you through the necessary steps to set up and get started with the Devnet environment. By following these instructions, you'll be able to quickly configure your Devnet and start building data applications on Powerloom.
+# Setting Up and Running the Snapshotter Node on Devnet
 
-Watch this tutorial below to get a detailed walk-through of Powerloom Devnet node setup.
+This guide provides instructions for installing and running the Snapshotter Node for the Powerloom Devnet, covering prerequisites and operational procedures.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/L1OOjhVpAEY?si=GXpBua9QxUuXccSa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+The Snapshotter Node can be set up using either the Docker image or by running natively on the local machine. However, using the Docker image is the recommended approach, as it provides the simplest and most reliable method for deployment.
 
-## Minting the Devnet Slot
-To get started with Devnet, you'll need to mint a no-cost NFT slot on the Sepolia network. 
-
-<Admonition type="tip" icon="📢" title="Ethereum Sepolia Faucet">
-To mint the NFT slot, ETH on the Sepolia network is required. If your balance is insufficient, you can obtain Sepolia ETH through the following link: https://faucet.quicknode.com/drip
-</Admonition>
-
-Follow these steps:
-
-1. Visit https://devnet-mint.powerloom.dev to begin the minting process. You will be prompted to connect your wallet that contains Sepolia ETH.
-
-2. Click mint to being the minting process after connecting your wallet.
-
-![Mint Dashboard](/images/devnet_mint_dashboard.png)
-
-3. Once the NFT slot is minted, use one of the following options to locate your minted Slot ID for later use in the node setup.
-    - Navigate to the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard) to see a list of your minted slots.
-
-    ![Devnet Dashboard](/images/devnet_slots_dashboard.png)
-
-    - Search for the transaction hash of your NFT mint on the [Sepolia block explorer](https://sepolia.etherscan.io/).
-        - For Metamask: The transaction will be under the `Activity` section.
-        - For other wallets: Search for your wallet address in the Sepolia block explorer; the mint will be the latest transaction.
-        - Locate the minted Token ID under the `ERC-1155 Tokens Transferred` section.
-
-    ![Block Explorer](/images/sepolia_blockexplorer_example.png)
-
-After completing these steps, you'll be ready to start using Devnet. The next step is to configure and run our snapshotter node. 
-
-## Setting up the Snapshotter Node
-A snapshotter peer, as part of the Powerloom Protocol, does exactly what the name suggests: It synchronizes with other snapshotter peers over a smart contract running on the Powerloom Prost chain. 
-
-Whether you are developing your own application or extending our existing use cases, setting up your Snapshotter node is a crucial step.
-
-
-:::tip
-Here are some important topics you may want to check out: 
-- [Understanding Epoch](../../Protocol/Specifications/Epoch.md)
-- [What are Data markets](../../Protocol/data-sources.md)
-- [Snapshotter Node Architecture](../snapshotter-node/architecture.md)
-- [Data Composition](../../Protocol/data-composition.md)
+:::tip Node Mint
+Node Mint for devnet is available at: https://mint.powerloom.dev/. This dashboard also serves as the snapshotter dashboard for monitoring your devnet nodes.
 :::
 
-### System Requirements
+Follow the step-by-step instructions in the relevant guide to set up your Snapshotter Node. If you need further assistance, refer to our troubleshooting documentation or reach out to us on [discord](https://discord.com/invite/powerloom) for support. 
 
-- **RAM**: At least 4 GB.
-- **CPU Core**: Minimum of 2 Cores
-- **Disk Space**: A minimum of 40 GB.
-- **Python**: Ensure Python 3.11 is installed.
-- **Docker**: Latest version of `docker` (`>= 20.10.21`) and `docker-compose` (`>= v2.13.0`). If your system doesn't have docker installed, please follow the guide [here](https://www.baeldung.com/ops/docker-install-windows-linux-mac). 
-- **RPC URL** URL for `Ethereum mainnet` or the chain you're working on.
+:::info Important note
 
-:::tip
-Your RPC usage depends on your specific use case. If your application requires a high volume of RPC calls, we recommend running your own RPC node to avoid potentially expensive third-party service costs.
+1. It is recommended that the node operates continuously, 24/7.
+2. The devnet uses the dedicated Powerloom devnet chain - no Sepolia ETH required!
+3. Get devnet tokens from the faucet at https://faucet.powerloom.dev
 
-If you want to monitor your RPC usage, we recommend signing up with a provider like Alchemy, Infura or Quicknode.
 :::
 
-:::info 
-Setting up the snapshotter node on Windows requires a few additional steps. We suggest using Docker because of its ease of setup and speed. To begin with Docker, you must have the Windows Subsystem for Linux (WSL) installed. Please follow the guide provided below for detailed instructions.
-:::
+We have streamlined the setup process based on your operating system. To begin, please choose your operating system from the tabs provided below.
+
+- For those looking to set up the node on a local Windows or Mac machine, please select the appropriate tab.
+- If you are configuring your node on a Linux VPS, select the "VPS Setup (Linux)" tab and follow the provided instructions to get started.
+
+---
+
+<!-- Grouping by OS and Setup type -->
+
+## Setting up the Snapshotter Node on Devnet
 
 <Tabs groupId="operating-systems" className="unique-tabs" queryString="current-os">
-  <TabItem value="macOS-setup" label="macOS/Linux">
-  <h2>Deploying a Snapshotter Node on macOS/Linux</h2>
+  <TabItem value="VPS-setup" label="VPS Setup (Linux)">
+  <Tabs groupId="setup-type" queryString="setup-type">
+  <TabItem value="docker-setup-linux" label="Docker Setup">
+  <h2>Deploying a Snapshotter Node on a Virtual Private Server (VPS) </h2>
 
-### Running the Snapshotter Node
-Follow the process outlined below to ensure a smooth setup
+Deploying a Snapshotter Node on a Virtual Private Server (VPS) ensures seamless 24/7 operation without utilizing your local resources.
 
-#### Step 1: Clone the Snapshotter Deploy Repository
+This section provides instructions for setting up your Snapshotter Node on an Ubuntu VPS.
 
-Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`.
+While you're free to choose any provider, this guide specifically utilizes DigitalOcean for demonstration purposes.
+
+<h3>Recommended VPS Providers: </h3>
+
+- DigitalOcean
+- Hostinger 
+
+
+<h3> Hardware Requirements </h3>
+
+The Snapshotter Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
+
+For users running the node on Virtual Private Servers (VPS), the minimum specifications are:
+
+- **RAM:** At least 4 GB.
+- **CPU Core**:  Minimum of 2 Cores
+- **Disk Space:** A minimum of 40 GB.
+
+
+<h3>Step 1: Creating Your VPS </h3>
+
+1. **Sign Up/Login**: Start creating an account on your VPS provider or log in if you already have one.
+
+2. **Choose an Image**: Select Ubuntu as your operating system. We recommend using the latest stable version of Ubuntu for optimal performance.
+
+3. **Select a Plan**: Choose a plan that meets the minimum hardware requirements for the Snapshotter Node. A plan with at least 4 GB RAM and 40 GB of disk space is advisable. 
+
+4. **Authentication**: Set up SSH keys for secure access to your VPS.
+
+5. **Finalize and Create**: Choose any additional options, like backups if required. Your VPS will be set up within a few minutes.
+
+<h3>Step 2: Accessing Your VPS </h3>
+
+- **SSH into Your VPS**: Use the following command from your terminal/command prompt, replacing `your_vps_ip` with the IP address of your VPS.  
 
 ```bash
-git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
+ssh root@your_vps_ip
 ```
 
-The above command itself navigates you to the Repository Directory `powerloom_deploy`
+- If you set up SSH keys, you should be logged in without needing a password. Otherwise, you can also set your password for the VPS.
 
-#### Step 2: Configure the environment variables
+<h3>Step 3: Setting Up the Environment </h3>
 
-1. `cp env.example .env` Copies the contents of the file named `env.example` to a new file named `.env`. 
+1. **Update and Upgrade Your VPS**:
 
-2. Fill in the required variables in the `.env` file:
+```bash
+sudo apt-get update && sudo apt-get upgrade -y
+```
 
-#### During the creation of the .env file, add the following details: 
-- `SOURCE_RPC_URL`: The URL for Source RPC (Local node/Infura/Alchemy) service.
-- `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This should be an unused "burner" address that does not need to have any token balance. You can create a new burner wallet from [our tool](https://devnet-mint.powerloom.dev/burner). During later steps, this address will be registered against the `SLOT_ID` on the `PROTOCOL_STATE_CONTRACT` that is set in this `.env`.
-- `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the burner wallet address
-- `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID by visiting the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard), or on the [Sepolia block explorer](https://sepolia.etherscan.io/) by searching for the transaction hash of your node mint]
-- `PROTOCOL_STATE_CONTRACT`: Choose the contract address for the protocol state with respect to the Epoch size.
+2. **Install Git**:  
+Git is necessary for cloning the Snapshotter repository. Install it using:
+
+```bash
+sudo apt-get install git -y
+```
+
+3. **Install Docker and Docker Compose:**   
+Ensure Docker and Docker Compose are installed. You can install docker on Ubuntu using the following commands:
+
+```bash
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl 
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources: 
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+$(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+    
+Once the Docker repository is added successfully, let's install Docker and necessary components by using the below command:
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+<h3>Step 4: Cloning the Repository and Setting Up the Node</h3>
+
+1. **Clone the Snapshotter Repository**:  
+Navigate to the directory where you want to install the node and clone the repository:
+
+   ```bash
+   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+   ```
+
+2. **Navigate to the Directory**:  
+Change to the directory of the cloned repository:
+
+   ```bash
+   cd powerloom-devnet
+   ```
+
+4. **Cleanup the Environment**:
+Run the diagnose and cleanup script to check for any previous instances of the lite node, local collector, stale images and networks.
+
+   ```bash
+   ./diagnose.sh
+   ```
+
+:::tip
+It is recommended to run the node in a standalone environment without any other major processes running on the same machine. Running other processes on the same machine may lead to conflicts and errors that can interfere with the node's operation. The diagnose and cleanup script will stop and remove only Powerloom related processes running on the machine, if any.
+:::
+
+
+<h3>Step 5: Running the Node </h3>
+
+1. **Setting up Screen**:   
+The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a terminal window open. To initiate a new Screen session for managing the Snapshotter Node, follow these steps:
+
+Enter the following command to create a new Screen session named "snapshotter-devnet-node":
+
+   ```bash
+   screen -R snapshotter-devnet-node
+   ```
+    
+- This command opens a new Screen session, where you can start the Snapshotter Node.
+- Once inside the new Screen session, initiate the Snapshotter Node as required.
 
 :::note
-The following protocol state contract addresses are currently operational with active epoch releases 
-* Data source contracts on ETH Mainnet -- [Epoch Size 1](/Protocol/Specifications/Epoch.md) -- `0x573906E80C30dA608E3a24A0938BCB3f0C68Ed2f`
-
-If you have any custom requirements to track data sources on other chains, reach out to the [team.](https://discord.com/invite/powerloom)
+If you have an existing screen session named `snapshotter-devnet-node`, the above command will attach to the existing session.
+Otherwise, it will create a new session with that name.
 :::
+    
+This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
 
-**Pre-supplied:**
+1. **Initialize the Node**:  
+Initiate the snapshotter node setup by typing the command in the terminal:
 
-:::info 
-Unless it is a customized need or instructed by us, the below need not be changed or modified.
-
-:::
-
-- `SNAPSHOT_CONFIG_REPO`: https://github.com/powerloom/snapshotter-configs
-- `SNAPSHOT_CONFIG_REPO_BRANCH`: devnet
-- `SNAPSHOTTER_COMPUTE_REPO`: https://github.com/powerloom/snapshotter-computes
-- `SNAPSHOTTER_COMPUTE_REPO_BRANCH`: devnet
-- `PROST_RPC_URL`: The Powerloom Protocol Chain RPC service URL.
-- `RELAYER_HOST`: The relayer URL for the Powerloom Protocol Chain.
-- `NAMESPACE`: The unique key to identify your project namespace.
-- `POWERLOOM_REPORTING_URL`: The URL for reporting to PowerLoom.
-- `PROST_CHAIN_ID`: The Devnet chain ID
-
-**Optional variables:**
-
-- `IPFS_URL`: The URL for the IPFS (InterPlanetary File System) service in HTTP(s) (e.g., `https://ipfs.infura.io:5001`) or multiaddr format (e.g., `/dns4/ipfs.infura.io/tcp/5001/https`).
-- `IPFS_API_KEY`: The API key for the IPFS service (if required).
-- `IPFS_API_SECRET`: The API secret for the IPFS service (if required).
-- `SLACK_REPORTING_URL`: The URL for reporting to Slack.
-
-#### Step 3: Set Up the Codebase
-Set up the codebase by running the `bootstrap.sh` command in the terminal. Developers may use different shells, such as bash or zsh. Adjust the command accordingly:
-
-For bash:
-
-```bash
-bash bootstrap.sh
-```
-or
-```zsh
-zsh bootstrap.sh
-```
-
-:::info
-This one-time step resets the `powerloom_deploy` codebase to the latest version of the `devnet` branch. 
-After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
-:::
-
-#### Step 4: 
-
-Install the required dependencies using pip:
-
-```bash
-pip3 install -r requirements.txt
-```
-
-#### Step 5: Run the Snapshotter Node
-
-Run the command
-
-```bash
-bash build.sh
-```
-or
-```zsh
-zsh build.sh
-```
-
-#### Step 6: Assign your Wallet
-
-```bash
-Do you want to assign a wallet to a slot? (yes/no):
-```
-
-Enter yes.
-
-Next, you will be prompted to enter a private key:
-
-```bash
-To assign a wallet to a slot, you need to sign a message with the private key of the Account holding the slot.
-Private Key:
-```
-
-- Please note that this is asking for the private key to your wallet.
-- Enter the private key of the wallet [**used to mint** the devnet slot](#minting-the-devnet-slot).
-
-
-</TabItem>
-
-<TabItem value="windows" label="Windows">
-<h2>Deploying a Snapshotter Node on Windows</h2>
-
-### Initial Setup | Docker
-
-- **Open PowerShell:**
-    - Start by opening PowerShell on your Windows machine. Search for `"PowerShell"` in the start menu and launch it.
-- **Install Windows Subsystem for Linux (WSL):**
-    - In the PowerShell window, enter the following command:
-        
-        ```bash
-        wsl --install
-        
-        ```
-        
-    - This command installs the Windows Subsystem for Linux, necessary for running Docker.
-- **Download and Install Docker:**
-    - Download Docker from the [official website](https://docs.docker.com/get-docker/).
-    - Follow the installation instructions provided on the website.
-- **Restart Your Computer:**
-    - After installing Docker, restart your computer to apply all changes.
-- **Open Docker:**
-    - Post-restart, open Docker. This should automatically launch a Powershell console which will have WSL installed.
-- **Set Up Linux User Account:**
-    - In the newly opened powershell console, set up a new user account by entering a username and password.
-
-### Granting Docker Permissions
-
-
-- **Modify Docker Group Permissions:**
-    - To grant Docker the necessary permissions, add your user to the Docker group with this command:
-        
-        ```bash
-        sudo usermod -aG docker $USER
-        
-        ```
-        
-    - Logout and login again or restart the Docker service for the changes to take effect.
-- **Verify Docker Installation:**
-    - To confirm Docker is set up correctly, run:
-        
-        ```bash
-        docker run hello-world
-        
-        ```
-        
-    - This command should display a message confirming Docker is functioning.
-
-### Running the Snapshotter Node
-Follow the process outlined below to ensure a smooth setup
-
-#### Step 1: Clone the Snapshotter Deploy Repository
-
-Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom-deploy`.
-
-```bash
-git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch devnet && cd powerloom_deploy
-```
-
-The above command itself navigates you to the Repository Directory `powerloom-deploy`
-
-#### Step 2: Configure the environment variables
-
-1. In the deploy repo's directory, create a new file named `.env`.
-
-2. Copy the contents of [`env.example`](https://github.com/PowerLoom/deploy/blob/devnet/env.example) to `.env`.
-
-3. Fill in the required variables in the `.env` file:
-    - use `dir` to check all existing files under the created directory “powerloom_deploy”
-    - use `start env.example` to open env.example file
-    - to create a new .env file use syntax `echo. > .env`
-    - to copy contents from `env.example` to `.env` use code `type env.example > .env`
-    - to open & check contents of `.env` use code `type .env`
+   ```bash
+   ./build.sh --devnet
+   ```
    
-#### During the creation of the .env file, add the following details: 
-- `SOURCE_RPC_URL`: The URL for Source RPC (Local node/Infura/Alchemy) service.
-- `SIGNER_ACCOUNT_ADDRESS`: The address of the signer account. This should be an unused "burner" address that does not need to have any token balance. You can create a new burner wallet from [our tool](https://devnet-mint.powerloom.dev/burner). During later steps, this address will be registered against the `SLOT_ID` on the `PROTOCOL_STATE_CONTRACT` that is set in this `.env`.
-- `SIGNER_ACCOUNT_PRIVATE_KEY`: The private key corresponding to the burner wallet address
-- `SLOT_ID`: Enter your Devnet Slot ID. [You can find the slotID by visiting the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard), or on the [Sepolia block explorer](https://sepolia.etherscan.io/) by searching for the transaction hash of your node mint]
-- `PROTOCOL_STATE_CONTRACT`: Choose the contract address for the protocol state with respect to the Epoch size.
+   :::warning Important
+   The `--devnet` flag is required for devnet deployment. This tells the node to connect to the Powerloom devnet chain instead of mainnet.
+   :::
+    
+Follow the prompts to enter the required information.
 
-:::note
-Currently, there are two variations of Protocol State Contracts available. One where [Epoch](../../Protocol/Specifications/Epoch.md) size is set to 1 and other where epoch size is set to 10 blocks. 
+:::tip
+Please do not use your NFT minting wallet to run the snapshotter node. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+- [Vanity-ETH](https://vanity-eth.tk/)
+- [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-You can find the latest Epoch Contracts in the [example.env](https://github.com/PowerLoom/deploy/blob/devnet/env.example) file. 
-
-This should allow developers to build and experiment with a variety of use cases. If you have any custom needs, reach out to the [team](https://discord.com/invite/powerloom)
+Once generated, make sure you assign your burner wallet to your slot at [mint.powerloom.dev](https://mint.powerloom.dev/).
 :::
+    
+<h3>Step 6: Configuring the Node </h3>
 
-**Pre-supplied:**
+After initiating the process, the setup steps will differ depending on whether this is the first time the node has been setup or not:
 
-:::info 
-Unless it is a customized need or instructed by us, the below need not be changed or modified.
+**First Time Setup:**
 
-:::
+1. Select the Data Market that you would like to participate in:
+   - The node allows you to choose between different data markets available on devnet.
 
-- `SNAPSHOT_CONFIG_REPO`: https://github.com/powerloom/snapshotter-configs
-- `SNAPSHOT_CONFIG_REPO_BRANCH`: devnet
-- `SNAPSHOTTER_COMPUTE_REPO`: https://github.com/powerloom/snapshotter-computes
-- `SNAPSHOTTER_COMPUTE_REPO_BRANCH`: devnet
-- `PROST_RPC_URL`: The Powerloom Protocol Chain RPC service URL.
-- `RELAYER_HOST`: The relayer URL for the Powerloom Protocol Chain.
-- `NAMESPACE`: The unique key to identify your project namespace.
-- `POWERLOOM_REPORTING_URL`: The URL for reporting to PowerLoom.
-- `PROST_CHAIN_ID`: The Devnet chain ID
+2. Next, you'll be prompted to enter the following values:
+   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-**Optional variables:**
+   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
 
-- `IPFS_URL`: The URL for the IPFS (InterPlanetary File System) service in HTTP(s) (e.g., `https://ipfs.infura.io:5001`) or multiaddr format (e.g., `/dns4/ipfs.infura.io/tcp/5001/https`).
-- `IPFS_API_KEY`: The API key for the IPFS service (if required).
-- `IPFS_API_SECRET`: The API secret for the IPFS service (if required).
-- `SLACK_REPORTING_URL`: The URL for reporting to Slack.
+   - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
-#### Step 3: Set Up the Codebase
+   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://mint.powerloom.dev.
 
-Set up the codebase by running the `bootstrap.sh` command in the terminal. Developers may use different shells, such as bash or zsh. Adjust the command accordingly:
+3. Optionally, you can provide to following values:
 
-For bash:
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
 
-```bash
-bash bootstrap.sh
-```
-or
-```zsh
-zsh bootstrap.sh
-```
+After entering these details, the node will start running the background processes.
 
-:::info
-This is a one-time step that resets the `powerloom_deploy` codebase to the latest version of the `devnet` branch. 
-After completing this one-time setup, you'll be ready to dive into the codebase and start building amazing data applications!
-:::
+If you want to exit your screen, type the command in the terminal:
+   ```bash  
+   CTRL + A + D
+   ```
 
-#### Step 4: 
+**Subsequent Setup:**
 
-Install the required dependencies using pip:
+1. Select the Data Market that you would like to participate in.
 
-```bash
-pip3 install -r requirements.txt
-```
+2. You will be prompted to choose whether you wish to change the previously configured values for the above: `SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY` and `SLOT_ID`. Choose `y` or `n` depending on whether you wish to change them.
 
-#### Step 5: Run the Snapshotter Node
+3. If you choose `y` to change the previously configured values, you will be prompted to enter the new values individually for each of the above values.
 
-Run the command
 
-```bash
-bash build.sh
-```
-or
-```zsh
-zsh build.sh
-```
+<h3>Step 6: Maintaining Your Node </h3>
 
-#### Step 6: Assign your Burner Wallet
+- **Regular Updates**: Keep your system and Snapshotter Node updated by regularly pulling the latest changes from the repository and applying system updates.
 
-```bash
-Do you want to assign a burner wallet to a slot? (yes/no):
-```
+- **Monitoring**: Regularly check the status of your node and the VPS to ensure everything is running smoothly.
 
-Enter yes and then enter your burner wallet address when prompted.
-- This is the `SIGNER_ACCOUNT_ADDRESS` that was set during [Step 3](#step-3-configure-the-environment-variables).
-
-Next, you will be prompted to enter a private key:
-
-```bash
-To assign a burner wallet to a slot, you need to sign a message with the private key of the Account holding the slot.
-Private Key:
-```
-
-- Please note that this is *not* asking for the private key to your burner wallet.
-- Enter the private key of the wallet [**used to mint** the devnet slot](#minting-the-devnet-slot).
 
 </TabItem>
 </Tabs>
 
-<h3>Troubleshooting Errors</h3>
+</TabItem>
 
-If the `.env` file is filled up correctly, all services will execute one by one.
+<TabItem value="mac/linux" label="macOS/Linux">
+<Tabs groupId="setup-type" queryString="setup-type">
+   <TabItem value="docker-setup-macos" label="Docker Setup">
 
- If you see the following error:
+<h2> Docker Setup for MacOS </h2>
 
- ```bash
-    powerloom_depoy-pooler-1           | Snapshotter identity check failed on protocol smart contract
-    powerloom_depoy-pooler-1 exited with code 1
-```
+<h3> Hardware Requirements </h3>
+
+The Snapshotter Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
+
+<h3> MacOS System Requirements </h3>
+
+For users running the node on personal hardware, the minimum specifications are:
+
+- **RAM:** At least 4 GB.
+- **CPU Core**:  Minimum of 2 Cores
+- **Disk Space:** A minimum of 40 GB.
+
+<h3> Pre-requisitie tools </h3>
+
+- Install Docker on your machine. You can find the installation instructions for your operating system on the [official Docker website.](https://docs.docker.com/get-docker/)
+
+- Install git if your system doesn't have git installed. To install git on MacOS, please follow this guide: https://www.atlassian.com/git/tutorials/install-git 
+
+<h3> Cloning the Repository and Setting Up the Node </h3>
+
+1. **Clone the Snapshotter Repository**:  
+Navigate to the directory where you want to install the node and clone the repository:
+
+   ```bash
+   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+   ```
+
+2. **Navigate to the Directory**:  
+Change to the directory of the cloned repository:
+
+   ```bash
+   cd powerloom-devnet
+   ```
+
+4. **Cleanup the Environment**:
+Run the diagnose and cleanup script to check for any previous instances of the lite node, local collector, stale images and networks.
+
+   ```bash
+   ./diagnose.sh
+   ```
+
+:::tip
+It is recommended to run the node in a standalone environment without any other major processes running on the same machine. Running other processes on the same machine may lead to conflicts and errors that can interfere with the node's operation. The diagnose and cleanup script will stop and remove only Powerloom related processes running on the machine, if any.
+:::
+
+<h3> Running the Node </h3>
+
+1. **Setting up Screen**:   
+The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a terminal window open. To initiate a new Screen session for managing the Snapshotter Node, follow these steps:
+
+Enter the following command to create a new Screen session named "snapshotter-devnet-node":
+
+   ```bash
+   screen -R snapshotter-devnet-node
+   ```
     
-Make sure your snapshotter address is registered. Ensure you have minted the Devnet Slot from the [devnet dashboard](https://devnet-mint.powerloom.dev/dashboard) and your burner wallet has been added correctly during Step 6.
+- This command opens a new Screen session, where you can start the Snapshotter Node.
+- Once inside the new Screen session, initiate the Snapshotter Node as required.
+    
+This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
 
-Refer to our [troubleshooting section](../../build-with-powerloom/snapshotter-node/full-node/troubleshooting.md) if you encounter any other issues with your node.
+:::note
+If you have an existing screen session named `snapshotter-devnet-node`, the above command will attach to the existing session.
+Otherwise, it will create a new session with that name.
+:::
 
-<h3>Stopping the Node</h3>
+2. **Initialize the Node**:  
+Initiate the snapshotter node setup by typing the command in the terminal:
 
-1. To shut down services, press `Ctrl+C` for macOS/Linux & `Ctrl + Break` for Windows (and again to force).
+   ```bash
+   ./build.sh --devnet
+   ```
 
-2. If you encounter issues with data, you can do a clean **reset** by running the following command before restarting from [Step 5](#step-5-run-the-snapshotter-node):
+   :::warning Important
+   The `--devnet` flag is required for devnet deployment. This tells the node to connect to the Powerloom devnet chain instead of mainnet.
+   :::
+    
+Follow the prompts to enter the required information.
 
-```bash
-docker-compose --profile ipfs down --volumes
-```
-or 
-```bash
-docker compose --profile ipfs down --volumes
-```
+:::tip
+Please do not use your NFT minting wallet to run the snapshotter node. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+- [Vanity-ETH](https://vanity-eth.tk/)
+- [Powerloom Burner Wallet Generator](https://mint.powerloom.dev/burner)
+
+Once generated, make sure you assign your burner wallet to your slot at [mint.powerloom.dev](https://mint.powerloom.dev/).
+:::
+    
+<h3> Configuring the Node </h3>
+
+After initiating the process, the setup steps will differ depending on whether this is the first time the node has been setup or not:
+
+**First Time Setup:**
+
+1. Select the Data Market that you would like to participate in:
+   - The node allows you to choose between different data markets available on devnet.
+
+2. Next, you'll be prompted to enter the following values:
+   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+
+   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+
+   - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://mint.powerloom.dev.
+
+3. Optionally, you can provide to following values:
+
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+
+After entering these details, the node will start running the background processes.
+
+If you want to exit your screen, type the command in the terminal:
+   ```bash  
+   CTRL + A + D
+   ```
+
+**Subsequent Setup:**
+
+1. Select the Data Market that you would like to participate in.
+
+2. You will be prompted to choose whether you wish to change the previously configured values for the above: `SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY` and `SLOT_ID`. Choose `y` or `n` depending on whether you wish to change them.
+
+3. If you choose `y` to change the previously configured values, you will be prompted to enter the new values individually for each of the above values.
+
+<h3> Stopping the Node </h3>
+
+- To stop the node, you can press `Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
+
+This will halt the running node and all associated processes. 
+
+By following these steps, you can successfully configure the Snapshotter Node on your Mac system.
+
+If you encounter any issues while operating the node, please refer our [troubleshooting section](./troubleshooting-monitoring.md) for guidance on common debugging techniques.
 
 ---
 
-## Quick Links
-- [Protocol Overview](../../category/protocol-overview)
-- [Use Cases](../../category/use-cases)
-- [Discord Support](https://discord.com/invite/powerloom)
+</TabItem>
+<TabItem value="non-docker-macos" label="Non-Docker Setup">
+<h2>Non-Docker Setup for MacOS </h2>
+
+<h3> Hardware Requirements </h3>
+
+The Snapshotter Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
+
+For users running the node on personal hardware, the minimum specifications are:
+
+- **RAM:** At least 4 GB.
+- **CPU Core**:  Minimum of 2 Cores
+- **Disk Space:** A minimum of 40 GB.
+- **Python:** Ensure Python 3.11 is installed.
+
+If you want to run the Snapshotter Node without Docker, you need to make sure that you have Git, and Python version 3.10 or higher installed on your machine and we recommend to use **python version 3.11.7**. You can find the installation instructions for your operating system on the [official Python website](https://www.python.org/downloads/).
+
+
+<details>
+<summary> Optional: Installing Virtual Environment </summary>
+</details>
+For simplicity, we recommend using miniconda and setting up an environment with the needed Python version as shown below
+
+<p>
+
+#### Install miniconda for your system:
+   ```bash
+   https://docs.conda.io/projects/miniconda/en/latest/
+   ```
+  
+#### Verify the installation using the following command in your terminal
+   ```bash
+   conda --version
+   ```
+
+   Add miniconda to your path if the terminal does not identify conda as a valid command:
+   ```bash
+   export PATH="/Users/yourusername/miniconda3/bin:$PATH"
+   ```
+
+   Replace yourusername with your actual username
+
+##### Create and activate a python environment:
+   ```bash
+   conda create -n myenv python=3.11
+   conda activate myenv
+   ```
+</p>
+
+Once python3 is installed, we can go ahead and run the node:-
+
+1. Clone this repository using the following command in the terminal:
+   ```bash
+   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+   ```
+This will clone the repository into a directory named `powerloom-devnet`.
+  
+2. Change your working directory to the `powerloom-devnet` directory, open the terminal, and type:
+
+   ```bash
+   cd powerloom-devnet
+   ```
+
+3. Run `init.sh` command in the terminal to start the snapshotter node:
+   ```bash
+   ./init.sh --devnet
+   ```
+
+   :::warning Important
+   The `--devnet` flag is required for devnet deployment. This tells the node to connect to the Powerloom devnet chain instead of mainnet.
+   :::
+
+:::tip
+Please do not use your NFT minting wallet to run the snapshotter node. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+- [Vanity-ETH](https://vanity-eth.tk/)
+- [Powerloom Burner Wallet Generator](https://mint.powerloom.dev/burner)
+
+Once generated, make sure you assign your burner wallet to your slot at [mint.powerloom.dev](https://mint.powerloom.dev/).
+:::
+
+
+During the setup, you'll be prompted to enter the following values:
+
+- `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+
+- `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+
+- `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+- `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://mint.powerloom.dev.
+
+
+This is a one-time configuration process that generates a .env file in the project's root directory.
+
+<h3> Stopping the Snapshotter Node </h3>
+
+To stop the node, use the command in the terminal:
+```bash
+pkill -f snapshotter
+```
+
+This will halt the running node and all associated processes.
+
+By following these steps, you can successfully configure the Snapshotter Node on your Mac system.
+
+If you encounter any issues while operating the node, please refer to our [troubleshooting section](./troubleshooting-monitoring.md) for guidance on common debugging techniques.
+
+---
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+
+<TabItem value="win" label="Windows">
+  The Snapshotter Node can operate on Windows systems when running in a Docker container. To set up the Snapshotter Node on Windows, follow the Docker installation and configuration instructions provided in this section.
+<Tabs groupId="setup-type" queryString="setup-type">
+<TabItem value="docker-setup-windows" label="Docker Setup">
+
+<h2 id="windows-setup"> Windows Docker Setup </h2>
+
+<h3> Hardware Requirements </h3>
+
+The Snapshotter Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
+
+For users running the node on a personal Windows system, the minimum specifications are:
+
+- **RAM:** At least 4 GB.
+- **CPU Core**:  Minimum of 2 Cores
+- **Disk Space:** A minimum of 40 GB.
+
+Setting up the snapshotter node on Windows requires a few additional steps. We suggest using Docker for its ease and speed of setup. To begin with Docker, you must have the Windows Subsystem for Linux (WSL) installed. Please follow the guide provided below for detailed instructions.
+
+<h3> Initial Setup </h3>
+
+- **Open PowerShell:** 
+   - Start by opening PowerShell on your Windows machine. Search for `"PowerShell"` in the start menu and launch it.
+
+- **Install Windows Subsystem for Linux (WSL):**
+   - In the PowerShell window, enter the following command:
+     ```bash
+     wsl --install
+     ```
+   - This command installs the Windows Subsystem for Linux, necessary for running Docker.
+
+- **Download and Install Docker:**
+   - Download Docker from the [official website](https://docs.docker.com/get-docker/).
+   - Follow the installation instructions provided on the website.
+
+- **Restart Your Computer:**
+   - After installing Docker, restart your computer to apply all changes.
+
+- **Open Docker:**
+   - Post-restart, open Docker. This should automatically launch a Powershell console which will have WSL installed.
+
+- **Set Up Linux User Account:**
+   - In the newly opened powershell console, set up a new user account by entering a username and password.
+
+#### Granting Docker Permissions
+
+- **Modify Docker Group Permissions:**
+   - To grant Docker the necessary permissions, add your user to the Docker group with this command:
+
+     ```bash
+     sudo usermod -aG docker $USER
+     ```
+   - Logout and login again or restart the Docker service for the changes to take effect.
+
+- **Verify Docker Installation:**
+   - To confirm Docker is set up correctly, run:
+
+     ```bash
+     docker run hello-world
+     ```
+   - This command should display a message confirming Docker is functioning.
+
+<h4> Cloning the Repository and Setting Up the Node </h4>
+
+1. **Clone the Repository:**
+   - Use the following command in WSL terminal to clone the Snapshotter repository:
+
+      ```bash
+      git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+      ```
+
+2. **Navigate to the Repository Directory:**
+    - Change to the cloned repository's directory:
+
+      ```bash
+      cd powerloom-devnet
+      ```
+
+3. **Cleanup the Environment**:
+   - Run the diagnose and cleanup script to check for any previous instances of the lite node, local collector, stale images and networks.
+
+      ```bash
+      ./diagnose.sh
+      ```
+
+:::tip
+It is recommended to run the node in a standalone environment without any other major processes running on the same machine. Running other processes on the same machine may lead to conflicts and errors that can interfere with the node's operation. The diagnose and cleanup script will stop and remove only Powerloom related processes running on the machine, if any.
+:::
+
+<h3> Running the Node </h3>
+
+1. **Setting up Screen**:   
+The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a WSL terminal window open. To initiate a new Screen session for managing the Snapshotter Node, follow these steps:
+
+Enter the following command to create a new Screen session named "snapshotter-devnet-node":
+
+   ```bash
+   screen -R snapshotter-devnet-node
+   ```
+    
+- This command opens a new Screen session, where you can start the Snapshotter Node.
+- Once inside the new Screen session, initiate the Snapshotter Node as required.
+    
+This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
+
+:::note
+If you have an existing screen session named `snapshotter-devnet-node`, the above command will attach to the existing session.
+Otherwise, it will create a new session with that name.
+:::
+
+2. **Initialize the Node**:  
+Initiate the snapshotter node setup by typing the command in the terminal:
+
+   ```bash
+   ./build.sh --devnet
+   ```
+
+   :::warning Important
+   The `--devnet` flag is required for devnet deployment. This tells the node to connect to the Powerloom devnet chain instead of mainnet.
+   :::
+    
+Follow the prompts to enter the required information.
+
+:::tip
+Please do not use your NFT minting wallet to run the snapshotter node. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
+- [Vanity-ETH](https://vanity-eth.tk/)
+- [Powerloom Burner Wallet Generator](https://mint.powerloom.dev/burner)
+
+Once generated, make sure you assign your burner wallet to your slot at [mint.powerloom.dev](https://mint.powerloom.dev/).
+:::
+    
+<h3> Configuring the Node </h3>
+
+After initiating the process, the setup steps will differ depending on whether this is the first time the node has been setup or not:
+
+**First Time Setup:**
+
+1. Select the Data Market that you would like to participate in:
+   - The node allows you to choose between different data markets available on devnet.
+
+2. Next, you'll be prompted to enter the following values:
+   - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
+
+   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+
+   - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
+
+   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://mint.powerloom.dev.
+
+3. Optionally, you can provide to following values:
+
+   - `$TELEGRAM_CHAT_ID`: Can be provided if you would like to enable Telegram reporting for node issues. See our [Telegram Bot Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to get your Telegram Chat ID.
+
+After entering these details, the node will start running the background processes.
+
+If you want to exit your screen, type the command in the terminal:
+   ```bash  
+   CTRL + A + D
+   ```
+
+**Subsequent Setup:**
+
+1. Select the Data Market that you would like to participate in.
+
+2. You will be prompted to choose whether you wish to change the previously configured values for the above: `SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY` and `SLOT_ID`. Choose `y` or `n` depending on whether you wish to change them.
+
+3. If you choose `y` to change the previously configured values, you will be prompted to enter the new values individually for each of the above values.
+
+<h3> Stopping the Node </h3>
+
+- To stop the node, you can press `Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
+
+This will halt the running node and all associated processes. 
+
+By following these steps, you can successfully configure the Snapshotter Node on your Windows system.
+
+If you encounter any issues while operating the node, please refer our [troubleshooting section](./troubleshooting-monitoring.md) for guidance on common debugging techniques.
+
+---
+
+</TabItem>
+    <TabItem value="non-docker-win" label="Non-Docker Setup">
+   Currently, there are no specific instructions for running the Snapshotter Node without Docker on Windows. Users are encouraged to use the Docker setup for Windows as detailed in the Docker Setup section above.
+    </TabItem>
+    </Tabs>
+  </TabItem>
+</Tabs>
+
+Everytime you start or restart the node, it goes through two stages
+
+### Simulation mode submissions
+
+This does not count towards your snapshot quota. This is to test whether your node can establish connections to the sequencer over libp2p protocol streams that ultimately enforce the Powerloom Protocol for data markets.
+
+You will see log messages similar to the one shown below that will ensure that your node has the capability of submitting snapshots to the sequencer.
+
+![Simulation mode submissions](/images/SimulationSubmission.png)
+
+:::note
+Learn more: 
+* [Sequencer component](/Protocol/Protocol_v2/sequencer.md)
+:::
+
+:::info
+Read more about monitoring and verifying the simulation mode submissions on the [`Monitoring and Troubleshooting`](./troubleshooting-monitoring.md) page.
+:::
+
+### Regular snapshot submissions
+
+Once you can verify the simulation mode submissions, you will have log messagse similar to the one shown below that will ensure that your node is capturing epoch releases and submitting snapshots to the sequencer.
+
+:::note
+It usually takes 2 - 5 minutes between the simulation mode submissions and a subsequence epoch release to be caught to trigger the regular snapshot submissions.
+:::
+
+![Sample node logs](/images/RegularSubmission.png)
+
+:::info
+For further details on using the snapshotter dashboard to monitor the running status of your node, check the [`Monitoring Node Activity with the Snapshotter Dashboard`](./troubleshooting-monitoring.md#monitoring-node-activity-with-the-snapshotter-dashboard) section.
+:::
+
+
+---
+
+## Troubleshooting
+
+If you encounter any issues, please refer to our [Troubleshooting section](./troubleshooting-monitoring.md) for more information.

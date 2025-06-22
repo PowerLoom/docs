@@ -1,21 +1,21 @@
 ### What is Devnet?
-Devnet is a network for developers to build and test blockchain apps. It provides a sandbox environment for experimenting with ideas like data dashboards. You can create your own snapshotting logic, write the data application, and use these snapshots without needing consensus from other nodes.
+Devnet is a network for developers to build and test blockchain apps. It provides a sandbox environment for experimenting with ideas like data dashboards. You can create your own snapshotting logic, write the data application, and use these snapshots without needing consensus from other nodes. The devnet runs on its own dedicated Powerloom chain, eliminating the need for external testnet tokens.
 
 ### Why do I need to mint a Devnet Slot?
-Minting a Devnet slot reserves your space on the Devnet and gives you a Slot ID, which is required for setting up your Snapshotter Node.
+Minting a Devnet slot reserves your space on the Devnet and gives you a Slot ID, which is required for setting up your Snapshotter Node. The minting process is done at https://mint.powerloom.dev.
     
 ### Are there any costs associated with minting the devnet slot?
-Yes, you require minimal Sepolia-ETH for minting the devnet slot, which can be obtained from faucets like https://faucet.quicknode.com/drip.
+No, minting a devnet slot is free. The devnet uses the Powerloom devnet chain, and you can get free tokens from the faucet at https://faucet.powerloom.dev if needed.
     
 ### Where can I mint the Devnet slot?
-To mint a Devnet slot on the Sepolia network, visit this page provided by Powerloom ([https://devnet-mint.powerloom.dev](https://devnet-mint.powerloom.dev/)), connect your wallet that has Sepolia ETH, and follow the instructions to mint your slot.
+To mint a Devnet slot, visit https://mint.powerloom.dev, connect your wallet, and follow the instructions to mint your slot. No testnet ETH required - it's free on the Powerloom devnet chain!
     
 ### What is a Snapshotter node?
 
 Snapshotter peers are participants in the Powerloom network who run Snapshotter Nodes which capture and verify data snapshots at predetermined intervals or epochs.
     
 ### How do you check the Slot ID of your minted devnet slot?
-You can locate your Slot ID by visiting the Devnet Dashboard or searching for the transaction hash of your NFT mint on the Sepolia block explorer. The Token ID will be listed under "ERC-1155 Tokens Transferred."
+You can locate your Slot ID by visiting the dashboard at https://mint.powerloom.dev. This same dashboard also serves as your snapshotter monitoring interface where you can track your node's performance.
     
 ### What are the system requirements for running the Snapshotter node?
 The node requires at least 4 GB of RAM, a minimum of 2 CPU cores, 40 GB of disk space, and Python 3.11 or higher. Docker is also recommended with specific version requirements.
@@ -58,7 +58,7 @@ After configuring the environment variables, set the powerloom_deploy codebase b
 :::
 
 ### What data source chains are supported?
-We support Ethereum Mainnet and Sepolia Testnet.
+For data collection, we support Ethereum Mainnet. The devnet itself runs on the dedicated Powerloom devnet chain.
     
 ### What steps should I follow to perform a clean reset of my node?
 You can do a clean **reset** by running the following command before restarting.
@@ -87,7 +87,7 @@ Powerloom operates relayers that handle transactions that submit snapshots to th
 This ensures they do not have to spend gas fees to submit snapshots on the Powerloom protocol chain, aka Prost.
 
 ### How do I check if my node is running?
-To check if your node is running actively, navigate to the [Devnet Dashboard](https://devnet-mint.powerloom.dev/dashboard). Click the "Check Node Status" button to refresh & check the status.
+To check if your node is running actively, navigate to https://mint.powerloom.dev. This dashboard shows both your minted slots and real-time node status, allowing you to monitor your snapshotter's performance.
     
 ### Where can I seek help if I encounter issues not covered in the troubleshooting section?
 Refer to the troubleshooting section of the documentation for common solutions or reach out to the PowerLoom team on [Discord](https://discord.com/invite/powerloom) for further assistance.
