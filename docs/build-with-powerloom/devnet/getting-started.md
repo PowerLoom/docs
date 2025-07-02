@@ -16,7 +16,7 @@ The Snapshotter Node can be set up using either the Docker image or by running n
 Node Mint for devnet is available at: https://mint.powerloom.dev/. This dashboard also serves as the snapshotter dashboard for monitoring your devnet nodes.
 :::
 
-Follow the step-by-step instructions in the relevant guide to set up your Snapshotter Node. If you need further assistance, refer to our troubleshooting documentation or reach out to us on [discord](https://discord.com/invite/powerloom) for support. 
+Follow the step-by-step instructions in the relevant guide to set up your Snapshotter Node. If you need further assistance, refer to our troubleshooting documentation or reach out to us on [discord](https://discord.com/invite/powerloom) for support.
 
 :::info Important note
 
@@ -41,7 +41,7 @@ We have streamlined the setup process based on your operating system. To begin, 
   <TabItem value="VPS-setup" label="VPS Setup (Linux)">
   <Tabs groupId="setup-type" queryString="setup-type">
   <TabItem value="docker-setup-linux" label="Docker Setup">
-  <h2>Deploying a Snapshotter Node on a Virtual Private Server (VPS) </h2>
+  ## Deploying a Snapshotter Node on a Virtual Private Server (VPS)
 
 Deploying a Snapshotter Node on a Virtual Private Server (VPS) ensures seamless 24/7 operation without utilizing your local resources.
 
@@ -49,13 +49,13 @@ This section provides instructions for setting up your Snapshotter Node on an Ub
 
 While you're free to choose any provider, this guide specifically utilizes DigitalOcean for demonstration purposes.
 
-<h3>Recommended VPS Providers: </h3>
+### Recommended VPS Providers:
 
 - DigitalOcean
-- Hostinger 
+- Hostinger
 
 
-<h3> Hardware Requirements </h3>
+### Hardware Requirements
 
 The Snapshotter Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
 
@@ -66,21 +66,21 @@ For users running the node on Virtual Private Servers (VPS), the minimum specifi
 - **Disk Space:** A minimum of 40 GB.
 
 
-<h3>Step 1: Creating Your VPS </h3>
+### Step 1: Creating Your VPS
 
 1. **Sign Up/Login**: Start creating an account on your VPS provider or log in if you already have one.
 
 2. **Choose an Image**: Select Ubuntu as your operating system. We recommend using the latest stable version of Ubuntu for optimal performance.
 
-3. **Select a Plan**: Choose a plan that meets the minimum hardware requirements for the Snapshotter Node. A plan with at least 4 GB RAM and 40 GB of disk space is advisable. 
+3. **Select a Plan**: Choose a plan that meets the minimum hardware requirements for the Snapshotter Node. A plan with at least 4 GB RAM and 40 GB of disk space is advisable.
 
 4. **Authentication**: Set up SSH keys for secure access to your VPS.
 
 5. **Finalize and Create**: Choose any additional options, like backups if required. Your VPS will be set up within a few minutes.
 
-<h3>Step 2: Accessing Your VPS </h3>
+### Step 2: Accessing Your VPS
 
-- **SSH into Your VPS**: Use the following command from your terminal/command prompt, replacing `your_vps_ip` with the IP address of your VPS.  
+- **SSH into Your VPS**: Use the following command from your terminal/command prompt, replacing `your_vps_ip` with the IP address of your VPS. 
 
 ```bash
 ssh root@your_vps_ip
@@ -88,7 +88,7 @@ ssh root@your_vps_ip
 
 - If you set up SSH keys, you should be logged in without needing a password. Otherwise, you can also set your password for the VPS.
 
-<h3>Step 3: Setting Up the Environment </h3>
+### Step 3: Setting Up the Environment
 
 1. **Update and Upgrade Your VPS**:
 
@@ -96,48 +96,48 @@ ssh root@your_vps_ip
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-2. **Install Git**:  
+2. **Install Git**: 
 Git is necessary for cloning the Snapshotter repository. Install it using:
 
 ```bash
 sudo apt-get install git -y
 ```
 
-3. **Install Docker and Docker Compose:**   
+3. **Install Docker and Docker Compose:**  
 Ensure Docker and Docker Compose are installed. You can install docker on Ubuntu using the following commands:
 
 ```bash
 # Add Docker's official GPG key:
 sudo apt-get update
-sudo apt-get install ca-certificates curl 
+sudo apt-get install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-# Add the repository to Apt sources: 
+# Add the repository to Apt sources:
 echo \
 "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
 $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
 sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 ```
-    
+   
 Once the Docker repository is added successfully, let's install Docker and necessary components by using the below command:
 
 ```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-<h3>Step 4: Cloning the Repository and Setting Up the Node</h3>
+### Step 4: Cloning the Repository and Setting Up the Node
 
-1. **Clone the Snapshotter Repository**:  
+1. **Clone the Snapshotter Repository**: 
 Navigate to the directory where you want to install the node and clone the repository:
 
    ```bash
    git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
    ```
 
-2. **Navigate to the Directory**:  
+2. **Navigate to the Directory**: 
 Change to the directory of the cloned repository:
 
    ```bash
@@ -156,9 +156,9 @@ It is recommended to run the node in a standalone environment without any other 
 :::
 
 
-<h3>Step 5: Running the Node </h3>
+### Step 5: Running the Node
 
-1. **Setting up Screen**:   
+1. **Setting up Screen**:  
 The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a terminal window open. To initiate a new Screen session for managing the Snapshotter Node, follow these steps:
 
 Enter the following command to create a new Screen session named "snapshotter-devnet-node":
@@ -166,7 +166,7 @@ Enter the following command to create a new Screen session named "snapshotter-de
    ```bash
    screen -R snapshotter-devnet-node
    ```
-    
+   
 - This command opens a new Screen session, where you can start the Snapshotter Node.
 - Once inside the new Screen session, initiate the Snapshotter Node as required.
 
@@ -174,20 +174,20 @@ Enter the following command to create a new Screen session named "snapshotter-de
 If you have an existing screen session named `snapshotter-devnet-node`, the above command will attach to the existing session.
 Otherwise, it will create a new session with that name.
 :::
-    
+   
 This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
 
-1. **Initialize the Node**:  
+1. **Initialize the Node**: 
 Initiate the snapshotter node setup by typing the command in the terminal:
 
    ```bash
    ./build.sh --devnet
    ```
-   
+  
    :::warning Important
    The `--devnet` flag is required for devnet deployment. This tells the node to connect to the Powerloom devnet chain instead of mainnet.
    :::
-    
+   
 Follow the prompts to enter the required information.
 
 :::tip
@@ -197,8 +197,8 @@ Please do not use your NFT minting wallet to run the snapshotter node. The safes
 
 Once generated, make sure you assign your burner wallet to your slot at [mint.powerloom.dev](https://mint.powerloom.dev/).
 :::
-    
-<h3>Step 6: Configuring the Node </h3>
+   
+### Step 6: Configuring the Node
 
 After initiating the process, the setup steps will differ depending on whether this is the first time the node has been setup or not:
 
@@ -210,7 +210,7 @@ After initiating the process, the setup steps will differ depending on whether t
 2. Next, you'll be prompted to enter the following values:
    - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet.
 
    - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
@@ -223,7 +223,7 @@ After initiating the process, the setup steps will differ depending on whether t
 After entering these details, the node will start running the background processes.
 
 If you want to exit your screen, type the command in the terminal:
-   ```bash  
+   ```bash 
    CTRL + A + D
    ```
 
@@ -236,7 +236,7 @@ If you want to exit your screen, type the command in the terminal:
 3. If you choose `y` to change the previously configured values, you will be prompted to enter the new values individually for each of the above values.
 
 
-<h3>Step 6: Maintaining Your Node </h3>
+### Step 6: Maintaining Your Node
 
 - **Regular Updates**: Keep your system and Snapshotter Node updated by regularly pulling the latest changes from the repository and applying system updates.
 
@@ -252,13 +252,13 @@ If you want to exit your screen, type the command in the terminal:
 <Tabs groupId="setup-type" queryString="setup-type">
    <TabItem value="docker-setup-macos" label="Docker Setup">
 
-<h2> Docker Setup for MacOS </h2>
+## Docker Setup for MacOS
 
-<h3> Hardware Requirements </h3>
+### Hardware Requirements
 
 The Snapshotter Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
 
-<h3> MacOS System Requirements </h3>
+### MacOS System Requirements
 
 For users running the node on personal hardware, the minimum specifications are:
 
@@ -266,22 +266,22 @@ For users running the node on personal hardware, the minimum specifications are:
 - **CPU Core**:  Minimum of 2 Cores
 - **Disk Space:** A minimum of 40 GB.
 
-<h3> Pre-requisitie tools </h3>
+### Pre-requisitie tools
 
 - Install Docker on your machine. You can find the installation instructions for your operating system on the [official Docker website.](https://docs.docker.com/get-docker/)
 
-- Install git if your system doesn't have git installed. To install git on MacOS, please follow this guide: https://www.atlassian.com/git/tutorials/install-git 
+- Install git if your system doesn't have git installed. To install git on MacOS, please follow this guide: https://www.atlassian.com/git/tutorials/install-git
 
-<h3> Cloning the Repository and Setting Up the Node </h3>
+### Cloning the Repository and Setting Up the Node
 
-1. **Clone the Snapshotter Repository**:  
+1. **Clone the Snapshotter Repository**: 
 Navigate to the directory where you want to install the node and clone the repository:
 
    ```bash
    git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
    ```
 
-2. **Navigate to the Directory**:  
+2. **Navigate to the Directory**: 
 Change to the directory of the cloned repository:
 
    ```bash
@@ -299,9 +299,9 @@ Run the diagnose and cleanup script to check for any previous instances of the l
 It is recommended to run the node in a standalone environment without any other major processes running on the same machine. Running other processes on the same machine may lead to conflicts and errors that can interfere with the node's operation. The diagnose and cleanup script will stop and remove only Powerloom related processes running on the machine, if any.
 :::
 
-<h3> Running the Node </h3>
+### Running the Node
 
-1. **Setting up Screen**:   
+1. **Setting up Screen**:  
 The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a terminal window open. To initiate a new Screen session for managing the Snapshotter Node, follow these steps:
 
 Enter the following command to create a new Screen session named "snapshotter-devnet-node":
@@ -309,10 +309,10 @@ Enter the following command to create a new Screen session named "snapshotter-de
    ```bash
    screen -R snapshotter-devnet-node
    ```
-    
+   
 - This command opens a new Screen session, where you can start the Snapshotter Node.
 - Once inside the new Screen session, initiate the Snapshotter Node as required.
-    
+   
 This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
 
 :::note
@@ -320,7 +320,7 @@ If you have an existing screen session named `snapshotter-devnet-node`, the abov
 Otherwise, it will create a new session with that name.
 :::
 
-2. **Initialize the Node**:  
+2. **Initialize the Node**: 
 Initiate the snapshotter node setup by typing the command in the terminal:
 
    ```bash
@@ -330,7 +330,7 @@ Initiate the snapshotter node setup by typing the command in the terminal:
    :::warning Important
    The `--devnet` flag is required for devnet deployment. This tells the node to connect to the Powerloom devnet chain instead of mainnet.
    :::
-    
+   
 Follow the prompts to enter the required information.
 
 :::tip
@@ -340,8 +340,8 @@ Please do not use your NFT minting wallet to run the snapshotter node. The safes
 
 Once generated, make sure you assign your burner wallet to your slot at [mint.powerloom.dev](https://mint.powerloom.dev/).
 :::
-    
-<h3> Configuring the Node </h3>
+   
+### Configuring the Node
 
 After initiating the process, the setup steps will differ depending on whether this is the first time the node has been setup or not:
 
@@ -353,7 +353,7 @@ After initiating the process, the setup steps will differ depending on whether t
 2. Next, you'll be prompted to enter the following values:
    - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet.
 
    - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
@@ -366,7 +366,7 @@ After initiating the process, the setup steps will differ depending on whether t
 After entering these details, the node will start running the background processes.
 
 If you want to exit your screen, type the command in the terminal:
-   ```bash  
+   ```bash 
    CTRL + A + D
    ```
 
@@ -378,11 +378,11 @@ If you want to exit your screen, type the command in the terminal:
 
 3. If you choose `y` to change the previously configured values, you will be prompted to enter the new values individually for each of the above values.
 
-<h3> Stopping the Node </h3>
+### Stopping the Node
 
 - To stop the node, you can press `Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
 
-This will halt the running node and all associated processes. 
+This will halt the running node and all associated processes.
 
 By following these steps, you can successfully configure the Snapshotter Node on your Mac system.
 
@@ -392,9 +392,9 @@ If you encounter any issues while operating the node, please refer our [troubles
 
 </TabItem>
 <TabItem value="non-docker-macos" label="Non-Docker Setup">
-<h2>Non-Docker Setup for MacOS </h2>
+## Non-Docker Setup for MacOS
 
-<h3> Hardware Requirements </h3>
+### Hardware Requirements
 
 The Snapshotter Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
 
@@ -419,7 +419,7 @@ For simplicity, we recommend using miniconda and setting up an environment with 
    ```bash
    https://docs.conda.io/projects/miniconda/en/latest/
    ```
-  
+ 
 #### Verify the installation using the following command in your terminal
    ```bash
    conda --version
@@ -446,7 +446,7 @@ Once python3 is installed, we can go ahead and run the node:-
    git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
    ```
 This will clone the repository into a directory named `powerloom-devnet`.
-  
+ 
 2. Change your working directory to the `powerloom-devnet` directory, open the terminal, and type:
 
    ```bash
@@ -475,7 +475,7 @@ During the setup, you'll be prompted to enter the following values:
 
 - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-- `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+- `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet.
 
 - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
@@ -484,7 +484,7 @@ During the setup, you'll be prompted to enter the following values:
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
 
-<h3> Stopping the Snapshotter Node </h3>
+### Stopping the Snapshotter Node
 
 To stop the node, use the command in the terminal:
 ```bash
@@ -509,9 +509,9 @@ If you encounter any issues while operating the node, please refer to our [troub
 <Tabs groupId="setup-type" queryString="setup-type">
 <TabItem value="docker-setup-windows" label="Docker Setup">
 
-<h2 id="windows-setup"> Windows Docker Setup </h2>
+## Windows Docker Setup {#windows-setup}
 
-<h3> Hardware Requirements </h3>
+### Hardware Requirements
 
 The Snapshotter Node is designed for minimal hardware demands, allowing it to operate effectively on various setups, including both local systems and cloud-based Virtual Machines.
 
@@ -523,9 +523,9 @@ For users running the node on a personal Windows system, the minimum specificati
 
 Setting up the snapshotter node on Windows requires a few additional steps. We suggest using Docker for its ease and speed of setup. To begin with Docker, you must have the Windows Subsystem for Linux (WSL) installed. Please follow the guide provided below for detailed instructions.
 
-<h3> Initial Setup </h3>
+### Initial Setup
 
-- **Open PowerShell:** 
+- **Open PowerShell:**
    - Start by opening PowerShell on your Windows machine. Search for `"PowerShell"` in the start menu and launch it.
 
 - **Install Windows Subsystem for Linux (WSL):**
@@ -566,7 +566,7 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
      ```
    - This command should display a message confirming Docker is functioning.
 
-<h4> Cloning the Repository and Setting Up the Node </h4>
+#### Cloning the Repository and Setting Up the Node
 
 1. **Clone the Repository:**
    - Use the following command in WSL terminal to clone the Snapshotter repository:
@@ -593,9 +593,9 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
 It is recommended to run the node in a standalone environment without any other major processes running on the same machine. Running other processes on the same machine may lead to conflicts and errors that can interfere with the node's operation. The diagnose and cleanup script will stop and remove only Powerloom related processes running on the machine, if any.
 :::
 
-<h3> Running the Node </h3>
+### Running the Node
 
-1. **Setting up Screen**:   
+1. **Setting up Screen**:  
 The Screen utility allows you to run processes in the background, enabling you to maintain long-running tasks without keeping a WSL terminal window open. To initiate a new Screen session for managing the Snapshotter Node, follow these steps:
 
 Enter the following command to create a new Screen session named "snapshotter-devnet-node":
@@ -603,10 +603,10 @@ Enter the following command to create a new Screen session named "snapshotter-de
    ```bash
    screen -R snapshotter-devnet-node
    ```
-    
+   
 - This command opens a new Screen session, where you can start the Snapshotter Node.
 - Once inside the new Screen session, initiate the Snapshotter Node as required.
-    
+   
 This approach ensures your node can continue running in the background, even if you disconnect from the terminal session.
 
 :::note
@@ -614,7 +614,7 @@ If you have an existing screen session named `snapshotter-devnet-node`, the abov
 Otherwise, it will create a new session with that name.
 :::
 
-2. **Initialize the Node**:  
+2. **Initialize the Node**: 
 Initiate the snapshotter node setup by typing the command in the terminal:
 
    ```bash
@@ -624,7 +624,7 @@ Initiate the snapshotter node setup by typing the command in the terminal:
    :::warning Important
    The `--devnet` flag is required for devnet deployment. This tells the node to connect to the Powerloom devnet chain instead of mainnet.
    :::
-    
+   
 Follow the prompts to enter the required information.
 
 :::tip
@@ -634,8 +634,8 @@ Please do not use your NFT minting wallet to run the snapshotter node. The safes
 
 Once generated, make sure you assign your burner wallet to your slot at [mint.powerloom.dev](https://mint.powerloom.dev/).
 :::
-    
-<h3> Configuring the Node </h3>
+   
+### Configuring the Node
 
 After initiating the process, the setup steps will differ depending on whether this is the first time the node has been setup or not:
 
@@ -647,7 +647,7 @@ After initiating the process, the setup steps will differ depending on whether t
 2. Next, you'll be prompted to enter the following values:
    - `$SOURCE_RPC_URL`: Use any Ethereum Mainnet RPC, such as Ankr, Infura, or Alchemy.
 
-   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet. 
+   - `$SIGNER_ACCOUNT_ADDRESS`: Utilize a burner wallet for the signer account address. Please DO NOT use your main/primary wallet.
 
    - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
@@ -660,7 +660,7 @@ After initiating the process, the setup steps will differ depending on whether t
 After entering these details, the node will start running the background processes.
 
 If you want to exit your screen, type the command in the terminal:
-   ```bash  
+   ```bash 
    CTRL + A + D
    ```
 
@@ -672,11 +672,11 @@ If you want to exit your screen, type the command in the terminal:
 
 3. If you choose `y` to change the previously configured values, you will be prompted to enter the new values individually for each of the above values.
 
-<h3> Stopping the Node </h3>
+### Stopping the Node
 
 - To stop the node, you can press `Ctrl+C` in the terminal where the node is running or `docker-compose down` in a new terminal window from the project directory.
 
-This will halt the running node and all associated processes. 
+This will halt the running node and all associated processes.
 
 By following these steps, you can successfully configure the Snapshotter Node on your Windows system.
 
@@ -703,7 +703,7 @@ You will see log messages similar to the one shown below that will ensure that y
 ![Simulation mode submissions](/images/SimulationSubmission.png)
 
 :::note
-Learn more: 
+Learn more:
 * [Sequencer component](/Protocol/Protocol_v2/sequencer.md)
 :::
 
