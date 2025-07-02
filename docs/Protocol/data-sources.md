@@ -28,7 +28,7 @@ The `projects` field in the above configuration snippet represents the Uniswap v
 
 In situations where data sources are constantly changing or numerous, making it impractical to maintain an extensive list, the data sources need not be explicitly defined in the configuration.
 
-Instead, the snapshotter implementation operates in ['bulk mode'](/Protocol/Specifications/Snapshotter/snapshot-build#bulk-mode). The data source configuration specifies computation modules that utilize general-purpose [preloaded](/Protocol/Specifications/Snapshotter/preloading) datasets to filter transactions, event logs, etc., on contract addresses of interest. This is where the signaling of data sources comes into play.
+Instead, the snapshotter implementation operates in ['bulk mode'](/Protocol/Specifications/Snapshotter/snapshot-build#data-source-specification-bulk-mode). The data source configuration specifies computation modules that utilize general-purpose [preloaded](/Protocol/Specifications/Snapshotter/preloading) datasets to filter transactions, event logs, etc., on contract addresses of interest. This is where the signaling of data sources comes into play.
 
 ```json reference
 https://github.com/Powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json#L1-L28
@@ -40,7 +40,7 @@ Data sources can be dynamically added to the contract based on the role of certa
 
 In the current implementation of a use case that tracks wallet activity for Quests on Polygon zkEVM, such wallets are added from a data feed supplied by Merkle. The feed consists of wallets that sign up on their platform. Only these wallet addresses are of interest to the Quest platform on Merkle for tracking activities across DEXs and asset bridges.
 
-Read more about it in the [snapshotter specs of the bulk node](/Protocol/Specifications/Snapshotter/snapshot-build#bulk-mode).
+Read more about it in the [snapshotter specs of the bulk node](/Protocol/Specifications/Snapshotter/snapshot-build#data-source-specification-bulk-mode).
 
 ![Merkle Data Source Signaling](/images/data_source_signaling_example.png)
 

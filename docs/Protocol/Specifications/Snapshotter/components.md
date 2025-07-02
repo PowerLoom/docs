@@ -21,7 +21,7 @@ The Processor Distributor, defined in [`processor_distributor.py`](https://githu
 - It loads the preloader, base snapshotting, and aggregator config information from the settings file.
 - It reads the events forwarded by the event detector to the `f'powerloom-event-detector:{settings.namespace}:{settings.instance_id}'` RabbitMQ queue bound to a topic exchange as configured in `settings.rabbitmq.setup.event_detector.exchange`([code-ref: RabbitMQ exchanges and queue setup in pooler](https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/init_rabbitmq.py)).
 - It creates and distributes processing messages based on the preloader configuration present in `config/preloader.json`, the project configuration present in [`config/projects.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/projects.example.json), and [`config/aggregator.json`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/aggregator.example.json).
-  - For [`EpochReleased` events](#epoch-generation), it forwards such messages to base snapshot builders for data source contracts as configured in `config/projects.json` for the current epoch information contained in the event.
+  - For [`EpochReleased` events](/Protocol/Specifications/Epoch#1-epoch_released), it forwards such messages to base snapshot builders for data source contracts as configured in `config/projects.json` for the current epoch information contained in the event.
 
 ```python reference
 https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L1077-L1115

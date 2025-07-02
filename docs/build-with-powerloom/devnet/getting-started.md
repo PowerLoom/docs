@@ -722,7 +722,7 @@ It usually takes 2 - 5 minutes between the simulation mode submissions and a sub
 ![Sample node logs](/images/RegularSubmission.png)
 
 :::info
-For further details on using the snapshotter dashboard to monitor the running status of your node, check the [`Monitoring Node Activity with the Snapshotter Dashboard`](./troubleshooting-monitoring.md#monitoring-node-activity-with-the-snapshotter-dashboard) section.
+For further details on using the snapshotter dashboard to monitor the running status of your node, check the [`Monitoring Node Activity with the Snapshotter Dashboard`](./troubleshooting-monitoring.md#11-monitoring-node-activity-with-the-snapshotter-dashboard) section.
 :::
 
 

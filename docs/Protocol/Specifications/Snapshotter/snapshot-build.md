@@ -43,7 +43,7 @@ https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d0
 ```
 
 2. If the `projects` key is non-existent
-   1. data sources can also be dynamically added on the protocol state contract which the [processor distributor](#processor-distributor) [syncs with](https://github.com/Powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/processor_distributor.py#L1107)
+   1. data sources can also be dynamically added on the protocol state contract which the [processor distributor](/Protocol/Specifications/Snapshotter/components#processor-distributor) [syncs with](https://github.com/Powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/processor_distributor.py#L1107)
 
 ```python reference
 https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L738-L751
