@@ -12,7 +12,7 @@ This section will guide you through the process of Monitoring and Troubleshootin
 
 ### 1.1 Monitoring Node Activity with the Snapshotter Dashboard
    - #### Snapshotter Dashboard
-      The devnet dashboard at https://mint.powerloom.dev enables you to verify if your node slot is actively submitting snapshots. This same dashboard is used for both minting slots and monitoring your nodes.
+      The devnet dashboard at https://devnet-mint.powerloom.dev enables you to verify if your node slot is actively submitting snapshots. This same dashboard is used for both minting slots and monitoring your nodes.
 
       ![Snapshotter-node-dashboard](/images/node-status-dashboard-devnet.png)
    

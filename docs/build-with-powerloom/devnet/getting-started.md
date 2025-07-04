@@ -13,7 +13,7 @@ This guide provides instructions for installing and running the Snapshotter Node
 The Snapshotter Node can be set up using either the Docker image or by running natively on the local machine. However, using the Docker image is the recommended approach, as it provides the simplest and most reliable method for deployment.
 
 :::tip Node Mint
-Node Mint for devnet is available at: https://mint.powerloom.dev/. This dashboard also serves as the snapshotter dashboard for monitoring your devnet nodes.
+Node Mint for devnet is available at: https://devnet-mint.powerloom.dev/. This dashboard also serves as the snapshotter dashboard for monitoring your devnet nodes.
 :::
 
 Follow the step-by-step instructions in the relevant guide to set up your Snapshotter Node. If you need further assistance, refer to our troubleshooting documentation or reach out to us on [discord](https://discord.com/invite/powerloom) for support.
@@ -195,7 +195,7 @@ Please do not use your NFT minting wallet to run the snapshotter node. The safes
 - [Vanity-ETH](https://vanity-eth.tk/)
 - [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-Once generated, make sure you assign your burner wallet to your slot at [mint.powerloom.dev](https://mint.powerloom.dev/).
+Once generated, make sure you assign your burner wallet to your slot at [devnet-mint.powerloom.dev](https://devnet-mint.powerloom.dev/).
 :::
    
 ### Step 6: Configuring the Node
@@ -214,7 +214,7 @@ After initiating the process, the setup steps will differ depending on whether t
 
    - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
-   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://mint.powerloom.dev.
+   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://devnet-mint.powerloom.dev.
 
 3. Optionally, you can provide to following values:
 
@@ -336,9 +336,9 @@ Follow the prompts to enter the required information.
 :::tip
 Please do not use your NFT minting wallet to run the snapshotter node. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 - [Vanity-ETH](https://vanity-eth.tk/)
-- [Powerloom Burner Wallet Generator](https://mint.powerloom.dev/burner)
+- [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-Once generated, make sure you assign your burner wallet to your slot at [mint.powerloom.dev](https://mint.powerloom.dev/).
+Once generated, make sure you assign your burner wallet to your slot at [devnet-mint.powerloom.dev](https://devnet-mint.powerloom.dev/).
 :::
    
 ### Configuring the Node
@@ -357,7 +357,7 @@ After initiating the process, the setup steps will differ depending on whether t
 
    - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
-   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://mint.powerloom.dev.
+   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://devnet-mint.powerloom.dev.
 
 3. Optionally, you can provide to following values:
 
@@ -465,9 +465,9 @@ This will clone the repository into a directory named `powerloom-devnet`.
 :::tip
 Please do not use your NFT minting wallet to run the snapshotter node. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 - [Vanity-ETH](https://vanity-eth.tk/)
-- [Powerloom Burner Wallet Generator](https://mint.powerloom.dev/burner)
+- [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-Once generated, make sure you assign your burner wallet to your slot at [mint.powerloom.dev](https://mint.powerloom.dev/).
+Once generated, make sure you assign your burner wallet to your slot at [devnet-mint.powerloom.dev](https://devnet-mint.powerloom.dev/).
 :::
 
 
@@ -479,7 +479,7 @@ During the setup, you'll be prompted to enter the following values:
 
 - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
-- `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://mint.powerloom.dev.
+- `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://devnet-mint.powerloom.dev.
 
 
 This is a one-time configuration process that generates a .env file in the project's root directory.
@@ -630,9 +630,9 @@ Follow the prompts to enter the required information.
 :::tip
 Please do not use your NFT minting wallet to run the snapshotter node. The safest approach is to generate and assign a burner wallet. You can generate a burner wallet through any of the tools listed below:
 - [Vanity-ETH](https://vanity-eth.tk/)
-- [Powerloom Burner Wallet Generator](https://mint.powerloom.dev/burner)
+- [Powerloom Burner Wallet Generator](https://snapshotter-dashboard.powerloom.network/burner)
 
-Once generated, make sure you assign your burner wallet to your slot at [mint.powerloom.dev](https://mint.powerloom.dev/).
+Once generated, make sure you assign your burner wallet to your slot at [devnet-mint.powerloom.dev](https://devnet-mint.powerloom.dev/).
 :::
    
 ### Configuring the Node
@@ -651,7 +651,7 @@ After initiating the process, the setup steps will differ depending on whether t
 
    - `$SIGNER_ACCOUNT_PRIVATE_KEY`: Use the private key from your burner wallet.
 
-   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://mint.powerloom.dev.
+   - `$SLOT_ID`: To assign your node to a specific slot, please provide the corresponding Slot ID. You can locate your Slot ID on the devnet dashboard at https://devnet-mint.powerloom.dev.
 
 3. Optionally, you can provide to following values:
 

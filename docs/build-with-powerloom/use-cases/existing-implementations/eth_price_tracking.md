@@ -31,7 +31,7 @@ git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_depl
 
 
 - `SOURCE_RPC_URL` : The URL for the Ethereum RPC (Local node/Infura/Alchemy) service. Set the RPC URL to Ethereum mainnet to snapshot the data source contracts on it.
-- `SIGNER_ACCOUNT_ADDRESS` : The address of the signer account. This should be an unused "burner" address that does not need to have any token balance. You can create a new burner wallet from our [tool](https://devnet-mint.powerloom.dev/burner).
+- `SIGNER_ACCOUNT_ADDRESS` : The address of the signer account. This should be an unused "burner" address that does not need to have any token balance. You can create a new burner wallet from our [tool](https://snapshotter-dashboard.powerloom.network/burner).
 - `SIGNER_ACCOUNT_PRIVATE_KEY` : The private key corresponding to the signer account address.
 - `SLOT_ID` : Enter your Devnet Slot ID. 
 
