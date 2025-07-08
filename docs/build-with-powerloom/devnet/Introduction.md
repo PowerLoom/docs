@@ -28,10 +28,10 @@ We currently support data collection from the Ethereum for our existing datamark
 
 ### Powerloom Devnet Chain
 - **Chain**: Testnet chain powered by [Conduit](https://hub.conduit.xyz/prost1j-emrlsr8nrc) 
-- **Faucet**: Powerloom testnet tokens available at [faucet.powerloom.dev](https://faucet.powerloom.dev)
+- **Faucet**: Powerloom testnet tokens available at [devnet-faucet.powerloom.dev](https://devnet-faucet.powerloom.dev)
 
 ### Getting Started Quickly
-1. **Get free tokens**: Visit [faucet.powerloom.dev](https://faucet.powerloom.dev) 
+1. **Get free tokens**: Visit [devnet-faucet.powerloom.dev](https://devnet-faucet.powerloom.dev) 
 2. **Mint your slot**: Head to [devnet-mint.powerloom.dev](https://devnet-mint.powerloom.dev)
 3. **Start snapshotting**: Follow our [setup guide](./getting-started.md)
 
@@ -50,6 +50,6 @@ To begin building your applications, head over to the [getting started](./gettin
 - [Protocol Overview](../../category/protocol-overview)
 - [Building New Use Cases](../../category/building-a-new-use-case) - Create custom data markets
 - [Existing Implementations](../../category/existing-implementations) - Explore current use cases
-- [Devnet Faucet](https://faucet.powerloom.dev) - Get free tokens
+- [Devnet Faucet](https://devnet-faucet.powerloom.dev) - Get free tokens
 - [Devnet Dashboard](https://devnet-mint.powerloom.dev) - Mint and monitor your node
 - [Discord Support](https://discord.com/invite/powerloom)

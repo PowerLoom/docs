@@ -22,7 +22,7 @@ Follow the step-by-step instructions in the relevant guide to set up your Snapsh
 
 1. It is recommended that the node operates continuously, 24/7.
 2. The devnet uses the dedicated Powerloom devnet chain - no Sepolia ETH required!
-3. Get devnet tokens from the faucet at https://faucet.powerloom.dev
+3. Get devnet tokens from the faucet at https://devnet-faucet.powerloom.dev
 
 :::
 

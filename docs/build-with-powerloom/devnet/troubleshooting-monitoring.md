@@ -221,5 +221,5 @@ While we can not recommend any specific RPC provider and would let the community
 If you have followed these troubleshooting steps and still encounter issues, please contact us on [discord](https://discord.com/invite/powerloom) for further assistance. Our goal is to ensure your node runs smoothly, and we're here to help with any challenges you might face.
 
 :::tip Devnet Tokens
-If you need tokens for the Powerloom devnet chain, visit the faucet at https://faucet.powerloom.dev
+If you need tokens for the Powerloom devnet chain, visit the faucet at https://devnet-faucet.powerloom.dev
 :::

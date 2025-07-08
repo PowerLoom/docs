@@ -5,7 +5,7 @@ Devnet is a network for developers to build and test blockchain apps. It provide
 Minting a Devnet slot reserves your space on the Devnet and gives you a Slot ID, which is required for setting up your Snapshotter Node. The minting process is done at https://devnet-mint.powerloom.dev.
     
 ### Are there any costs associated with minting the devnet slot?
-No, minting a devnet slot is free. The devnet uses the Powerloom devnet chain, and you can get free tokens from the faucet at https://faucet.powerloom.dev if needed.
+No, minting a devnet slot is free. The devnet uses the Powerloom devnet chain, and you can get free tokens from the faucet at https://devnet-faucet.powerloom.dev if needed.
     
 ### Where can I mint the Devnet slot?
 To mint a Devnet slot, visit https://devnet-mint.powerloom.dev, connect your wallet, and follow the instructions to mint your slot. No testnet ETH required - it's free on the Powerloom devnet chain!
