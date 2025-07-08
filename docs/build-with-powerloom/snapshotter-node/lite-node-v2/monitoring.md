@@ -74,7 +74,7 @@ If you are not seeing these containers, please refer to the [Diagnostics](/build
 For example, if you are participating with 
 * slot ID 1234
 * on Powerloom Mainnet 
-* in the UniswapV2 data market that lives on Ethereum mainnet, 
+* in the UniswapV2 data market that lives on Ethereum mainnet 
 
 you should see the following containers:
 

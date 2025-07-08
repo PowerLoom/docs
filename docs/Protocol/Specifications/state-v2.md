@@ -1104,32 +1104,3 @@ event EmergencyWithdraw(address indexed owner, uint256 amount);
 ```solidity
 event RewardsClaimed(address indexed user, uint256 amount, uint256 timestamp);
 ```
-
-
-### Other Events
-
-* **`DelayedSnapshotSubmitted`:** Emitted when a snapshot is submitted past the submission deadline.
-
-```solidity
-event DelayedSnapshotSubmitted(
-  address indexed dataMarketAddress, 
-  address indexed snapshotterAddr, 
-  uint256 slotId, 
-  string snapshotCid, 
-  uint256 indexed epochId, 
-  string projectId, 
-  uint256 timestamp
-);
-```
-
-* **`EmergencyWithdraw`:** Emitted when funds are withdrawn from the contract in an emergency.
-
-```solidity
-event EmergencyWithdraw(address indexed owner, uint256 amount);
-```
-
-* **`RewardsClaimed`:** Emitted when a user claims rewards.
-
-```solidity
-event RewardsClaimed(address indexed user, uint256 amount, uint256 timestamp);
-```
