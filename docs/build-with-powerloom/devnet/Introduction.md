@@ -11,28 +11,24 @@ Our Devnet environment is designed to facilitate developers in:
 - expanding upon [our pre-existing use cases](../../category/existing-implementations)
 - innovating [new applications](../../category/building-a-new-use-case)
 
-## Chains Supported
-
-The Powerloom Devnet operates on its own dedicated blockchain, eliminating the need for external testnet tokens. 
-
 ### Data Source Chains
-We currently support data collection from the following chains:
 
-| Chain    | Network Type |
-|----------|--------------|
-| Ethereum | Mainnet      |
+We currently support data collection from the Ethereum for our existing datamarkets, [Uniswap V2](../category/uniswap-dashboard) and [Aave V3](../category/aavev3-dashboard)
+
+| Chain           | Data Markets        |
+|-----------------|---------------------|
+| Ethereum Mainnet| Uniswap V2, Aave V3 |
 
 ### Powerloom Devnet Chain
-- **Chain**: Powerloom Devnet
-- **Faucet**: Available at [faucet.powerloom.dev](https://faucet.powerloom.dev)
-- **No external tokens required**: The devnet uses its own chain, so you don't need Sepolia ETH or other testnet tokens
+- **Chain**: Testnet chain powered by [Conduit](https://hub.conduit.xyz/prost1j-emrlsr8nrc) 
+- **Faucet**: Powerloom testnet tokens available at [faucet.powerloom.dev](https://faucet.powerloom.dev)
 
-If you want to request support for any other data source chains, please open an issue [here](https://github.com/PowerLoom/deploy/issues).
+If you want to request support for any other data source chains, please ask us on #developers channel on our [Discord](https://discord.gg/powerloom).
 
 ---
 
 ## Next Steps
-To begin building your applications, head over to the [getting started](./getting-started.md) section.
+To begin building your applications, head over to the [getting started](./getting-started.md) section to mint your Powerloom node and snapshotting either of the data markets.
 
 
 ## Quick Links
