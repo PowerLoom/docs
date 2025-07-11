@@ -39,7 +39,7 @@ This is to be attempted only if you are sure that the collector is already runni
 
 This flag corresponds to the data market choice you provide when you first ran the `build.sh` script.
 
-Refer: [2.1 Setting up the snapshotter node](/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring#21-setting-up-the-snapshotter-node)
+Refer: [Step 6: Configuring the Node](/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started#step-6-configuring-the-node)
 
 At the moment of writing this during the mainnet launch, the two data markets supported are 
 

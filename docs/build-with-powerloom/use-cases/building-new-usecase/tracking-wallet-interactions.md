@@ -21,7 +21,7 @@ Let's use the example of tracking transactions of a wallet for Eth Chain. This i
 ## Steps to Implement this New Data Point
 
 1. **Getting Started**:
-   You can follow [this guide](/build-with-powerloom/snapshotter-node/full-node/getting-started#for-code-contributors) to get started with the node setup for custom implementations.
+   You can follow [this guide](/build-with-powerloom/snapshotter-node/full-node/getting-started#for-developers-new-use-cases) to get started with the node setup for custom implementations.
 
 2. **Configure Snapshot Workers**:
    In the `config/projects.json` file of your forked repository, add a new entry for your snapshot worker class. This class will be responsible for handling the new data snapshotting task.
