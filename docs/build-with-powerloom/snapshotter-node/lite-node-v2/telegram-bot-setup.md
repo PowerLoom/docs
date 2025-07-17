@@ -1,3 +1,8 @@
+---
+sidebar_position: 5
+title: Telegram Bot Setup
+---
+
 ### Setting up your Telegram Bot | Node Health Monitoring 
 
 

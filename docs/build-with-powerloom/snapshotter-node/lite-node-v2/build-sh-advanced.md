@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+title: "CLI: Advanced Usage and Recipes"
 ---
 
 # `build.sh` CLI: advanced usage and recipes
