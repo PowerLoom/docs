@@ -10,29 +10,28 @@ This section will guide you through the process of Monitoring and Troubleshootin
 ## 1. Confirming and Monitoring Node Snapshotting Process
 ---
 
-### 1.1 Monitoring Node Activity with the Snapshotter Dashboard
-   - #### Snapshotter Dashboard
-      Our Snapshotter Dashboard enables you to verify if your node slot is actively submitting snapshots.
+### 1.1 Monitoring Node Activity
+   #### Snapshotter Dashboard
+   Our Snapshotter Dashboard enables you to verify if your node slot is actively submitting snapshots.
 
-      ![Snapshotter-node-dashboard](/images/snapshot-lite-v2-daily-dashboard.png)
+   ![Snapshotter-node-dashboard](/images/snapshot-lite-v2-daily-dashboard.png)
    
-   - #### Telegram Reporting Bot
-      Snapshotter Lite Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](./telegram-bot-setup) page for instructions on how to enable this feature.
+   #### Telegram Reporting Bot
+   Snapshotter Lite Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](./telegram-bot-setup) page for instructions on how to enable this feature.
 
-### 1.2 Simulation run logs
+   #### Slot Monitoring Service
+   The Powerloom Slot Monitoring Service provides comprehensive real-time monitoring for your node's slot activities. This service offers webhook-based notifications through platforms like Slack and Discord, giving you instant alerts about your slot's performance and submission status. See the [Slot Monitoring Setup](./slot-monitoring-setup) page for detailed configuration instructions.
 
-   While running this node for the first time, it performs a couple of simulation submissions to test its connections to the sequencer network. If you notice logs similar to the lines below in the node run logs, your node's simulation run was successful.
+### 1.2 Simulation Logs
+
+   While running the node for the first time, it will perform two simulation submissions to test its connections to the sequencer network. If you notice logs similar to the lines below in the node's logs, then your node's simulation run was successful.
 
    ![Snapshotter-First-Simulation](/images/SimulationSubmission.png)
 
 ### 1.3 Terminal Status Check
-- The primary method to verify node status is through the terminal, which displays log responses from the node.
+   The primary method to verify node status is through the terminal, which displays log responses from the node. Monitor these logs to assess the health and activity of your node. A healthy snapshotter node will produce logs similar to the provided example screenshot. These logs indicate normal operation and successful snapshotting.
 
-- Monitor these logs to assess the health and activity of your node. 
-
-- A healthy snapshotter node will produce logs similar to the provided example screenshot. These logs indicate normal operation and successful snapshotting.
-
-![Snapshotter-node-running](/images/RegularSubmission.png)
+   ![Snapshotter-node-running](/images/RegularSubmission.png)
 
 
 
@@ -229,14 +228,14 @@ When it asks you whether you want to update the existing env file, select `y` to
 
 
 
-### 2.6 Data source RPC URLs 
-Sometimes, you may encounter errors related to the RPC URL you have configured to snapshot the data source, for eg UniswapV2 or Aave V3 data on Ethereum mainnet. Should this occur, it's important to verify that your RPC URL is accurate. For instructions on changing the RPC URL, please refer to the previously mentioned section.
+### 2.6 Data Source RPC URLs
+You may encounter errors related to the RPC URL configured for your data source (e.g., UniswapV2 or Aave V3 on Ethereum mainnet). When this occurs, verify your RPC URL is correct. For instructions on changing the RPC URL, refer to the [previously mentioned section](#25-editing-the-environment-file).
 
-While we can not recommend any specific RPC provider and would let the community decide on the best provider, there are several reliable and proven options, including:
+While we cannot recommend specific RPC providers and leave the choice to the community, these reliable options are available:
 
-- **Ankr**: `https://rpc.ankr.com/eth` - This is a public RPC service that does not require signup.
-- **Infura**: Requires signup to obtain a key, which is ideal if you wish to monitor your RPC usage.
-- **Alchemy**: Similar to Infura, signup is necessary to receive a key, offering the advantage of tracking your RPC usage.
+- **Ankr**: `https://rpc.ankr.com/eth` - Public RPC service, no signup required
+- **Infura**: Requires signup and API key, provides usage monitoring
+- **Alchemy**: Requires signup and API key, includes usage tracking
 
 ---
 
