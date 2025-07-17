@@ -5,7 +5,7 @@ title: Slot Monitoring Service Setup
 
 ### Setting up the PowerLoom Slot Monitoring Service
 
-The PowerLoom Slot Monitoring Service provides comprehensive real-time monitoring for your node's slot activities. This service offers webhook-based notifications through platforms like Slack and Discord, giving you instant alerts about your slot's performance and submission status.
+The Slot Monitoring Service provides comprehensive real-time monitoring for your node's slot activities. This service offers webhook-based notifications through platforms like Slack and Discord, giving you instant alerts about your slot's performance and submission status.
 
 ## Overview
 
