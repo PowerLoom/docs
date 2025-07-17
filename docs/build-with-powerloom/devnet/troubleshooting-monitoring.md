@@ -17,7 +17,7 @@ This section will guide you through the process of Monitoring and Troubleshootin
       ![Snapshotter-node-dashboard](/images/node-status-dashboard-devnet.png)
    
    - #### Telegram Reporting Bot
-      Snapshotter Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to enable this feature.
+      Snapshotter Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](/docs/build-with-powerloom/snapshotter-node/lite-node-v2/telegram-bot-setup) page for instructions on how to enable this feature.
 
 ### 1.2 Simulation run logs
 
