@@ -10,9 +10,9 @@ Introducing the `PowerloomReportingBot`! This bot service maintains an internal 
 - **Step 1**: Open a new conversation with [@PowerloomReportingBot](https://t.me/PowerloomReportingBot) in the Telegram App.
 - **Step 2**: Start the bot by typing `/start` to activate the bot. This will provide you with a `Chat ID`.
 
-  :::note
-  The PowerloomSnapshotterReportingService will <ins>never</ins> ask you for any personal information or private keys. Ensure that you have started a conversation with the correct bot, and do not provide any information besides the `/start` command under any circumstances.
-  :::
+:::note
+The PowerloomSnapshotterReportingService will <ins>never</ins> ask you for any personal information or private keys. Ensure that you have started a conversation with the correct bot, and do not provide any information besides the `/start` command under any circumstances.
+:::
 
   ![chatID-start](/images/chatID-start.png)
 
