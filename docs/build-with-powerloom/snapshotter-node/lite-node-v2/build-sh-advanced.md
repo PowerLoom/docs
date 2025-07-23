@@ -3,7 +3,7 @@ sidebar_position: 3
 title: "build.sh: Advanced Usage and Recipes"
 ---
 
-# `build.sh`: advanced usage and recipes
+# `build.sh`: Advanced Usage and Recipes
 ---
 
 ## Summary of flags and advanced features
