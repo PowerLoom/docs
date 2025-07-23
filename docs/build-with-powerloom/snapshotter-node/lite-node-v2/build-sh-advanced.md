@@ -1,9 +1,9 @@
 ---
 sidebar_position: 3
-title: "CLI: Advanced Usage and Recipes"
+title: "build.sh: Advanced Usage and Recipes"
 ---
 
-# `build.sh` CLI: advanced usage and recipes
+# `build.sh`: advanced usage and recipes
 ---
 
 ## Summary of flags and advanced features
