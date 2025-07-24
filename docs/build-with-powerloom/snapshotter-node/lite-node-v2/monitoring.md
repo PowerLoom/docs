@@ -17,10 +17,10 @@ This section guides you through monitoring and troubleshooting your node's snaps
    ![Snapshotter-node-dashboard](/images/snapshot-lite-v2-daily-dashboard.png)
    
    #### Telegram Reporting Bot
-   Snapshotter Lite Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](./telegram-bot-setup) page for instructions on how to enable this feature.
+   Snapshotter Lite Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/telegram-bot-setup) page for instructions on how to enable this feature.
 
    #### Slot Monitoring Service
-   The Powerloom Slot Monitoring Service provides comprehensive real-time monitoring for your node's slot activities. This service offers webhook-based notifications through platforms like Slack and Discord, giving you instant alerts about your slot's performance and submission status. See the [Slot Monitoring Setup](./slot-monitoring-setup) page for detailed configuration instructions.
+   The Powerloom Slot Monitoring Service provides comprehensive real-time monitoring for your node's slot activities. This service offers webhook-based notifications through platforms like Slack and Discord, giving you instant alerts about your slot's performance and submission status. See the [Slot Monitoring Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/slot-monitoring-setup) page for detailed configuration instructions.
 
 ### 1.2 Simulation Logs
 
