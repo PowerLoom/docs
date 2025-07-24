@@ -3,15 +3,15 @@ sidebar_position: 6
 title: Slot Monitoring Service Setup
 ---
 
-### Setting up the PowerLoom Slot Monitoring Service
+### Setting up the Powerloom Slot Monitoring Service
 
 The Slot Monitoring Service provides comprehensive real-time monitoring for your node's slot activities. This service offers webhook-based notifications through platforms like Slack and Discord, giving you instant alerts about your slot's performance and submission status.
 
 ## Overview
 
-The monitoring service operates in three modes:
+The monitoring service operates in two modes:
 - **Slot Monitor**: Monitors specific slot IDs and their performance
-- **Active Node Monitor**: Tracks overall node activity and health for the entire PowerLoom network
+- **Active Node Monitor**: Tracks overall node activity and health for the entire Powerloom network
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Before setting up the monitoring service, ensure you have:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/PowerLoom/submissions-monitor-alerts.git
+git clone https://github.com/Powerloom/submissions-monitor-alerts.git
 cd submissions-monitor-alerts
 ```
 
@@ -41,7 +41,7 @@ When prompted by the interactive menu, select:
 - **Option 2**: Active Node Monitor - Monitor active node counts and sequencer health
 
 ```
-🚀 PowerLoom Active Node Monitor - Build Script
+🚀 Powerloom Active Node Monitor - Build Script
 ==============================================
 
 Please select which monitoring service you would like to run:
@@ -96,11 +96,11 @@ URL and service name:
 ### Step 5: Service-Specific Configuration
 
 #### For Slot Monitor
-- **WALLET_HOLDER_ADDRESS**: The contract address of the wallet holder to monitor
+- **WALLET_HOLDER_ADDRESS**: The node holding wallet address to monitor
 - **SLOTS_TO_IGNORE**: (Optional) List of slot numbers to ignore, formatted as comma-separated values (e.g., 1,2,3,4,5)
 
 #### For Active Node Monitor
-- **AUTH_READ_TOKEN**: The API token for the PowerLoom Sequencer API
+- **AUTH_READ_TOKEN**: The API token for the Powerloom Sequencer API
 
 The build script will automatically bootstrap the environment, build the Docker image, and start the selected service.
 
