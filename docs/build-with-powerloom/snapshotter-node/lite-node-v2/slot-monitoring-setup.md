@@ -12,7 +12,6 @@ The Slot Monitoring Service provides comprehensive real-time monitoring for your
 The monitoring service operates in three modes:
 - **Slot Monitor**: Monitors specific slot IDs and their performance
 - **Active Node Monitor**: Tracks overall node activity and health for the entire PowerLoom network
-- **Slot Rewards Monitor**: Monitors rewards distribution for eligible nodes
 
 ## Prerequisites
 
@@ -42,7 +41,6 @@ cd submissions-monitor-alerts
 When prompted by the interactive menu, select:
 - **Option 1**: Slot Monitor - Monitor slot submission status
 - **Option 2**: Active Node Monitor - Monitor active node counts and sequencer health
-- **Option 3**: Slot Rewards Monitor - Monitor slot rewards distribution
 
 ```
 🚀 PowerLoom Active Node Monitor - Build Script
@@ -52,9 +50,8 @@ Please select which monitoring service you would like to run:
 
 1) Slot Monitor - Monitor slot submission status
 2) Active Node Monitor - Monitor active node counts and sequencer health
-3) Slot Rewards Monitor - Monitor slot rewards distribution
 
-Enter your choice (1-3) (4 to exit): 
+Enter your choice (1-2): 
 ```
 
 ### Step 4: Configure Webhook Notifications
@@ -105,9 +102,6 @@ URL and service name:
 - **SLOTS_TO_IGNORE**: (Optional) List of slot numbers to ignore, formatted as comma-separated values (e.g., 1,2,3,4,5)
 
 #### For Active Node Monitor
-- **AUTH_READ_TOKEN**: The API token for the PowerLoom Sequencer API
-
-#### For Slot Rewards Monitor
 - **AUTH_READ_TOKEN**: The API token for the PowerLoom Sequencer API
 
 The build script will automatically bootstrap the environment, build the Docker image, and start the selected service.
