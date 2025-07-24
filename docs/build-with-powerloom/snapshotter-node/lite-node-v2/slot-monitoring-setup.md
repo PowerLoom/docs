@@ -16,10 +16,8 @@ The monitoring service operates in three modes:
 ## Prerequisites
 
 Before setting up the monitoring service, ensure you have:
-- Docker and Docker Compose installed
-- Python 3.10 or higher
-- Poetry (Python package manager)
-- Git
+- [Docker](https://docs.docker.com/get-started/get-docker/)
+- [Git](https://github.com/git-guides/install-git)
 
 ## Installation and Setup
 
