@@ -108,6 +108,30 @@ The build script will automatically bootstrap the environment, build the Docker 
 
 The monitoring service sends structured JSON messages to your configured webhook URL. All services use a unified message format:
 
+| Field | Type | Description |
+|-------|------|-------------|
+| `network` | String | Network identifier (e.g., "mainnet") |
+| `dataMarketAddress` | String | Contract address for the data market |
+| `message` | String | Notification message content |
+| `reportingTime` | String | Timestamp of when the report was generated |
+| `webhookService` | String | Target webhook service (e.g., "slack", "discord") |
+| `error` | Boolean | Indicates if this is an error notification |
+
+Example Slot Monitor message:
+
+```json
+{
+  "network": "mainnet",
+  "dataMarketAddress": "0x21cb57C1f2352ad215a463DD867b838749CD3b8f",
+  "message": "❌ The following slots have failed to submit data in the last 5 epochs: [4827]",
+  "reportingTime": "2024-02-13 10:10:15",
+  "webhookService": "discord",
+  "error": true
+}
+```
+
+Example Active Node Monitor message:
+
 ```json
 {
   "network": "mainnet",
