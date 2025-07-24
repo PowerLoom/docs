@@ -44,24 +44,46 @@ When prompted by the interactive menu, select:
 - **Option 2**: Active Node Monitor - Monitor active node counts and sequencer health
 - **Option 3**: Slot Rewards Monitor - Monitor slot rewards distribution
 
+```
+🚀 PowerLoom Active Node Monitor - Build Script
+==============================================
+
+Please select which monitoring service you would like to run:
+
+1) Slot Monitor - Monitor slot submission status
+2) Active Node Monitor - Monitor active node counts and sequencer health
+3) Slot Rewards Monitor - Monitor slot rewards distribution
+
+Enter your choice (1-3) (4 to exit): 
+```
+
 ### Step 4: Configure Webhook Notifications
 
 The service supports both single and multiple webhook configurations:
 
-![slot-monitoring-setup-1](/images/slot-monitor-webhook-setup.png)
+```
+🔔 Configuring webhook notifications...
+Do you want to configure:
+1) Single webhook URL (simple setup)
+2) Multiple webhook URLs (advanced setup)
+Enter your choice (1-2, default: 1): 
+```
 
 #### Option 1: Single Webhook (Simple Setup)
 - Your webhook URL (e.g., Slack webhook URL)
 - The webhook service type (default: "slack")
 
-![slot-monitoring-webhook-single](/images/slot-monitor-webhook-single.png)
+```
+Enter webhook URL: https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+Enter webhook service type (default: slack): slack
+✅ Configured single webhook: slack
+```
 
 #### Option 2: Multiple Webhooks (Advanced Setup)
 - During setup, you'll be prompted to enter webhook URLs and service names interactively
 - Enter each webhook as: `<webhook-url> <service-name>`
 - Press Enter (empty input) or type `done` when finished
 
-**Interactive setup example:**
 ```
 Enter webhook #1 (or press Enter/type 'done' to finish):
 URL and service name: https://hooks.slack.com/services/... slack
