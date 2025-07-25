@@ -30,7 +30,7 @@ The CLI provides multiple command aliases for convenience:
 
 Both commands are equivalent and can be used interchangeably throughout this documentation.
 
-## 🛠️ Installation
+## 🛠️ Installation {#installation}
 
 ### 📦 Using Pre-built Binaries (Recommended)
 
