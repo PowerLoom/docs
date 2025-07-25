@@ -45,7 +45,7 @@ When a match is identified, it indicates the end of the submission window, promp
 ### Batch Submission
 After the batches are organized, they are iterated over, and the relevant data is transformed into submission details. These details are then placed into the Finalizer Queue for further processing.
 
-The [**Finalizer**](https://github.com/PowerLoom/submission-sequencer-finalizer), an auto-scaled component that follows, retrieves and processes data from the Finalizer Queue, completing the batch processing pipeline. This architecture enables the system to scale effectively, managing submission tasks in parallel and optimizing both performance and throughput.
+The [**Finalizer**](https://github.com/powerloom/submission-sequencer-finalizer), an auto-scaled component that follows, retrieves and processes data from the Finalizer Queue, completing the batch processing pipeline. This architecture enables the system to scale effectively, managing submission tasks in parallel and optimizing both performance and throughput.
 
 ## On-Chain Updates via Relayer
 

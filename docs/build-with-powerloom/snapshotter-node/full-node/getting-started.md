@@ -36,7 +36,7 @@ Whether you are developing your own application or extending our existing use ca
 
 1. **Cloning the Deploy Repo** - Clone the repository against the respective branch (main by default). Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`. 
     ```bash
-    git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch main && cd powerloom_deploy
+    git clone https://github.com/powerloom/deploy.git --single-branch powerloom_deploy --branch main && cd powerloom_deploy
     ```
 
 2. **Configuring The Node** - Copy `env.example` to `.env`.
@@ -63,17 +63,17 @@ Whether you are developing your own application or extending our existing use ca
 Extending existing use cases or building your own use cases requires a slightly different setup. Follow the process outlined below to ensure a smooth setup:
 
 
-1. **Forking the Computes and Config templates** - For an optimized development process, it's recommended to fork the templates for [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/). Our system utilizes the Git submodule architecture to manage these components efficiently. For a deeper understanding of how these elements integrate and function within our larger system, please refer to our [architecture documentation](../architecture.md). This approach ensures a streamlined and cohesive development workflow.
+1. **Forking the Computes and Config templates** - For an optimized development process, it's recommended to fork the templates for [snapshotter-computes](https://github.com/powerloom/snapshotter-computes) and [snapshotter-configs](https://github.com/powerloom/snapshotter-configs/). Our system utilizes the Git submodule architecture to manage these components efficiently. For a deeper understanding of how these elements integrate and function within our larger system, please refer to our [architecture documentation](../architecture.md). This approach ensures a streamlined and cohesive development workflow.
 
-   - Snapshotter Configs: https://github.com/PowerLoom/snapshotter-configs
-   - Snapshotter Computes: https://github.com/PowerLoom/snapshotter-computes
+   - Snapshotter Configs: https://github.com/powerloom/snapshotter-configs
+   - Snapshotter Computes: https://github.com/powerloom/snapshotter-computes
 
    Once the above branches are forked, you should have the above two repositories in your profile. 
 
 2. **Cloning the Deploy Repo** - Clone the repository against the testnet branch. Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`. 
 
     ```bash
-    git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch better_dev_workflow && cd powerloom_deploy
+    git clone https://github.com/powerloom/deploy.git --single-branch powerloom_deploy --branch better_dev_workflow && cd powerloom_deploy
     ```
 3. **Configuring The Node** - When you are in the deploy repo's directory, create a new file `.env`.
 

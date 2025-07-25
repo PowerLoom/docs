@@ -41,7 +41,7 @@ Data points are key metrics sourced from Uniswap V2 or V3 pair contracts, detail
 
 ### Development and Extension
 
-Snapshotter Node's design enables extensions and custom use case implementations. A developer can extend the pooler UniswapV2 compute files found in [snapshotter-computes (V2)](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and config files found in [snapshotter-configs (V2)](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2), or the UniswapV3 compute files found in [snapshotter-computes (V3)](https://github.com/PowerLoom/snapshotter-computes/tree/uniswapv3-v1) and the associated config files in [snapshotter-configs (V3)](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv3) to build their own custom use case implementations.
+Snapshotter Node's design enables extensions and custom use case implementations. A developer can extend the pooler UniswapV2 compute files found in [snapshotter-computes (V2)](https://github.com/powerloom/snapshotter-computes/tree/eth_uniswapv2) and config files found in [snapshotter-configs (V2)](https://github.com/powerloom/snapshotter-configs/tree/eth_uniswapv2), or the UniswapV3 compute files found in [snapshotter-computes (V3)](https://github.com/powerloom/snapshotter-computes/tree/uniswapv3-v1) and the associated config files in [snapshotter-configs (V3)](https://github.com/powerloom/snapshotter-configs/tree/eth_uniswapv3) to build their own custom use case implementations.
 
 We have a dedicated section in the documentation which walkthrough the details on further implementation and usecases extensions.
 Check out our guide on [Extending Uniswap V2 dashboard usecase.](/build-with-powerloom/use-cases/building-new-usecase/extending-uniswapv2-dashboard)

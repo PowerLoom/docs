@@ -134,7 +134,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 Navigate to the directory where you want to install the node and clone the repository:
 
    ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+   git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-devnet
    ```
 
 2. **Navigate to the Directory**: 
@@ -278,7 +278,7 @@ For users running the node on personal hardware, the minimum specifications are:
 Navigate to the directory where you want to install the node and clone the repository:
 
    ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+   git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-devnet
    ```
 
 2. **Navigate to the Directory**: 
@@ -443,7 +443,7 @@ Once python3 is installed, we can go ahead and run the node:-
 
 1. Clone this repository using the following command in the terminal:
    ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+   git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-devnet
    ```
 This will clone the repository into a directory named `powerloom-devnet`.
  
@@ -572,7 +572,7 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
    - Use the following command in WSL terminal to clone the Snapshotter repository:
 
       ```bash
-      git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+      git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-devnet
       ```
 
 2. **Navigate to the Repository Directory:**

@@ -65,4 +65,4 @@ The Force Consensus service operates slightly differently than the Epoch Generat
 
 ![Force consensus mechanism](https://raw.githubusercontent.com/PowerLoom/onchain-consensus/feat/force_consensus_only_relevant_projects/docs/images/force_consensus.png)
 
-- [Epoch Generator Source Code on Github](https://github.com/Powerloom/onchain-consensus/blob/63d09aa9ab1d98a2fed55e05b7760c12692fea83/epoch_generator.py)
+- [Epoch Generator Source Code on Github](https://github.com/powerloom/onchain-consensus/blob/63d09aa9ab1d98a2fed55e05b7760c12692fea83/epoch_generator.py)

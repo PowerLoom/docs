@@ -66,7 +66,7 @@ Assuming you have 2 or more slot IDs to run to participate in the Uniswap V2 dat
 cd ~
 
 # clone the snapshotter node repo
-git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-mainnet1
+git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-mainnet1
 
 # run new screen session
 screen -R powerloom-mainnet1
@@ -92,7 +92,7 @@ cd powerloom-mainnet1
 cd ~
 
 # clone the snapshotter node repo
-git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-mainnet2
+git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-mainnet2
 
 # run new screen session
 screen -R powerloom-mainnet2

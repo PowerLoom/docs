@@ -22,7 +22,7 @@ For instance, the Powerloom Uniswap V2 dashboard (https://uniswapv2.powerloom.io
 
 ### Verifying Data
 
-To verify the data, you need the Prost chain RPC Url and the address of the deployed protocol state contract. Find these details in the `env.example` file in the Powerloom [deploy](https://github.com/Powerloom/deploy/) repository.
+To verify the data, you need the Prost chain RPC Url and the address of the deployed protocol state contract. Find these details in the `env.example` file in the Powerloom [deploy](https://github.com/powerloom/deploy/) repository.
 
 #### Adding the Chain to the Wallet
 
@@ -43,7 +43,7 @@ Note: The RPC URL and the contract address in the screenshot below are for refer
 
 To access the ABI of the protocol state contract from the Powerloom project, follow these steps:
 
-1. Visit the Powerloom 'pooler' repository on GitHub at this URL: [Powerloom pooler repository - ProtocolContract.json](https://github.com/Powerloom/pooler/blob/main/snapshotter/static/abis/ProtocolContract.json).
+1. Visit the Powerloom 'pooler' repository on GitHub at this URL: [Powerloom pooler repository - ProtocolContract.json](https://github.com/powerloom/pooler/blob/main/snapshotter/static/abis/ProtocolContract.json).
 2. Locate the `ProtocolContract.json` file.
 3. Copy the contents of the file.
 4. Open the Remix IDE.
@@ -67,7 +67,7 @@ The logic to retrieve the CID from the protocol state contract can be extracted 
 
 Here's the code to find the last finalized epoch for a project ID:
 ```python reference
-https://github.com/Powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/core_api.py#L248-L339
+https://github.com/powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/core_api.py#L248-L339
 ```
 
 Call the relevant functions in the loaded Protocol state contract ABI in the Remix IDE to fetch the data.

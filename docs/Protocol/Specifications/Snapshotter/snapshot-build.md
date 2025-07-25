@@ -10,18 +10,18 @@ sidebar_position: 2
 As briefly introduced in the section on Snapshotter implementations that [leverage Git Submodules for specific computation logic](/build-with-powerloom/snapshotter-node/architecture), the modules are specified in the configuration for project types under the key `processor`.
 
 ```json reference
-https://github.com/Powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json#L15-L28
+https://github.com/powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json#L15-L28
 ```
 
 Let's take the example of the snapshot builder configured for the project type  `zkevm:owlto_bridge` and locate it in the `snapshotter-computes` repo, in the `zkevm_quests` branch
 
 ```python reference
-https://github.com/Powerloom/snapshotter-computes/blob/29199feab449ad0361b5867efcaae9854992966f/owlto_bridge.py#L1-L31
+https://github.com/powerloom/snapshotter-computes/blob/29199feab449ad0361b5867efcaae9854992966f/owlto_bridge.py#L1-L31
 ```
 As observed, it implements the `compute()` interface expected from Snapshotter implementations inheriting `GenericProcessorSnapshot`.
 
 ```python reference
-https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/utils/callback_helpers.py#L179-L196
+https://github.com/powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/utils/callback_helpers.py#L179-L196
 ```
 
 
@@ -39,14 +39,14 @@ The data sources are specified against the `projects` key in the configuration s
 The Snapshotter node attempts to retrieve data sources corresponding to the `projects` key from the protocol state.
 
 ```python reference title="Processor Distributor synchronizing projects from protocol"
-https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L321-L332
+https://github.com/powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L321-L332
 ```
 
 2. If the `projects` key is non-existent
-   1. data sources can also be dynamically added on the protocol state contract which the [processor distributor](/Protocol/Specifications/Snapshotter/components#processor-distributor) [syncs with](https://github.com/Powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/processor_distributor.py#L1107)
+   1. data sources can also be dynamically added on the protocol state contract which the [processor distributor](/Protocol/Specifications/Snapshotter/components#processor-distributor) [syncs with](https://github.com/powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/processor_distributor.py#L1107)
 
 ```python reference
-https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L738-L751
+https://github.com/powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L738-L751
 ```
 
 
@@ -65,7 +65,7 @@ Bulk Mode is highly effective in situations where:
   - Once a certain state change is observed, no further changes need to be recorded. Example use cases include monitoring on-chain activities and tracking task or quest completion statuses on the blockchain.
 
 ```json reference title="Project configuration for bulk mode"
-https://github.com/Powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json#L17-L27
+https://github.com/powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json#L17-L27
 ```
 
 This allows for flexibility to filter through all transactions and blocks without the need for predefined data sources.
@@ -74,7 +74,7 @@ The `Processor Distributor` generates a `SnapshotProcessMessage` with bulk mode 
 
 
 ```python reference
-https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L717-L730
+https://github.com/powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/processor_distributor.py#L717-L730
 ```
 
 :::info
@@ -84,7 +84,7 @@ Since common datapoints like block details, transaction receipts, etc., are prel
 Whenever a data source is added or removed by the [signaling ecosystem](/Protocol/data-sources#data-source-signaling), the protocol state smart contract emits a `ProjectUpdated` event with the following data model.
 
 ```python reference
-https://github.com/Powerloom/pooler/blob/5892eeb9433d8f4b8aa677006d98a1dde0458cb7/snapshotter/utils/models/data_models.py#L102-L105
+https://github.com/powerloom/pooler/blob/5892eeb9433d8f4b8aa677006d98a1dde0458cb7/snapshotter/utils/models/data_models.py#L102-L105
 ```
 
 
@@ -96,7 +96,7 @@ https://github.com/Powerloom/pooler/blob/5892eeb9433d8f4b8aa677006d98a1dde0458cb
 ### Project ID generation
 
 ```python reference
-https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/utils/snapshot_worker.py#L51-L71
+https://github.com/powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d03/snapshotter/utils/snapshot_worker.py#L51-L71
 ```
 ![Base snapshot project ID generation](/images/base_snapshot_project_id.png)
 
@@ -104,7 +104,7 @@ https://github.com/Powerloom/pooler/blob/634610801a7fcbd8d863f2e72a04aa8204d27d0
 
 #### Base snapshot of trade events for the [Uniswap V2 and V3 dashboard data markets](/category/uniswap-dashboard):
 ```python reference
-https://github.com/Powerloom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc860004d35786f4df/trade_volume.py#L14-L44
+https://github.com/powerloom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc860004d35786f4df/trade_volume.py#L14-L44
 ```
 
 
@@ -125,7 +125,7 @@ The order and dependencies of these compositions are specified according to the 
 ### `SingleProject` aggregation type
 
 ```json reference
-https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/aggregator.example.json#L1-L10
+https://github.com/powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/aggregator.example.json#L1-L10
 ```
 
 * This type specifies the generation of an aggregation snapshot for a single project across a span of epochs relative to the current `epochId`.
@@ -137,13 +137,13 @@ The following implementation aggregates [trade volume snapshots](/build-with-pow
 
 
 ```python reference
-https://github.com/Powerloom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc860004d35786f4df/aggregate/single_uniswap_trade_volume_24h.py#L110-L121
+https://github.com/powerloom/snapshotter-computes/blob/6fb98b1bbc22be8b5aba8bdc860004d35786f4df/aggregate/single_uniswap_trade_volume_24h.py#L110-L121
 ```
 
 ### `MultiProject` aggregation type
 
 ```json reference
-https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/aggregator.example.json#L25-L31
+https://github.com/powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/aggregator.example.json#L25-L31
 ```
 
 * `projects_to_wait_for` specifies the exact project IDs on which this higher-order aggregation will be generated.
@@ -160,5 +160,5 @@ In the case of 'MultiProject` aggregations, their project IDs are generated with
 The following is the section where the relevant project IDs are generated according to their configuration type.
 
 ```python reference
-https://github.com/Powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/aggregation_worker.py#L59-L92
+https://github.com/powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/aggregation_worker.py#L59-L92
 ```

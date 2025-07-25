@@ -23,12 +23,12 @@ For example, we at Powerloom use Quest completion tracking for our Testnet progr
 ### Snapshot Building
 
 We let Snapshotter Peers handle the heavy lifting of capturing on-chain activities. Developers can focus on building a Snapshot Processor that extracts and returns the relevant data from the list of transactions in a block.
-For example, `BungeeBridgeProcessor` located in [`snapshotter/modules/computes`](https://github.com/PowerLoom/snapshotter-computes/blob/zkevm_quests/bungee_bridge.py) is one of the base Processor computes for ZkEVM Quest Tracking. This class uses the `GenericProcessorSnapshot` structure found in [`snapshotter/utils/callback_helpers.py`](https://github.com/Powerloom/pooler/blob/main/snapshotter/utils/callback_helpers.py).
+For example, `BungeeBridgeProcessor` located in [`snapshotter/modules/computes`](https://github.com/powerloom/snapshotter-computes/blob/zkevm_quests/bungee_bridge.py) is one of the base Processor computes for ZkEVM Quest Tracking. This class uses the `GenericProcessorSnapshot` structure found in [`snapshotter/utils/callback_helpers.py`](https://github.com/powerloom/pooler/blob/main/snapshotter/utils/callback_helpers.py).
 
 Any compute for base snapshots basically needs to implement the `compute` function.
 
 ```python reference
-https://github.com/Powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/callback_helpers.py#L190-L195
+https://github.com/powerloom/pooler/blob/d8b7be32ad329e8dcf0a7e5c1b27862894bc990a/snapshotter/utils/callback_helpers.py#L190-L195
 ```
 
 The `compute` function is the main part where we create and process snapshots. It uses these inputs:
@@ -39,7 +39,7 @@ The `compute` function is the main part where we create and process snapshots. I
   
  `epoch` is `PowerloomSnapshotProcessMessage` object which contains the following information:
 ```python reference
-https://github.com/PowerLoom/pooler/blob/main/snapshotter/utils/models/message_models.py#L46-L50
+https://github.com/powerloom/pooler/blob/main/snapshotter/utils/models/message_models.py#L46-L50
 ```
 
 The Infrastructure is scalable enough to handle high throughput chains like ZkEvm in close to real time even with `Epoch`  size of 1 block.
@@ -47,7 +47,7 @@ The Infrastructure is scalable enough to handle high throughput chains like ZkEv
 The `BungeeBridgeProcessor` then goes through all preloaded block transactions, filters out, and then generates relevant snapshots for wallet addresses that received funds from the Bungee Bridge refuel contract during that epoch.
 
 ```python reference
-https://github.com/PowerLoom/snapshotter-computes/blob/29199feab449ad0361b5867efcaae9854992966f/bungee_bridge.py#L40-L92
+https://github.com/powerloom/snapshotter-computes/blob/29199feab449ad0361b5867efcaae9854992966f/bungee_bridge.py#L40-L92
 ```
 
 The format of the output data can vary based on what you need it for. However, the return type must always be a list of (`wallet_address`, [`pydantic`](https://pypi.org/project/pydantic/) snapshot object) (for bulk mode).
@@ -56,7 +56,7 @@ Each `wallet_address` is mapped to a `pydantic` snapshot object and submitted to
 
 ### Configuration
 
-A configuration file [`config/projects.json`](https://github.com/Powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json) specifies the details of the snapshots to be generated. For instance, sample config for  [`BungeeBridgeProcessor`](https://github.com/PowerLoom/snapshotter-computes/blob/zkevm_quests/bungee_bridge.py) for `zkevm:bungee_bridge` might look like this:
+A configuration file [`config/projects.json`](https://github.com/powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json) specifies the details of the snapshots to be generated. For instance, sample config for  [`BungeeBridgeProcessor`](https://github.com/powerloom/snapshotter-computes/blob/zkevm_quests/bungee_bridge.py) for `zkevm:bungee_bridge` might look like this:
 
 ```json
 {
@@ -73,7 +73,7 @@ A configuration file [`config/projects.json`](https://github.com/Powerloom/snaps
 }
 ```
 
-Critical dependencies, such as [`block_transactions`](https://github.com/Powerloom/pooler/blob/main/snapshotter/utils/preloaders/tx_receipts/preloader.py), are essential components defining the initial dataset processed by the snapshot builder.
+Critical dependencies, such as [`block_transactions`](https://github.com/powerloom/pooler/blob/main/snapshotter/utils/preloaders/tx_receipts/preloader.py), are essential components defining the initial dataset processed by the snapshot builder.
 
 ## Expanding to Monitor Additional On-chain Activities
 

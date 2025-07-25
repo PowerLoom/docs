@@ -14,7 +14,7 @@ Prerequisite: Ensure that the minimum requirements are met by the system on whic
 
 1. **Cloning the Deploy Repo** - Clone the repository against the `aave` branch. Open the terminal and run the below command to clone the deploy repo in a directory named `powerloom_deploy`. 
     ```bash
-    git clone https://github.com/PowerLoom/deploy.git --single-branch powerloom_deploy --branch aave && cd powerloom_deploy
+    git clone https://github.com/powerloom/deploy.git --single-branch powerloom_deploy --branch aave && cd powerloom_deploy
     ```
 
 2. **Configuring The Node** - Copy `env.example` to `.env`.
@@ -43,8 +43,8 @@ Prerequisite: Ensure that the minimum requirements are met by the system on whic
     ```
 
 4. **Displaying the Dashboard**
-- Once all of the services are up and running, the front-end can be accessed via [Pooler Frontend](https://github.com/PowerLoom/pooler-frontend/tree/aave) to see an Aave V3 summary data dashboard similar to the [PowerLoom Aave V3 Dasboard](https://aave-v3.powerloom.io/).
-    - The front-end does not come packaged as part of the Aave deploy repository and will need to be run separately. The Front-end deployment instructions can be found [here](https://github.com/PowerLoom/pooler-frontend/tree/aave?tab=readme-ov-file#powerloom-pooler-product).
+- Once all of the services are up and running, the front-end can be accessed via [Pooler Frontend](https://github.com/powerloom/pooler-frontend/tree/aave) to see an Aave V3 summary data dashboard similar to the [PowerLoom Aave V3 Dasboard](https://aave-v3.powerloom.io/).
+    - The front-end does not come packaged as part of the Aave deploy repository and will need to be run separately. The Front-end deployment instructions can be found [here](https://github.com/powerloom/pooler-frontend/tree/aave?tab=readme-ov-file#powerloom-pooler-product).
     - The dashboard's `Synced by` section displays the time of the last snapshot taken, indicating if your snapshotting is falling behind.
 
 ## Extending the Aave V3 Implementation
@@ -55,14 +55,14 @@ This section will utilize core concepts explained in the [Closer Look at Snapsho
 
 ### Development Node Setup
 
-1. **Forking the Computes and Config templates** - For an optimized development process, it's recommended to fork the templates [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/aave) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/aave). Our system utilizes the Git submodule architecture to manage these components efficiently. For a deeper understanding of how these elements integrate and function within our larger system, please refer to our [architecture documentation](/build-with-powerloom/snapshotter-node/architecture.md). This approach ensures a streamlined and cohesive development workflow.
+1. **Forking the Computes and Config templates** - For an optimized development process, it's recommended to fork the templates [snapshotter-computes](https://github.com/powerloom/snapshotter-computes/tree/aave) and [snapshotter-configs](https://github.com/powerloom/snapshotter-configs/tree/aave). Our system utilizes the Git submodule architecture to manage these components efficiently. For a deeper understanding of how these elements integrate and function within our larger system, please refer to our [architecture documentation](/build-with-powerloom/snapshotter-node/architecture.md). This approach ensures a streamlined and cohesive development workflow.
 
-   - Aave V3 Snapshotter Configs: https://github.com/PowerLoom/snapshotter-computes/tree/aave
-   - Aave V3 Snapshotter Computes: https://github.com/PowerLoom/snapshotter-configs/tree/aave
+   - Aave V3 Snapshotter Configs: https://github.com/powerloom/snapshotter-computes/tree/aave
+   - Aave V3 Snapshotter Computes: https://github.com/powerloom/snapshotter-configs/tree/aave
 
    Once the above branches are forked, you should have the two repositories in your profile. 
 
-2. **Deploy the Development Node** - Detailed instructions for configuring the Aave V3 use case for development can be found in the [Powerloom Deploy](https://github.com/PowerLoom/deploy/tree/aave?tab=readme-ov-file#instructions-for-code-contributors) GitHub repository.
+2. **Deploy the Development Node** - Detailed instructions for configuring the Aave V3 use case for development can be found in the [Powerloom Deploy](https://github.com/powerloom/deploy/tree/aave?tab=readme-ov-file#instructions-for-code-contributors) GitHub repository.
 
     - Ensure that the correct Config and Computes submodules are provided in the `SNAPSHOT_CONFIG_REPO` and `SNAPSHOTTER_COMPUTE_REPO` entries in the `.env` file. These must be changed if you have chosen to fork the submodule repositories as they are set to the Powerloom URLs by default. Additionally, ensure the correct branch names are provided in `SNAPSHOT_CONFIG_REPO_BRANCH` and `SNAPSHOTTER_COMPUTE_REPO_BRANCH` entries if they have been changed.
 
@@ -79,21 +79,21 @@ There are two important preloaders to be aware of:
 
 1. **Bulk Asset Data Preloader**
 ```python reference
-https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/preloaders/asset_data/preloader.py#L10-L34
+https://github.com/powerloom/snapshotter-computes/blob/aave/utils/preloaders/asset_data/preloader.py#L10-L34
 ```
 
 2. **Bulk Events Preloader**
 ```python reference
-https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/preloaders/volume_events/preloader.py#L9-L33
+https://github.com/powerloom/snapshotter-computes/blob/aave/utils/preloaders/volume_events/preloader.py#L9-L33
 ```
 
-Both of these preloaders retrieve on-chain data and then store it locally in Redis for [later use](https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/core.py#L93-L121) by the base snapshot processors' `compute` functions. The data models describing the data gathered by the `BulkAssetDataPreloader` can be found [here](https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/data_models.py#L9-L45). The list of event emissions gathered by the `BulkVolumeEventsPreloader` can be found [here](https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/data_models.py#L9-L45).
+Both of these preloaders retrieve on-chain data and then store it locally in Redis for [later use](https://github.com/powerloom/snapshotter-computes/blob/aave/utils/core.py#L93-L121) by the base snapshot processors' `compute` functions. The data models describing the data gathered by the `BulkAssetDataPreloader` can be found [here](https://github.com/powerloom/snapshotter-computes/blob/aave/utils/models/data_models.py#L9-L45). The list of event emissions gathered by the `BulkVolumeEventsPreloader` can be found [here](https://github.com/powerloom/snapshotter-computes/blob/aave/utils/models/data_models.py#L9-L45).
 
 Visit the [Data Points](/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/data-points.md) section for a complete list of currently available base snapshots. 
 
 ### Adding an Aggregate Snapshot
 
-For this example, we will add a 6-hour volume-by-action aggregate using the 24-hour volume aggregate as a reference. The data for the 24-hour volume aggregate is already retrieved by the `BulkVolumeEventsPreloader` and processed using the `AggregateSupplyVolumeProcessor` as seen in this [compute](https://github.com/PowerLoom/snapshotter-computes/blob/aave/aggregate/single_aave_volume_24h.py#L108).
+For this example, we will add a 6-hour volume-by-action aggregate using the 24-hour volume aggregate as a reference. The data for the 24-hour volume aggregate is already retrieved by the `BulkVolumeEventsPreloader` and processed using the `AggregateSupplyVolumeProcessor` as seen in this [compute](https://github.com/powerloom/snapshotter-computes/blob/aave/aggregate/single_aave_volume_24h.py#L108).
 
 1. **Create the Aggregation Worker Processor**:
 
@@ -128,7 +128,7 @@ For this example, we will add a 6-hour volume-by-action aggregate using the 24-h
 
 3. **Modify the Processor Logic**:
 
-    Modify the data collection logic to concentrate on a 6-hour time span (`epochId`). Refer to the existing 24-hour aggregation example for guidance on structuring your logic. The 24-hour aggregate currently collects data for all core Aave V3 "actions" that can be taken on-chain. You may continue to collect data for all action's events, or you may choose to focus on a single action. Keep in mind that you will need to create a new data model in the `utils/message_models.py` file in your `snapshotter-computes` fork if you choose to change the snapshot data. See the [`AaveVolumeAggregateSnapshot`](https://github.com/PowerLoom/snapshotter-computes/blob/aave/utils/models/message_models.py#L101-L107) for reference.
+    Modify the data collection logic to concentrate on a 6-hour time span (`epochId`). Refer to the existing 24-hour aggregation example for guidance on structuring your logic. The 24-hour aggregate currently collects data for all core Aave V3 "actions" that can be taken on-chain. You may continue to collect data for all action's events, or you may choose to focus on a single action. Keep in mind that you will need to create a new data model in the `utils/message_models.py` file in your `snapshotter-computes` fork if you choose to change the snapshot data. See the [`AaveVolumeAggregateSnapshot`](https://github.com/powerloom/snapshotter-computes/blob/aave/utils/models/message_models.py#L101-L107) for reference.
 
 4. **Testing and Validation**:
 

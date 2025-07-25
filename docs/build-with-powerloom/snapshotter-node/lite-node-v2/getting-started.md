@@ -134,7 +134,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 Navigate to the directory where you want to install the node and clone the repository:
 
    ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-mainnet
+   git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-mainnet
    ```
 
 2. **Navigate to the Directory**: 
@@ -278,7 +278,7 @@ For users running the node on personal hardware, the minimum specifications are:
 Navigate to the directory where you want to install the node and clone the repository:
 
    ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-mainnet
+   git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-mainnet
    ```
 
 2. **Navigate to the Directory**: 
@@ -443,7 +443,7 @@ Once python3 is installed, we can go ahead and run the lite node:-
 
 1. Clone this repository using the following command in the terminal:
    ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-mainnet
+   git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-mainnet
    ```
 This will clone the repository into a directory named `powerloom-mainnet`.
  
@@ -568,7 +568,7 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
    - Use the following command in WSL terminal to clone the Snapshotter Lite Node v2 repository:
 
       ```bash
-      git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-mainnet
+      git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-mainnet
       ```
 
 2. **Navigate to the Repository Directory:**
@@ -743,7 +743,7 @@ Learn more: [Snapshotter CLI Documentation](/build-with-powerloom/snapshotter-no
 
 For advanced users who prefer manual control, we also provide detailed documentation for setting up multiple nodes on a Linux VPS.
 
-Repository: https://github.com/PowerLoom/snapshotter-lite-multi-setup
+Repository: https://github.com/powerloom/snapshotter-lite-multi-setup
 
 
 ## Troubleshooting
