@@ -9,7 +9,7 @@ Circuit relayers are currently not being supported for the pre-mainnet and mainn
 
 The trusted list of sequeuncer interfaces can be found on our Github repository in this JSON file:
 
-https://github.com/PowerLoom/snapshotter-lite-local-collector/blob/feat/trusted-relayers/sequencers.json
+https://github.com/powerloom/snapshotter-lite-local-collector/blob/feat/trusted-relayers/sequencers.json
 :::
 
 ## Recap

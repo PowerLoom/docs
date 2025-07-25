@@ -24,7 +24,7 @@ Before setting up the monitoring service, ensure you have:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/Powerloom/submissions-monitor-alerts.git
+git clone https://github.com/powerloom/submissions-monitor-alerts.git
 cd submissions-monitor-alerts
 ```
 

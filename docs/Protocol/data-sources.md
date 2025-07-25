@@ -16,10 +16,10 @@ Our implementation of a data market serves datasets to render live Uniswap V2, U
 * [Building with Powerloom -- Uniswap V2 and V3 Dashboards](/build-with-powerloom/use-cases/existing-implementations/uniswap-dashboard/)
 * [Building with Powerloom -- Aave V3 Dashboard](/build-with-powerloom/use-cases/existing-implementations/aavev3-dashboard/)
 
-Continuing with the Uniswap V2 example, you can explore the data sources list defined as part of the Uniswap v2 specific configuration in the [`snapshotter-configs`](https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/projects.example.json#L1-L11) repository.
+Continuing with the Uniswap V2 example, you can explore the data sources list defined as part of the Uniswap v2 specific configuration in the [`snapshotter-configs`](https://github.com/powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/projects.example.json#L1-L11) repository.
 
 ```json reference
-https://github.com/Powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/projects.example.json#L1-L11
+https://github.com/powerloom/snapshotter-configs/blob/fcf9b852bac9694258d7afcd8beeaa4cf961c65f/projects.example.json#L1-L11
 ```
 
 The `projects` field in the above configuration snippet represents the Uniswap v2 pair contract addresses that are tracked, and snapshots are generated for these contracts. To further understand how snapshots on these contracts are tracked, refer to the section on [Project Types and IDs](#project-types-and-ids).
@@ -31,7 +31,7 @@ In situations where data sources are constantly changing or numerous, making it 
 Instead, the snapshotter implementation operates in ['bulk mode'](/Protocol/Specifications/Snapshotter/snapshot-build#data-source-specification-bulk-mode). The data source configuration specifies computation modules that utilize general-purpose [preloaded](/Protocol/Specifications/Snapshotter/preloading) datasets to filter transactions, event logs, etc., on contract addresses of interest. This is where the signaling of data sources comes into play.
 
 ```json reference
-https://github.com/Powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json#L1-L28
+https://github.com/powerloom/snapshotter-configs/blob/39e4713cdd96fff99d100f1dea7fb7332df9e491/projects.example.json#L1-L28
 ```
 
 ### Data Source Signaling

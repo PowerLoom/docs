@@ -29,7 +29,7 @@ To configure the environment variables, follow these steps:
   2. Fill in the required variables in .env `SOURCE_RPC_URL`, `SIGNER_ACCOUNT_ADDRESS`, `SIGNER_ACCOUNT_PRIVATE_KEY`, `SLOT_ID`, `PROTOCOL_STATE_CONTRACT`.
 
 ### Where can I find documentation on Snapshotter Configs and Computes?
-You can find the documentation for Snapshotter Configs and Computes in the [docs](/build-with-powerloom/snapshotter-node/architecture/#configuration-files). The pooler computes and config files for the Uniswap V2 use case are found in [snapshotter-computes](https://github.com/PowerLoom/snapshotter-computes/tree/eth_uniswapv2) and [snapshotter-configs](https://github.com/PowerLoom/snapshotter-configs/tree/eth_uniswapv2).
+You can find the documentation for Snapshotter Configs and Computes in the [docs](/build-with-powerloom/snapshotter-node/architecture/#configuration-files). The pooler computes and config files for the Uniswap V2 use case are found in [snapshotter-computes](https://github.com/powerloom/snapshotter-computes/tree/eth_uniswapv2) and [snapshotter-configs](https://github.com/powerloom/snapshotter-configs/tree/eth_uniswapv2).
     
 ### What is RPC? 
 In blockchain, RPC (Remote Procedure Calls) nodes allow users and apps to interact with the blockchain without network details. The `RPCHelper` in `utils/rpc.py` simplifies snapshot generation & data extraction from the blockchain state.

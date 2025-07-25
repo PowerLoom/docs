@@ -58,7 +58,7 @@ python3 multi_clone.py
 ```
 
 :::info
-Learn more: [Complete setup steps](https://github.com/PowerLoom/snapshotter-lite-multi-setup/blob/master/README.md) for multi node setup
+Learn more: [Complete setup steps](https://github.com/powerloom/snapshotter-lite-multi-setup/blob/master/README.md) for multi node setup
 :::
 
 ## ✅ Verification logs

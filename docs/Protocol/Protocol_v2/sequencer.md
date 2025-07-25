@@ -8,7 +8,7 @@ sidebar_position: 1
 :::warning
 The sequencer listening interfaces for specific data markets are listed in the following trusted sequencer JSON file hosted on the Powerloom Github repository:
 
-https://github.com/PowerLoom/snapshotter-lite-local-collector/blob/feat/trusted-relayers/sequencers.json
+https://github.com/powerloom/snapshotter-lite-local-collector/blob/feat/trusted-relayers/sequencers.json
 
 DO NOT attempt to connect to any other sequencer interfaces supplied by anyone claiming to represent Powerloom if they are not listed in the above file.
 :::
@@ -100,7 +100,7 @@ The libp2p listening interface is loadbalanced on Layer 4 of the networking stac
 
 :::info
 * Read more: [Sequencer: Libp2p Listener](/Protocol/Protocol_v2/Sequencer/Listener.md)
-* [Github](https://github.com/PowerLoom/libp2p-submission-sequencer-listener)
+* [Github](https://github.com/powerloom/libp2p-submission-sequencer-listener)
 :::
 
 ### Autoscaled dequeuers
@@ -109,7 +109,7 @@ These dequeuers are autoscaled by an event driven architecture and intermediated
 
 :::info
 * Read more: [Sequencer: Dequeuer](/Protocol/Protocol_v2/Sequencer/Dequeuer.md)
-* [Github](https://github.com/PowerLoom/sequencer-dequeuer)
+* [Github](https://github.com/powerloom/sequencer-dequeuer)
 :::
 
 ### Event collector
@@ -126,7 +126,7 @@ This works as the system clock of the sequencer setup as a whole.
 
 :::info
 * Read more: [Sequencer: Event Collector](/Protocol/Protocol_v2/Sequencer/EventCollector.md)
-* [Github](https://github.com/PowerLoom/submission-sequencer-event-collector/)
+* [Github](https://github.com/powerloom/submission-sequencer-event-collector/)
 :::
 
 ### Autsocaled Batch Finalizers
@@ -138,5 +138,5 @@ These are another set of autoscaled pods that are responsible for
 
 :::info
 * Read more: [Sequencer: Batch Finalizer](/Protocol/Protocol_v2/Sequencer/Finalizer.md)
-* [Github](https://github.com/PowerLoom/submission-sequencer-batch-finalizer/)
+* [Github](https://github.com/powerloom/submission-sequencer-batch-finalizer/)
 :::
