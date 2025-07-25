@@ -73,7 +73,7 @@ powerloom-snapshotter-cli shell
 powerloom-snapshotter> configure
 powerloom-snapshotter> deploy
 powerloom-snapshotter> list
-powerloom-snapshotter> logs
+powerloom-snapshotter> status
 ```
 
 :::tip Why Use Shell Mode?
@@ -95,10 +95,8 @@ powerloom-snapshotter-cli configure --env mainnet --market uniswapv2
 powerloom-snapshotter-cli deploy --env mainnet --market uniswapv2
 
 # Check status
-powerloom-snapshotter-cli list
+powerloom-snapshotter-cli status
 
-# View logs
-powerloom-snapshotter-cli logs --env mainnet --market uniswapv2
 ```
 
 ### Example Workflow
@@ -115,17 +113,26 @@ powerloom-snapshotter> configure
 # Deploy your snapshotter instances
 powerloom-snapshotter> deploy
 
-# Check the status
-powerloom-snapshotter> list
-
-# Monitor logs in real-time
-powerloom-snapshotter> logs
+# Show status of deployed snapshotter instances (screen sessions and Docker containers). Optionally filter by environment and/or data market.
+powerloom-snapshotter> status
 
 # Exit when done
 powerloom-snapshotter> exit
 ```
 
 ## Core Commands
+
+### show all available data markets and protocol chains
+
+**Shell mode:**
+```bash
+powerloom-snapshotter> list
+```
+
+**Command line mode:**
+```bash
+powerloom-snapshotter-cli list
+```
 
 ### configure
 
@@ -177,18 +184,18 @@ powerloom-snapshotter-cli deploy --env mainnet --market uniswapv2 --slot 123 --s
 powerloom-snapshotter-cli deploy --env mainnet --market uniswapv2 --market aavev3
 ```
 
-### list
+### deployment status
 
-List all active snapshotter instances with their status.
+Show status of deployed snapshotter instances (screen sessions and Docker containers). Optionally filter by environment and/or data market.
 
 **Shell mode:**
 ```bash
-powerloom-snapshotter> list
+powerloom-snapshotter> status
 ```
 
 **Command line mode:**
 ```bash
-powerloom-snapshotter-cli list
+powerloom-snapshotter-cli status
 ```
 
 Output shows:
@@ -197,56 +204,8 @@ Output shows:
 - Docker container status
 - Process details
 
-### stop
 
-Stop running snapshotter instances.
-
-**Shell mode:**
-```bash
-# Interactive stop (prompts for which instances to stop)
-powerloom-snapshotter> stop
-```
-
-**Command line mode:**
-```bash
-# Stop all instances
-powerloom-snapshotter-cli stop
-
-# Stop specific market instances
-powerloom-snapshotter-cli stop --env mainnet --market uniswapv2
-
-# Stop specific slot
-powerloom-snapshotter-cli stop --env mainnet --market uniswapv2 --slot 123
-```
-
-### logs
-
-View logs for snapshotter instances.
-
-**Shell mode:**
-```bash
-# Interactive logs (prompts for which instance)
-powerloom-snapshotter> logs
-```
-
-**Command line mode:**
-```bash
-# View recent logs
-powerloom-snapshotter-cli logs --env mainnet --market uniswapv2
-
-# Follow logs in real-time
-powerloom-snapshotter-cli logs --env mainnet --market uniswapv2 --follow
-
-# View specific container logs
-powerloom-snapshotter-cli logs --env mainnet --market uniswapv2 --container core-api
-```
-
-**Options:**
-- `--lines, -n`: Number of lines to show (default: 50)
-- `--follow, -f`: Follow log output
-- `--container, -c`: Container to show logs for (core-api or snapshotter)
-
-### diagnose
+### diagnose and cleanup
 
 Run diagnostics on the system and check requirements.
 
@@ -314,25 +273,6 @@ Each configuration file contains:
 - `SOURCE_RPC_URL`: RPC endpoint for source blockchain
 - `POWERLOOM_RPC_URL`: Powerloom protocol RPC endpoint
 
-## Multi-Node Setup
-
-The CLI excels at managing multiple snapshotter instances. Here's how to set up multiple slots:
-
-### Using the CLI for Multiple Slots
-
-```bash
-# Start the interactive shell
-powerloom-snapshotter-cli shell
-
-# Configure once for all slots (interactive prompts)
-powerloom-snapshotter> configure
-
-# Deploy will automatically detect all your slots
-powerloom-snapshotter> deploy
-
-# Check all running instances
-powerloom-snapshotter> list
-```
 
 ### Comparison with Manual Setup
 
@@ -363,7 +303,7 @@ Verify that:
 #### "Screen session already exists"
 Clean up existing sessions:
 ```bash
-powerloom-snapshotter-cli cleanup --force
+powerloom-snapshotter-cli diagnose --clean --force
 ```
 
 ### Debug Mode
@@ -384,7 +324,7 @@ If you're currently running snapshotter nodes manually, here's how to migrate to
    ./diagnose.sh -y
    ```
 
-2. **Install the CLI** (see Installation section above)
+2. **Install the CLI** (see [Installation section](#installation) above)
 
 3. **Configure using the CLI**:
    ```bash
