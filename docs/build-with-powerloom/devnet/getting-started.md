@@ -728,6 +728,26 @@ For further details on using the snapshotter dashboard to monitor the running st
 
 ---
 
+## Alternative Setup: Snapshotter CLI
+
+For operators who prefer a streamlined setup process or need to manage multiple nodes, we offer the **Powerloom Snapshotter CLI**. This tool provides:
+
+- **Interactive configuration** with guided prompts
+- **Simplified deployment** process
+- **Unified management** of multiple instances
+- **Built-in diagnostics** and troubleshooting
+
+:::tip When to Use the CLI
+The CLI is particularly useful if you:
+- Plan to run multiple snapshotter nodes
+- Want a simpler configuration process
+- Need to manage nodes across different environments (devnet/mainnet)
+:::
+
+Learn more: [Snapshotter CLI Documentation](/build-with-powerloom/snapshotter-node/lite-node-v2/cli)
+
+---
+
 ## Troubleshooting
 
 If you encounter any issues, please refer to our [Troubleshooting section](./troubleshooting-monitoring.md) for more information.

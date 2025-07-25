@@ -22,7 +22,7 @@ Follow the step-by-step instructions in the relevant guide to set up your Snapsh
 :::info Important note
 
 1. It is recommended that the node operates continuously, 24/7.
-2. If you possess multiple slots, refer to the section on [setting up multiple nodes](#setting-up-multiple-nodes-on-a-linux-vps) for further details.
+2. If you possess multiple slots, refer to the section on [alternative setup methods](#alternative-setup-methods) for further details.
 
 :::
 
@@ -724,15 +724,26 @@ For further details on using the snapshotter dashboard to monitor the running st
 
 ---
 
-## Setting Up Multiple Nodes on a Linux VPS
+## Alternative Setup Methods
 
-We have a detailed, extensive documentation and setup guide on our mutli node setup on a Linux VPS.
+### Snapshotter CLI (Recommended for Multiple Slots)
 
-Head over here and follow the detailed instructions in the README: https://github.com/PowerLoom/snapshotter-lite-multi-setup
+For operators managing multiple slots or those who prefer a streamlined setup process, we offer the **Powerloom Snapshotter CLI**. This tool simplifies configuration, deployment, and management of snapshotter nodes.
 
-:::tip
-We recommend using this for even our single node operators, as long as you can follow the detailed instructions.
+:::tip Snapshotter CLI Benefits
+- **Single command deployment** for all your slots
+- **Interactive configuration** with guided prompts
+- **Unified monitoring** of all instances
+- **Easier updates** compared to manual setup
 :::
+
+Learn more: [Snapshotter CLI Documentation](/build-with-powerloom/snapshotter-node/lite-node-v2/cli)
+
+### Manual Multi-Node Setup
+
+For advanced users who prefer manual control, we also provide detailed documentation for setting up multiple nodes on a Linux VPS.
+
+Repository: https://github.com/PowerLoom/snapshotter-lite-multi-setup
 
 
 ## Troubleshooting
