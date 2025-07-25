@@ -104,7 +104,7 @@ docker logs snapshotter-lite-v2-1234-mainnet-UNISWAPV2-ETH -n 500
 
 ### 2.3 Check Screen Session Status
 
-If you followed the ['Getting Started'](/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started.md) instructions, you'll have a `screen` session named `powerloom-mainnet` running.
+If you followed the [Getting Started](/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started.md) instructions, you'll have a `screen` session named `powerloom-mainnet` running.
 
 Verify the `screen` session is running with:
 
