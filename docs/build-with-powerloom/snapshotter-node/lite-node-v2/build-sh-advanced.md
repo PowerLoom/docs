@@ -15,7 +15,7 @@ The `build.sh` CLI supports a number of advanced features to fine tune its behav
 
 This flag is used to skip the prompt that asks you whether you want to update the existing env file.
 
-Refer: [2.5 Using the `build.sh` script to reconfigure the node](/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring#25-using-the-buildsh-script-to-reconfigure-the-node)
+Refer: [2.5 Using the `build.sh` script to reconfigure the node](/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring#25-using-buildsh-to-reconfigure-the-node)
 
 
 ### **`--no-collector`**
