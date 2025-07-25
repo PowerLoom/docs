@@ -5,45 +5,44 @@ title: Monitoring and Troubleshooting
 
 # Monitoring and Troubleshooting
 
-This section will guide you through the process of Monitoring and Troubleshooting the status of your node's snapshotting process.
+This section guides you through monitoring and troubleshooting your node's snapshotting process.
 
 ## 1. Confirming and Monitoring Node Snapshotting Process
 ---
 
-### 1.1 Monitoring Node Activity with the Snapshotter Dashboard
-   - #### Snapshotter Dashboard
-      Our Snapshotter Dashboard enables you to verify if your node slot is actively submitting snapshots.
+### 1.1 Monitoring Node Activity
+   #### Snapshotter Dashboard
+   Our [Snapshotter Dashboard](https://snapshotter-dashboard.powerloom.network/) enables you to verify if your node slot is actively submitting snapshots.
 
-      ![Snapshotter-node-dashboard](/images/snapshot-lite-v2-daily-dashboard.png)
+   ![Snapshotter-node-dashboard](/images/snapshot-lite-v2-daily-dashboard.png)
    
-   - #### Telegram Reporting Bot
-      Snapshotter Lite Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/Telegram%20Bot%20Setup.md) page for instructions on how to enable this feature.
+   #### Telegram Reporting Bot
+   Snapshotter Lite Nodes have the capability to send Telegram messages directly to you if any issues arise during the snapshotting process. See the [Telegram Bot Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/telegram-bot-setup) page for instructions on how to enable this feature.
 
-### 1.2 Simulation run logs
+   #### Slot Monitoring Service
+   The Powerloom Slot Monitoring Service provides comprehensive real-time monitoring for your node's slot activities. This service offers webhook-based notifications through platforms like Slack and Discord, giving you instant alerts about your slot's performance and submission status. See the [Slot Monitoring Setup](/build-with-powerloom/snapshotter-node/lite-node-v2/slot-monitoring-setup) page for detailed configuration instructions.
 
-   While running this node for the first time, it performs a couple of simulation submissions to test its connections to the sequencer network. If you notice logs similar to the lines below in the node run logs, your node's simulation run was successful.
+### 1.2 Simulation Logs
+
+   On start-up, the node will perform two simulation submissions to test its connection to the sequencer network. If you notice logs similar to the lines below in the terminal, then your node's simulation submissions were successful.
 
    ![Snapshotter-First-Simulation](/images/SimulationSubmission.png)
 
 ### 1.3 Terminal Status Check
-- The primary method to verify node status is through the terminal, which displays log responses from the node.
+   The primary method to verify node status is through the terminal, which displays log responses from the node. Monitor these logs to assess the health and activity of your node. A healthy snapshotter will produce logs similar to the provided example screenshot. These logs indicate normal operation and successful snapshotting.
 
-- Monitor these logs to assess the health and activity of your node. 
-
-- A healthy snapshotter node will produce logs similar to the provided example screenshot. These logs indicate normal operation and successful snapshotting.
-
-![Snapshotter-node-running](/images/RegularSubmission.png)
+   ![Snapshotter-node-running](/images/RegularSubmission.png)
 
 
 
 ## 2. Troubleshooting and Support
 ---
 
-This section provides guidance on troubleshooting your node in case of encountered issues. The steps outlined below are designed to help identify and resolve common problems efficiently.
+This section provides guidance for troubleshooting your node. These steps help identify and resolve common problems efficiently.
 
-### 2.1. Diagnostic and cleanup script
+### 2.1 Diagnostic and Cleanup Script
 
-The diagnostic and cleanup script will check for any previous instances of the lite node, local collector, stale images and networks.
+The diagnostic and cleanup script checks for previous instances of the lite node, local collector, stale images, and networks.
 
 ```bash
 ./diagnose.sh
@@ -51,63 +50,63 @@ The diagnostic and cleanup script will check for any previous instances of the l
 
 For detailed usage instructions, refer to [Diagnostics](/build-with-powerloom/snapshotter-node/lite-node-v2/diagnostics)
 
-### 2.2 Check status of running Docker containers
+### 2.2 Check Status of Running Docker Containers
 
-If you have launched your node using the `./build.sh` script, you can check the status of your running Docker containers using the following command.
+If you launched your node using the `./build.sh` script, check your running Docker containers with:
 
 ```bash
 docker ps
 ```
 
-Most of the time, you will see the following sort of output:
+You should typically see output similar to:
 
 ![Docker-ps](/images/docker-ps-running-containers.png)
 
-Containers with the name patterns 
-* `snapshotter-lite-v2-<slot-id>-<network>-<data-market>-<data-source-chain>` 
-* `snapshotter-collector-v2-<slot-id>-<network>-<data-market>-<data-source-chain>`
+Containers follow these naming patterns:
+- `snapshotter-lite-v2-<slot-id>-<network>-<data-market>-<data-source-chain>`
+- `snapshotter-collector-v2-<slot-id>-<network>-<data-market>-<data-source-chain>`
 
 :::tip
-If you are not seeing these containers, please refer to the [Diagnostics](/build-with-powerloom/snapshotter-node/lite-node-v2/diagnostics) section to check for any previous instances of the lite node, local collector, stale images and networks.
+If these containers aren't visible, refer to the [Diagnostics](/build-with-powerloom/snapshotter-node/lite-node-v2/diagnostics) section to check for previous instances.
 :::
 
-For example, if you are participating with 
-* slot ID 1234
-* on Powerloom Mainnet 
-* in the UniswapV2 data market that lives on Ethereum mainnet 
+For example, if participating with:
+- Slot ID 1234
+- On Powerloom Mainnet
+- In the UniswapV2 data market on Ethereum mainnet
 
-you should see the following containers:
+You should see these containers:
 
 * `snapshotter-lite-v2-1234-mainnet-UNISWAPV2-ETH` -- this corresponds to the snapshotter lite node that computes and generates the snapshot
 * `snapshotter-collector-v2-1234-mainnet-UNISWAPV2-ETH` -- this corresponds to the [local collector](/Protocol/Specifications/Snapshotter/local-collector.md) that collects the snapshot and submits it to the [sequencer](/Protocol/Protocol_v2/sequencer.md)
 
-Unless something has gone severely wrong, you should see the status of `healthy` for both such containers.
+Both containers should show a `healthy` status.
 
 :::note
-If you are running a multi node setup, you will see multiple containers for the lite node running, but sharing a single collector container. This is expected and is a normal behavior.
+In a multi-node setup, you'll see multiple lite node containers sharing a single collector. This is expected behavior.
 :::
 
-#### 2.2.1 Check the logs of the running containers
+#### 2.2.1 Check Container Logs
 
-You can check the logs of the running containers using the following command:
+Check running container logs with:
 
 ```bash
-docker logs <container-name>
+docker logs <container-name> -n 500
 ```
 
-Continuing the example from the previous section, you can check the logs of the `snapshotter-lite-v2-1234-mainnet-UNISWAPV2-ETH` container using the following command:
+This displays the last 500 lines of the container's logs.
+
+Following the previous example, check the `snapshotter-lite-v2-1234-mainnet-UNISWAPV2-ETH` container logs with:
 
 ```bash
 docker logs snapshotter-lite-v2-1234-mainnet-UNISWAPV2-ETH -n 500
 ```
 
-This will show you the last 500 lines of the snapshotter lite node container's logs.
+### 2.3 Check Screen Session Status
 
-### 2.3 Check the status of the `screen` session
+If you followed the [Getting Started](/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started.md) instructions, you'll have a `screen` session named `powerloom-mainnet` running.
 
-If you have followed the instructions to run the node from the ['Getting Started'](/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started.mdsection, you will have a `screen` session running with the name `powerloom-mainnet`.
-
-Verify that the `screen` session is running using the following command:
+Verify the `screen` session is running with:
 
 ```bash
 screen -ls
@@ -115,13 +114,13 @@ screen -ls
 
 ![screen sessions list](/images/screen-sessions-ls.png)
 
-If you see the `powerloom-mainnet` session running, you can attach to it using the following command:
+If the `powerloom-mainnet` session is running, attach to it with:
 
 ```bash
 screen -r powerloom-mainnet
 ```
 
-If everything is working correctly, you should see at least one submission log in the terminal within 3 - 5 minutes, at the most. 
+If working correctly, you should see at least one submission log within 3-5 minutes. 
 
 ![Regular submissions](/images/RegularSubmission.png)
 
@@ -131,112 +130,101 @@ If everything is working correctly, you should see at least one submission log i
 This is the first step in the getting started section.
 :::
 
-### 2.4 Stop, kill and cleanup specific slots' runtimes
+### 2.4 Stop, Kill, and Cleanup Specific Slots' Runtimes
 
 
-#### 2.4.1 Docker stop and remove containers
-You can stop either the snapshotter lite node or the local collector container for specific slots using the following commands. Substitute your slot ID, the following examples are for slot ID `1234`.
+#### 2.4.1 Stop and Remove Docker Containers
+Stop either the snapshotter lite node or local collector container for specific slots using these commands. Replace `1234` with your slot ID.
 
 ```bash
 docker ps --format '{{.Names}}' | grep '1234-mainnet-UNISWAPV2-ETH' | xargs docker kill
 docker ps --format '{{.Names}}' | grep '1234-mainnet-UNISWAPV2-ETH' | xargs docker rm
 ```
 
-To kill all containers running on Powerloom Mainnet for a specific data market like UniswapV2 on Ethereum mainnet, you can use the following command:
+To kill all containers on Powerloom Mainnet for a specific data market (e.g., UniswapV2 on Ethereum mainnet), use:
 
 ```bash
 docker ps --format '{{.Names}}' | grep 'mainnet-UNISWAPV2-ETH' | xargs docker kill
 docker ps --format '{{.Names}}' | grep 'mainnet-UNISWAPV2-ETH' | xargs docker rm
 ```
 
-#### 2.4.2 Remove screens
+#### 2.4.2 Remove Screen Sessions
 
-If you are using a single node setup, you can kill the screen session using the following command:
+For a single node setup, kill the screen session with:
 
 ```bash
 screen -X -S powerloom-mainnet quit
 ```
 
-If you are using a multi node setup, you can kill all screens running for a specific slot ID using the following command:
+For a multi-node setup, kill all screens for a specific slot ID with:
 ```bash
 screen -ls | grep 'powerloom-mainnet-v2-1234-UNISWAPV2' | cut -d. -f1 | awk '{print $1}' | xargs -I % screen -X -S % quit
 ```
 
-### 2.4 Editing the environment file
+### 2.4 Editing the Environment File
 
-The environment file required to participate in a datamarket is located in the `powerloom-mainnet` directory. It will contain the namespace `mainnet` along with
+The environment file for participating in a data market is located in the `powerloom-mainnet` directory. It contains:
 
-* the data market name, for eg `UNISWAPV2` or `AAVEV3`
-* the data market's data source chain, for eg `ETH` to determine whether the UniswapV2 data being captured is on Ethereum mainnet.
+- The namespace `mainnet`
+- Data market name (e.g., `UNISWAPV2` or `AAVEV3`)
+- Data source chain (e.g., `ETH` for Ethereum mainnet data)
 
-For the section below, we will assume the `.env-mainnet-UNISWAPV2-ETH ` file. You can see the same file name showing up during the first few steps of running `./build.sh` if you have already completed the configuration.
+The examples below use `.env-mainnet-UNISWAPV2-ETH`. This filename appears during `./build.sh` execution if you've completed configuration.
 
 
 :::note
-Please be advised that the env file is named as `.env-mainnet-<data-market-name>-<data-source-chain>` for lite nodes participating in the mainnet. 
+Environment files follow the format `.env-mainnet-<data-market-name>-<data-source-chain>` for mainnet nodes.
 
-If this was the Aave V3 data market, for example, the env file would be named `.env-mainnet-AAVEV3-ETH`.
+For Aave V3 on Ethereum mainnet, the file would be `.env-mainnet-AAVEV3-ETH`.
 :::
 
 ![build.sh screenshot asking for confirmation of updating existing env file](/images/snapshoter-lite-v2-node-setup-existing.png)
 
 
-The `.env` file contains essential configuration details such as `SOURCE_RPC_URL`, `SIGNER_WALLET_ADDRESS`, `SIGNER_PRIVATE_KEY`, and `SLOT_ID`. Should you need to modify any of these variables, follow the steps below:
+The `.env` file contains essential configuration: `SOURCE_RPC_URL`, `SIGNER_WALLET_ADDRESS`, `SIGNER_PRIVATE_KEY`, and `SLOT_ID`. To modify these variables:
 
 
-1. **Navigating to the Node Directory:**
-   Change to the directory where your Powerloom Snapshotter Lite Node V2 is located:
-
-```bash
+1. **Navigate to the Node Directory:**
+   ```bash
    cd powerloom-mainnet
-```
+   ```
 
-3. **Editing the `.env-mainnet-UNISWAPV2-ETH` File:**
-   Open the `.env-mainnet-UNISWAPV2-ETH` file for editing:
-
-```bash
+2. **Edit the Environment File:**
+   ```bash
    nano .env-mainnet-UNISWAPV2-ETH
-```
+   ```
 
-Inside, you will find configurations similar to those shown in the provided screenshot.
-![EnvScreen](/images/env-mainnet-example.png)
+Update variables as needed. Press `CTRL+X` to save and exit.
 
-1. **Modifying Variables:**
-   Update the variables as needed. To save and exit, press `CTRL+X`.
-
-2. **Rebuilding the Node:**
-   In the same directory, rerun the `build.sh` script to apply the changes. Execute the following command in the terminal:
-
-```bash
+3. **Rebuild the Node:**
+   ```bash
    ./build.sh
-```
-
-This process allows you to easily update your node's configuration settings directly on the server.
+   ```
 
 ---
 
-### 2.5 Using the `build.sh` script to reconfigure the node
+### 2.5 Using `build.sh` to Reconfigure the Node
 
-The `build.sh` script is a powerful tool that allows you to reconfigure the node with a single command. It will re-run the setup process, including the environment file update, and rebuild the node.
+The `build.sh` script reconfigures the node with a single command. It reruns the setup process, updates the environment file, and rebuilds the node.
 
 ```bash
 ./build.sh
 ```
 
-When it asks you whether you want to update the existing env file, select `y` to proceed.
+When prompted to update the existing environment file, select `y` to proceed.
 
 ![build.sh screenshot asking for confirmation of updating existing env file](/images/snapshoter-lite-v2-node-setup-existing.png)
 
 
 
-### 2.6 Data source RPC URLs 
-Sometimes, you may encounter errors related to the RPC URL you have configured to snapshot the data source, for eg UniswapV2 or Aave V3 data on Ethereum mainnet. Should this occur, it's important to verify that your RPC URL is accurate. For instructions on changing the RPC URL, please refer to the previously mentioned section.
+### 2.6 Data Source RPC URLs
+You may encounter errors related to the RPC URL configured for your data source (e.g., UniswapV2 or AaveV3 on Ethereum mainnet). When this occurs, verify your RPC URL is correct. For instructions on changing the RPC URL, refer to [Editing the Environment File](#24-editing-the-environment-file).
 
-While we can not recommend any specific RPC provider and would let the community decide on the best provider, there are several reliable and proven options, including:
+While we cannot recommend specific RPC providers and leave the choice to the community, these reliable options are available:
 
-- **Ankr**: `https://rpc.ankr.com/eth` - This is a public RPC service that does not require signup.
-- **Infura**: Requires signup to obtain a key, which is ideal if you wish to monitor your RPC usage.
-- **Alchemy**: Similar to Infura, signup is necessary to receive a key, offering the advantage of tracking your RPC usage.
+- **Ankr**: `https://rpc.ankr.com/eth` - Public RPC service, no signup required
+- **Infura**: Requires signup and API key, provides usage monitoring
+- **Alchemy**: Requires signup and API key, includes usage tracking
 
 ---
 

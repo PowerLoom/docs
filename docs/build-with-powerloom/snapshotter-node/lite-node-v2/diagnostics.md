@@ -1,8 +1,9 @@
 ---
 sidebar_position: 1
+title: Diagnostics and Cleanup
 ---
 
-# Diagnostics and cleanup
+# Diagnostics and Cleanup
 
 The lite node as well as the multi node setup comes with a diagnostic and cleanup script. This script will check for any previous instances of the lite node, local collector, stale images and networks.
 
