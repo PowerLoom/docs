@@ -34,7 +34,7 @@ Both commands are equivalent and can be used interchangeably throughout this doc
 
 ### 📦 Using Pre-built Binaries (Recommended)
 
-1. Download the latest binary for your platform from the [releases page](https://github.com/PowerLoom/snapshotter-lite-multi-setup/releases):
+1. Download the latest binary for your platform from the [releases page](https://github.com/powerloom/snapshotter-lite-multi-setup/releases):
    - Linux x86_64: `powerloom-snapshotter-cli-linux-amd64`
    - Linux ARM64: `powerloom-snapshotter-cli-linux-arm64`
    - macOS ARM64 (Apple Silicon): `powerloom-snapshotter-cli-macos-arm64`
@@ -339,7 +339,7 @@ The CLI will handle all your slots automatically and provide better management c
 
 ## 🔗 Additional Resources
 
-- [GitHub Repository: Dive into the technical details, file issues, and contribute](https://github.com/PowerLoom/snapshotter-lite-multi-setup)
+- [GitHub Repository: Dive into the technical details, file issues, and contribute](https://github.com/powerloom/snapshotter-lite-multi-setup)
 - [Legacy Getting Started Guide: For single node setup](https://docs.powerloom.io/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started)
 - [Monitoring and Troubleshooting](/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring)
 - [Discord Support: Join our community and get help](https://discord.gg/powerloom)
