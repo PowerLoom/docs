@@ -7,9 +7,13 @@ title: Snapshotter CLI
 
 The Powerloom Snapshotter CLI (`powerloom-snapshotter-cli`) is a command-line tool that simplifies the process of configuring, deploying, and managing multiple snapshotter instances across different chains and data markets.
 
-## Overview
+:::tip
+The CLI is specifically designed to manage multiple snapshotter instances and replaces the legacy manual setup. It is also perfect for running single snapshotter instances and can safely replace the [single node setup](/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started).
+:::
 
-### Key Features
+## 📖 Overview
+
+### ✨ Key Features
 
 - 🚀 **Easy Configuration**: Set up credentials and settings for different chain/market combinations
 - 📦 **Multi-Instance Management**: Deploy and manage multiple snapshotter instances
@@ -18,7 +22,7 @@ The Powerloom Snapshotter CLI (`powerloom-snapshotter-cli`) is a command-line to
 - 🔐 **Secure Credential Storage**: Namespaced environment files for different configurations
 - 🏗️ **Identity Management**: Generate and manage signer identities
 
-### Command Aliases
+### 🔄 Command Aliases
 
 The CLI provides multiple command aliases for convenience:
 - `powerloom-snapshotter-cli` - Full command name
@@ -26,9 +30,9 @@ The CLI provides multiple command aliases for convenience:
 
 Both commands are equivalent and can be used interchangeably throughout this documentation.
 
-## Installation
+## 🛠️ Installation
 
-### Using Pre-built Binaries (Recommended)
+### 📦 Using Pre-built Binaries (Recommended)
 
 1. Download the latest binary for your platform from the [releases page](https://github.com/PowerLoom/snapshotter-lite-multi-setup/releases):
    - Linux x86_64: `powerloom-snapshotter-cli-linux-amd64`
@@ -49,7 +53,7 @@ Both commands are equivalent and can be used interchangeably throughout this doc
    sudo mv powerloom-snapshotter-cli-* /usr/local/bin/snapshotter
    ```
 
-### From PyPI Package
+### 📥 From PyPI Package
 
 ```bash
 # Install using uv (recommended)
@@ -59,9 +63,9 @@ uv tool install powerloom-snapshotter-cli
 pipx install powerloom-snapshotter-cli
 ```
 
-## Quick Start
+## 🚀 Quick Start
 
-### Interactive Shell Mode (Recommended)
+### 🪄 Interactive Shell Mode (Recommended)
 
 The CLI has a startup time when running individual commands. We strongly recommend using the **interactive shell mode** for a much faster and smoother experience:
 
@@ -70,9 +74,9 @@ The CLI has a startup time when running individual commands. We strongly recomme
 powerloom-snapshotter-cli shell
 
 # Now run commands instantly without delays:
+powerloom-snapshotter> list
 powerloom-snapshotter> configure
 powerloom-snapshotter> deploy
-powerloom-snapshotter> list
 powerloom-snapshotter> status
 ```
 
@@ -83,7 +87,7 @@ powerloom-snapshotter> status
 - 🎯 **Better workflow** - Run multiple operations smoothly
 :::
 
-### Alternative: Individual Commands
+### ⌨️ Alternative: Individual Commands
 
 If you prefer to run individual commands:
 
@@ -99,13 +103,16 @@ powerloom-snapshotter-cli status
 
 ```
 
-### Example Workflow
+### 🔍 Example Workflow
 
 Here's a typical workflow for setting up a snapshotter node using the interactive shell:
 
 ```bash
 # Start the interactive shell
 powerloom-snapshotter-cli shell
+
+# Show all available data markets and protocol chains
+powerloom-snapshotter> list
 
 # In the shell, configure credentials (interactive prompts will guide you)
 powerloom-snapshotter> configure
@@ -120,9 +127,9 @@ powerloom-snapshotter> status
 powerloom-snapshotter> exit
 ```
 
-## Core Commands
+## 💻 Core Commands
 
-### show all available data markets and protocol chains
+### 📋 Show all available data markets and protocol chains
 
 **Shell mode:**
 ```bash
@@ -134,7 +141,7 @@ powerloom-snapshotter> list
 powerloom-snapshotter-cli list
 ```
 
-### configure
+### ⚙️ Configure credentials for deployments
 
 Set up credentials and settings for a specific chain and data market combination.
 
@@ -162,7 +169,7 @@ powerloom-snapshotter-cli configure --env mainnet --market uniswapv2 --wallet 0x
 - `--source-rpc, -r`: Source chain RPC URL
 - `--powerloom-rpc, -p`: Powerloom RPC URL
 
-### deploy
+### 🚀 Deploy snapshotter nodes
 
 Deploy snapshotter nodes for specified environment and data markets.
 
@@ -184,7 +191,7 @@ powerloom-snapshotter-cli deploy --env mainnet --market uniswapv2 --slot 123 --s
 powerloom-snapshotter-cli deploy --env mainnet --market uniswapv2 --market aavev3
 ```
 
-### deployment status
+### 📊 Show deployment status
 
 Show status of deployed snapshotter instances (screen sessions and Docker containers). Optionally filter by environment and/or data market.
 
@@ -205,7 +212,7 @@ Output shows:
 - Process details
 
 
-### diagnose and cleanup
+### 🔧 Diagnose and cleanup
 
 Run diagnostics on the system and check requirements.
 
@@ -231,31 +238,31 @@ Checks include:
 - Network connectivity
 - Required port availability
 
-### identity
+### 🔑 Manage credentials
 
-Manage signer identities.
+Manage signer identities and other credentials configured against a specific environment and data market.
 
 **Shell mode:**
 ```bash
-# Generate a new signer account
-powerloom-snapshotter> identity generate
+# Show summary of all available identities
+powerloom-snapshotter> identity list
 
-# Show signer address (prompts for environment and market)
-powerloom-snapshotter> identity show
+# Show details of a specific identity
+powerloom-snapshotter> identity show --env mainnet --market uniswapv2
 ```
 
 **Command line mode:**
 ```bash
-# Generate a new signer account
-powerloom-snapshotter-cli identity generate
+# Show summary of all available identities
+powerloom-snapshotter-cli identity list
 
-# Show signer address from configuration
+# Show details of a specific identity
 powerloom-snapshotter-cli identity show --env mainnet --market uniswapv2
 ```
 
-## Configuration Management
+## 📝 Credentials Management: Internals
 
-### Configuration Files
+### 📁 Configuration Files
 
 Configuration files are stored in `~/.powerloom-snapshotter-cli/envs/` with the naming convention:
 ```
@@ -264,7 +271,7 @@ Configuration files are stored in `~/.powerloom-snapshotter-cli/envs/` with the 
 
 Example: `.env.mainnet.uniswapv2.eth_mainnet`
 
-### Environment Variables
+### 🔐 Environment Variables
 
 Each configuration file contains:
 - `WALLET_HOLDER_ADDRESS`: Address holding slot NFTs
@@ -274,7 +281,7 @@ Each configuration file contains:
 - `POWERLOOM_RPC_URL`: Powerloom protocol RPC endpoint
 
 
-### Comparison with Manual Setup
+### 📊 Comparison with Manual Setup
 
 | Feature | Manual Setup | CLI |
 |---------|-------------|-----|
@@ -283,9 +290,9 @@ Each configuration file contains:
 | Monitoring | Check each instance separately | Unified `list` command |
 | Updates | Update each repository | Single CLI update |
 
-## Troubleshooting
+## ❓ Troubleshooting
 
-### Common Issues
+### 🐛 Common Issues
 
 #### "Docker daemon is not running"
 Start Docker Desktop or the Docker service:
@@ -306,15 +313,7 @@ Clean up existing sessions:
 powerloom-snapshotter-cli diagnose --clean --force
 ```
 
-### Debug Mode
-
-For detailed debugging information:
-```bash
-export POWERLOOM_CLI_DEBUG=1
-powerloom-snapshotter-cli deploy --env mainnet --market uniswapv2
-```
-
-## Migration from Manual Setup
+## 🔄 Migration from Manual Setup
 
 If you're currently running snapshotter nodes manually, here's how to migrate to the CLI:
 
@@ -338,9 +337,9 @@ If you're currently running snapshotter nodes manually, here's how to migrate to
 
 The CLI will handle all your slots automatically and provide better management capabilities.
 
-## Additional Resources
+## 🔗 Additional Resources
 
-- [GitHub Repository](https://github.com/PowerLoom/snapshotter-lite-multi-setup)
-- [Getting Started Guide](/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started)
+- [GitHub Repository: Dive into the technical details, file issues, and contribute](https://github.com/PowerLoom/snapshotter-lite-multi-setup)
+- [Legacy Getting Started Guide: For single node setup](https://docs.powerloom.io/build-with-powerloom/snapshotter-node/lite-node-v2/getting-started)
 - [Monitoring and Troubleshooting](/build-with-powerloom/snapshotter-node/lite-node-v2/monitoring)
-- [Discord Support](https://discord.gg/powerloom)
+- [Discord Support: Join our community and get help](https://discord.gg/powerloom)
