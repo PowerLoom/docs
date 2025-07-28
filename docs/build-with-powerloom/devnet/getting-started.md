@@ -134,7 +134,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 Navigate to the directory where you want to install the node and clone the repository:
 
    ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+   git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-devnet
    ```
 
 2. **Navigate to the Directory**: 
@@ -278,7 +278,7 @@ For users running the node on personal hardware, the minimum specifications are:
 Navigate to the directory where you want to install the node and clone the repository:
 
    ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+   git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-devnet
    ```
 
 2. **Navigate to the Directory**: 
@@ -443,7 +443,7 @@ Once python3 is installed, we can go ahead and run the node:-
 
 1. Clone this repository using the following command in the terminal:
    ```bash
-   git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+   git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-devnet
    ```
 This will clone the repository into a directory named `powerloom-devnet`.
  
@@ -572,7 +572,7 @@ Setting up the snapshotter node on Windows requires a few additional steps. We s
    - Use the following command in WSL terminal to clone the Snapshotter repository:
 
       ```bash
-      git clone https://github.com/PowerLoom/snapshotter-lite-v2.git powerloom-devnet
+      git clone https://github.com/powerloom/snapshotter-lite-v2.git powerloom-devnet
       ```
 
 2. **Navigate to the Repository Directory:**
@@ -725,6 +725,26 @@ It usually takes 2 - 5 minutes between the simulation mode submissions and a sub
 For further details on using the snapshotter dashboard to monitor the running status of your node, check the [`Monitoring Node Activity with the Snapshotter Dashboard`](./troubleshooting-monitoring.md#11-monitoring-node-activity-with-the-snapshotter-dashboard) section.
 :::
 
+
+---
+
+## Alternative Setup: Snapshotter CLI
+
+For operators who prefer a streamlined setup process or need to manage multiple nodes, we offer the **Powerloom Snapshotter CLI**. This tool provides:
+
+- **Interactive configuration** with guided prompts
+- **Simplified deployment** process
+- **Unified management** of multiple instances
+- **Built-in diagnostics** and troubleshooting
+
+:::tip When to Use the CLI
+The CLI is particularly useful if you:
+- Plan to run multiple snapshotter nodes
+- Want a simpler configuration process
+- Need to manage nodes across different environments (devnet/mainnet)
+:::
+
+Learn more: [Snapshotter CLI Documentation](/build-with-powerloom/snapshotter-node/lite-node-v2/cli)
 
 ---
 

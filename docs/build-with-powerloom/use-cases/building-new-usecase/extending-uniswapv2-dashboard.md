@@ -45,7 +45,7 @@ We'll use the example of creating a new data point that aggregates only Swap eve
 ```
 
 1. **Create a New Data Model**:
-   Develop a new data model in [`utils/message_models.py`](https://github.com/Powerloom/snapshotter-computes/blob/eth_uniswapv2/utils/models/message_models.py). Use existing models like `UniswapTradesAggregateSnapshot` and `UniswapTradesSnapshot` as references. Your model should be tailored to capture and represent data specific to the 2-hour Swap event aggregation.
+   Develop a new data model in [`utils/message_models.py`](https://github.com/powerloom/snapshotter-computes/blob/eth_uniswapv2/utils/models/message_models.py). Use existing models like `UniswapTradesAggregateSnapshot` and `UniswapTradesSnapshot` as references. Your model should be tailored to capture and represent data specific to the 2-hour Swap event aggregation.
 
 2. **Focus on 2-Hour Time Span and Swap Events**:
    Modify the data collection logic to concentrate on a 2-hour time span (`epochId`). Ensure that your implementation is set to extract only Swap event logs and their associated trade volumes. Refer to the existing 24-hour aggregation example for guidance on structuring your logic.

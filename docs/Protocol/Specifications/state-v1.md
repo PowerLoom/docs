@@ -31,15 +31,15 @@ Presently, the protocol state is implemented as a smart contract on an EVM-compa
 
 ### Chain and Contract Address
 
-Depending on the node type, the network RPC and the deployed contract address can be found in the `env.example` file in either the [`deploy`](https://github.com/Powerloom/deploy/) (for Full Nodes) and [`snapshotter`](https://github.com/Powerloom/snapshotter-lite) repositories (for Lite Nodes).
+Depending on the node type, the network RPC and the deployed contract address can be found in the `env.example` file in either the [`deploy`](https://github.com/powerloom/deploy/) (for Full Nodes) and [`snapshotter`](https://github.com/powerloom/snapshotter-lite) repositories (for Lite Nodes).
 
-* [Snapshotter Lite Node: Testnet](https://github.com/PowerLoom/snapshotter-lite/blob/97f25850d0319b601638e46440b9bce2372551c4/env.example#L8)
-* [Snapshotter Full Node: Incentivized testnet Phase 2](https://github.com/PowerLoom/deploy/blob/4af571508f832b120d18e93f48c54ddbfe6074a5/env.example#L6)
+* [Snapshotter Lite Node: Testnet](https://github.com/powerloom/snapshotter-lite/blob/97f25850d0319b601638e46440b9bce2372551c4/env.example#L8)
+* [Snapshotter Full Node: Incentivized testnet Phase 2](https://github.com/powerloom/deploy/blob/4af571508f832b120d18e93f48c54ddbfe6074a5/env.example#L6)
 
 
 ### ABI
 
-The [Application Binary Interface (ABI) to interact with the smart contract](https://github.com/PowerLoom/pooler/blob/main/snapshotter/static/abis/ProtocolContract.json) can be found within the snapshotter repository.
+The [Application Binary Interface (ABI) to interact with the smart contract](https://github.com/powerloom/pooler/blob/main/snapshotter/static/abis/ProtocolContract.json) can be found within the snapshotter repository.
 
 ### State Modification Functions
 
