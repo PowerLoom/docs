@@ -98,12 +98,6 @@ const config = {
       },
   
 
-      codeblock: {
-        showGithubLink: true,
-        githubLinkLabel: 'View on GitHub',
-        showRunmeLink: false,
-        runmeLinkLabel: 'Checkout via Runme'
-      },
       languageTabs: [
         {
           highlight: "bash",
@@ -205,7 +199,6 @@ const config = {
   },
 
   themes: [
-    'docusaurus-theme-github-codeblock',
     'docusaurus-theme-search-typesense'
   ]
 };
