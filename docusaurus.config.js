@@ -193,6 +193,17 @@ const config = {
   plugins: [
   ],
 
+  future: {
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true, // required
+    },
+    experimental_faster: {
+      ssgWorkerThreads: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+    },
+  },
+
   themes: [
     'docusaurus-theme-github-codeblock',
     'docusaurus-theme-search-typesense'
