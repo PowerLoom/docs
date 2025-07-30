@@ -1,7 +1,17 @@
 {
-  "name": "docs",
-  "version": "0.0.0",
+  "name": "powerloom-docs",
+  "version": "1.0.0",
   "private": true,
+  "license": "Apache-2.0",
+  "author": "Powerloom",
+  "homepage": "https://docs.powerloom.io",
+  "bugs": {
+    "url": "https://github.com/powerloom/docs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/powerloom/docs.git"
+  },
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
@@ -18,8 +28,8 @@
     "clean-api-docs:version": "docusaurus clean-api-docs:version"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.7.0",
-    "@docusaurus/preset-classic": "^3.7.0",
+    "@docusaurus/core": "^3.8.1",
+    "@docusaurus/preset-classic": "^3.8.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^1.2.1",
     "docusaurus": "^1.14.7",
@@ -30,8 +40,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.7.0",
-    "@docusaurus/types": "^3.7.0"
+    "@docusaurus/module-type-aliases": "^3.8.1",
+    "@docusaurus/types": "^3.8.1"
   },
   "browserslist": {
     "production": [
