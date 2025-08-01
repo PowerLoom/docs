@@ -174,7 +174,7 @@ const config = {
             href: 'https://careers.powerloom.io/'
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Powerloom Inc.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Powerloom Network (BVI) Ltd.`,
       },
       prism: {
         theme: lightCodeTheme,
